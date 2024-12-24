@@ -2,7 +2,7 @@ extends AnimatableBody3D
 
 const CubeScene := preload("res://shared/cube/Cube.tscn")
 const GRID_WIDTH := 6
-const GRID_HEIGHT := 5
+const GRID_HEIGHT := 6
 const NUMBER_OF_MINES := 2
 const SPAWN_OFFSET = Vector3(0, 5, 0)
 
@@ -27,8 +27,8 @@ var number_of_flags := 0
 #@onready var remaining_mines_label: Label = $"../HUD/InGameHUD/RemainingMinesLabel"
 #@onready var hud: Control = $"../HUD"
 
-@onready var camera: Camera3D = $"../Camera3D"
-@onready var player: Node3D = $"../Player"
+#@onready var camera: Camera3D = $"../Camera3D"
+#@onready var player: Node3D = $"../Player"
 
 func _ready() -> void:
 	randomize()
@@ -36,12 +36,14 @@ func _ready() -> void:
 
 func _process(delta):
 	# move cubechunk backwards (-X) in a constant motion
-	constant_linear_velocity.y = 3
-	var game_in_progress = game_started and !game_won and !game_over
-	if game_in_progress:
-		play_time += delta
+	move_and_collide(Vector3(-0.05, 0, 0))
+	# var game_in_progress = game_started and !game_won and !game_over
+	#if game_in_progress:
+		#play_time += delta
 	#game_timer.text = str("%.1f" % play_time, "s")
 	#remaining_mines_label.text = str(NUMBER_OF_MINES - number_of_flags)
+	
+	#await get_tree().create_timer(2.0).timeout
 	
 	if Input.is_action_pressed("restart"):
 		get_tree().reload_current_scene()
@@ -60,7 +62,7 @@ func spawn_grid():
 			cube_instance.cube_was_cleared.connect(on_cube_was_cleared)
 			add_child(cube_instance)
 	cubes = get_tree().get_nodes_in_group("cubes")
-	cubes = cubes.filter(func(cube): return !(cube.isLoadingCleared or cube.isLoadingExploded) )
+	cubes = cubes.filter(func(cube): return !(cube.isLoadingCleared or cube.isLoadingExploded))
 
 func randomized_mines(ignore_indexes: Array[int]):
 	var mine_list := []
@@ -97,7 +99,7 @@ func on_game_over():
 			node.reveal_cube()
 			node.remove_flag()
 	
-	camera.start_shake(.4, 1.0)
+	#camera.start_shake(.4, 1.0)
 	for node in cubes:
 		if node and not node.is_queued_for_deletion():
 			var timer2 = get_tree().create_timer(drop_intensity)

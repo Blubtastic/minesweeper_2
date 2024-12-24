@@ -1,7 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://c1p7v7melj8n4"]
+[gd_scene load_steps=10 format=3 uid="uid://c1p7v7melj8n4"]
 
+[ext_resource type="Script" path="res://chunk_spawner.gd" id="1_m0fyf"]
 [ext_resource type="PackedScene" uid="uid://dqeksnc1bqwgt" path="res://shared/player/Player.tscn" id="1_mwkh8"]
-[ext_resource type="PackedScene" uid="uid://dgxv52jn27v3c" path="res://CubeChunk.tscn" id="1_y403q"]
 [ext_resource type="Script" path="res://camera_shake.gd" id="3_rbuf0"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_6867n"]
@@ -16,9 +16,16 @@ background_mode = 2
 sky = SubResource("Sky_41lmj")
 tonemap_mode = 2
 
-[node name="Root" type="Node3D"]
+[sub_resource type="Gradient" id="Gradient_pdf2w"]
 
-[node name="CubeChunk" parent="." instance=ExtResource("1_y403q")]
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_4jtbg"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_nag6v"]
+color_ramp = SubResource("Gradient_pdf2w")
+noise = SubResource("FastNoiseLite_4jtbg")
+
+[node name="Root" type="Node3D"]
+script = ExtResource("1_m0fyf")
 
 [node name="Player" parent="." instance=ExtResource("1_mwkh8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.152356, 2.41356, 3)
@@ -31,6 +38,13 @@ shadow_enabled = true
 environment = SubResource("Environment_qwbq1")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(-3.09086e-08, 0.707107, -0.707107, 3.09086e-08, 0.707107, 0.707107, 1, 0, -4.37114e-08, -3, 4, 3)
+transform = Transform3D(-2.01106e-08, 0.88788, -0.460076, 3.88104e-08, 0.460076, 0.88788, 1, 1.95399e-14, -4.37114e-08, -0.337852, 4.90944, 3)
 current = true
 script = ExtResource("3_rbuf0")
+
+[node name="Background" type="Sprite3D" parent="."]
+transform = Transform3D(10, 0, 0, 0, -4.37114e-07, 10, 0, -10, -4.37114e-07, 0, 0, 0)
+texture = SubResource("NoiseTexture2D_nag6v")
+
+[node name="Ray" type="RayCast3D" parent="."]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 2, 0)
