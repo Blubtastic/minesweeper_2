@@ -50,7 +50,6 @@ height = 1.5
 script = ExtResource("1_pp3vs")
 
 [node name="AlivePlayer" type="CharacterBody3D" parent="."]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
 collision_layer = 8
 collision_mask = 8
 script = ExtResource("1_fjkuh")
