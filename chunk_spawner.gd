@@ -10,6 +10,6 @@ func _process(delta: float) -> void:
 func _physics_process(delta: float):
 	if !ray.is_colliding():
 		var chunk_instance = CubeChunk.instantiate()
-		var chunk_position = Vector3(ray.transform.origin.x - 2.5, 0, ray.transform.origin.z + -11.5)
+		var chunk_position = Vector3(ray.transform.origin.x - 4.5, 0, ray.transform.origin.z + -11.5)
 		chunk_instance.transform.origin = chunk_position
 		add_child(chunk_instance)

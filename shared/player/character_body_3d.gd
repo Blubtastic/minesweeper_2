@@ -28,6 +28,8 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		velocity.z = move_toward(velocity.z, 0, Z_SPEED)
+	rotation.z = -velocity.x / 30
+	rotation.x = -velocity.z / 10
 
 	if is_controllable:
 		move_and_slide()

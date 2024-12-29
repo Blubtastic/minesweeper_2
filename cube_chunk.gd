@@ -2,7 +2,7 @@ extends AnimatableBody3D
 
 const CubeScene := preload("res://shared/cube/Cube.tscn")
 const GRID_HEIGHT := 12
-const GRID_WIDTH := 6
+const GRID_WIDTH := 10
 const NUMBER_OF_MINES := 6
 const CUBE_DISTANCE := 1.0
 var game_started: bool = false
