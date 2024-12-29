@@ -149,6 +149,7 @@ skeleton = NodePath("../..")
 
 [node name="Antenna" type="RigidBody3D" parent="AlivePlayer/PlayerModel"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1, 0.2, 0.2)
+visible = false
 mass = 10.0
 
 [node name="Ball" type="MeshInstance3D" parent="AlivePlayer/PlayerModel/Antenna"]

@@ -1,8 +1,7 @@
-[gd_scene load_steps=22 format=3 uid="uid://cnor6jdbe28rj"]
+[gd_scene load_steps=23 format=3 uid="uid://cnor6jdbe28rj"]
 
 [ext_resource type="Script" path="res://shared/cube/cube.gd" id="1_q4yb4"]
 [ext_resource type="BoxMesh" uid="uid://c466clxudld4s" path="res://shared/cube/cleared.tres" id="2_m3nde"]
-[ext_resource type="Texture2D" uid="uid://crr2u5c28jjvf" path="res://shared/cube/styrofoam_normalmap.tres" id="4_wbqsf"]
 [ext_resource type="Script" path="res://shared/cube/top_mesh.gd" id="4_wdcma"]
 [ext_resource type="Script" path="res://shared/cube/cube_scanner.gd" id="5_s41nj"]
 [ext_resource type="AudioStream" uid="uid://bjpkhrcmt7lw" path="res://shared/cube/audio/open-tile.wav" id="6_o0a8b"]
@@ -16,17 +15,27 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_y1sac"]
 size = Vector3(2, 0.6, 2)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cu7mv"]
-albedo_color = Color(0.56, 0.56, 0.56, 1)
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_j51ek"]
+noise_type = 0
+fractal_type = 3
+domain_warp_enabled = true
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_pw8e8"]
+seamless = true
+as_normal_map = true
+noise = SubResource("FastNoiseLite_j51ek")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xq44k"]
+albedo_color = Color(0.142256, 0.142256, 0.142256, 1)
 emission = Color(1, 1, 1, 1)
 emission_energy_multiplier = 0.77
 normal_enabled = true
-normal_texture = ExtResource("4_wbqsf")
+normal_texture = SubResource("NoiseTexture2D_pw8e8")
 heightmap_scale = -16.0
 refraction_scale = 0.08
 
-[sub_resource type="BoxMesh" id="BoxMesh_npjma"]
-material = SubResource("StandardMaterial3D_cu7mv")
+[sub_resource type="BoxMesh" id="BoxMesh_ccf4e"]
+material = SubResource("StandardMaterial3D_xq44k")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_aokb8"]
 
@@ -72,7 +81,7 @@ shape = SubResource("BoxShape3D_y1sac")
 
 [node name="TopMesh" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.1, 0, 0, 0, 1, 0, 0.55, 0)
-mesh = SubResource("BoxMesh_npjma")
+mesh = SubResource("BoxMesh_ccf4e")
 script = ExtResource("4_wdcma")
 
 [node name="Mesh" type="MeshInstance3D" parent="."]
@@ -82,7 +91,7 @@ mesh = ExtResource("2_m3nde")
 shape = SubResource("BoxShape3D_aokb8")
 
 [node name="NearbyMinesLabel" type="Label3D" parent="."]
-transform = Transform3D(-4.37114e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, 4.37114e-08, 1.91069e-15, 0, 0.515925, 0)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.515925, 0)
 modulate = Color(0, 0, 0, 1)
 font_size = 100
 
