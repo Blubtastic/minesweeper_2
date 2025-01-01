@@ -34,8 +34,12 @@ normal_texture = SubResource("NoiseTexture2D_pw8e8")
 heightmap_scale = -16.0
 refraction_scale = 0.08
 
-[sub_resource type="BoxMesh" id="BoxMesh_ccf4e"]
+[sub_resource type="CylinderMesh" id="CylinderMesh_sjbvx"]
 material = SubResource("StandardMaterial3D_xq44k")
+top_radius = 0.69
+bottom_radius = 0.707
+height = 1.5
+radial_segments = 4
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_aokb8"]
 
@@ -105,8 +109,8 @@ script = ExtResource("5_s41nj")
 shape = SubResource("BoxShape3D_y1sac")
 
 [node name="TopMesh" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.1, 0, 0, 0, 1, 0, 0.55, 0)
-mesh = SubResource("BoxMesh_ccf4e")
+transform = Transform3D(0.707107, 0, 0.707107, 0, 0.1, 0, -0.707107, 0, 0.707107, 0, 0.575, 0)
+mesh = SubResource("CylinderMesh_sjbvx")
 script = ExtResource("4_wdcma")
 
 [node name="Mesh" type="MeshInstance3D" parent="."]

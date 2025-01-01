@@ -8,7 +8,7 @@
 size = Vector3(0.3, 0.258521, 0.5)
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_qlff2"]
-radius = 0.1
+radius = 0.01
 height = 0.64248
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_obdjf"]
