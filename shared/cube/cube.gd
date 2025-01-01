@@ -13,7 +13,7 @@ extends StaticBody3D
 @onready var mine_sprite: Sprite3D = $Mine
 @onready var flag_sprite: Sprite3D = $Flag
 @onready var top_mesh: MeshInstance3D = $TopMesh
-@onready var score_label: Label3D = $Score
+@onready var score_cpu_particles: CPUParticles3D = $ScoreCpuParticles
 
 var is_bomb: bool = false
 var has_exploded: bool = false
@@ -80,5 +80,5 @@ func give_points(points: int):
 	display_score(points)
 
 func display_score(points: int):
-	score_label.text = str(points)
-	
+	score_cpu_particles.emitting = true
+	#score_label.text = str(points)

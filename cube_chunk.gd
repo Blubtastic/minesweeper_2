@@ -14,8 +14,8 @@ func _ready() -> void:
 	spawn_grid()
 	set_mines()
 
-func _process(delta):
-	move_and_collide(Vector3(0, 0, 0.07))
+func _physics_process(delta):
+	move_and_collide(Vector3(0, 0, Globals.world_speed*delta))
 
 func spawn_grid():
 	for w in range(GRID_WIDTH):
