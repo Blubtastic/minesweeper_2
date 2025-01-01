@@ -2,7 +2,6 @@ extends StaticBody3D
 
 @export var isLoadingCleared: bool = false
 @export var isLoadingExploded: bool = false
-
 @onready var reveal_cube_audio: AudioStreamPlayer = $RevealCube
 @onready var place_flag_audio: AudioStreamPlayer = $PlaceFlag
 @onready var remove_flag_audio: AudioStreamPlayer = $RemoveFlag
@@ -13,13 +12,14 @@ extends StaticBody3D
 @onready var mine_sprite: Sprite3D = $Mine
 @onready var flag_sprite: Sprite3D = $Flag
 @onready var top_mesh: MeshInstance3D = $TopMesh
-@onready var score_cpu_particles: CPUParticles3D = $ScoreCpuParticles
+@onready var score_particle_big: CPUParticles3D = $ScoreParticleBig
+@onready var score_particle_small: CPUParticles3D = $ScoreParticleSmall
 
 var is_bomb: bool = false
 var has_exploded: bool = false
 var is_cleared: bool = false
-var is_flagged: bool = false
 var nearby_cubes: Array[Node3D]
+var has_given_points: bool = false
 
 signal game_over
 signal cube_was_cleared
@@ -33,26 +33,18 @@ func _ready():
 
 func handle_uncleared_pressed():
 		if !is_cleared and !is_bomb:
-			give_points(10)
+			give_points(100)
 		reveal_cube(true)
 		top_mesh.unhighlight_cube()
 		if is_bomb:
 			trigger_explosion()
 
-func handle_cleared_pressed():
-	cube_scanner.update_cube()
-	if cube_scanner.can_auto_clear:
-		reveal_cube_audio.play()
-		for cube in cube_scanner.overlapping_cubes:
-			cube.reveal_cube()
-			if cube.is_bomb and cube.is_cleared:
-				cube.trigger_explosion()
-
-
 func reveal_cube(play_sound: bool = false):
-	if !is_cleared and !is_flagged:
+	if !is_cleared:
 		if play_sound:
 			reveal_cube_audio.play()
+	
+		give_points(10)
 		top_mesh.visible = false
 		nearby_mines_label.visible = true
 		is_cleared = true;
@@ -76,9 +68,18 @@ func trigger_explosion():
 		has_exploded = true
 
 func give_points(points: int):
-	Globals.score += points
-	display_score(points)
+	if !has_given_points:
+		has_given_points = true
+		Globals.score += points
+		if points > 10:
+			display_score_big(points)
+		else:
+			display_score(points)
 
 func display_score(points: int):
-	score_cpu_particles.emitting = true
-	#score_label.text = str(points)
+	score_particle_small.mesh.text = str(points)
+	score_particle_small.emitting = true
+
+func display_score_big(points: int):
+	score_particle_big.mesh.text = str(points)
+	score_particle_big.emitting = true

@@ -1,8 +1,8 @@
 extends CharacterBody3D
 
-const SPEED = 4.0
-const FORWARD_SPEED = 6.0
-const BACKWARD_SPEED = 2.0
+const SPEED = 5.0
+const FORWARD_SPEED = 7.0
+const BACKWARD_SPEED = 5.0
 const JUMP_VELOCITY = 8
 var overlapping_cubes
 @onready var hitbox: Area3D = $Area3D
@@ -25,9 +25,9 @@ func _physics_process(delta: float) -> void:
 	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	if direction:
 		velocity.x = direction.x * SPEED
-		if direction.z > Globals.world_speed:
+		if direction.z > 0:
 			velocity.z = direction.z * BACKWARD_SPEED + Globals.world_speed
-		if direction.z < Globals.world_speed:
+		if direction.z < 0:
 			velocity.z = direction.z * FORWARD_SPEED + Globals.world_speed
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)

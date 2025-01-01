@@ -1,6 +1,6 @@
 [gd_scene load_steps=19 format=3 uid="uid://dqeksnc1bqwgt"]
 
-[ext_resource type="Script" path="res://shared/player/character_body_3d.gd" id="1_fjkuh"]
+[ext_resource type="Script" path="res://shared/player/player.gd" id="1_fjkuh"]
 [ext_resource type="Script" path="res://shared/player/fade_emission_gradually.gd" id="3_jlho0"]
 [ext_resource type="PackedScene" uid="uid://drynt1383xlht" path="res://shared/cube/TrailVFX.tscn" id="3_rkr5s"]
 
