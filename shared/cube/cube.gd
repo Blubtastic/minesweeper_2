@@ -13,6 +13,7 @@ extends StaticBody3D
 @onready var mine_sprite: Sprite3D = $Mine
 @onready var flag_sprite: Sprite3D = $Flag
 @onready var top_mesh: MeshInstance3D = $TopMesh
+@onready var score_label: Label3D = $Score
 
 var is_bomb: bool = false
 var has_exploded: bool = false
@@ -22,25 +23,21 @@ var nearby_cubes: Array[Node3D]
 
 signal game_over
 signal cube_was_cleared
-signal cube_was_flagged
 
 func _ready():
 	if isLoadingCleared:
 		is_cleared = true
-		handle_uncleared_secondary_pressed()
 	if isLoadingExploded:
 		is_bomb = true
 		handle_uncleared_pressed()
 
 func handle_uncleared_pressed():
-	if !is_flagged:
+		if !is_cleared and !is_bomb:
+			give_points(10)
 		reveal_cube(true)
 		top_mesh.unhighlight_cube()
 		if is_bomb:
 			trigger_explosion()
-
-func handle_uncleared_secondary_pressed():
-	toggle_flag()
 
 func handle_cleared_pressed():
 	cube_scanner.update_cube()
@@ -78,15 +75,10 @@ func trigger_explosion():
 		flag_sprite.visible = false
 		has_exploded = true
 
-func toggle_flag():
-	is_flagged = !is_flagged
-	flag_sprite.visible = true if is_flagged else false
-	cube_was_flagged.emit()
-	if is_flagged:
-		place_flag_audio.play()
-	else:
-		remove_flag_audio.play(0.15)
+func give_points(points: int):
+	Globals.score += points
+	display_score(points)
 
-func remove_flag():
-	is_flagged = false
-	flag_sprite.visible = false
+func display_score(points: int):
+	score_label.text = str(points)
+	

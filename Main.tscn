@@ -1,8 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://c1p7v7melj8n4"]
+[gd_scene load_steps=13 format=3 uid="uid://c1p7v7melj8n4"]
 
 [ext_resource type="Script" path="res://chunk_spawner.gd" id="1_m0fyf"]
 [ext_resource type="PackedScene" uid="uid://dqeksnc1bqwgt" path="res://shared/player/Player.tscn" id="1_mwkh8"]
 [ext_resource type="Script" path="res://camera_shake.gd" id="3_rbuf0"]
+[ext_resource type="Script" path="res://score_label.gd" id="4_qopgp"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_6867n"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -66,3 +67,10 @@ texture = SubResource("NoiseTexture2D_nag6v")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Ground"]
 shape = SubResource("BoxShape3D_vjdxl")
+
+[node name="Score" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 64
+script = ExtResource("4_qopgp")
