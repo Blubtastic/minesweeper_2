@@ -32,25 +32,6 @@ func _ready():
 		is_bomb = true
 		handle_uncleared_pressed()
 
-func _on_input_event(_camera: Node, event: InputEvent, _event_position: Vector3, _normal: Vector3, _shape_idx: int) -> void:
-	if event is InputEventMouseButton:
-		var mouse_event := event as InputEventMouseButton
-		var is_left_click := mouse_event.pressed and mouse_event.button_index == MOUSE_BUTTON_LEFT
-		var is_right_click := mouse_event.pressed and mouse_event.button_index == MOUSE_BUTTON_RIGHT
-		if !is_cleared:
-			if is_right_click or (is_left_click and event.is_command_or_control_pressed()):
-				handle_uncleared_secondary_pressed()
-			elif is_left_click:
-				handle_uncleared_pressed()
-		elif is_left_click:
-			handle_cleared_pressed()
-
-func _on_mouse_entered():
-	top_mesh.highlight_cube()
-
-func _on_mouse_exited():
-	top_mesh.unhighlight_cube()
-
 func handle_uncleared_pressed():
 	if !is_flagged:
 		reveal_cube(true)

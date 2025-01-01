@@ -52,3 +52,6 @@ func set_mines():
 	var mine_list = randomized_mines()
 	for i in range(cubes.size()):
 		cubes[i].is_bomb = mine_list[i]
+
+func _on_visible_on_screen_notifier_3d_screen_exited() -> void:
+	queue_free()

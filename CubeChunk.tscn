@@ -4,3 +4,7 @@
 
 [node name="CubeChunk" type="AnimatableBody3D"]
 script = ExtResource("1_51aoj")
+
+[node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="."]
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier3D" to="." method="_on_visible_on_screen_notifier_3d_screen_exited"]
