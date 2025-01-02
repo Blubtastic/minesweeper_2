@@ -26,8 +26,8 @@ script = ExtResource("1_m0fyf")
 [node name="Player" parent="." instance=ExtResource("1_mwkh8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.65122, -10.7966)
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+[node name="DirectionalLight3D2" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866025, 0.0322662, 0.498958, 0.142175, 0.972614, 0.183873, -0.47936, 0.230178, -0.846895, 0, 0, 0)
 shadow_enabled = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
