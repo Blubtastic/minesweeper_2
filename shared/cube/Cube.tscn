@@ -26,7 +26,8 @@ as_normal_map = true
 noise = SubResource("FastNoiseLite_j51ek")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xq44k"]
-albedo_color = Color(0.475927, 0.475928, 0.475927, 1)
+transparency = 1
+albedo_color = Color(0.48, 0.48, 0.48, 0.8)
 roughness = 0.33
 emission = Color(1, 1, 1, 1)
 emission_energy_multiplier = 0.77
@@ -142,6 +143,8 @@ shape = SubResource("BoxShape3D_aokb8")
 
 [node name="NearbyMinesLabel" type="Label3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.515925, 0)
+no_depth_test = true
+render_priority = 127
 modulate = Color(0, 0, 0, 1)
 font_size = 100
 

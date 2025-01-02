@@ -1,7 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://b3h77fckoxy4i"]
+[gd_scene load_steps=17 format=3 uid="uid://b3h77fckoxy4i"]
 
 [sub_resource type="Gradient" id="Gradient_qxp3u"]
-colors = PackedColorArray(0.37, 0.37, 0.37, 1, 1, 1, 1, 1)
+colors = PackedColorArray(0.37, 0.37, 0.37, 0, 1, 1, 1, 1)
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_4afh0"]
 noise_type = 0
@@ -18,12 +18,55 @@ color_ramp = SubResource("Gradient_qxp3u")
 noise = SubResource("FastNoiseLite_4afh0")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_65w0r"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
 albedo_texture = SubResource("NoiseTexture2D_qum2o")
 normal_enabled = true
 normal_texture = SubResource("NoiseTexture2D_cshf0")
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_6xkmg"]
 material = SubResource("StandardMaterial3D_65w0r")
+top_radius = 0.0
+height = 0.75
+radial_segments = 5
+
+[sub_resource type="Gradient" id="Gradient_smi22"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_k5dax"]
+noise_type = 0
+domain_warp_enabled = true
+domain_warp_type = 2
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_21xar"]
+color_ramp = SubResource("Gradient_smi22")
+noise = SubResource("FastNoiseLite_k5dax")
+
+[sub_resource type="Gradient" id="Gradient_ugtiy"]
+colors = PackedColorArray(0.37, 0.37, 0.37, 1, 1, 1, 1, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_wft62"]
+noise_type = 0
+domain_warp_enabled = true
+domain_warp_type = 2
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_hwcoc"]
+as_normal_map = true
+color_ramp = SubResource("Gradient_ugtiy")
+noise = SubResource("FastNoiseLite_wft62")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_afujw"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+albedo_color = Color(0.199141, 0.309148, 0.135365, 1)
+albedo_texture = SubResource("NoiseTexture2D_21xar")
+normal_enabled = true
+normal_texture = SubResource("NoiseTexture2D_hwcoc")
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_ken5i"]
+material = SubResource("StandardMaterial3D_afujw")
 top_radius = 0.0
 height = 0.75
 radial_segments = 5
@@ -44,13 +87,28 @@ radius = 0.4
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 1.06272, 0)
 mesh = SubResource("CylinderMesh_6xkmg")
 
+[node name="ConeInner" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.45, 0, 0, 0, 0.45, 0, 0, 0, 0.45, 0, 1.06272, 0)
+mesh = SubResource("CylinderMesh_ken5i")
+skeleton = NodePath("../Cone")
+
 [node name="Cone2" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 0, 0.794773, 0)
 mesh = SubResource("CylinderMesh_6xkmg")
 
+[node name="ConeInner2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, 0.794773, 0)
+mesh = SubResource("CylinderMesh_ken5i")
+skeleton = NodePath("../Cone")
+
 [node name="Cone3" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.517394, 0)
 mesh = SubResource("CylinderMesh_6xkmg")
+
+[node name="ConeInner3" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.95, 0, 0, 0, 0.95, 0, 0, 0, 0.95, 0, 0.517394, 0)
+mesh = SubResource("CylinderMesh_ken5i")
+skeleton = NodePath("../Cone")
 
 [node name="Trunk" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00220001, 0, 0.00103903)

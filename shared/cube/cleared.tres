@@ -1,13 +1,16 @@
 [gd_resource type="BoxMesh" load_steps=4 format=3 uid="uid://c466clxudld4s"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_8et7m"]
-fractal_type = 2
-domain_warp_fractal_octaves = 10
+noise_type = 4
+frequency = 0.1
+fractal_gain = 0.87
+fractal_weighted_strength = 0.54
+domain_warp_fractal_octaves = 1
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_wpatn"]
 seamless = true
-seamless_blend_skirt = 0.5
 as_normal_map = true
+normalize = false
 noise = SubResource("FastNoiseLite_8et7m")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p4y4s"]
