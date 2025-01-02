@@ -1,7 +1,7 @@
 extends Node
 
 var score = 0
-var world_speed = 2
+var world_speed = 1.5
 
 func _physics_process(delta: float) -> void:
 	if Input.is_action_pressed("restart"):

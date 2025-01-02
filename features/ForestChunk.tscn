@@ -1,0 +1,43 @@
+[gd_scene load_steps=5 format=3 uid="uid://dhlda46fqvnos"]
+
+[ext_resource type="Script" path="res://features/forest_chunk.gd" id="1_1tg5x"]
+[ext_resource type="PackedScene" uid="uid://c8eqtpduahtde" path="res://features/Ground.tscn" id="1_xj55w"]
+[ext_resource type="PackedScene" uid="uid://b3h77fckoxy4i" path="res://features/Tree.tscn" id="2_qoa2g"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tu15c"]
+size = Vector3(10, 0.5, 8)
+
+[node name="Root" type="AnimatableBody3D"]
+collision_layer = 8
+collision_mask = 8
+axis_lock_linear_x = true
+axis_lock_linear_y = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+sync_to_physics = false
+script = ExtResource("1_1tg5x")
+
+[node name="HitboxGround" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0)
+shape = SubResource("BoxShape3D_tu15c")
+
+[node name="Ground" parent="." instance=ExtResource("1_xj55w")]
+
+[node name="Tree" parent="." instance=ExtResource("2_qoa2g")]
+transform = Transform3D(1.32498, -0.11937, 0, 0.11937, 1.32498, 0, 0, 0, 1.33035, -2.043, 0.147952, -0.798415)
+
+[node name="Tree6" parent="." instance=ExtResource("2_qoa2g")]
+transform = Transform3D(1, 0, 0, 0, 0.992198, 0.124675, 0, -0.124675, 0.992198, -1.68634, 0.147952, 2.45883)
+
+[node name="Tree2" parent="." instance=ExtResource("2_qoa2g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.57605, 0.147952, 1.41171)
+
+[node name="Tree3" parent="." instance=ExtResource("2_qoa2g")]
+transform = Transform3D(0.702252, 0, 0.711928, 0, 1, 0, -0.711928, 0, 0.702252, 0.450499, 0.147952, -2.50758)
+
+[node name="Tree4" parent="." instance=ExtResource("2_qoa2g")]
+transform = Transform3D(1.29598, 0, 0, 0, 1.29598, 0, 0, 0, 1.29598, 3.78569, 0.147952, 2.58817)
+
+[node name="Tree5" parent="." instance=ExtResource("2_qoa2g")]
+transform = Transform3D(0.0946529, -0.0413351, 0.994652, 0.00391583, 0.999145, 0.0411492, -0.995503, 0, 0.0947339, 2.80791, 0.147952, -1.60081)

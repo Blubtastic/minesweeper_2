@@ -3,6 +3,7 @@
 [ext_resource type="Script" path="res://cube_chunk.gd" id="1_51aoj"]
 
 [node name="CubeChunk" type="AnimatableBody3D"]
+sync_to_physics = false
 script = ExtResource("1_51aoj")
 
 [node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="."]

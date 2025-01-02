@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=3 uid="uid://c8eqtpduahtde"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_4wkv5"]
+domain_warp_enabled = true
+domain_warp_type = 2
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_mrptq"]
+seamless = true
+noise = SubResource("FastNoiseLite_4wkv5")
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_22kih"]
+seamless = true
+as_normal_map = true
+noise = SubResource("FastNoiseLite_4wkv5")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nf075"]
+albedo_texture = SubResource("NoiseTexture2D_mrptq")
+metallic = 0.5
+roughness = 0.72
+normal_enabled = true
+normal_texture = SubResource("NoiseTexture2D_22kih")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_lt2j3"]
+material = SubResource("StandardMaterial3D_nf075")
+size = Vector2(10, 8)
+
+[node name="Ground" type="Node3D"]
+
+[node name="GroundMesh" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_lt2j3")

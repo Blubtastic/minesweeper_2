@@ -1,6 +1,6 @@
-[gd_scene load_steps=13 format=3 uid="uid://c1p7v7melj8n4"]
+[gd_scene load_steps=9 format=3 uid="uid://c1p7v7melj8n4"]
 
-[ext_resource type="Script" path="res://chunk_spawner.gd" id="1_m0fyf"]
+[ext_resource type="Script" path="res://main.gd" id="1_m0fyf"]
 [ext_resource type="PackedScene" uid="uid://dqeksnc1bqwgt" path="res://shared/player/Player.tscn" id="1_mwkh8"]
 [ext_resource type="Script" path="res://camera_shake.gd" id="3_rbuf0"]
 [ext_resource type="Script" path="res://score_label.gd" id="4_qopgp"]
@@ -20,22 +20,11 @@ tonemap_mode = 2
 [sub_resource type="BoxMesh" id="BoxMesh_mtk4d"]
 size = Vector3(0.1, 0.5, 0.01)
 
-[sub_resource type="Gradient" id="Gradient_pdf2w"]
-
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_4jtbg"]
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_nag6v"]
-color_ramp = SubResource("Gradient_pdf2w")
-noise = SubResource("FastNoiseLite_4jtbg")
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_vjdxl"]
-size = Vector3(100, 1, 100)
-
 [node name="Root" type="Node3D"]
 script = ExtResource("1_m0fyf")
 
 [node name="Player" parent="." instance=ExtResource("1_mwkh8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.4, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.65122, -10.7966)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
@@ -52,21 +41,29 @@ script = ExtResource("3_rbuf0")
 [node name="Ray" type="RayCast3D" parent="."]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 2, -10)
 target_position = Vector3(0, -2, 0)
+collision_mask = 9
 
 [node name="TestingMarker" type="MeshInstance3D" parent="Ray"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0)
 mesh = SubResource("BoxMesh_mtk4d")
 
-[node name="Ground" type="StaticBody3D" parent="."]
-collision_layer = 8
-collision_mask = 8
+[node name="LeftRay" type="RayCast3D" parent="."]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -7, 2, -10)
+target_position = Vector3(0, -2, 0)
+collision_mask = 9
 
-[node name="Background" type="Sprite3D" parent="Ground"]
-transform = Transform3D(10, 0, 0, 0, -4.37114e-07, 10, 0, -10, -4.37114e-07, 0, 0, 0)
-texture = SubResource("NoiseTexture2D_nag6v")
+[node name="TestingMarker" type="MeshInstance3D" parent="LeftRay"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0)
+mesh = SubResource("BoxMesh_mtk4d")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground"]
-shape = SubResource("BoxShape3D_vjdxl")
+[node name="RightRay" type="RayCast3D" parent="."]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 7, 2, -10)
+target_position = Vector3(0, -2, 0)
+collision_mask = 9
+
+[node name="TestingMarker" type="MeshInstance3D" parent="RightRay"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0)
+mesh = SubResource("BoxMesh_mtk4d")
 
 [node name="Score" type="Label" parent="."]
 offset_right = 40.0
