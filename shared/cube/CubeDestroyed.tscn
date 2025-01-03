@@ -12,6 +12,8 @@ radius = 1.0
 
 [node name="ExplosionForce" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+collision_layer = 9
+collision_mask = 9
 script = ExtResource("1_lxr70")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ExplosionForce"]
@@ -60,6 +62,5 @@ transform = Transform3D(-0.395773, 0.730205, 0.556924, 0.372676, -0.426556, 0.82
 [node name="Explosion" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_atccu")
 volume_db = -20.0
-bus = &"Explosion"
 
 [connection signal="timeout" from="ExplosionForce/Timer" to="ExplosionForce" method="_on_timer_timeout"]
