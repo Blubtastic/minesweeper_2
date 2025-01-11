@@ -1,4 +1,6 @@
 extends StaticBody3D
+@onready var damage_area = preload("res://shared/DamageArea.tscn")
+@onready var cube_destroyed = preload("res://shared/cube/CubeDestroyed.tscn")
 
 @export var isLoadingCleared: bool = false
 @export var isLoadingExploded: bool = false
@@ -7,7 +9,6 @@ extends StaticBody3D
 @onready var remove_flag_audio: AudioStreamPlayer = $RemoveFlag
 @onready var explosion_audio: AudioStreamPlayer = $Explosion
 @onready var cube_scanner: Area3D = $CubeScanner
-@onready var cube_destroyed = preload("res://shared/cube/CubeDestroyed.tscn")
 @onready var nearby_mines_label: Label3D = $NearbyMinesLabel
 @onready var mine_sprite: Sprite3D = $Mine
 @onready var flag_sprite: Sprite3D = $Flag
@@ -21,7 +22,6 @@ var is_cleared: bool = false
 var nearby_cubes: Array[Node3D]
 var has_given_points: bool = false
 
-signal game_over
 signal cube_was_cleared
 
 func _ready():
@@ -38,6 +38,11 @@ func handle_uncleared_pressed():
 		top_mesh.unhighlight_cube()
 		if is_bomb:
 			trigger_explosion()
+			var DamageArea = damage_area.instantiate()
+			add_child(DamageArea)
+			DamageArea.global_position = Vector3(global_position.x, global_position.y + 0.7, global_position.z)
+			await get_tree().create_timer(1.0).timeout
+			DamageArea.queue_free()
 
 func reveal_cube(play_sound: bool = false):
 	if !is_cleared:
@@ -51,7 +56,6 @@ func reveal_cube(play_sound: bool = false):
 		cube_was_cleared.emit(self)
 		cube_scanner.update_cube()
 		if is_bomb:
-			game_over.emit()
 			mine_sprite.visible = true
 
 func trigger_explosion():
@@ -62,7 +66,7 @@ func trigger_explosion():
 		explosion_audio.play()
 		var CubeDestroyed = cube_destroyed.instantiate()
 		add_child(CubeDestroyed)
-		CubeDestroyed.global_position = Vector3(global_position.x, global_position.y+0.7, global_position.z)
+		CubeDestroyed.global_position = Vector3(global_position.x, global_position.y + 0.7, global_position.z)
 		top_mesh.visible = false
 		flag_sprite.visible = false
 		has_exploded = true
