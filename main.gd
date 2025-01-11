@@ -9,17 +9,17 @@ const ForestChunk := preload("res://features/ForestChunk.tscn")
 func _physics_process(delta: float):
 	if !ray.is_colliding():
 		var chunk_instance = CubeChunk.instantiate()
-		var chunk_position = Vector3(ray.transform.origin.x - 4.5, 0, ray.transform.origin.z -7.3)
+		var chunk_position = Vector3(ray.transform.origin.x - 4.5, 0, ray.transform.origin.z - 7.3)
 		chunk_instance.transform.origin = chunk_position
 		add_child(chunk_instance)
 
 	if !left_ray.is_colliding():
 		var forest_instance = ForestChunk.instantiate()
-		var forest_position = Vector3(ray.transform.origin.x - 10, 0.5, ray.transform.origin.z - 3.9)
+		var forest_position = Vector3(ray.transform.origin.x - 9, 0.5, ray.transform.origin.z - 3.945)
 		forest_instance.transform.origin = forest_position
 		add_child(forest_instance)
 	if !right_ray.is_colliding():
 		var forest_instance = ForestChunk.instantiate()
-		var forest_position = Vector3(right_ray.transform.origin.x + 3, 0.5, right_ray.transform.origin.z - 3.9)
+		var forest_position = Vector3(right_ray.transform.origin.x + 2, 0.5, right_ray.transform.origin.z - 3.945)
 		forest_instance.transform.origin = forest_position
 		add_child(forest_instance)

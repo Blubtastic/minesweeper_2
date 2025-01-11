@@ -24,10 +24,10 @@ normal_enabled = true
 normal_texture = SubResource("NoiseTexture2D_s3aq6")
 
 [sub_resource type="BoxMesh" id="BoxMesh_8b7oj"]
-lightmap_size_hint = Vector2i(94, 136)
+lightmap_size_hint = Vector2i(84, 126)
 material = SubResource("StandardMaterial3D_ye61t")
 add_uv2 = true
-size = Vector3(10, 8, 8)
+size = Vector3(8, 8, 8)
 
 [node name="Ground" type="Node3D"]
 

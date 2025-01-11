@@ -32,6 +32,11 @@ restart={
 ]
 }
 
+[layer_names]
+
+3d_physics/layer_1="world"
+3d_physics/layer_4="player"
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"

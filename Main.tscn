@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://c1p7v7melj8n4"]
+[gd_scene load_steps=10 format=3 uid="uid://c1p7v7melj8n4"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_m0fyf"]
 [ext_resource type="PackedScene" uid="uid://dqeksnc1bqwgt" path="res://shared/player/Player.tscn" id="1_mwkh8"]
@@ -20,11 +20,14 @@ tonemap_mode = 2
 [sub_resource type="BoxMesh" id="BoxMesh_mtk4d"]
 size = Vector3(0.1, 0.5, 0.01)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_k1xa4"]
+size = Vector3(3, 10, 14)
+
 [node name="Root" type="Node3D"]
 script = ExtResource("1_m0fyf")
 
 [node name="Player" parent="." instance=ExtResource("1_mwkh8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.65122, -10.7966)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.651, -10)
 
 [node name="DirectionalLight3D2" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.902746, 0.0512159, 0.427114, 0.142175, 0.972614, 0.183873, -0.406, 0.226715, -0.885305, 0, 0, 0)
@@ -42,7 +45,6 @@ script = ExtResource("3_rbuf0")
 [node name="Ray" type="RayCast3D" parent="."]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 2, -10)
 target_position = Vector3(0, -2, 0)
-collision_mask = 9
 
 [node name="TestingMarker" type="MeshInstance3D" parent="Ray"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0)
@@ -52,7 +54,6 @@ mesh = SubResource("BoxMesh_mtk4d")
 [node name="LeftRay" type="RayCast3D" parent="."]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -7, 2, -10)
 target_position = Vector3(0, -2, 0)
-collision_mask = 9
 
 [node name="TestingMarker" type="MeshInstance3D" parent="LeftRay"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0)
@@ -62,7 +63,6 @@ mesh = SubResource("BoxMesh_mtk4d")
 [node name="RightRay" type="RayCast3D" parent="."]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 7, 2, -10)
 target_position = Vector3(0, -2, 0)
-collision_mask = 9
 
 [node name="TestingMarker" type="MeshInstance3D" parent="RightRay"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0)
@@ -75,3 +75,24 @@ offset_bottom = 23.0
 size_flags_horizontal = 0
 theme_override_font_sizes/font_size = 64
 script = ExtResource("4_qopgp")
+
+[node name="InvisibleWalls" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, -6)
+collision_layer = 8
+collision_mask = 0
+
+[node name="Left" type="CollisionShape3D" parent="InvisibleWalls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.5, 0, 1.5)
+shape = SubResource("BoxShape3D_k1xa4")
+
+[node name="Right" type="CollisionShape3D" parent="InvisibleWalls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.5, 0, 1.5)
+shape = SubResource("BoxShape3D_k1xa4")
+
+[node name="Behind" type="CollisionShape3D" parent="InvisibleWalls"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 10.3)
+shape = SubResource("BoxShape3D_k1xa4")
+
+[node name="Front" type="CollisionShape3D" parent="InvisibleWalls"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, -5.8)
+shape = SubResource("BoxShape3D_k1xa4")
