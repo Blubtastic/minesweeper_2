@@ -6,7 +6,7 @@ const ForestChunk := preload("res://features/ForestChunk.tscn")
 @onready var left_ray: RayCast3D = $LeftRay
 @onready var right_ray: RayCast3D = $RightRay
 
-func _physics_process(delta: float):
+func _physics_process(_delta: float):
 	if !ray.is_colliding():
 		var chunk_instance = CubeChunk.instantiate()
 		var chunk_position = Vector3(ray.transform.origin.x - 4.5, 0, ray.transform.origin.z - 7.3)
