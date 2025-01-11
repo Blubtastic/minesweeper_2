@@ -38,11 +38,6 @@ func handle_uncleared_pressed():
 		top_mesh.unhighlight_cube()
 		if is_bomb:
 			trigger_explosion()
-			var DamageArea = damage_area.instantiate()
-			add_child(DamageArea)
-			DamageArea.global_position = Vector3(global_position.x, global_position.y + 0.7, global_position.z)
-			await get_tree().create_timer(1.0).timeout
-			DamageArea.queue_free()
 
 func reveal_cube(play_sound: bool = false):
 	if !is_cleared:
@@ -70,6 +65,12 @@ func trigger_explosion():
 		top_mesh.visible = false
 		flag_sprite.visible = false
 		has_exploded = true
+		
+		var DamageArea = damage_area.instantiate()
+		add_child(DamageArea)
+		DamageArea.global_position = Vector3(global_position.x, global_position.y + 0.7, global_position.z)
+		await get_tree().create_timer(1.0).timeout
+		DamageArea.queue_free()
 
 func give_points(points: int):
 	if !has_given_points:
