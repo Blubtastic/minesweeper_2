@@ -10,6 +10,7 @@ var overlapping_cubes
 var is_controllable = true
 @onready var hitbox: Area3D = $Area3D
 @onready var damage_hitbox: Area3D = $DamageHitbox
+@onready var trail_vfx = preload("res://shared/cube/TrailVFX.tscn")
 
 func _physics_process(delta: float) -> void:
 	var cubes = get_tree().get_nodes_in_group("cubes")
@@ -48,5 +49,12 @@ func damage_player():
 	if not invincible:
 		velocity.y = LAUNCH_VELOCITY
 		invincible = true
+		var TrailVfx = trail_vfx.instantiate()
+		add_child(TrailVfx)
 		await get_tree().create_timer(1.0).timeout
 		invincible = false
+		await get_tree().create_timer(0.5).timeout
+		TrailVfx.get_node("Smoke").emitting = false
+		TrailVfx.get_node("Fire").emitting = false
+		await get_tree().create_timer(1.0).timeout
+		TrailVfx.queue_free()

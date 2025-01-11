@@ -35,7 +35,7 @@ rings = 16
 
 [node name="TrailVFX" type="Node3D"]
 
-[node name="CPUParticles3D" type="CPUParticles3D" parent="."]
+[node name="Smoke" type="CPUParticles3D" parent="."]
 amount = 100
 lifetime_randomness = 0.3
 mesh = SubResource("SphereMesh_vdawx")
