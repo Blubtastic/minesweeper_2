@@ -94,12 +94,12 @@ collision_mask = 16
 [node name="CollisionShape3D" type="CollisionShape3D" parent="AlivePlayer/DamageHitbox"]
 shape = SubResource("BoxShape3D_q2sxu")
 
-[node name="Area3D" type="Area3D" parent="AlivePlayer"]
+[node name="CubeHitbox" type="Area3D" parent="AlivePlayer"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0968428, 0)
 collision_layer = 8
 collision_mask = 8
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="AlivePlayer/Area3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="AlivePlayer/CubeHitbox"]
 shape = SubResource("CapsuleShape3D_qlff2")
 
 [node name="DeadPlayer" type="RigidBody3D" parent="AlivePlayer"]
@@ -178,3 +178,5 @@ node_b = NodePath("..")
 swing_span = 0.261799
 twist_span = 0.0
 bias = 0.01
+
+[connection signal="area_entered" from="AlivePlayer/CubeHitbox" to="AlivePlayer" method="_on_cube_hitbox_area_entered"]
