@@ -1,8 +1,9 @@
-[gd_scene load_steps=20 format=3 uid="uid://dqeksnc1bqwgt"]
+[gd_scene load_steps=21 format=3 uid="uid://dqeksnc1bqwgt"]
 
 [ext_resource type="Script" path="res://shared/player/player.gd" id="1_fjkuh"]
 [ext_resource type="Script" path="res://shared/player/fade_emission_gradually.gd" id="3_jlho0"]
 [ext_resource type="PackedScene" uid="uid://drynt1383xlht" path="res://shared/cube/TrailVFX.tscn" id="3_rkr5s"]
+[ext_resource type="PackedScene" uid="uid://dbi36hqar6db8" path="res://shared/PlayerShadow.tscn" id="4_vrm5f"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4to0f"]
 size = Vector3(0.3, 0.258521, 0.5)
@@ -84,6 +85,14 @@ collision_mask = 8
 script = ExtResource("1_fjkuh")
 metadata/_edit_group_ = true
 
+[node name="PlayerShadow" parent="AlivePlayer" instance=ExtResource("4_vrm5f")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, -0.175307, 0)
+
+[node name="ShadowRayCast" type="RayCast3D" parent="AlivePlayer"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.160658, 0)
+target_position = Vector3(0, -20, 0)
+collision_mask = 255
+
 [node name="Collision" type="CollisionShape3D" parent="AlivePlayer"]
 shape = SubResource("BoxShape3D_4to0f")
 
@@ -131,26 +140,31 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.505966, 0)
 [node name="PlayerModel" type="Node3D" parent="AlivePlayer"]
 
 [node name="Body" type="MeshInstance3D" parent="AlivePlayer/PlayerModel"]
+cast_shadow = 0
 mesh = SubResource("BoxMesh_8nayr")
 skeleton = NodePath("../..")
 
 [node name="WheelFrontRight" type="MeshInstance3D" parent="AlivePlayer/PlayerModel"]
 transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0.175, -0.07, -0.15)
+cast_shadow = 0
 mesh = SubResource("CylinderMesh_6xd78")
 skeleton = NodePath("../..")
 
 [node name="WheelBackRight" type="MeshInstance3D" parent="AlivePlayer/PlayerModel"]
 transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0.175, -0.07, 0.15)
+cast_shadow = 0
 mesh = SubResource("CylinderMesh_6xd78")
 skeleton = NodePath("../..")
 
 [node name="WheelFrontLeft" type="MeshInstance3D" parent="AlivePlayer/PlayerModel"]
 transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -0.175, -0.07, -0.15)
+cast_shadow = 0
 mesh = SubResource("CylinderMesh_6xd78")
 skeleton = NodePath("../..")
 
 [node name="WheelBackLeft" type="MeshInstance3D" parent="AlivePlayer/PlayerModel"]
 transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -0.175, -0.07, 0.15)
+cast_shadow = 0
 mesh = SubResource("CylinderMesh_6xd78")
 skeleton = NodePath("../..")
 

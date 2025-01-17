@@ -9,9 +9,12 @@ var invincible: bool = false
 var overlapping_cubes
 var is_controllable = true
 
+
 @onready var trail_vfx = preload("res://shared/cube/TrailVFX.tscn")
 @onready var hitbox: Area3D = $CubeHitbox
 @onready var damage_hitbox: Area3D = $DamageHitbox
+@onready var player_shadow: Sprite3D = $PlayerShadow
+@onready var shadow_ray_cast: RayCast3D = $ShadowRayCast
 
 func _physics_process(delta: float) -> void:
 	var cubes = get_tree().get_nodes_in_group("cubes")
@@ -42,6 +45,8 @@ func _physics_process(delta: float) -> void:
 
 	if is_controllable:
 		move_and_slide()
+	
+	move_shadow()
 
 func damage_player():
 	if not invincible:
@@ -59,3 +64,10 @@ func damage_player():
 
 func _on_cube_hitbox_area_entered(_area: Area3D) -> void:
 	damage_player()
+
+func move_shadow():
+	if shadow_ray_cast.is_colliding():
+		var collision_point: Vector3 = shadow_ray_cast.get_collision_point()
+		player_shadow.global_transform.origin = collision_point + Vector3.UP * 0.5
+		print(collision_point)
+		# fix: correct shadow position. 
