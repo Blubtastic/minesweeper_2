@@ -25,6 +25,10 @@ Globals="*res://Globals.tscn"
 window/size/viewport_width=2000
 window/size/viewport_height=1200
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/script-ide/plugin.cfg")
+
 [input]
 
 restart={
