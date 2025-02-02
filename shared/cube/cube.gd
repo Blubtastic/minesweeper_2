@@ -58,8 +58,8 @@ func trigger_explosion():
 	if !has_exploded:
 		$Mesh.visible = false
 		$Node3D/Stains.visible = true
-		#mine_sprite.transform = mine_sprite.transform.translated(Vector3(0, -1, 0))
 		mine_sprite.visible = true
+		#mine_sprite.transform = mine_sprite.transform.translated(Vector3(0, -1, 0))
 		explosion_audio.play()
 		var CubeDestroyed = cube_destroyed.instantiate()
 		add_child(CubeDestroyed)
