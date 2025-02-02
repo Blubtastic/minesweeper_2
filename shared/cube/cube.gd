@@ -10,7 +10,8 @@ extends StaticBody3D
 @onready var explosion_audio: AudioStreamPlayer = $Explosion
 @onready var cube_scanner: Area3D = $CubeScanner
 @onready var nearby_mines_label: Label3D = $NearbyMinesLabel
-@onready var mine_sprite: Sprite3D = $Mine
+@onready var mine_sprite: Sprite3D = $Node3D/Mine
+
 @onready var flag_sprite: Sprite3D = $Flag
 @onready var top_mesh: MeshInstance3D = $TopMesh
 @onready var score_particle_big: CPUParticles3D = $ScoreParticleBig
@@ -57,7 +58,8 @@ func trigger_explosion():
 	if !has_exploded:
 		$Mesh.visible = false
 		$Node3D/Stains.visible = true
-		mine_sprite.transform = mine_sprite.transform.translated(Vector3(0, -1, 0))
+		#mine_sprite.transform = mine_sprite.transform.translated(Vector3(0, -1, 0))
+		mine_sprite.visible = true
 		explosion_audio.play()
 		var CubeDestroyed = cube_destroyed.instantiate()
 		add_child(CubeDestroyed)

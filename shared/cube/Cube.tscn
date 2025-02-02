@@ -148,11 +148,6 @@ render_priority = 127
 modulate = Color(0, 0, 0, 1)
 font_size = 100
 
-[node name="Mine" type="Sprite3D" parent="."]
-transform = Transform3D(0.28, 0, 0, 0, -1.22392e-08, -0.28, 0, 0.28, -1.22392e-08, 0, 0.5, 0)
-visible = false
-texture = ExtResource("11_n6pam")
-
 [node name="Flag" type="Sprite3D" parent="."]
 transform = Transform3D(-1.74846e-08, 0.4, 1.74846e-08, 0, -1.74846e-08, 0.4, 0.4, 1.74846e-08, 7.64274e-16, 0, 0.61, 0)
 visible = false
@@ -162,11 +157,15 @@ texture = ExtResource("12_bksym")
 
 [node name="Node3D" type="Node3D" parent="."]
 
+[node name="Mine" type="Sprite3D" parent="Node3D"]
+transform = Transform3D(0.28, 0, 0, 0, -1.22392e-08, -0.28, 0, 0.28, -1.22392e-08, 0, 0.399, 0)
+texture = ExtResource("11_n6pam")
+
 [node name="Stains" type="Node3D" parent="Node3D"]
-visible = false
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
 
 [node name="Sprite3D5" type="Sprite3D" parent="Node3D/Stains"]
-transform = Transform3D(-4.37114e-08, -1, 4.37114e-08, 0, -4.37114e-08, -1, 1, -4.37114e-08, 1.91069e-15, 0.002, -0.48, -0.001)
+transform = Transform3D(-4.37114e-08, -1, 4.37114e-08, 0, -4.37114e-08, -1, 1, -4.37114e-08, 1.91069e-15, 0, 0.501, 0)
 texture = SubResource("NoiseTexture2D_fr8oe")
 
 [node name="Sprite3D" type="Sprite3D" parent="Node3D/Stains"]

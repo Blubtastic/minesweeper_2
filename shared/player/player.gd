@@ -72,6 +72,6 @@ func move_shadow():
 	if shadow_ray_cast.is_colliding():
 		var collision_point = shadow_ray_cast.get_collision_point()
 		collision_point.x = global_position.x
-		collision_point.y += 0.1
+		collision_point.y += 0.2
 		collision_point.z = global_position.z
 		player_shadow.global_transform.origin = collision_point
