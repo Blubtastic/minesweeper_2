@@ -81,9 +81,6 @@ height = 0.5
 height = 0.55
 radius = 0.02
 
-[sub_resource type="Animation" id="Animation_g4u8f"]
-length = 0.001
-
 [sub_resource type="Animation" id="Animation_i4374"]
 resource_name = "new_animation"
 length = 1.5
@@ -94,15 +91,30 @@ tracks/0/path = NodePath("PlayerModel/Body:mesh:material:emission_energy_multipl
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1.5),
-"transitions": PackedFloat32Array(0.482969, 1),
+"times": PackedFloat32Array(0, 0.01, 1.5),
+"transitions": PackedFloat32Array(1, 0.482969, 1),
 "update": 0,
-"values": [5.0, 0.0]
+"values": [0.0, 5.0, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_qfi50"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayerModel/Body:mesh:material:emission_energy_multiplier")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [5.0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_pox7b"]
 _data = {
-"RESET": SubResource("Animation_g4u8f"),
+"RESET": SubResource("Animation_qfi50"),
 "new_animation": SubResource("Animation_i4374")
 }
 
@@ -223,6 +235,7 @@ twist_span = 0.0
 bias = 0.01
 
 [node name="GlowAnimationPlayer" type="AnimationPlayer" parent="AlivePlayer"]
+reset_on_save = false
 libraries = {
 "": SubResource("AnimationLibrary_pox7b")
 }

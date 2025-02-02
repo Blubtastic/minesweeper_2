@@ -9,7 +9,6 @@ var invincible: bool = false
 var overlapping_cubes
 var is_controllable = true
 
-
 @onready var trail_vfx = preload("res://shared/cube/TrailVFX.tscn")
 @onready var hitbox: Area3D = $CubeHitbox
 @onready var damage_hitbox: Area3D = $DamageHitbox
@@ -52,10 +51,9 @@ func _physics_process(delta: float) -> void:
 
 func damage_player():
 	if not invincible:
+		glow_animation_player.play("new_animation")
 		velocity.y = LAUNCH_VELOCITY
 		invincible = true
-		
-		glow_animation_player.play("new_animation")
 		
 		var TrailVfx = trail_vfx.instantiate()
 		add_child(TrailVfx)
@@ -74,5 +72,6 @@ func move_shadow():
 	if shadow_ray_cast.is_colliding():
 		var collision_point: Vector3 = shadow_ray_cast.get_collision_point()
 		player_shadow.global_transform.origin = collision_point + Vector3.UP * 0.5
-		#print(collision_point)
+		print(collision_point)
 		# fix: correct shadow position. 
+		
