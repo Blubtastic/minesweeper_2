@@ -71,7 +71,10 @@ func _on_cube_hitbox_area_entered(_area: Area3D) -> void:
 func move_shadow():
 	if shadow_ray_cast.is_colliding():
 		var collision_point: Vector3 = shadow_ray_cast.get_collision_point()
-		player_shadow.global_transform.origin = collision_point + Vector3.UP * 0.5
-		print(collision_point)
-		# fix: correct shadow position. 
+		collision_point.y += 0.1
+		collision_point.x = global_position.x
+		collision_point.z = global_position.z
 		
+		# fix rotation (no rotation):
+		player_shadow.global_transform.origin = collision_point
+		print(collision_point)
