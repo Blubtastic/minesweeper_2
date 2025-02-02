@@ -15,6 +15,8 @@ var is_controllable = true
 @onready var damage_hitbox: Area3D = $DamageHitbox
 @onready var player_shadow: Sprite3D = $PlayerShadow
 @onready var shadow_ray_cast: RayCast3D = $ShadowRayCast
+@onready var body: MeshInstance3D = $PlayerModel/Body
+@onready var glow_animation_player: AnimationPlayer = $GlowAnimationPlayer
 
 func _physics_process(delta: float) -> void:
 	var cubes = get_tree().get_nodes_in_group("cubes")
@@ -52,6 +54,9 @@ func damage_player():
 	if not invincible:
 		velocity.y = LAUNCH_VELOCITY
 		invincible = true
+		
+		glow_animation_player.play("new_animation")
+		
 		var TrailVfx = trail_vfx.instantiate()
 		add_child(TrailVfx)
 		await get_tree().create_timer(1.0).timeout
@@ -69,5 +74,5 @@ func move_shadow():
 	if shadow_ray_cast.is_colliding():
 		var collision_point: Vector3 = shadow_ray_cast.get_collision_point()
 		player_shadow.global_transform.origin = collision_point + Vector3.UP * 0.5
-		print(collision_point)
+		#print(collision_point)
 		# fix: correct shadow position. 

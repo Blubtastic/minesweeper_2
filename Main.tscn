@@ -16,6 +16,7 @@ sky_material = SubResource("ProceduralSkyMaterial_6867n")
 background_mode = 2
 sky = SubResource("Sky_41lmj")
 tonemap_mode = 2
+glow_enabled = true
 
 [sub_resource type="BoxMesh" id="BoxMesh_mtk4d"]
 size = Vector3(0.1, 0.5, 0.01)
@@ -38,8 +39,9 @@ shadow_enabled = true
 environment = SubResource("Environment_qwbq1")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.34202, 0.939693, 0, -0.939693, 0.34202, 0, 6, 1)
+transform = Transform3D(1, 0, 0, 0, 0.398813, 0.917032, 0, -0.917032, 0.398813, 0, 14.5761, 4.79788)
 current = true
+fov = 30.0
 script = ExtResource("3_rbuf0")
 
 [node name="Ray" type="RayCast3D" parent="."]
