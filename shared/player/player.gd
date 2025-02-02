@@ -12,8 +12,8 @@ var is_controllable = true
 @onready var trail_vfx = preload("res://shared/cube/TrailVFX.tscn")
 @onready var hitbox: Area3D = $CubeHitbox
 @onready var damage_hitbox: Area3D = $DamageHitbox
-@onready var player_shadow: Sprite3D = $PlayerShadow
-@onready var shadow_ray_cast: RayCast3D = $ShadowRayCast
+@onready var player_shadow: Sprite3D = $"../PlayerShadow"
+@onready var shadow_ray_cast: RayCast3D = $"../ShadowRayCast"
 @onready var body: MeshInstance3D = $PlayerModel/Body
 @onready var glow_animation_player: AnimationPlayer = $GlowAnimationPlayer
 
@@ -42,7 +42,7 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		velocity.z = move_toward(velocity.z, Globals.world_speed, SPEED)
 	rotation.z = -velocity.x / 30
-	rotation.x = -velocity.z / 10
+	rotation.x = -velocity.z / 30
 
 	if is_controllable:
 		move_and_slide()
@@ -70,11 +70,8 @@ func _on_cube_hitbox_area_entered(_area: Area3D) -> void:
 
 func move_shadow():
 	if shadow_ray_cast.is_colliding():
-		var collision_point: Vector3 = shadow_ray_cast.get_collision_point()
-		collision_point.y += 0.1
+		var collision_point = shadow_ray_cast.get_collision_point()
 		collision_point.x = global_position.x
+		collision_point.y += 0.1
 		collision_point.z = global_position.z
-		
-		# fix rotation (no rotation):
 		player_shadow.global_transform.origin = collision_point
-		print(collision_point)

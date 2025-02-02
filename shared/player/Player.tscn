@@ -120,19 +120,19 @@ _data = {
 
 [node name="Player" type="Node3D"]
 
+[node name="PlayerShadow" parent="." instance=ExtResource("4_vrm5f")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, -0.175307, 0)
+layers = 8
+
+[node name="ShadowRayCast" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.167437, 0)
+target_position = Vector3(0, -20, 0)
+
 [node name="AlivePlayer" type="CharacterBody3D" parent="."]
 collision_layer = 8
 collision_mask = 8
 script = ExtResource("1_fjkuh")
 metadata/_edit_group_ = true
-
-[node name="PlayerShadow" parent="AlivePlayer" instance=ExtResource("4_vrm5f")]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, -0.175307, 0)
-layers = 8
-
-[node name="ShadowRayCast" type="RayCast3D" parent="AlivePlayer"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.167437, 0)
-target_position = Vector3(0, -20, 0)
 
 [node name="Collision" type="CollisionShape3D" parent="AlivePlayer"]
 shape = SubResource("BoxShape3D_4to0f")
