@@ -60,3 +60,8 @@ transform = Transform3D(0.0946529, -0.0413351, 0.994652, 0.00391583, 0.999145, 0
 
 [node name="Tree9" parent="." instance=ExtResource("2_qoa2g")]
 transform = Transform3D(-1.04576, 0.0526787, 0.203682, 0.0574244, 1.06499, 0.0193929, -0.202395, 0.0299768, -1.04691, 2.31666, 0.147952, -2.09754)
+
+[node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="."]
+aabb = AABB(-4, -8, -4, 8, 10, 8)
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier3D" to="." method="_on_visible_on_screen_notifier_3d_screen_exited"]

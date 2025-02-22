@@ -26,28 +26,45 @@ size = Vector3(0.1, 0.5, 0.01)
 [sub_resource type="BoxShape3D" id="BoxShape3D_k1xa4"]
 size = Vector3(3, 10, 14)
 
-[node name="Root" type="Node3D"]
+[node name="Main" type="Node3D"]
 script = ExtResource("1_m0fyf")
 
-[node name="Player" parent="." instance=ExtResource("1_mwkh8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.15148, -2.25592)
-
-[node name="DirectionalLight3D2" type="DirectionalLight3D" parent="."]
+[node name="Sun" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.973632, 0.103933, 0.203074, 0.142175, 0.972614, 0.183872, -0.178402, 0.207896, -0.961744, 0, 0, 0)
 light_energy = 1.5
 shadow_enabled = true
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+[node name="Environment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_qwbq1")
 
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.559193, 0.829037, 0, -0.829037, 0.559193, 0, 26.866, 13.023)
+[node name="Camera" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.559193, 0.829038, 0, -0.829038, 0.559193, 0, 26.866, 14.368)
 current = true
 fov = 20.0
 script = ExtResource("3_rbuf0")
 
+[node name="Snow" parent="." instance=ExtResource("6_bv4rx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -8.52582, -15.6461)
+
+[node name="Score" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 88.0
+size_flags_horizontal = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 64
+script = ExtResource("4_qopgp")
+
+[node name="Player" parent="." instance=ExtResource("1_mwkh8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.15148, -2.25592)
+
+[node name="CubeChunk" parent="." instance=ExtResource("5_2r6wr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 0, -9.35)
+
+[node name="CubeChunk2" parent="." instance=ExtResource("5_2r6wr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 0, -17.35)
+
 [node name="Ray" type="RayCast3D" parent="."]
-transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 2, -10)
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 2, -18)
 target_position = Vector3(0, -2, 0)
 
 [node name="TestingMarker" type="MeshInstance3D" parent="Ray"]
@@ -56,7 +73,7 @@ visible = false
 mesh = SubResource("BoxMesh_mtk4d")
 
 [node name="LeftRay" type="RayCast3D" parent="."]
-transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -7, 2, -10)
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -7, 2, -18)
 target_position = Vector3(0, -2, 0)
 
 [node name="TestingMarker" type="MeshInstance3D" parent="LeftRay"]
@@ -65,20 +82,13 @@ visible = false
 mesh = SubResource("BoxMesh_mtk4d")
 
 [node name="RightRay" type="RayCast3D" parent="."]
-transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 7, 2, -10)
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 7, 2, -18)
 target_position = Vector3(0, -2, 0)
 
 [node name="TestingMarker" type="MeshInstance3D" parent="RightRay"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0)
 visible = false
 mesh = SubResource("BoxMesh_mtk4d")
-
-[node name="Score" type="Label" parent="."]
-offset_right = 40.0
-offset_bottom = 23.0
-size_flags_horizontal = 0
-theme_override_font_sizes/font_size = 64
-script = ExtResource("4_qopgp")
 
 [node name="InvisibleWalls" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, -6)
@@ -98,11 +108,5 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 
 shape = SubResource("BoxShape3D_k1xa4")
 
 [node name="Front" type="CollisionShape3D" parent="InvisibleWalls"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, -5.8)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, -6.3)
 shape = SubResource("BoxShape3D_k1xa4")
-
-[node name="CubeChunk" parent="." instance=ExtResource("5_2r6wr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 0, -9.35)
-
-[node name="Snow" parent="." instance=ExtResource("6_bv4rx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -8.52582, -15.6461)
