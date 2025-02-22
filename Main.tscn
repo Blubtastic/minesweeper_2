@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://c1p7v7melj8n4"]
+[gd_scene load_steps=12 format=3 uid="uid://c1p7v7melj8n4"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_m0fyf"]
 [ext_resource type="PackedScene" uid="uid://dqeksnc1bqwgt" path="res://shared/player/Player.tscn" id="1_mwkh8"]
 [ext_resource type="Script" path="res://camera_shake.gd" id="3_rbuf0"]
 [ext_resource type="Script" path="res://score_label.gd" id="4_qopgp"]
 [ext_resource type="PackedScene" uid="uid://dgxv52jn27v3c" path="res://CubeChunk.tscn" id="5_2r6wr"]
+[ext_resource type="PackedScene" uid="uid://62fr2rhqfdeo" path="res://features/Snow/Snow.tscn" id="6_bv4rx"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_6867n"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -40,9 +41,9 @@ shadow_enabled = true
 environment = SubResource("Environment_qwbq1")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.398813, 0.917032, 0, -0.917032, 0.398813, 0, 14.5761, 4.79788)
+transform = Transform3D(1, 0, 0, 0, 0.559193, 0.829037, 0, -0.829037, 0.559193, 0, 26.866, 13.023)
 current = true
-fov = 30.0
+fov = 20.0
 script = ExtResource("3_rbuf0")
 
 [node name="Ray" type="RayCast3D" parent="."]
@@ -102,3 +103,6 @@ shape = SubResource("BoxShape3D_k1xa4")
 
 [node name="CubeChunk" parent="." instance=ExtResource("5_2r6wr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 0, -9.35)
+
+[node name="Snow" parent="." instance=ExtResource("6_bv4rx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -8.52582, -15.6461)
