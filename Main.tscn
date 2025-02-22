@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://c1p7v7melj8n4"]
+[gd_scene load_steps=13 format=3 uid="uid://c1p7v7melj8n4"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_m0fyf"]
 [ext_resource type="PackedScene" uid="uid://dqeksnc1bqwgt" path="res://shared/player/Player.tscn" id="1_mwkh8"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://score_label.gd" id="4_qopgp"]
 [ext_resource type="PackedScene" uid="uid://dgxv52jn27v3c" path="res://CubeChunk.tscn" id="5_2r6wr"]
 [ext_resource type="PackedScene" uid="uid://62fr2rhqfdeo" path="res://features/Snow/Snow.tscn" id="6_bv4rx"]
+[ext_resource type="PackedScene" uid="uid://dhlda46fqvnos" path="res://features/ForestChunk.tscn" id="7_m1pw8"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_6867n"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -44,7 +45,7 @@ fov = 20.0
 script = ExtResource("3_rbuf0")
 
 [node name="Snow" parent="." instance=ExtResource("6_bv4rx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -8.52582, -15.6461)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -15.3732, -9.46496)
 
 [node name="Score" type="Label" parent="."]
 offset_right = 40.0
@@ -57,11 +58,31 @@ script = ExtResource("4_qopgp")
 [node name="Player" parent="." instance=ExtResource("1_mwkh8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.15148, -2.25592)
 
-[node name="CubeChunk" parent="." instance=ExtResource("5_2r6wr")]
+[node name="InitialChunks" type="Node3D" parent="."]
+
+[node name="CubeChunk1" parent="InitialChunks" instance=ExtResource("5_2r6wr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 0, -17.35)
+
+[node name="ForestChunkLeft1" parent="InitialChunks" instance=ExtResource("7_m1pw8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0.5, -14)
+
+[node name="ForestChunkRight1" parent="InitialChunks" instance=ExtResource("7_m1pw8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0.5, -14)
+
+[node name="CubeChunk" parent="InitialChunks" instance=ExtResource("5_2r6wr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 0, -9.35)
 
-[node name="CubeChunk2" parent="." instance=ExtResource("5_2r6wr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 0, -17.35)
+[node name="ForestChunkLeft" parent="InitialChunks" instance=ExtResource("7_m1pw8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0.5, -6)
+
+[node name="ForestChunkRight" parent="InitialChunks" instance=ExtResource("7_m1pw8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0.5, -6)
+
+[node name="ForestChunkLeft3" parent="InitialChunks" instance=ExtResource("7_m1pw8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0.5, 2)
+
+[node name="ForestChunkRight3" parent="InitialChunks" instance=ExtResource("7_m1pw8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0.5, 2)
 
 [node name="Ray" type="RayCast3D" parent="."]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 2, -18)
