@@ -72,6 +72,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0.5, -14)
 [node name="CubeChunk" parent="InitialChunks" instance=ExtResource("5_2r6wr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 0, -9.35)
 
+[node name="CubeChunk2" parent="InitialChunks" instance=ExtResource("5_2r6wr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 0, -1.35)
+NUMBER_OF_MINES = 0
+
 [node name="ForestChunkLeft" parent="InitialChunks" instance=ExtResource("7_m1pw8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0.5, -6)
 
