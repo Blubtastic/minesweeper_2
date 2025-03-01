@@ -17,6 +17,7 @@ var is_controllable = true
 @onready var body: MeshInstance3D = $PlayerModel/Body
 @onready var glow_animation_player: AnimationPlayer = $GlowAnimationPlayer
 @onready var poof: GPUParticles3D = $Poof
+@onready var sparks: GPUParticles3D = $Sparks
 
 func _physics_process(delta: float) -> void:
 	var cubes = get_tree().get_nodes_in_group("cubes")
@@ -27,6 +28,8 @@ func _physics_process(delta: float) -> void:
 
 	if not is_on_floor():
 		velocity += get_gravity() * 2 * delta
+	else:
+		sparks.emitting = true
 
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		velocity.y = JUMP_VELOCITY

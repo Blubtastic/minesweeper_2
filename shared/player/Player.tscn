@@ -1,9 +1,10 @@
-[gd_scene load_steps=25 format=3 uid="uid://dqeksnc1bqwgt"]
+[gd_scene load_steps=26 format=3 uid="uid://dqeksnc1bqwgt"]
 
 [ext_resource type="Script" path="res://shared/player/player.gd" id="1_fjkuh"]
 [ext_resource type="PackedScene" uid="uid://ddwftyj3tif34" path="res://features/Poof/Poof.tscn" id="3_b81g5"]
 [ext_resource type="Script" path="res://shared/player/fade_emission_gradually.gd" id="3_jlho0"]
 [ext_resource type="PackedScene" uid="uid://drynt1383xlht" path="res://shared/cube/TrailVFX.tscn" id="3_rkr5s"]
+[ext_resource type="PackedScene" uid="uid://dvabslbqfwp0v" path="res://features/Sparks/Sparks.tscn" id="4_j4a84"]
 [ext_resource type="PackedScene" path="res://shared/PlayerShadow.tscn" id="4_vrm5f"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4to0f"]
@@ -136,6 +137,10 @@ script = ExtResource("1_fjkuh")
 metadata/_edit_group_ = true
 
 [node name="Poof" parent="AlivePlayer" instance=ExtResource("3_b81g5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.103678, 0)
+
+[node name="Sparks" parent="AlivePlayer" instance=ExtResource("4_j4a84")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0995955, 0)
 
 [node name="Collision" type="CollisionShape3D" parent="AlivePlayer"]
 shape = SubResource("BoxShape3D_4to0f")
