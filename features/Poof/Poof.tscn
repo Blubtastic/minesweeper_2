@@ -1,0 +1,57 @@
+[gd_scene load_steps=8 format=3 uid="uid://ddwftyj3tif34"]
+
+[sub_resource type="Curve" id="Curve_3k5lm"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.206349, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_tbd11"]
+curve = SubResource("Curve_3k5lm")
+
+[sub_resource type="Curve" id="Curve_2vmcy"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.15873, 1), -0.0697677, -0.0697677, 0, 0, Vector2(0.345238, 1), -0.0591502, -0.0591502, 0, 0, Vector2(1, 0.0282393), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_77xkj"]
+curve = SubResource("Curve_2vmcy")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_v6efl"]
+particle_flag_damping_as_friction = true
+emission_shape_scale = Vector3(0, 0, 0)
+angle_min = 1.07288e-05
+angle_max = 1.07288e-05
+direction = Vector3(0, 0, 0)
+spread = 180.0
+flatness = 1.0
+initial_velocity_min = 10.0
+initial_velocity_max = 10.0
+gravity = Vector3(0, 1, 5)
+linear_accel_min = -2.23517e-06
+linear_accel_max = -2.23517e-06
+radial_accel_min = -2.23517e-06
+radial_accel_max = -2.23517e-06
+tangential_accel_min = -2.23517e-06
+tangential_accel_max = -2.23517e-06
+damping_min = 20.0
+damping_max = 20.0
+scale_min = 0.5
+scale_curve = SubResource("CurveTexture_77xkj")
+color = Color(0.804743, 0.804743, 0.804743, 1)
+alpha_curve = SubResource("CurveTexture_tbd11")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_inqdw"]
+transparency = 1
+vertex_color_use_as_albedo = true
+
+[sub_resource type="SphereMesh" id="SphereMesh_j3jgf"]
+material = SubResource("StandardMaterial3D_inqdw")
+radius = 0.2
+height = 0.4
+
+[node name="Poof" type="GPUParticles3D"]
+emitting = false
+amount = 16
+lifetime = 0.6
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_v6efl")
+draw_pass_1 = SubResource("SphereMesh_j3jgf")
