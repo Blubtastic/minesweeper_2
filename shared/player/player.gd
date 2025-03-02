@@ -18,6 +18,9 @@ var is_controllable = true
 @onready var glow_animation_player: AnimationPlayer = $GlowAnimationPlayer
 @onready var poof: GPUParticles3D = $Poof
 @onready var sparks: GPUParticles3D = $Sparks
+@onready var left_debris: Node3D = $TireDebrisSnowLeft
+@onready var right_debris: Node3D = $TireDebrisSnowRight
+
 
 func _physics_process(delta: float) -> void:
 	var cubes = get_tree().get_nodes_in_group("cubes")
@@ -39,6 +42,7 @@ func _physics_process(delta: float) -> void:
 	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	if direction:
 		velocity.x = direction.x * SPEED
+		emit_debris() if is_on_floor() else stop_debris()
 		if direction.z > 0:
 			velocity.z = direction.z * BACKWARD_SPEED + Globals.world_speed
 		if direction.z < 0:
@@ -46,6 +50,7 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		velocity.z = move_toward(velocity.z, Globals.world_speed, SPEED)
+		stop_debris()
 	rotation.z = -velocity.x / 30
 	rotation.x = -velocity.z / 30
 
@@ -80,3 +85,11 @@ func move_shadow():
 		collision_point.y += 0.2
 		collision_point.z = global_position.z
 		player_shadow.global_transform.origin = collision_point
+
+
+func emit_debris():
+	left_debris.emit_debris()
+	right_debris.emit_debris()
+func stop_debris():
+	left_debris.stop_debris()
+	right_debris.stop_debris()

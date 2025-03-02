@@ -1,0 +1,114 @@
+[gd_scene load_steps=21 format=3 uid="uid://b7wmb8jxswbil"]
+
+[ext_resource type="Script" path="res://features/TireDebris/tire_debris_snow.gd" id="1_y4myt"]
+
+[sub_resource type="Gradient" id="Gradient_e8ae3"]
+colors = PackedColorArray(0.45098, 0.45098, 0.45098, 0.505882, 1, 1, 1, 0.490196)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_7c5ky"]
+gradient = SubResource("Gradient_e8ae3")
+
+[sub_resource type="Curve" id="Curve_u5kui"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.0634921, 1), 0.0503872, 0.0503872, 0, 0, Vector2(0.436508, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_jcq24"]
+curve = SubResource("Curve_u5kui")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_sd7du"]
+angle_min = 1.07288e-05
+angle_max = 360.0
+direction = Vector3(0, 4, 10)
+spread = 6.0
+initial_velocity_min = 10.0
+initial_velocity_max = 10.0
+scale_min = 0.05
+scale_max = 0.8
+scale_curve = SubResource("CurveTexture_jcq24")
+color_initial_ramp = SubResource("GradientTexture1D_7c5ky")
+
+[sub_resource type="Gradient" id="Gradient_cm4jw"]
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_8xl5r"]
+gradient = SubResource("Gradient_cm4jw")
+
+[sub_resource type="Gradient" id="Gradient_ci3r6"]
+colors = PackedColorArray(1, 0, 0, 1, 1, 1, 0, 0)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_plsht"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_16kxs"]
+color_ramp = SubResource("Gradient_ci3r6")
+noise = SubResource("FastNoiseLite_plsht")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8ecrx"]
+transparency = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+detail_mask = SubResource("NoiseTexture2D_16kxs")
+detail_albedo = SubResource("GradientTexture1D_8xl5r")
+disable_receive_shadows = true
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_ht6f2"]
+material = SubResource("StandardMaterial3D_8ecrx")
+size = Vector2(0.05, 0.05)
+
+[sub_resource type="Gradient" id="Gradient_jxi61"]
+colors = PackedColorArray(0.258824, 0.258824, 0.258824, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_ob5ho"]
+gradient = SubResource("Gradient_jxi61")
+
+[sub_resource type="Curve" id="Curve_54070"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.115079, 1), 0.0, 0.0, 0, 0, Vector2(0.321429, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_vcogc"]
+curve = SubResource("Curve_54070")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_yq83o"]
+direction = Vector3(0, 0.4, 1)
+spread = 10.0
+initial_velocity_min = 5.0
+initial_velocity_max = 5.0
+scale_min = 0.5
+scale_max = 1.2
+scale_curve = SubResource("CurveTexture_vcogc")
+color = Color(1, 1, 1, 0.168627)
+color_ramp = SubResource("GradientTexture1D_ob5ho")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lecfs"]
+transparency = 1
+vertex_color_use_as_albedo = true
+disable_receive_shadows = true
+
+[sub_resource type="SphereMesh" id="SphereMesh_5ltna"]
+material = SubResource("StandardMaterial3D_lecfs")
+radius = 0.1
+height = 0.2
+radial_segments = 6
+rings = 3
+
+[node name="TireDebrisSnow" type="Node3D"]
+script = ExtResource("1_y4myt")
+
+[node name="Snow" type="GPUParticles3D" parent="."]
+cast_shadow = 0
+amount = 64
+lifetime = 0.2
+explosiveness = 0.1
+randomness = 1.0
+process_material = SubResource("ParticleProcessMaterial_sd7du")
+draw_pass_1 = SubResource("QuadMesh_ht6f2")
+
+[node name="Smoke" type="GPUParticles3D" parent="."]
+amount = 32
+lifetime = 0.4
+process_material = SubResource("ParticleProcessMaterial_yq83o")
+draw_pass_1 = SubResource("SphereMesh_5ltna")
