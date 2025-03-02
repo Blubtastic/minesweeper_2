@@ -16,6 +16,7 @@ extends StaticBody3D
 @onready var top_mesh: MeshInstance3D = $TopMesh
 @onready var score_particle_big: CPUParticles3D = $ScoreParticleBig
 @onready var score_particle_small: CPUParticles3D = $ScoreParticleSmall
+@onready var sparks: GPUParticles3D = $Sparks
 
 var is_bomb: bool = false
 var has_exploded: bool = false
@@ -35,6 +36,8 @@ func _ready():
 func handle_uncleared_pressed():
 		if !is_cleared and !is_bomb:
 			give_points(100)
+			sparks.emitting = true
+			
 		reveal_cube(true)
 		top_mesh.unhighlight_cube()
 		if is_bomb:
