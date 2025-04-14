@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://dhlda46fqvnos"]
+[gd_scene load_steps=6 format=3 uid="uid://dhlda46fqvnos"]
 
-[ext_resource type="Script" path="res://features/forest_chunk.gd" id="1_1tg5x"]
+[ext_resource type="Script" uid="uid://bll4bpeo58tkv" path="res://features/forest_chunk.gd" id="1_1tg5x"]
 [ext_resource type="PackedScene" uid="uid://c8eqtpduahtde" path="res://features/Ground.tscn" id="1_xj55w"]
 [ext_resource type="PackedScene" uid="uid://b3h77fckoxy4i" path="res://features/Tree.tscn" id="2_qoa2g"]
+[ext_resource type="PackedScene" uid="uid://cihfv7g41po4u" path="res://assets/blender/FirstRock.blend" id="4_5v56o"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tu15c"]
 size = Vector3(8, 0.5, 8)
@@ -63,5 +64,8 @@ transform = Transform3D(-1.04576, 0.0526787, 0.203682, 0.0574244, 1.06499, 0.019
 
 [node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="."]
 aabb = AABB(-4, -8, -4, 8, 10, 8)
+
+[node name="FirstRock" parent="." instance=ExtResource("4_5v56o")]
+transform = Transform3D(0.183685, -0.125866, -0.974894, 0.531227, 0.847179, -0.00928567, 0.827078, -0.516184, 0.222478, 1.13836, 0.335191, 0.235003)
 
 [connection signal="screen_exited" from="VisibleOnScreenNotifier3D" to="." method="_on_visible_on_screen_notifier_3d_screen_exited"]

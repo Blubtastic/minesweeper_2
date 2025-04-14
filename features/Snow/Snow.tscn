@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://62fr2rhqfdeo"]
 
-[ext_resource type="Script" path="res://features/Snow/snow.gd" id="1_ntv5t"]
+[ext_resource type="Script" uid="uid://bm14wfb0rhkfo" path="res://features/Snow/snow.gd" id="1_ntv5t"]
 
 [sub_resource type="Gradient" id="Gradient_jcbtw"]
 offsets = PackedFloat32Array(0.484043, 1)

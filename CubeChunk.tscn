@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dgxv52jn27v3c"]
 
-[ext_resource type="Script" path="res://cube_chunk.gd" id="1_51aoj"]
+[ext_resource type="Script" uid="uid://bw0i5u06nldb" path="res://cube_chunk.gd" id="1_51aoj"]
 
 [node name="CubeChunk" type="AnimatableBody3D"]
 sync_to_physics = false

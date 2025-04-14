@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://487bysnuw5km"]
 
 [ext_resource type="PackedScene" uid="uid://drynt1383xlht" path="res://shared/cube/TrailVFX.tscn" id="1_12cox"]
-[ext_resource type="Script" path="res://shared/cube/cube_piece.gd" id="1_myocu"]
+[ext_resource type="Script" uid="uid://dn8fepuito8u0" path="res://shared/cube/cube_piece.gd" id="1_myocu"]
 
 [sub_resource type="Curve" id="Curve_5h2ha"]
 _data = [Vector2(0.00371747, 0.0102041), 0.0, 1.0015, 0, 0, Vector2(0.501859, 0.497959), 0.999266, 0.999266, 0, 0, Vector2(1, 1), 1.00036, 0.0, 0, 0]
