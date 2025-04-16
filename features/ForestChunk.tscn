@@ -42,7 +42,7 @@ transform = Transform3D(1.15289, 0.0177716, -0.424717, -0.0504015, 1.22474, -0.0
 transform = Transform3D(1, 0, 0, 0, 0.992198, 0.124675, 0, -0.124675, 0.992198, -1.68634, 0.147952, 2.45883)
 
 [node name="Tree2" parent="." instance=ExtResource("2_qoa2g")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.170563, 0.147952, 1.41171)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.110512, 0.147952, 1.71148)
 
 [node name="Tree7" parent="." instance=ExtResource("2_qoa2g")]
 transform = Transform3D(1.359, -0.0880971, -0.562206, 0.0953088, 1.47025, -2.09438e-09, 0.561028, -0.0363686, 1.36185, 3.06891, 0.147952, 0.0127716)
@@ -66,6 +66,21 @@ transform = Transform3D(-1.04576, 0.0526787, 0.203682, 0.0574244, 1.06499, 0.019
 aabb = AABB(-4, -8, -4, 8, 10, 8)
 
 [node name="FirstRock" parent="." instance=ExtResource("4_5v56o")]
-transform = Transform3D(0.183685, -0.125866, -0.974894, 0.531227, 0.847179, -0.00928567, 0.827078, -0.516184, 0.222478, 1.13836, 0.335191, 0.235003)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.10972, 0.263713, 1.58609)
+
+[node name="FirstRock2" parent="." instance=ExtResource("4_5v56o")]
+transform = Transform3D(-0.475225, 0, -0.879865, 0, 1, 0, 0.879864, 0, -0.475225, 1.36594, 0.119351, -2.44206)
+
+[node name="FirstRock3" parent="." instance=ExtResource("4_5v56o")]
+transform = Transform3D(-1.08575, 0, 1.27964, 0, 1.67819, 0, -1.27964, 0, -1.08575, -2.2861, -0.25016, -1.73627)
+
+[node name="FirstRock4" parent="." instance=ExtResource("4_5v56o")]
+transform = Transform3D(0.414861, 0, 0.217437, 0, 0.468389, 0, -0.217437, 0, 0.414861, -3.52155, 0.18651, 1.71043)
+
+[node name="FirstRock5" parent="." instance=ExtResource("4_5v56o")]
+transform = Transform3D(-0.277674, 0, 0.377207, 0, 0.468389, 0, -0.377207, 0, -0.277675, -3.67437, 0.00890207, 1.05645)
+
+[node name="FirstRock6" parent="." instance=ExtResource("4_5v56o")]
+transform = Transform3D(-0.470676, 0, 0.639391, 0, 0.79395, 0, -0.63939, 0, -0.470676, -3.15957, 0.00890207, 1.09618)
 
 [connection signal="screen_exited" from="VisibleOnScreenNotifier3D" to="." method="_on_visible_on_screen_notifier_3d_screen_exited"]
