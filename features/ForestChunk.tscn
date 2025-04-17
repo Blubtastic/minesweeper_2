@@ -26,6 +26,7 @@ shape = SubResource("BoxShape3D_tu15c")
 visible = false
 
 [node name="GodotAssets" type="Node3D" parent="."]
+visible = false
 
 [node name="Tree" parent="GodotAssets" instance=ExtResource("2_qoa2g")]
 transform = Transform3D(-0.192821, 0.0179518, 1.31618, 0.11938, 1.32498, -0.000582559, -1.31087, 0.118024, -0.193654, -1.20837, 0.147952, -0.798415)
