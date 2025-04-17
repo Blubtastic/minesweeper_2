@@ -9,8 +9,6 @@
 [ext_resource type="PackedScene" uid="uid://dhlda46fqvnos" path="res://features/ForestChunk.tscn" id="7_m1pw8"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_6867n"]
-sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
-ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
 
 [sub_resource type="Sky" id="Sky_41lmj"]
 sky_material = SubResource("ProceduralSkyMaterial_6867n")
@@ -20,6 +18,9 @@ background_mode = 2
 sky = SubResource("Sky_41lmj")
 tonemap_mode = 2
 glow_enabled = true
+fog_enabled = true
+fog_density = 0.0015
+adjustment_contrast = 1.1
 
 [sub_resource type="BoxMesh" id="BoxMesh_mtk4d"]
 size = Vector3(0.1, 0.5, 0.01)
@@ -34,6 +35,7 @@ script = ExtResource("1_m0fyf")
 transform = Transform3D(-0.973632, 0.103933, 0.203074, 0.142175, 0.972614, 0.183872, -0.178402, 0.207896, -0.961744, 0, 0, 0)
 light_energy = 1.5
 shadow_enabled = true
+shadow_normal_bias = 1.0
 
 [node name="Environment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_qwbq1")

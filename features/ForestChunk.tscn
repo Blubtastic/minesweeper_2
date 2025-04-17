@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://dhlda46fqvnos"]
+[gd_scene load_steps=7 format=3 uid="uid://dhlda46fqvnos"]
 
 [ext_resource type="Script" uid="uid://bll4bpeo58tkv" path="res://features/forest_chunk.gd" id="1_1tg5x"]
 [ext_resource type="PackedScene" uid="uid://c8eqtpduahtde" path="res://features/Ground.tscn" id="1_xj55w"]
 [ext_resource type="PackedScene" uid="uid://b3h77fckoxy4i" path="res://features/Tree.tscn" id="2_qoa2g"]
 [ext_resource type="PackedScene" uid="uid://cihfv7g41po4u" path="res://assets/blender/FirstRock.blend" id="4_5v56o"]
+[ext_resource type="PackedScene" uid="uid://o3dppufd7f2y" path="res://features/ForestChunkBlender/ForestChunk.blend" id="5_f8iwg"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tu15c"]
 size = Vector3(8, 0.5, 8)
@@ -22,6 +23,7 @@ script = ExtResource("1_1tg5x")
 shape = SubResource("BoxShape3D_tu15c")
 
 [node name="Ground" parent="." instance=ExtResource("1_xj55w")]
+visible = false
 
 [node name="Tree" parent="." instance=ExtResource("2_qoa2g")]
 transform = Transform3D(-0.192821, 0.0179518, 1.31618, 0.11938, 1.32498, -0.000582559, -1.31087, 0.118024, -0.193654, -1.20837, 0.147952, -0.798415)
@@ -82,5 +84,8 @@ transform = Transform3D(-0.277674, 0, 0.377207, 0, 0.468389, 0, -0.377207, 0, -0
 
 [node name="FirstRock6" parent="." instance=ExtResource("4_5v56o")]
 transform = Transform3D(-0.470676, 0, 0.639391, 0, 0.79395, 0, -0.63939, 0, -0.470676, -3.15957, 0.00890207, 1.09618)
+
+[node name="ForestChunk" parent="." instance=ExtResource("5_f8iwg")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, -3.89839, 0)
 
 [connection signal="screen_exited" from="VisibleOnScreenNotifier3D" to="." method="_on_visible_on_screen_notifier_3d_screen_exited"]
