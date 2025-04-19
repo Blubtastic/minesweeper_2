@@ -190,20 +190,25 @@ texture = SubResource("NoiseTexture2D_fr8oe")
 [node name="RevealCube" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamRandomizer_8afpo")
 volume_db = -8.901
+bus = &"Sound Effects"
 
 [node name="PlaceFlag" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_eeb88")
 volume_db = -28.576
+bus = &"Sound Effects"
 
 [node name="RemoveFlag" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_pc8bq")
+bus = &"Sound Effects"
 
 [node name="HighlightCube" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamRandomizer_a7n7b")
 volume_db = -25.377
+bus = &"Sound Effects"
 
 [node name="Explosion" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("10_llvf4")
+bus = &"Sound Effects"
 
 [node name="ScoreParticleBig" type="CPUParticles3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 0.865572, 0)
