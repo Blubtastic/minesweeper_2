@@ -253,7 +253,7 @@ bias = 0.01
 [node name="GlowAnimationPlayer" type="AnimationPlayer" parent="AlivePlayer"]
 reset_on_save = false
 libraries = {
-"": SubResource("AnimationLibrary_pox7b")
+&"": SubResource("AnimationLibrary_pox7b")
 }
 
 [connection signal="area_entered" from="AlivePlayer/CubeHitbox" to="AlivePlayer" method="_on_cube_hitbox_area_entered"]

@@ -64,11 +64,13 @@ func damage_player():
 		glow_animation_player.play("new_animation")
 		velocity.y = LAUNCH_VELOCITY
 		invincible = true
+		Globals.is_player_flying = true
 		
 		var TrailVfx = trail_vfx.instantiate()
 		add_child(TrailVfx)
 		await get_tree().create_timer(1.0).timeout
 		invincible = false
+		Globals.is_player_flying = false
 		await get_tree().create_timer(0.5).timeout
 		TrailVfx.get_node("Smoke").emitting = false
 		TrailVfx.get_node("Fire").emitting = false

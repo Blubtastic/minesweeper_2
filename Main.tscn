@@ -47,7 +47,7 @@ current = true
 fov = 20.0
 script = ExtResource("3_rbuf0")
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_trn2v")
 autoplay = true
 bus = &"Music"
