@@ -17,6 +17,7 @@ sky_material = SubResource("ProceduralSkyMaterial_6867n")
 
 [sub_resource type="Environment" id="Environment_qwbq1"]
 background_mode = 2
+background_energy_multiplier = 1.2
 sky = SubResource("Sky_41lmj")
 glow_enabled = true
 fog_density = 0.0015
@@ -34,7 +35,7 @@ script = ExtResource("1_m0fyf")
 [node name="Sun" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.0871298, -0.963284, 0.253952, -0.811844, 0.216397, 0.542293, -0.577337, -0.15892, -0.800891, 0, 0, 0)
 light_color = Color(0.999999, 0.997401, 0.807223, 1)
-light_energy = 0.4
+light_energy = 0.1
 shadow_enabled = true
 shadow_normal_bias = 1.0
 directional_shadow_split_1 = 0.2
