@@ -13,7 +13,9 @@ extends StaticBody3D
 @onready var mine_sprite: Sprite3D = $Node3D/Mine
 
 @onready var flag_sprite: Sprite3D = $Flag
-@onready var top_mesh: MeshInstance3D = $TopMesh
+# 1: use CubeBody here. Create script on CubeTop, just Node3D. Called cube_top.gd
+@onready var cube_top: Node3D = $CubeTop
+
 @onready var score_particle_big: CPUParticles3D = $ScoreParticleBig
 @onready var score_particle_small: CPUParticles3D = $ScoreParticleSmall
 @onready var sparks: GPUParticles3D = $Sparks
@@ -39,7 +41,7 @@ func handle_uncleared_pressed():
 			sparks.emitting = true
 			
 		reveal_cube(true)
-		top_mesh.unhighlight_cube()
+		#cube_top.unhighlight_cube()
 		if is_bomb:
 			trigger_explosion()
 
@@ -49,7 +51,7 @@ func reveal_cube(play_sound: bool = false):
 			reveal_cube_audio.play()
 	
 		give_points(10)
-		top_mesh.visible = false
+		cube_top.visible = false
 		nearby_mines_label.visible = true
 		is_cleared = true;
 		cube_was_cleared.emit(self)
@@ -59,7 +61,7 @@ func reveal_cube(play_sound: bool = false):
 
 func trigger_explosion():
 	if !has_exploded:
-		$Mesh.visible = false
+		$CubeBody.visible = false
 		$Node3D/Stains.visible = true
 		mine_sprite.visible = true
 		#mine_sprite.transform = mine_sprite.transform.translated(Vector3(0, -1, 0))
@@ -67,7 +69,7 @@ func trigger_explosion():
 		var CubeDestroyed = cube_destroyed.instantiate()
 		add_child(CubeDestroyed)
 		CubeDestroyed.global_position = Vector3(global_position.x, global_position.y + 0.7, global_position.z)
-		top_mesh.visible = false
+		cube_top.visible = false
 		flag_sprite.visible = false
 		has_exploded = true
 		
