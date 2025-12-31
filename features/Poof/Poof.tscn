@@ -39,13 +39,16 @@ color = Color(0.804743, 0.804743, 0.804743, 1)
 alpha_curve = SubResource("CurveTexture_tbd11")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_inqdw"]
-transparency = 1
+diffuse_mode = 3
 vertex_color_use_as_albedo = true
+roughness = 0.0
 
 [sub_resource type="SphereMesh" id="SphereMesh_j3jgf"]
 material = SubResource("StandardMaterial3D_inqdw")
 radius = 0.2
 height = 0.4
+radial_segments = 8
+rings = 4
 
 [node name="Poof" type="GPUParticles3D"]
 emitting = false
