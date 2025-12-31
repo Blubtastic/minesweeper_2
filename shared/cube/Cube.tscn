@@ -27,7 +27,6 @@ as_normal_map = true
 noise = SubResource("FastNoiseLite_j51ek")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xq44k"]
-transparency = 1
 albedo_color = Color(0.48, 0.48, 0.48, 0.8)
 roughness = 0.32
 emission = Color(1, 1, 1, 1)

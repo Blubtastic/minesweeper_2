@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://dqeksnc1bqwgt"]
+[gd_scene load_steps=28 format=3 uid="uid://dqeksnc1bqwgt"]
 
 [ext_resource type="Script" uid="uid://cahfvs4cexpdp" path="res://shared/player/player.gd" id="1_fjkuh"]
 [ext_resource type="PackedScene" uid="uid://ddwftyj3tif34" path="res://features/Poof/Poof.tscn" id="3_b81g5"]
@@ -42,9 +42,9 @@ radius = 0.3
 height = 1.5
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uxr23"]
+diffuse_mode = 3
 albedo_color = Color(0.252285, 0.261702, 4.81308e-08, 1)
-metallic = 1.0
-roughness = 0.5
+roughness = 0.0
 emission_enabled = true
 emission = Color(0, 1, 1, 1)
 emission_energy_multiplier = 0.0
@@ -54,7 +54,13 @@ material = SubResource("StandardMaterial3D_uxr23")
 uv2_padding = 5.0
 size = Vector3(0.3, 0.3, 0.5)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fxman"]
+diffuse_mode = 3
+albedo_color = Color(0.466181, 0.466181, 0.466181, 1)
+roughness = 0.0
+
 [sub_resource type="CylinderMesh" id="CylinderMesh_6xd78"]
+material = SubResource("StandardMaterial3D_fxman")
 top_radius = 0.1
 bottom_radius = 0.1
 height = 0.05
