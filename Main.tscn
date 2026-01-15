@@ -12,15 +12,18 @@
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_6867n"]
 
-[sub_resource type="Sky" id="Sky_41lmj"]
+[sub_resource type="Sky" id="Sky_03owx"]
 sky_material = SubResource("ProceduralSkyMaterial_6867n")
 
 [sub_resource type="Environment" id="Environment_qwbq1"]
 background_mode = 2
 background_energy_multiplier = 1.2
-sky = SubResource("Sky_41lmj")
+sky = SubResource("Sky_03owx")
 glow_enabled = true
-fog_density = 0.0015
+fog_mode = 1
+fog_density = 1.0
+fog_depth_begin = 35.0
+fog_depth_end = 40.0
 adjustment_contrast = 1.1
 
 [sub_resource type="BoxMesh" id="BoxMesh_mtk4d"]
