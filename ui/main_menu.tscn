@@ -1,33 +1,71 @@
-[gd_scene load_steps=6 format=3 uid="uid://celxavas2i8qt"]
+[gd_scene load_steps=7 format=3 uid="uid://celxavas2i8qt"]
 
 [ext_resource type="PackedScene" uid="uid://bnxqp40rt11bk" path="res://ui/main_menu_2d.tscn" id="1_t7e0r"]
 [ext_resource type="PackedScene" uid="uid://biv38ja3npifj" path="res://assets/blender/LogoMinedriver.blend" id="2_0dkrt"]
+[ext_resource type="PackedScene" uid="uid://o3dppufd7f2y" path="res://features/ForestChunkBlender/ForestChunk.blend" id="3_wk0pr"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_wk0pr"]
-ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
 
-[sub_resource type="Sky" id="Sky_rmr83"]
+[sub_resource type="Sky" id="Sky_41lmj"]
 sky_material = SubResource("ProceduralSkyMaterial_wk0pr")
 
-[sub_resource type="Environment" id="Environment_8uxxo"]
+[sub_resource type="Environment" id="Environment_rmr83"]
 background_mode = 2
-sky = SubResource("Sky_rmr83")
+background_energy_multiplier = 1.2
+sky = SubResource("Sky_41lmj")
+glow_enabled = true
+fog_enabled = true
+fog_density = 0.0015
+fog_height = -0.2
+fog_height_density = 6.994
+adjustment_contrast = 1.1
 
 [node name="MainMenu" type="Node3D"]
 
-[node name="MainMenu2D" parent="." instance=ExtResource("1_t7e0r")]
+[node name="Environment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_rmr83")
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_8uxxo")
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.49897337, 0.8089512, 0.31084374, -0.7723515, -0.57779276, 0.263873, 0.3930637, -0.10841501, 0.91309744, 0, 0, 0)
+[node name="Sun" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.4447823, 0.830912, 0.33429638, -0.8118439, 0.21639745, 0.542293, 0.37825686, -0.51259875, 0.77082056, 0, 0, 0)
+light_color = Color(0.999999, 0.997401, 0.807223, 1)
+light_energy = 0.1
 shadow_enabled = true
-directional_shadow_max_distance = 1.0
-
-[node name="LogoMinedriver" parent="." instance=ExtResource("2_0dkrt")]
-transform = Transform3D(1, 0, 0, 0, 0.25881907, -0.9659258, 0, 0.9659258, 0.25881907, 0, 1.386473, 0)
+shadow_normal_bias = 1.0
+directional_shadow_split_1 = 0.2
+directional_shadow_split_2 = 0.32
+directional_shadow_split_3 = 0.4
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.9976902, 0.067928225, 0, -0.067928225, 0.9976902, 0, 0.559309, 1.6390724)
+transform = Transform3D(1, 0, 0, 0, 0.6417174, 0.7669412, 0, -0.7669412, 0.6417174, -0.27005798, 1.4155159, 1.3056626)
 fov = 107.4
+
+[node name="LogoMinedriver" parent="." instance=ExtResource("2_0dkrt")]
+transform = Transform3D(1, 0, 0, 0, 0.8761806, -0.48198313, 0, 0.48198313, 0.8761806, -0.27005798, 0.9251333, -0.635757)
+
+[node name="MainMenu2D" parent="." instance=ExtResource("1_t7e0r")]
+
+[node name="Forest" type="Node3D" parent="."]
+
+[node name="ForestChunk" parent="Forest" instance=ExtResource("3_wk0pr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.9803376, -1.6240876)
+
+[node name="ForestChunk2" parent="Forest" instance=ExtResource("3_wk0pr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, -4.9803376, -1.6240876)
+
+[node name="ForestChunk3" parent="Forest" instance=ExtResource("3_wk0pr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, -4.9803376, -1.6240876)
+
+[node name="ForestChunk4" parent="Forest" instance=ExtResource("3_wk0pr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.9803376, -9.604258)
+
+[node name="ForestChunk5" parent="Forest" instance=ExtResource("3_wk0pr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, -4.9803376, -9.604258)
+
+[node name="ForestChunk7" parent="Forest" instance=ExtResource("3_wk0pr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, -4.9803376, -1.6240876)
+
+[node name="ForestChunk8" parent="Forest" instance=ExtResource("3_wk0pr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, -4.9803376, -9.604258)
+
+[node name="ForestChunk6" parent="Forest" instance=ExtResource("3_wk0pr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, -4.9803376, -9.604258)
