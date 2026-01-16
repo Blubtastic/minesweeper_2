@@ -10,15 +10,24 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Start" type="Button" parent="."]
+[node name="Start 1player" type="Button" parent="."]
 layout_mode = 0
 offset_left = 376.0
-offset_top = 381.0
+offset_top = 355.12
 offset_right = 582.0
-offset_bottom = 434.0
+offset_bottom = 408.12
 theme_override_font_sizes/font_size = 24
-text = "Start"
+text = "1 player"
 script = ExtResource("1_u8pln")
+
+[node name="Start 2player" type="Button" parent="."]
+layout_mode = 0
+offset_left = 376.0
+offset_top = 424.11
+offset_right = 582.0
+offset_bottom = 477.11
+theme_override_font_sizes/font_size = 24
+text = "2 player"
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 1
@@ -29,4 +38,5 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[connection signal="pressed" from="Start" to="Start" method="_on_pressed"]
+[connection signal="pressed" from="Start 1player" to="Start 1player" method="_on_pressed"]
+[connection signal="pressed" from="Start 2player" to="Start 2player" method="_on_pressed"]
