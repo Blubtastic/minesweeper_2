@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://bnxqp40rt11bk"]
+[gd_scene load_steps=2 format=3 uid="uid://bnxqp40rt11bk"]
+
+[ext_resource type="Script" uid="uid://b54ilbiutn1xc" path="res://ui/start_button.gd" id="1_u8pln"]
 
 [node name="MainMenu2D" type="Control"]
 layout_mode = 3
@@ -16,6 +18,7 @@ offset_right = 582.0
 offset_bottom = 434.0
 theme_override_font_sizes/font_size = 24
 text = "Start"
+script = ExtResource("1_u8pln")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 1
@@ -25,3 +28,5 @@ anchor_right = 0.5
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[connection signal="pressed" from="Start" to="Start" method="_on_pressed"]
