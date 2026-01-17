@@ -21,7 +21,7 @@ fog_height_density = 6.994
 adjustment_contrast = 1.1
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_rmr83"]
-size = Vector3(1.5, 0.7970703, 1.5)
+size = Vector3(1.5, 0.79707, 1.5)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_8uxxo"]
 size = Vector3(25, 2, 25)
@@ -81,7 +81,7 @@ radius = 0.02
 environment = SubResource("Environment_rmr83")
 
 [node name="Sun" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.4447823, 0.830912, 0.33429638, -0.8118439, 0.21639745, 0.542293, 0.37825686, -0.51259875, 0.77082056, 0, 0, 0)
+transform = Transform3D(0.444782, 0.830912, 0.334296, -0.811844, 0.216397, 0.542293, 0.378257, -0.512599, 0.770821, 0, 0, 0)
 light_color = Color(0.999999, 0.997401, 0.807223, 1)
 light_energy = 0.1
 shadow_enabled = true
@@ -91,56 +91,56 @@ directional_shadow_split_2 = 0.32
 directional_shadow_split_3 = 0.4
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.6417174, 0.7669412, 0, -0.7669412, 0.6417174, -0.27005798, 1.4155159, 1.3056626)
+transform = Transform3D(1, 0, 0, 0, 0.641717, 0.766941, 0, -0.766941, 0.641717, -0.270058, 1.41552, 1.30566)
 fov = 107.4
 
 [node name="LogoMinedriver" parent="." instance=ExtResource("2_0dkrt")]
-transform = Transform3D(1, 0, 0, 0, 0.8761806, -0.48198313, 0, 0.48198313, 0.8761806, -0.27005798, 0.9251333, -0.635757)
+transform = Transform3D(1, 0, 0, 0, 0.876181, -0.481983, 0, 0.481983, 0.876181, -0.270058, 0.925133, -0.635757)
 
 [node name="MainMenu2D" parent="." instance=ExtResource("1_t7e0r")]
 
 [node name="Forest" type="Node3D" parent="."]
 
 [node name="ForestChunk" parent="Forest" instance=ExtResource("3_wk0pr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.9803376, -1.6240876)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.98034, -1.62409)
 
 [node name="ForestChunk2" parent="Forest" instance=ExtResource("3_wk0pr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, -4.9803376, -1.6240876)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, -4.98034, -1.62409)
 
 [node name="ForestChunk3" parent="Forest" instance=ExtResource("3_wk0pr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, -4.9803376, -1.6240876)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, -4.98034, -1.62409)
 
 [node name="ForestChunk4" parent="Forest" instance=ExtResource("3_wk0pr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.9803376, -9.604258)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.98034, -9.60426)
 
 [node name="ForestChunk5" parent="Forest" instance=ExtResource("3_wk0pr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, -4.9803376, -9.604258)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, -4.98034, -9.60426)
 
 [node name="ForestChunk7" parent="Forest" instance=ExtResource("3_wk0pr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, -4.9803376, -1.6240876)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, -4.98034, -1.62409)
 
 [node name="ForestChunk8" parent="Forest" instance=ExtResource("3_wk0pr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, -4.9803376, -9.604258)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, -4.98034, -9.60426)
 
 [node name="ForestChunk6" parent="Forest" instance=ExtResource("3_wk0pr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, -4.9803376, -9.604258)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, -4.98034, -9.60426)
 
 [node name="Rock" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0874919, -0.8354448, -1.1635425)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.08749, -0.835445, -1.16354)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Rock"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.20468748, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.204687, 0)
 shape = SubResource("BoxShape3D_rmr83")
 
 [node name="Ground" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.0249126, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.02491, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Ground"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.93833745, -5.8103676)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.938337, -5.81037)
 shape = SubResource("BoxShape3D_8uxxo")
 
 [node name="PlayerModel" type="Node3D" parent="."]
-transform = Transform3D(0.61765397, -0.007592718, -0.7864134, -0.14290093, 0.98222435, -0.12171853, 0.77335835, 0.18755913, 0.60558957, -0.9779211, -0.103375554, -0.93695915)
+transform = Transform3D(0.617654, -0.00759272, -0.786413, -0.142901, 0.982224, -0.121719, 0.773358, 0.187559, 0.60559, -0.977921, -0.103376, -0.936959)
 
 [node name="Body" type="MeshInstance3D" parent="PlayerModel"]
 layers = 16
@@ -198,30 +198,30 @@ twist_span = 0.0
 bias = 0.01
 
 [node name="SpotLight3D" type="SpotLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.5105429, 0.85985225, 0, -0.85985225, 0.5105429, -0.3161468, 2.9032028, 0.8706458)
-light_color = Color(1, 1, 0.8901961, 1)
+transform = Transform3D(1, 0, 0, 0, 0.510543, 0.859852, 0, -0.859852, 0.510543, -0.316147, 2.9032, 0.870646)
+light_color = Color(1, 1, 0.890196, 1)
 light_bake_mode = 1
-spot_range = 4.8140564
+spot_range = 4.81406
 spot_attenuation = -0.2
-spot_angle = 54.884407
-spot_angle_attenuation = 0.40612668
+spot_angle = 54.8844
+spot_angle_attenuation = 0.406127
 
 [node name="SpotLight3D2" type="SpotLight3D" parent="."]
-transform = Transform3D(0.004678294, -0.018943792, 0.9998096, -0.038494643, 0.99907607, 0.019110017, -0.9992479, -0.038576715, 0.003944737, 4.4874864, 1.1293862, -0.39017904)
-light_color = Color(1, 1, 0.8901961, 1)
+transform = Transform3D(0.00467829, -0.0189438, 0.99981, -0.0384946, 0.999076, 0.01911, -0.999248, -0.0385767, 0.00394474, 4.48749, 1.12939, -0.390179)
+light_color = Color(1, 1, 0.890196, 1)
 light_energy = 0.25
 light_bake_mode = 1
-spot_range = 7.778031
+spot_range = 7.77803
 spot_attenuation = -0.2
-spot_angle = 54.884407
-spot_angle_attenuation = 0.40612668
+spot_angle = 54.8844
+spot_angle_attenuation = 0.406127
 
 [node name="SpotLight3D3" type="SpotLight3D" parent="."]
-transform = Transform3D(0.0034880596, 0.0001340852, -0.9999939, 0.03838781, -0.9992629, -8.742278e-08, -0.99925685, -0.038387574, -0.0034906357, -4.4903874, 1.157438, -0.30778006)
-light_color = Color(1, 1, 0.8901961, 1)
+transform = Transform3D(0.00348806, 0.000134085, -0.999994, 0.0383878, -0.999263, -8.74228e-08, -0.999257, -0.0383876, -0.00349064, -4.49039, 1.15744, -0.30778)
+light_color = Color(1, 1, 0.890196, 1)
 light_energy = 0.25
 light_bake_mode = 1
-spot_range = 7.778031
+spot_range = 7.77803
 spot_attenuation = -0.2
-spot_angle = 54.884407
-spot_angle_attenuation = 0.40612668
+spot_angle = 54.8844
+spot_angle_attenuation = 0.406127

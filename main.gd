@@ -29,6 +29,5 @@ func _physics_process(_delta: float):
 		add_child(forest_instance)
  
 func _on_game_ended():
-	print("_on_game_ended fired")
 	var game_over_instance = GAME_OVER.instantiate()
 	add_child(game_over_instance)
