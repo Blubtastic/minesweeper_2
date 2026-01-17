@@ -1,6 +1,6 @@
 extends Node
 
-var player_hp = 1
+var player_hp = 3
 var score = 0
 var world_speed = 1.5
 var is_player_flying: bool = false
@@ -15,11 +15,10 @@ func _physics_process(_delta: float) -> void:
 	if (player_hp <= 0):
 		if game_over == false:
 			game_ended.emit()
-		game_over = true
+			game_over = true
 	
 	if Input.is_action_pressed("restart"):
-		get_tree().reload_current_scene()
-		score = 0
+		reset_game()
 	
 	# enable bass when player first explodes
 	if is_player_flying:
@@ -41,3 +40,12 @@ func set_music_low_pass_filter(enabled: bool):
 func set_percussion_enabled(enabled: bool):
 	var bus_index = AudioServer.get_bus_index("Percussion")
 	AudioServer.set_bus_mute(bus_index, !enabled)
+
+func reset_game():
+	player_hp = 3
+	score = 0
+	world_speed = 1.5
+	is_player_flying = false
+	game_over = false
+	print(score)
+	get_tree().reload_current_scene()

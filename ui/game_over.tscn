@@ -11,14 +11,32 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="."]
+[node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 0
-offset_left = 302.0
+offset_left = 285.0
+offset_top = 143.0
+offset_right = 675.0
+offset_bottom = 268.0
+color = Color(0, 0, 0, 0.27451)
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 0
+offset_left = 286.0
 offset_top = 142.0
-offset_right = 650.0
+offset_right = 673.0
 offset_bottom = 230.0
 theme_override_font_sizes/font_size = 64
 text = "Game Over"
+horizontal_alignment = 1
+
+[node name="ScoreAndText" type="Label" parent="."]
+layout_mode = 0
+offset_left = 285.0
+offset_top = 232.0
+offset_right = 674.0
+offset_bottom = 255.0
+horizontal_alignment = 1
+script = ExtResource("1_5eixk")
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 layout_mode = 1
@@ -29,21 +47,12 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Score" type="Label" parent="."]
-layout_mode = 0
-offset_left = 280.0
-offset_top = 255.0
-offset_right = 669.0
-offset_bottom = 278.0
-horizontal_alignment = 1
-script = ExtResource("1_5eixk")
-
 [node name="Button" type="Button" parent="."]
 layout_mode = 0
 offset_left = 407.0
-offset_top = 343.0
+offset_top = 281.0
 offset_right = 543.0
-offset_bottom = 393.0
+offset_bottom = 331.0
 text = "Try again"
 script = ExtResource("1_oo8kp")
 
