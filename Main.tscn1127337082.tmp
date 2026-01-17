@@ -1,0 +1,154 @@
+[gd_scene load_steps=16 format=3 uid="uid://c1p7v7melj8n4"]
+
+[ext_resource type="Script" uid="uid://b3ynraryv822m" path="res://main.gd" id="1_m0fyf"]
+[ext_resource type="PackedScene" uid="uid://dqeksnc1bqwgt" path="res://shared/player/Player.tscn" id="1_mwkh8"]
+[ext_resource type="PackedScene" uid="uid://csi0364mca8xy" path="res://ui/hud.tscn" id="2_03owx"]
+[ext_resource type="Script" uid="uid://bb7i38v6r8s76" path="res://camera_shake.gd" id="3_rbuf0"]
+[ext_resource type="AudioStream" uid="uid://bnfwa6l1uxuyl" path="res://assets/audio/drum-loop.wav" id="3_trn2v"]
+[ext_resource type="AudioStream" uid="uid://d2fkaegd6wagp" path="res://assets/audio/bass-loop.wav" id="4_03owx"]
+[ext_resource type="PackedScene" uid="uid://dgxv52jn27v3c" path="res://CubeChunk.tscn" id="5_2r6wr"]
+[ext_resource type="PackedScene" uid="uid://62fr2rhqfdeo" path="res://features/Snow/Snow.tscn" id="6_bv4rx"]
+[ext_resource type="PackedScene" uid="uid://dhlda46fqvnos" path="res://features/ForestChunk.tscn" id="7_m1pw8"]
+[ext_resource type="PackedScene" uid="uid://qhpvf7y1n474" path="res://ui/game_over.tscn" id="10_wkp8b"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_6867n"]
+
+[sub_resource type="Sky" id="Sky_03owx"]
+sky_material = SubResource("ProceduralSkyMaterial_6867n")
+
+[sub_resource type="Environment" id="Environment_qwbq1"]
+background_mode = 2
+background_energy_multiplier = 1.2
+sky = SubResource("Sky_03owx")
+glow_enabled = true
+fog_mode = 1
+fog_density = 1.0
+fog_depth_begin = 35.0
+fog_depth_end = 40.0
+adjustment_contrast = 1.1
+
+[sub_resource type="BoxMesh" id="BoxMesh_mtk4d"]
+size = Vector3(0.1, 0.5, 0.01)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_k1xa4"]
+size = Vector3(3, 10, 14)
+
+[node name="Main" type="Node3D"]
+script = ExtResource("1_m0fyf")
+
+[node name="HUD" parent="." instance=ExtResource("2_03owx")]
+
+[node name="GameOver" parent="." instance=ExtResource("10_wkp8b")]
+
+[node name="Sun" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.0871298, -0.963284, 0.253952, -0.811844, 0.216397, 0.542293, -0.577337, -0.15892, -0.800891, 0, 0, 0)
+light_color = Color(0.999999, 0.997401, 0.807223, 1)
+light_energy = 0.1
+shadow_enabled = true
+shadow_normal_bias = 1.0
+directional_shadow_split_1 = 0.2
+directional_shadow_split_2 = 0.32
+directional_shadow_split_3 = 0.4
+
+[node name="Environment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_qwbq1")
+
+[node name="Camera" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.559193, 0.829038, 0, -0.829038, 0.559193, 0, 26.866, 14.368)
+current = true
+fov = 20.0
+script = ExtResource("3_rbuf0")
+
+[node name="DrumsPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_trn2v")
+autoplay = true
+bus = &"Percussion"
+
+[node name="BassPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_03owx")
+autoplay = true
+bus = &"Bass"
+
+[node name="Snow" parent="." instance=ExtResource("6_bv4rx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -11.2124, -11.3809)
+
+[node name="Player" parent="." instance=ExtResource("1_mwkh8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.15148, -2.25592)
+
+[node name="InitialChunks" type="Node3D" parent="."]
+
+[node name="CubeChunk1" parent="InitialChunks" instance=ExtResource("5_2r6wr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 0, -17.35)
+
+[node name="ForestChunkLeft1" parent="InitialChunks" instance=ExtResource("7_m1pw8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0.5, -14)
+
+[node name="ForestChunkRight1" parent="InitialChunks" instance=ExtResource("7_m1pw8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0.5, -14)
+
+[node name="CubeChunk" parent="InitialChunks" instance=ExtResource("5_2r6wr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 0, -9.35)
+
+[node name="CubeChunk2" parent="InitialChunks" instance=ExtResource("5_2r6wr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 0, -1.35)
+NUMBER_OF_MINES = 0
+
+[node name="ForestChunkLeft" parent="InitialChunks" instance=ExtResource("7_m1pw8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0.5, -6)
+
+[node name="ForestChunkRight" parent="InitialChunks" instance=ExtResource("7_m1pw8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0.5, -6)
+
+[node name="ForestChunkLeft3" parent="InitialChunks" instance=ExtResource("7_m1pw8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0.5, 2)
+
+[node name="ForestChunkRight3" parent="InitialChunks" instance=ExtResource("7_m1pw8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0.5, 2)
+
+[node name="Ray" type="RayCast3D" parent="."]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 2, -18)
+target_position = Vector3(0, -2, 0)
+
+[node name="TestingMarker" type="MeshInstance3D" parent="Ray"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0)
+visible = false
+mesh = SubResource("BoxMesh_mtk4d")
+
+[node name="LeftRay" type="RayCast3D" parent="."]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -7, 2, -18)
+target_position = Vector3(0, -2, 0)
+
+[node name="TestingMarker" type="MeshInstance3D" parent="LeftRay"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0)
+visible = false
+mesh = SubResource("BoxMesh_mtk4d")
+
+[node name="RightRay" type="RayCast3D" parent="."]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 7, 2, -18)
+target_position = Vector3(0, -2, 0)
+
+[node name="TestingMarker" type="MeshInstance3D" parent="RightRay"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0)
+visible = false
+mesh = SubResource("BoxMesh_mtk4d")
+
+[node name="InvisibleWalls" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, -6)
+collision_layer = 8
+collision_mask = 0
+
+[node name="Left" type="CollisionShape3D" parent="InvisibleWalls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.5, 0, 2.3)
+shape = SubResource("BoxShape3D_k1xa4")
+
+[node name="Right" type="CollisionShape3D" parent="InvisibleWalls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.5, 0, 2.3)
+shape = SubResource("BoxShape3D_k1xa4")
+
+[node name="Behind" type="CollisionShape3D" parent="InvisibleWalls"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 10.3)
+shape = SubResource("BoxShape3D_k1xa4")
+
+[node name="Front" type="CollisionShape3D" parent="InvisibleWalls"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, -6.3)
+shape = SubResource("BoxShape3D_k1xa4")

@@ -1,10 +1,14 @@
 extends Node3D
 const CubeChunk := preload("res://CubeChunk.tscn")
 const ForestChunk := preload("res://features/ForestChunk.tscn")
+const GAME_OVER := preload("res://ui/game_over.tscn")
 
 @onready var ray: RayCast3D = $Ray
 @onready var left_ray: RayCast3D = $LeftRay
 @onready var right_ray: RayCast3D = $RightRay
+
+func _ready():
+	Globals.game_ended.connect(_on_game_ended)
 
 func _physics_process(_delta: float):
 	if !ray.is_colliding():
@@ -12,7 +16,7 @@ func _physics_process(_delta: float):
 		var chunk_position = Vector3(ray.transform.origin.x - 4.5, 0, ray.transform.origin.z - 7.3)
 		chunk_instance.transform.origin = chunk_position
 		add_child(chunk_instance)
-
+	
 	if !left_ray.is_colliding():
 		var forest_instance = ForestChunk.instantiate()
 		var forest_position = Vector3(ray.transform.origin.x - 9, 0.5, ray.transform.origin.z - 3.945)
@@ -23,3 +27,8 @@ func _physics_process(_delta: float):
 		var forest_position = Vector3(right_ray.transform.origin.x + 2, 0.5, right_ray.transform.origin.z - 3.945)
 		forest_instance.transform.origin = forest_position
 		add_child(forest_instance)
+ 
+func _on_game_ended():
+	print("_on_game_ended fired")
+	var game_over_instance = GAME_OVER.instantiate()
+	add_child(game_over_instance)

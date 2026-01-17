@@ -1,13 +1,22 @@
 extends Node
 
+var player_hp = 1
 var score = 0
 var world_speed = 1.5
 var is_player_flying: bool = false
+var game_over: bool = false
+
+signal game_ended()
 
 func _ready():
 	set_percussion_enabled(false)
 	
 func _physics_process(_delta: float) -> void:
+	if (player_hp <= 0):
+		if game_over == false:
+			game_ended.emit()
+		game_over = true
+	
 	if Input.is_action_pressed("restart"):
 		get_tree().reload_current_scene()
 		score = 0
