@@ -33,7 +33,11 @@ func _ready():
 		is_cleared = true
 	if isLoadingExploded:
 		is_bomb = true
-		handle_uncleared_pressed()
+		sparks.emitting = true
+		reveal_cube(false)
+		display_score(10)
+		display_score_big(100)
+		spawn_explosion()
 
 func handle_uncleared_pressed():
 		if !is_cleared and !is_bomb:
@@ -66,19 +70,22 @@ func trigger_explosion():
 		mine_sprite.visible = true
 		#mine_sprite.transform = mine_sprite.transform.translated(Vector3(0, -1, 0))
 		explosion_audio.play()
-		var CubeDestroyed = cube_destroyed.instantiate()
-		add_child(CubeDestroyed)
-		CubeDestroyed.global_position = Vector3(global_position.x, global_position.y + 0.7, global_position.z)
-		cube_top.visible = false
-		flag_sprite.visible = false
-		has_exploded = true
-		
-		var DamageArea = damage_area.instantiate()
-		add_child(DamageArea)
-		DamageArea.global_position = Vector3(global_position.x, global_position.y + 0.7, global_position.z)
-		await get_tree().create_timer(1.0).timeout
-		DamageArea.queue_free()
+		spawn_explosion()
 
+func spawn_explosion():
+	var CubeDestroyed = cube_destroyed.instantiate()
+	add_child(CubeDestroyed)
+	CubeDestroyed.global_position = Vector3(global_position.x, global_position.y + 0.7, global_position.z)
+	cube_top.visible = false
+	flag_sprite.visible = false
+	has_exploded = true
+	
+	var DamageArea = damage_area.instantiate()
+	add_child(DamageArea)
+	DamageArea.global_position = Vector3(global_position.x, global_position.y + 0.7, global_position.z)
+	await get_tree().create_timer(1.0).timeout
+	DamageArea.queue_free()
+		
 func give_points(points: int):
 	if !has_given_points:
 		has_given_points = true
