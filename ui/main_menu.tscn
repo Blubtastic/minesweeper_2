@@ -1,8 +1,9 @@
-[gd_scene load_steps=18 format=3 uid="uid://celxavas2i8qt"]
+[gd_scene load_steps=19 format=3 uid="uid://celxavas2i8qt"]
 
 [ext_resource type="PackedScene" uid="uid://bnxqp40rt11bk" path="res://ui/main_menu_2d.tscn" id="1_t7e0r"]
 [ext_resource type="PackedScene" uid="uid://biv38ja3npifj" path="res://assets/blender/LogoMinedriver.blend" id="2_0dkrt"]
 [ext_resource type="PackedScene" uid="uid://o3dppufd7f2y" path="res://features/ForestChunkBlender/ForestChunk.blend" id="3_wk0pr"]
+[ext_resource type="Script" uid="uid://8cxa6bk87j51" path="res://load_scenes.gd" id="4_rmr83"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_wk0pr"]
 
@@ -77,6 +78,12 @@ radius = 0.02
 
 [node name="MainMenu" type="Node3D"]
 
+[node name="MainMenu2D" parent="." instance=ExtResource("1_t7e0r")]
+version_number = "0.0.2"
+
+[node name="LoadScenes" type="Node3D" parent="."]
+script = ExtResource("4_rmr83")
+
 [node name="Environment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_rmr83")
 
@@ -96,9 +103,6 @@ fov = 107.4
 
 [node name="LogoMinedriver" parent="." instance=ExtResource("2_0dkrt")]
 transform = Transform3D(1, 0, 0, 0, 0.876181, -0.481983, 0, 0.481983, 0.876181, -0.270058, 0.925133, -0.635757)
-
-[node name="MainMenu2D" parent="." instance=ExtResource("1_t7e0r")]
-visible = false
 
 [node name="Forest" type="Node3D" parent="."]
 

@@ -42,7 +42,10 @@ func _physics_process(delta: float) -> void:
 	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	if direction:
 		velocity.x = direction.x * SPEED
-		emit_debris() if is_on_floor() else stop_debris()
+		if is_on_floor():
+			emit_debris()
+		else:
+			stop_debris()
 		if direction.z > 0:
 			velocity.z = direction.z * BACKWARD_SPEED + Globals.world_speed
 		if direction.z < 0:
