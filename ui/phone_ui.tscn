@@ -52,7 +52,12 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_8xfq6")
 
-[node name="WASD" type="Control" parent="."]
+[node name="PhoneOnly" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="WASD" type="Control" parent="PhoneOnly"]
 anchors_preset = 0
 offset_left = 814.00006
 offset_top = 379.00003
@@ -61,54 +66,50 @@ offset_bottom = 479.00003
 rotation = 0.7853982
 metadata/_edit_group_ = true
 
-[node name="W" type="TouchScreenButton" parent="WASD"]
+[node name="W" type="TouchScreenButton" parent="PhoneOnly/WASD"]
 position = Vector2(-90, -90)
 texture_normal = SubResource("GradientTexture2D_rkubv")
 shape = SubResource("RectangleShape2D_8xfq6")
 passby_press = true
 action = "ui_up"
-visibility_mode = 1
 
-[node name="A" type="TouchScreenButton" parent="WASD"]
+[node name="A" type="TouchScreenButton" parent="PhoneOnly/WASD"]
 position = Vector2(-90, 10)
 texture_normal = SubResource("GradientTexture2D_rkubv")
 shape = SubResource("RectangleShape2D_8xfq6")
 passby_press = true
 action = "ui_left"
-visibility_mode = 1
 
-[node name="S" type="TouchScreenButton" parent="WASD"]
+[node name="S" type="TouchScreenButton" parent="PhoneOnly/WASD"]
 position = Vector2(10, 10)
 texture_normal = SubResource("GradientTexture2D_rkubv")
 shape = SubResource("RectangleShape2D_8xfq6")
 passby_press = true
 action = "ui_down"
-visibility_mode = 1
 
-[node name="D" type="TouchScreenButton" parent="WASD"]
+[node name="D" type="TouchScreenButton" parent="PhoneOnly/WASD"]
 position = Vector2(10, -90)
 texture_normal = SubResource("GradientTexture2D_rkubv")
 shape = SubResource("RectangleShape2D_8xfq6")
 passby_press = true
 action = "ui_right"
-visibility_mode = 1
 
-[node name="Space" type="Control" parent="."]
+[node name="Space" type="Control" parent="PhoneOnly"]
 anchors_preset = 0
 offset_left = 116.0
 offset_top = 427.0
 offset_right = 166.0
 offset_bottom = 477.0
 
-[node name="Space" type="TouchScreenButton" parent="Space"]
+[node name="Space" type="TouchScreenButton" parent="PhoneOnly/Space"]
 position = Vector2(-101, -66)
 scale = Vector2(1.2734376, 1.2734377)
 texture_normal = SubResource("GradientTexture2D_c7681")
 shape = SubResource("RectangleShape2D_rkubv")
 passby_press = true
-visibility_mode = 1
+action = "ui_accept"
 
-[node name="Restart" type="Control" parent="."]
+[node name="Restart" type="Control" parent="PhoneOnly"]
 anchors_preset = 0
 offset_left = 884.0
 offset_top = 207.0
@@ -116,14 +117,13 @@ offset_right = 956.0
 offset_bottom = 253.0
 metadata/_edit_group_ = true
 
-[node name="Restart" type="TouchScreenButton" parent="Restart"]
+[node name="Restart" type="TouchScreenButton" parent="PhoneOnly/Restart"]
 scale = Vector2(7.2000036, 4.6000013)
 texture_normal = SubResource("GradientTexture2D_hvm6u")
 shape = SubResource("RectangleShape2D_ayjwn")
 action = "restart"
-visibility_mode = 1
 
-[node name="RestartLabel" type="Label" parent="Restart"]
+[node name="RestartLabel" type="Label" parent="PhoneOnly/Restart"]
 layout_mode = 0
 offset_right = 72.0
 offset_bottom = 46.0

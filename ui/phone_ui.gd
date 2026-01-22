@@ -1,12 +1,8 @@
 extends Control
+@onready var phone_only: Control = $PhoneOnly
 
-
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	visible = true
-	if OS.has_feature("mobile"):
-		visible = true
-		print("Is mobile")
-	if OS.get_name() == "Android" or OS.get_name() == "iOS":
-		visible = true
-		print("Android or iOS")
+	if DisplayServer.is_touchscreen_available():
+		phone_only.visible = true
+	else:
+		phone_only.visible = false
