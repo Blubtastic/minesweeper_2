@@ -16,9 +16,13 @@ config/features=PackedStringArray("4.5", "GL Compatibility")
 boot_splash/show_image=false
 config/icon="res://icon.svg"
 
+[audio]
+
+buses/default_bus_layout="res://app/default_bus_layout.tres"
+
 [autoload]
 
-Globals="*res://Globals.tscn"
+Globals="*res://app/Globals.tscn"
 
 [display]
 
