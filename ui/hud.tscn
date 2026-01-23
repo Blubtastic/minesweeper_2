@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://csi0364mca8xy"]
 
 [ext_resource type="Texture2D" uid="uid://djmgs1cgvpm7a" path="res://icon.svg" id="1_rbyyf"]
-[ext_resource type="Script" uid="uid://di6bxnrakydkd" path="res://score_label.gd" id="2_276te"]
+[ext_resource type="Script" uid="uid://di6bxnrakydkd" path="res://ui/score_label.gd" id="2_276te"]
 [ext_resource type="Script" path="res://ui/hp_icon.gd" id="2_546lt"]
 [ext_resource type="Script" uid="uid://dni0a8to6alsr" path="res://ui/fps_counter.gd" id="4_7ihmi"]
 
