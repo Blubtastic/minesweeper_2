@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://biv38ja3npifj"
-path="res://.godot/imported/LogoMinedriver.blend-d2085bbac96387d55a0323c884861a2c.scn"
+path="res://.godot/imported/LogoMinedriver.blend-4063645740bea0e7d7f83052ce8c7392.scn"
 
 [deps]
 
-source_file="res://ui/LogoMinedriver.blend"
-dest_files=["res://.godot/imported/LogoMinedriver.blend-d2085bbac96387d55a0323c884861a2c.scn"]
+source_file="res://2D/LogoMinedriver.blend"
+dest_files=["res://.godot/imported/LogoMinedriver.blend-4063645740bea0e7d7f83052ce8c7392.scn"]
 
 [params]
 

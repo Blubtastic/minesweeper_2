@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dvabslbqfwp0v" path="res://features/Sparks/Sparks.tscn" id="4_j4a84"]
 [ext_resource type="PackedScene" uid="uid://dbi36hqar6db8" path="res://shared/PlayerShadow.tscn" id="4_vrm5f"]
 [ext_resource type="PackedScene" uid="uid://b7wmb8jxswbil" path="res://features/TireDebris/TireDebrisSnow.tscn" id="5_5hepr"]
-[ext_resource type="PackedScene" uid="uid://d3euse4yt0vwp" path="res://ui/phone_ui.tscn" id="8_81m0s"]
+[ext_resource type="PackedScene" uid="uid://d3euse4yt0vwp" path="res://2D/phone_ui.tscn" id="8_81m0s"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4to0f"]
 size = Vector3(0.3, 0.258521, 0.5)

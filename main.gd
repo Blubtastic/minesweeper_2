@@ -1,7 +1,7 @@
 extends Node3D
 const CubeChunk := preload("res://CubeChunk.tscn")
 const ForestChunk := preload("res://features/ForestChunk.tscn")
-const GAME_OVER := preload("res://ui/game_over.tscn")
+const GAME_OVER = preload("uid://qhpvf7y1n474")
 
 @onready var ray: RayCast3D = $Ray
 @onready var left_ray: RayCast3D = $LeftRay
