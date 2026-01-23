@@ -1,6 +1,7 @@
 extends StaticBody3D
-@onready var damage_area = preload("res://shared/DamageArea.tscn")
-@onready var cube_destroyed = preload("res://shared/cube/CubeDestroyed.tscn")
+
+const DAMAGE_AREA = preload("uid://ftokwp4ypb8m")
+const CUBE_DESTROYED = preload("uid://bp6e0aywkls4b")
 
 @export var isLoadingCleared: bool = false
 @export var isLoadingExploded: bool = false
@@ -73,14 +74,14 @@ func trigger_explosion():
 		spawn_explosion()
 
 func spawn_explosion():
-	var CubeDestroyed = cube_destroyed.instantiate()
+	var CubeDestroyed = CUBE_DESTROYED.instantiate()
 	add_child(CubeDestroyed)
 	CubeDestroyed.global_position = Vector3(global_position.x, global_position.y + 0.7, global_position.z)
 	cube_top.visible = false
 	flag_sprite.visible = false
 	has_exploded = true
 	
-	var DamageArea = damage_area.instantiate()
+	var DamageArea = DAMAGE_AREA.instantiate()
 	add_child(DamageArea)
 	DamageArea.global_position = Vector3(global_position.x, global_position.y + 0.7, global_position.z)
 	await get_tree().create_timer(1.0).timeout

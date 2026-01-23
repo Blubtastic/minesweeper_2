@@ -1,9 +1,11 @@
 extends AnimatableBody3D
 
-const CubeScene := preload("res://shared/cube/Cube.tscn")
+const CUBE_SCENE = preload("uid://cnor6jdbe28rj")
+
+@export var NUMBER_OF_MINES: int = 10
+
 const GRID_HEIGHT := 6
 const GRID_WIDTH := 10
-@export var NUMBER_OF_MINES: int = 10
 const CUBE_DISTANCE := 1.0
 var game_started: bool = false
 var cubes = []
@@ -20,7 +22,7 @@ func _physics_process(delta):
 func spawn_grid():
 	for w in range(GRID_WIDTH):
 		for h in range(GRID_HEIGHT):
-			var cube_instance = CubeScene.instantiate()
+			var cube_instance = CUBE_SCENE.instantiate()
 			var cube_position = Vector3(w * CUBE_DISTANCE, 0, h * CUBE_DISTANCE)
 			cube_instance.transform.origin = cube_position
 			add_child(cube_instance)
@@ -31,7 +33,7 @@ func spawn_grid():
 
 func spawn_buffer_row(row: int):
 	for w in range(GRID_WIDTH):
-		var cube_instance = CubeScene.instantiate()
+		var cube_instance = CUBE_SCENE.instantiate()
 		var cube_position = Vector3(w * CUBE_DISTANCE, 0, row * CUBE_DISTANCE)
 		cube_instance.transform.origin = cube_position
 		add_child(cube_instance)

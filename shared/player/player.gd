@@ -9,7 +9,7 @@ var invincible: bool = false
 var overlapping_cubes
 var is_controllable = true
 
-@onready var trail_vfx = preload("res://shared/cube/TrailVFX.tscn")
+const TRAIL_VFX = preload("uid://drynt1383xlht")
 @onready var hitbox: Area3D = $CubeHitbox
 @onready var damage_hitbox: Area3D = $DamageHitbox
 @onready var player_shadow: Sprite3D = $"../PlayerShadow"
@@ -70,7 +70,7 @@ func damage_player():
 		invincible = true
 		Globals.is_player_flying = true
 		
-		var TrailVfx = trail_vfx.instantiate()
+		var TrailVfx = TRAIL_VFX.instantiate()
 		add_child(TrailVfx)
 		await get_tree().create_timer(1.0).timeout
 		invincible = false
