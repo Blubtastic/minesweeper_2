@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://dqeksnc1bqwgt"]
+[gd_scene format=3 uid="uid://dqeksnc1bqwgt"]
 
 [ext_resource type="Script" uid="uid://cahfvs4cexpdp" path="res://shared/player/player.gd" id="1_fjkuh"]
 [ext_resource type="PackedScene" uid="uid://ddwftyj3tif34" path="res://features/Poof/Poof.tscn" id="3_b81g5"]
@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://drynt1383xlht" path="res://shared/cube/TrailVFX.tscn" id="3_rkr5s"]
 [ext_resource type="PackedScene" uid="uid://dvabslbqfwp0v" path="res://features/Sparks/Sparks.tscn" id="4_j4a84"]
 [ext_resource type="PackedScene" uid="uid://dbi36hqar6db8" path="res://shared/PlayerShadow.tscn" id="4_vrm5f"]
-[ext_resource type="PackedScene" uid="uid://b7wmb8jxswbil" path="res://features/TireDebris/TireDebrisSnow.tscn" id="5_5hepr"]
+[ext_resource type="PackedScene" uid="uid://b7wmb8jxswbil" path="res://shared/player/TireDebris/TireDebrisSnow.tscn" id="5_5hepr"]
 [ext_resource type="PackedScene" uid="uid://d3euse4yt0vwp" path="res://2D/phone_ui.tscn" id="8_81m0s"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4to0f"]
