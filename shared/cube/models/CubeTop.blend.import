@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://m40ygfonv80c"
-path="res://.godot/imported/CubeTop.blend-4e922279cc6b744fa542437167f3d902.scn"
+path="res://.godot/imported/CubeTop.blend-375be38f8063f8de80be99e8c6126f4f.scn"
 
 [deps]
 
-source_file="res://shared/cube/CubeTop.blend"
-dest_files=["res://.godot/imported/CubeTop.blend-4e922279cc6b744fa542437167f3d902.scn"]
+source_file="res://shared/cube/models/CubeTop.blend"
+dest_files=["res://.godot/imported/CubeTop.blend-375be38f8063f8de80be99e8c6126f4f.scn"]
 
 [params]
 

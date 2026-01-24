@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cvaybiurchtbm" path="res://shared/cube/cube.gd" id="1_q4yb4"]
 [ext_resource type="Script" uid="uid://87plyi0g6m0f" path="res://shared/cube/cube_scanner.gd" id="5_s41nj"]
-[ext_resource type="PackedScene" uid="uid://m40ygfonv80c" path="res://shared/cube/CubeTop.blend" id="5_terun"]
+[ext_resource type="PackedScene" uid="uid://m40ygfonv80c" path="res://shared/cube/models/CubeTop.blend" id="5_terun"]
 [ext_resource type="AudioStream" uid="uid://bjpkhrcmt7lw" path="res://shared/cube/audio/open-tile.wav" id="6_o0a8b"]
 [ext_resource type="AudioStream" uid="uid://bbvy78gqnhud1" path="res://shared/cube/audio/place-flag.wav" id="7_eeb88"]
 [ext_resource type="AudioStream" uid="uid://dya4t4p2oap3d" path="res://shared/cube/audio/remove-flag.wav" id="8_pc8bq"]
