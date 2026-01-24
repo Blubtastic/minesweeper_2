@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://cnor6jdbe28rj"]
 
 [ext_resource type="Script" uid="uid://cvaybiurchtbm" path="res://shared/cube/cube.gd" id="1_q4yb4"]
-[ext_resource type="ArrayMesh" uid="uid://dw8srk5pi5408" path="res://shared/cube/CubeTop.res" id="3_w4ch3"]
 [ext_resource type="Script" uid="uid://87plyi0g6m0f" path="res://shared/cube/cube_scanner.gd" id="5_s41nj"]
+[ext_resource type="PackedScene" uid="uid://m40ygfonv80c" path="res://shared/cube/CubeTop.blend" id="5_terun"]
 [ext_resource type="AudioStream" uid="uid://bjpkhrcmt7lw" path="res://shared/cube/audio/open-tile.wav" id="6_o0a8b"]
 [ext_resource type="AudioStream" uid="uid://bbvy78gqnhud1" path="res://shared/cube/audio/place-flag.wav" id="7_eeb88"]
 [ext_resource type="AudioStream" uid="uid://dya4t4p2oap3d" path="res://shared/cube/audio/remove-flag.wav" id="8_pc8bq"]
@@ -86,9 +86,8 @@ script = ExtResource("5_s41nj")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CubeScanner" unique_id=515920400]
 shape = SubResource("BoxShape3D_y1sac")
 
-[node name="CubeTop" type="MeshInstance3D" parent="." unique_id=1774297475]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.575783, 0)
-mesh = ExtResource("3_w4ch3")
+[node name="CubeTop" parent="." unique_id=581109557 instance=ExtResource("5_terun")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.57564616, 0)
 
 [node name="Collider" type="CollisionShape3D" parent="." unique_id=1194951411]
 shape = SubResource("BoxShape3D_aokb8")

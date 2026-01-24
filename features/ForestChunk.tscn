@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dhlda46fqvnos"]
 
 [ext_resource type="Script" uid="uid://bll4bpeo58tkv" path="res://features/forest_chunk.gd" id="1_1tg5x"]
-[ext_resource type="ArrayMesh" uid="uid://bflbcfq2f5yh5" path="res://features/ForestChunkBlender/ForestChunkMerged.res" id="2_lvg2a"]
+[ext_resource type="PackedScene" uid="uid://kll47d13opx8" path="res://features/ForestChunkBlender/ForestChunkOptimized.blend" id="2_lvg2a"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tu15c"]
 size = Vector3(8, 0.5, 8)
@@ -22,8 +22,7 @@ shape = SubResource("BoxShape3D_tu15c")
 [node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="." unique_id=129374481]
 aabb = AABB(-4, -8, -4, 8, 10, 8)
 
-[node name="ForestChunkMerged" type="MeshInstance3D" parent="." unique_id=1468842021]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.545, 0.08, 1.208)
-mesh = ExtResource("2_lvg2a")
+[node name="ForestChunkOptimized" parent="." unique_id=1460649448 instance=ExtResource("2_lvg2a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.9000146, 0)
 
 [connection signal="screen_exited" from="VisibleOnScreenNotifier3D" to="." method="_on_visible_on_screen_notifier_3d_screen_exited"]
