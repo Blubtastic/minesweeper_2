@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://celxavas2i8qt"]
 
 [ext_resource type="PackedScene" uid="uid://bnxqp40rt11bk" path="res://2D/main_menu_2d.tscn" id="1_t7e0r"]
-[ext_resource type="PackedScene" uid="uid://biv38ja3npifj" path="res://2D/LogoMinedriver.blend" id="2_0dkrt"]
+[ext_resource type="ArrayMesh" uid="uid://defnj45kr1xwi" path="res://2D/LogoMinedriver.res" id="2_cyuw3"]
 [ext_resource type="ArrayMesh" uid="uid://bflbcfq2f5yh5" path="res://features/ForestChunkBlender/ForestChunkMerged.res" id="3_cyuw3"]
 [ext_resource type="PackedScene" uid="uid://drynt1383xlht" path="res://shared/cube/TrailVFX.tscn" id="4_8uxxo"]
 [ext_resource type="PackedScene" uid="uid://b7wmb8jxswbil" path="res://features/TireDebris/TireDebrisSnow.tscn" id="6_arv2f"]
@@ -103,8 +103,9 @@ directional_shadow_split_3 = 0.4
 transform = Transform3D(1, 0, 0, 0, 0.641717, 0.766941, 0, -0.766941, 0.641717, -0.270058, 2.25718, 2.0099)
 fov = 107.4
 
-[node name="LogoMinedriver" parent="." unique_id=1169267170 instance=ExtResource("2_0dkrt")]
-transform = Transform3D(1, 0, 0, 0, 0.876181, -0.481983, 0, 0.481983, 0.876181, -0.270058, 0.925133, -0.635757)
+[node name="LogoMinedriver" type="MeshInstance3D" parent="." unique_id=1745014939]
+transform = Transform3D(1, 0, 0, 0, 0.87618065, -0.48198283, 0, 0.48198283, 0.87618065, -0.270058, 0.95047766, -0.6818303)
+mesh = ExtResource("2_cyuw3")
 
 [node name="Forest" type="Node3D" parent="." unique_id=1738710611]
 
