@@ -1,8 +1,8 @@
-[gd_scene load_steps=24 format=3 uid="uid://celxavas2i8qt"]
+[gd_scene format=3 uid="uid://celxavas2i8qt"]
 
 [ext_resource type="PackedScene" uid="uid://bnxqp40rt11bk" path="res://2D/main_menu_2d.tscn" id="1_t7e0r"]
 [ext_resource type="PackedScene" uid="uid://biv38ja3npifj" path="res://2D/LogoMinedriver.blend" id="2_0dkrt"]
-[ext_resource type="PackedScene" uid="uid://o3dppufd7f2y" path="res://features/ForestChunkBlender/ForestChunk.blend" id="3_wk0pr"]
+[ext_resource type="ArrayMesh" uid="uid://bflbcfq2f5yh5" path="res://features/ForestChunkBlender/ForestChunkMerged.res" id="3_cyuw3"]
 [ext_resource type="PackedScene" uid="uid://drynt1383xlht" path="res://shared/cube/TrailVFX.tscn" id="4_8uxxo"]
 [ext_resource type="PackedScene" uid="uid://b7wmb8jxswbil" path="res://features/TireDebris/TireDebrisSnow.tscn" id="6_arv2f"]
 [ext_resource type="PackedScene" uid="uid://dvabslbqfwp0v" path="res://features/Sparks/Sparks.tscn" id="7_5klac"]
@@ -81,15 +81,15 @@ height = 0.5
 height = 0.55
 radius = 0.02
 
-[node name="MainMenu" type="Node3D"]
+[node name="MainMenu" type="Node3D" unique_id=331791909]
 
-[node name="MainMenu2D" parent="." instance=ExtResource("1_t7e0r")]
+[node name="MainMenu2D" parent="." unique_id=415943921 instance=ExtResource("1_t7e0r")]
 version_number = "0.0.36"
 
-[node name="Environment" type="WorldEnvironment" parent="."]
+[node name="Environment" type="WorldEnvironment" parent="." unique_id=516878088]
 environment = SubResource("Environment_rmr83")
 
-[node name="Sun" type="DirectionalLight3D" parent="."]
+[node name="Sun" type="DirectionalLight3D" parent="." unique_id=252903075]
 transform = Transform3D(0.444782, 0.830912, 0.334296, -0.811844, 0.216397, 0.542293, 0.378257, -0.512599, 0.770821, 0, 0, 0)
 light_color = Color(0.999999, 0.997401, 0.807223, 1)
 light_energy = 0.1
@@ -99,104 +99,104 @@ directional_shadow_split_1 = 0.2
 directional_shadow_split_2 = 0.32
 directional_shadow_split_3 = 0.4
 
-[node name="Camera3D" type="Camera3D" parent="."]
+[node name="Camera3D" type="Camera3D" parent="." unique_id=280486300]
 transform = Transform3D(1, 0, 0, 0, 0.641717, 0.766941, 0, -0.766941, 0.641717, -0.270058, 2.25718, 2.0099)
 fov = 107.4
 
-[node name="LogoMinedriver" parent="." instance=ExtResource("2_0dkrt")]
+[node name="LogoMinedriver" parent="." unique_id=1169267170 instance=ExtResource("2_0dkrt")]
 transform = Transform3D(1, 0, 0, 0, 0.876181, -0.481983, 0, 0.481983, 0.876181, -0.270058, 0.925133, -0.635757)
 
-[node name="Forest" type="Node3D" parent="."]
+[node name="Forest" type="Node3D" parent="." unique_id=1738710611]
 
-[node name="ForestChunk" parent="Forest" instance=ExtResource("3_wk0pr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.98034, -1.62409)
+[node name="ForestChunkMerged" type="MeshInstance3D" parent="Forest" unique_id=72402126]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5497069, -1.0019042, -0.42024064)
+mesh = ExtResource("3_cyuw3")
 
-[node name="ForestChunk2" parent="Forest" instance=ExtResource("3_wk0pr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, -4.98034, -1.62409)
+[node name="ForestChunkMerged2" type="MeshInstance3D" parent="Forest" unique_id=1124304311]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.450293, -1.0019042, -0.42024064)
+mesh = ExtResource("3_cyuw3")
 
-[node name="ForestChunk3" parent="Forest" instance=ExtResource("3_wk0pr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, -4.98034, -1.62409)
+[node name="ForestChunkMerged3" type="MeshInstance3D" parent="Forest" unique_id=344780767]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.549707, -1.0019042, -0.42024064)
+mesh = ExtResource("3_cyuw3")
 
-[node name="ForestChunk4" parent="Forest" instance=ExtResource("3_wk0pr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.98034, -9.60426)
+[node name="ForestChunkMerged4" type="MeshInstance3D" parent="Forest" unique_id=1588755188]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5497069, -1.0019042, -8.42024)
+mesh = ExtResource("3_cyuw3")
 
-[node name="ForestChunk5" parent="Forest" instance=ExtResource("3_wk0pr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, -4.98034, -9.60426)
+[node name="ForestChunkMerged5" type="MeshInstance3D" parent="Forest" unique_id=739238099]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.450293, -1.0019042, -8.42024)
+mesh = ExtResource("3_cyuw3")
 
-[node name="ForestChunk7" parent="Forest" instance=ExtResource("3_wk0pr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, -4.98034, -1.62409)
+[node name="ForestChunkMerged6" type="MeshInstance3D" parent="Forest" unique_id=157802749]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.549707, -1.0019042, -8.42024)
+mesh = ExtResource("3_cyuw3")
 
-[node name="ForestChunk8" parent="Forest" instance=ExtResource("3_wk0pr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, -4.98034, -9.60426)
-
-[node name="ForestChunk6" parent="Forest" instance=ExtResource("3_wk0pr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, -4.98034, -9.60426)
-
-[node name="Rock" type="StaticBody3D" parent="."]
+[node name="Rock" type="StaticBody3D" parent="." unique_id=1726917220]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.08749, -0.835445, -1.16354)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Rock"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Rock" unique_id=1144717740]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.204687, 0)
 shape = SubResource("BoxShape3D_rmr83")
 
-[node name="Ground" type="StaticBody3D" parent="."]
+[node name="Ground" type="StaticBody3D" parent="." unique_id=2054258012]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.02491, 0)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground" unique_id=1324305908]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.938337, -5.81037)
 shape = SubResource("BoxShape3D_8uxxo")
 
-[node name="PlayerModel" type="Node3D" parent="."]
+[node name="PlayerModel" type="Node3D" parent="." unique_id=1131668939]
 transform = Transform3D(0.617654, -0.00759272, -0.786413, -0.142901, 0.982224, -0.121719, 0.773358, 0.187559, 0.60559, -0.977921, -0.103376, -0.936959)
 
-[node name="Body" type="MeshInstance3D" parent="PlayerModel"]
+[node name="Body" type="MeshInstance3D" parent="PlayerModel" unique_id=26740487]
 layers = 16
 cast_shadow = 0
 mesh = SubResource("BoxMesh_wk0pr")
 skeleton = NodePath("../..")
 
-[node name="WheelFrontRight" type="MeshInstance3D" parent="PlayerModel"]
+[node name="WheelFrontRight" type="MeshInstance3D" parent="PlayerModel" unique_id=401533472]
 transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0.175, -0.07, -0.15)
 cast_shadow = 0
 mesh = SubResource("CylinderMesh_rmr83")
 skeleton = NodePath("../..")
 
-[node name="WheelBackRight" type="MeshInstance3D" parent="PlayerModel"]
+[node name="WheelBackRight" type="MeshInstance3D" parent="PlayerModel" unique_id=1836526747]
 transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0.175, -0.07, 0.15)
 cast_shadow = 0
 mesh = SubResource("CylinderMesh_rmr83")
 skeleton = NodePath("../..")
 
-[node name="WheelFrontLeft" type="MeshInstance3D" parent="PlayerModel"]
+[node name="WheelFrontLeft" type="MeshInstance3D" parent="PlayerModel" unique_id=1697104571]
 transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -0.175, -0.07, -0.15)
 cast_shadow = 0
 mesh = SubResource("CylinderMesh_rmr83")
 skeleton = NodePath("../..")
 
-[node name="WheelBackLeft" type="MeshInstance3D" parent="PlayerModel"]
+[node name="WheelBackLeft" type="MeshInstance3D" parent="PlayerModel" unique_id=673840196]
 transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -0.175, -0.07, 0.15)
 cast_shadow = 0
 mesh = SubResource("CylinderMesh_rmr83")
 skeleton = NodePath("../..")
 
-[node name="Antenna" type="RigidBody3D" parent="PlayerModel"]
+[node name="Antenna" type="RigidBody3D" parent="PlayerModel" unique_id=763992598]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1, 0.2, 0.2)
 visible = false
 mass = 10.0
 
-[node name="Ball" type="MeshInstance3D" parent="PlayerModel/Antenna"]
+[node name="Ball" type="MeshInstance3D" parent="PlayerModel/Antenna" unique_id=733305251]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.477837, 0)
 mesh = SubResource("SphereMesh_8uxxo")
 
-[node name="Wire" type="MeshInstance3D" parent="PlayerModel/Antenna"]
+[node name="Wire" type="MeshInstance3D" parent="PlayerModel/Antenna" unique_id=116444461]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0)
 mesh = SubResource("CylinderMesh_ei257")
 
-[node name="Collision" type="CollisionShape3D" parent="PlayerModel/Antenna"]
+[node name="Collision" type="CollisionShape3D" parent="PlayerModel/Antenna" unique_id=1162125490]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.259948, 0)
 shape = SubResource("CylinderShape3D_p8ri8")
 
-[node name="ConeTwistJoint3D" type="ConeTwistJoint3D" parent="PlayerModel/Antenna"]
+[node name="ConeTwistJoint3D" type="ConeTwistJoint3D" parent="PlayerModel/Antenna" unique_id=316015523]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0479335, 0)
 node_a = NodePath("../../..")
 node_b = NodePath("..")
@@ -204,7 +204,7 @@ swing_span = 0.261799
 twist_span = 0.0
 bias = 0.01
 
-[node name="SpotLight3D" type="SpotLight3D" parent="."]
+[node name="SpotLight3D" type="SpotLight3D" parent="." unique_id=1735751909]
 transform = Transform3D(1, 0, 0, 0, 0.510543, 0.859852, 0, -0.859852, 0.510543, -0.316147, 2.9032, 0.870646)
 light_color = Color(1, 1, 0.890196, 1)
 light_bake_mode = 1
@@ -213,7 +213,7 @@ spot_attenuation = -0.2
 spot_angle = 54.8844
 spot_angle_attenuation = 0.406127
 
-[node name="SpotLight3D2" type="SpotLight3D" parent="."]
+[node name="SpotLight3D2" type="SpotLight3D" parent="." unique_id=893002526]
 transform = Transform3D(0.00467829, -0.0189438, 0.99981, -0.0384946, 0.999076, 0.01911, -0.999248, -0.0385767, 0.00394474, 4.48749, 1.12939, -0.390179)
 light_color = Color(1, 1, 0.890196, 1)
 light_energy = 0.25
@@ -223,7 +223,7 @@ spot_attenuation = -0.2
 spot_angle = 54.8844
 spot_angle_attenuation = 0.406127
 
-[node name="SpotLight3D3" type="SpotLight3D" parent="."]
+[node name="SpotLight3D3" type="SpotLight3D" parent="." unique_id=2069966545]
 transform = Transform3D(0.00348806, 0.000134085, -0.999994, 0.0383878, -0.999263, -8.74228e-08, -0.999257, -0.0383876, -0.00349064, -4.49039, 1.15744, -0.30778)
 light_color = Color(1, 1, 0.890196, 1)
 light_energy = 0.25
@@ -233,33 +233,33 @@ spot_attenuation = -0.2
 spot_angle = 54.8844
 spot_angle_attenuation = 0.406127
 
-[node name="Preload" type="Node3D" parent="."]
+[node name="Preload" type="Node3D" parent="." unique_id=1097348783]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -7.20614, -7.92381)
 
-[node name="TrailVFX" parent="Preload" instance=ExtResource("4_8uxxo")]
+[node name="TrailVFX" parent="Preload" unique_id=941001219 instance=ExtResource("4_8uxxo")]
 
-[node name="TireDebrisSnow" parent="Preload" instance=ExtResource("6_arv2f")]
+[node name="TireDebrisSnow" parent="Preload" unique_id=196448549 instance=ExtResource("6_arv2f")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0)
 
-[node name="Sparks" parent="Preload" instance=ExtResource("7_5klac")]
+[node name="Sparks" parent="Preload" unique_id=1982086900 instance=ExtResource("7_5klac")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 0)
 
-[node name="Snow" parent="Preload" instance=ExtResource("8_lsdqh")]
+[node name="Snow" parent="Preload" unique_id=417377880 instance=ExtResource("8_lsdqh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.411, -21.078, -2.78)
 
-[node name="Poof" parent="Preload" instance=ExtResource("9_jiymt")]
+[node name="Poof" parent="Preload" unique_id=1364226047 instance=ExtResource("9_jiymt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 0)
 
-[node name="Cube" parent="Preload" instance=ExtResource("10_5klac")]
+[node name="Cube" parent="Preload" unique_id=2031201948 instance=ExtResource("10_5klac")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
 isLoadingCleared = true
 
-[node name="Cube2" parent="Preload" instance=ExtResource("10_5klac")]
+[node name="Cube2" parent="Preload" unique_id=571885870 instance=ExtResource("10_5klac")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 2)
 isLoadingExploded = true
 
-[node name="Cube3" parent="Preload" instance=ExtResource("10_5klac")]
+[node name="Cube3" parent="Preload" unique_id=402610004 instance=ExtResource("10_5klac")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 2)
 
-[node name="Snow" parent="." instance=ExtResource("8_lsdqh")]
+[node name="Snow" parent="." unique_id=136886222 instance=ExtResource("8_lsdqh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -21.4755, 0)

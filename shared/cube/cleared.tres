@@ -1,4 +1,4 @@
-[gd_resource type="BoxMesh" load_steps=4 format=3 uid="uid://c466clxudld4s"]
+[gd_resource type="BoxMesh" format=3 uid="uid://c466clxudld4s"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_8et7m"]
 noise_type = 4

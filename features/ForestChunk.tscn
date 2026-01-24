@@ -1,12 +1,12 @@
-[gd_scene load_steps=4 format=3 uid="uid://dhlda46fqvnos"]
+[gd_scene format=3 uid="uid://dhlda46fqvnos"]
 
 [ext_resource type="Script" uid="uid://bll4bpeo58tkv" path="res://features/forest_chunk.gd" id="1_1tg5x"]
-[ext_resource type="PackedScene" uid="uid://o3dppufd7f2y" path="res://features/ForestChunkBlender/ForestChunk.blend" id="5_f8iwg"]
+[ext_resource type="ArrayMesh" uid="uid://bflbcfq2f5yh5" path="res://features/ForestChunkBlender/ForestChunkMerged.res" id="2_lvg2a"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tu15c"]
 size = Vector3(8, 0.5, 8)
 
-[node name="Root" type="AnimatableBody3D"]
+[node name="Root" type="AnimatableBody3D" unique_id=1726180872]
 collision_mask = 0
 axis_lock_linear_x = true
 axis_lock_linear_y = true
@@ -16,13 +16,14 @@ axis_lock_angular_z = true
 sync_to_physics = false
 script = ExtResource("1_1tg5x")
 
-[node name="HitboxGround" type="CollisionShape3D" parent="."]
+[node name="HitboxGround" type="CollisionShape3D" parent="." unique_id=981475316]
 shape = SubResource("BoxShape3D_tu15c")
 
-[node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="."]
+[node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="." unique_id=129374481]
 aabb = AABB(-4, -8, -4, 8, 10, 8)
 
-[node name="ForestChunk" parent="." instance=ExtResource("5_f8iwg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.89839, 0)
+[node name="ForestChunkMerged" type="MeshInstance3D" parent="." unique_id=1468842021]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.545, 0.08, 1.208)
+mesh = ExtResource("2_lvg2a")
 
 [connection signal="screen_exited" from="VisibleOnScreenNotifier3D" to="." method="_on_visible_on_screen_notifier_3d_screen_exited"]
