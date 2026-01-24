@@ -1,64 +1,19 @@
 [gd_scene format=3 uid="uid://cnor6jdbe28rj"]
 
 [ext_resource type="Script" uid="uid://cvaybiurchtbm" path="res://shared/cube/cube.gd" id="1_q4yb4"]
-[ext_resource type="BoxMesh" uid="uid://c466clxudld4s" path="res://shared/cube/cleared.tres" id="2_m3nde"]
-[ext_resource type="Script" uid="uid://dtcw3kxcfiebx" path="res://shared/cube/top_mesh.gd" id="4_wdcma"]
+[ext_resource type="ArrayMesh" uid="uid://dw8srk5pi5408" path="res://shared/cube/CubeTop.res" id="3_w4ch3"]
 [ext_resource type="Script" uid="uid://87plyi0g6m0f" path="res://shared/cube/cube_scanner.gd" id="5_s41nj"]
-[ext_resource type="PackedScene" uid="uid://m40ygfonv80c" path="res://shared/cube/CubeTop.blend" id="5_terun"]
 [ext_resource type="AudioStream" uid="uid://bjpkhrcmt7lw" path="res://shared/cube/audio/open-tile.wav" id="6_o0a8b"]
 [ext_resource type="AudioStream" uid="uid://bbvy78gqnhud1" path="res://shared/cube/audio/place-flag.wav" id="7_eeb88"]
 [ext_resource type="AudioStream" uid="uid://dya4t4p2oap3d" path="res://shared/cube/audio/remove-flag.wav" id="8_pc8bq"]
 [ext_resource type="AudioStream" uid="uid://blr22e80lqmjd" path="res://shared/cube/audio/hover-cube.wav" id="9_fg1ko"]
 [ext_resource type="AudioStream" uid="uid://cl6qd5gf6x7j3" path="res://shared/cube/audio/explosion.wav" id="10_llvf4"]
-[ext_resource type="Texture2D" uid="uid://bxnym2xl4bk16" path="res://shared/cube/mine.png" id="11_n6pam"]
 [ext_resource type="PackedScene" uid="uid://dvabslbqfwp0v" path="res://features/Sparks/Sparks.tscn" id="12_1jcsy"]
-[ext_resource type="Texture2D" uid="uid://d2ddjfojqn6ka" path="res://shared/cube/flag.png" id="12_bksym"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_y1sac"]
 size = Vector3(2, 0.6, 2)
 
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_j51ek"]
-noise_type = 0
-fractal_type = 3
-domain_warp_enabled = true
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_pw8e8"]
-noise = SubResource("FastNoiseLite_j51ek")
-seamless = true
-as_normal_map = true
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xq44k"]
-albedo_color = Color(0.48, 0.48, 0.48, 0.8)
-roughness = 0.32
-emission = Color(1, 1, 1, 1)
-emission_energy_multiplier = 0.77
-normal_enabled = true
-normal_texture = SubResource("NoiseTexture2D_pw8e8")
-heightmap_scale = -16.0
-refraction_scale = 0.08
-
-[sub_resource type="CylinderMesh" id="CylinderMesh_sjbvx"]
-material = SubResource("StandardMaterial3D_xq44k")
-top_radius = 0.707
-bottom_radius = 0.707
-height = 1.5
-radial_segments = 4
-cap_bottom = false
-
 [sub_resource type="BoxShape3D" id="BoxShape3D_aokb8"]
-
-[sub_resource type="Gradient" id="Gradient_xhxdg"]
-colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 0)
-
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_4qnxv"]
-noise_type = 0
-fractal_type = 2
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_fr8oe"]
-width = 100
-height = 100
-noise = SubResource("FastNoiseLite_4qnxv")
-color_ramp = SubResource("Gradient_xhxdg")
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_8afpo"]
 random_pitch = 1.2
@@ -131,18 +86,9 @@ script = ExtResource("5_s41nj")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CubeScanner" unique_id=515920400]
 shape = SubResource("BoxShape3D_y1sac")
 
-[node name="TopMesh" type="MeshInstance3D" parent="." unique_id=1228266334]
-transform = Transform3D(0.707107, 0, 0.707107, 0, 0.1, 0, -0.707107, 0, 0.707107, 0, 0.575, 0)
-visible = false
-mesh = SubResource("CylinderMesh_sjbvx")
-script = ExtResource("4_wdcma")
-
-[node name="MeshOld" type="MeshInstance3D" parent="." unique_id=736912911]
-visible = false
-mesh = ExtResource("2_m3nde")
-
-[node name="CubeTop" parent="." unique_id=194841626 instance=ExtResource("5_terun")]
+[node name="CubeTop" type="MeshInstance3D" parent="." unique_id=1774297475]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.575783, 0)
+mesh = ExtResource("3_w4ch3")
 
 [node name="Collider" type="CollisionShape3D" parent="." unique_id=1194951411]
 shape = SubResource("BoxShape3D_aokb8")
@@ -153,44 +99,6 @@ no_depth_test = true
 render_priority = 127
 modulate = Color(0, 0, 0, 1)
 font_size = 100
-
-[node name="Flag" type="Sprite3D" parent="." unique_id=720382257]
-transform = Transform3D(-1.74846e-08, 0.4, 1.74846e-08, 0, -1.74846e-08, 0.4, 0.4, 1.74846e-08, 7.64274e-16, 0, 0.61, 0)
-visible = false
-texture = ExtResource("12_bksym")
-
-[node name="Label3D" type="Label3D" parent="." unique_id=190194028]
-
-[node name="Node3D" type="Node3D" parent="." unique_id=854930231]
-
-[node name="Mine" type="Sprite3D" parent="Node3D" unique_id=177674688]
-transform = Transform3D(0.28, 0, 0, 0, -1.22392e-08, -0.28, 0, 0.28, -1.22392e-08, 0, 0.399, 0)
-visible = false
-texture = ExtResource("11_n6pam")
-
-[node name="Stains" type="Node3D" parent="Node3D" unique_id=938209846]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
-visible = false
-
-[node name="Sprite3D5" type="Sprite3D" parent="Node3D/Stains" unique_id=1077826884]
-transform = Transform3D(-4.37114e-08, -1, 4.37114e-08, 0, -4.37114e-08, -1, 1, -4.37114e-08, 1.91069e-15, 0, 0.501, 0)
-texture = SubResource("NoiseTexture2D_fr8oe")
-
-[node name="Sprite3D" type="Sprite3D" parent="Node3D/Stains" unique_id=2046187104]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.495107)
-texture = SubResource("NoiseTexture2D_fr8oe")
-
-[node name="Sprite3D2" type="Sprite3D" parent="Node3D/Stains" unique_id=376632074]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.494462, 0, -0.00129542)
-texture = SubResource("NoiseTexture2D_fr8oe")
-
-[node name="Sprite3D4" type="Sprite3D" parent="Node3D/Stains" unique_id=751097229]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.493393, 0, -0.00129542)
-texture = SubResource("NoiseTexture2D_fr8oe")
-
-[node name="Sprite3D3" type="Sprite3D" parent="Node3D/Stains" unique_id=1436346717]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.497349)
-texture = SubResource("NoiseTexture2D_fr8oe")
 
 [node name="RevealCube" type="AudioStreamPlayer" parent="." unique_id=1586621699]
 stream = SubResource("AudioStreamRandomizer_8afpo")

@@ -11,12 +11,8 @@ const CUBE_DESTROYED = preload("uid://bp6e0aywkls4b")
 @onready var explosion_audio: AudioStreamPlayer = $Explosion
 @onready var cube_scanner: Area3D = $CubeScanner
 @onready var nearby_mines_label: Label3D = $NearbyMinesLabel
-@onready var mine_sprite: Sprite3D = $Node3D/Mine
 
-@onready var flag_sprite: Sprite3D = $Flag
-# 1: use CubeBody here. Create script on CubeTop, just Node3D. Called cube_top.gd
 @onready var cube_top: Node3D = $CubeTop
-
 @onready var score_particle_big: CPUParticles3D = $ScoreParticleBig
 @onready var score_particle_small: CPUParticles3D = $ScoreParticleSmall
 @onready var sparks: GPUParticles3D = $Sparks
@@ -62,13 +58,10 @@ func reveal_cube(play_sound: bool = false):
 		cube_was_cleared.emit(self)
 		cube_scanner.update_cube()
 		if is_bomb:
-			mine_sprite.visible = true
+			pass # ground effect for exploded area
 
 func trigger_explosion():
 	if !has_exploded:
-		$Node3D/Stains.visible = true
-		mine_sprite.visible = true
-		#mine_sprite.transform = mine_sprite.transform.translated(Vector3(0, -1, 0))
 		explosion_audio.play()
 		spawn_explosion()
 
@@ -77,7 +70,6 @@ func spawn_explosion():
 	add_child(CubeDestroyed)
 	CubeDestroyed.global_position = Vector3(global_position.x, global_position.y + 0.7, global_position.z)
 	cube_top.visible = false
-	flag_sprite.visible = false
 	has_exploded = true
 	
 	var DamageArea = DAMAGE_AREA.instantiate()

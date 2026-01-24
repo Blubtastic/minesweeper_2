@@ -12,8 +12,6 @@ const COLORS: Array[Color] = [
 ]
 @onready var Cube: StaticBody3D = $".."
 @onready var NearbyMinesLabel: Label3D = $"../NearbyMinesLabel"
-@onready var flag_sprite: Sprite3D = $"../Flag"
-@onready var mine_sprite: Sprite3D = $"../Node3D/Mine"
 
 var overlapping_cubes: Array[Node3D]
 
@@ -42,4 +40,3 @@ func update_label(text: String, color: Color) -> void:
 	NearbyMinesLabel.text = text
 	NearbyMinesLabel.modulate = color
 	NearbyMinesLabel.outline_modulate = color
-	flag_sprite.visible = false
