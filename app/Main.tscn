@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://c1p7v7melj8n4"]
+[gd_scene format=3 uid="uid://c1p7v7melj8n4"]
 
 [ext_resource type="Script" uid="uid://b3ynraryv822m" path="res://app/main.gd" id="1_m0fyf"]
 [ext_resource type="PackedScene" uid="uid://dqeksnc1bqwgt" path="res://shared/player/Player.tscn" id="1_mwkh8"]
@@ -8,7 +8,7 @@
 [ext_resource type="AudioStream" uid="uid://d2fkaegd6wagp" path="res://app/music/bass-loop.wav" id="4_03owx"]
 [ext_resource type="PackedScene" uid="uid://dgxv52jn27v3c" path="res://app/CubeChunk.tscn" id="5_2r6wr"]
 [ext_resource type="PackedScene" uid="uid://62fr2rhqfdeo" path="res://features/Snow/Snow.tscn" id="6_bv4rx"]
-[ext_resource type="PackedScene" uid="uid://dhlda46fqvnos" path="res://features/ForestChunk.tscn" id="7_m1pw8"]
+[ext_resource type="PackedScene" uid="uid://dhlda46fqvnos" path="res://features/ForestChunk/ForestChunk.tscn" id="7_m1pw8"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_6867n"]
 

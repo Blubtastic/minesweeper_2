@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dhlda46fqvnos"]
 
-[ext_resource type="Script" uid="uid://bll4bpeo58tkv" path="res://features/forest_chunk.gd" id="1_1tg5x"]
-[ext_resource type="PackedScene" uid="uid://kll47d13opx8" path="res://features/ForestChunkBlender/ForestChunkOptimized.blend" id="2_lvg2a"]
+[ext_resource type="Script" uid="uid://bll4bpeo58tkv" path="res://features/ForestChunk/forest_chunk.gd" id="1_1tg5x"]
+[ext_resource type="PackedScene" uid="uid://kll47d13opx8" path="res://features/ForestChunk/ForestChunkOptimized.blend" id="2_lvg2a"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tu15c"]
 size = Vector3(8, 0.5, 8)
