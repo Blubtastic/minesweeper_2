@@ -1,8 +1,7 @@
-[gd_scene load_steps=36 format=3 uid="uid://cnor6jdbe28rj"]
+[gd_scene format=3 uid="uid://cnor6jdbe28rj"]
 
 [ext_resource type="Script" uid="uid://cvaybiurchtbm" path="res://shared/cube/cube.gd" id="1_q4yb4"]
 [ext_resource type="BoxMesh" uid="uid://c466clxudld4s" path="res://shared/cube/cleared.tres" id="2_m3nde"]
-[ext_resource type="PackedScene" uid="uid://die8aasv0vnxb" path="res://shared/cube/CubeBody.blend" id="4_s40ef"]
 [ext_resource type="Script" uid="uid://dtcw3kxcfiebx" path="res://shared/cube/top_mesh.gd" id="4_wdcma"]
 [ext_resource type="Script" uid="uid://87plyi0g6m0f" path="res://shared/cube/cube_scanner.gd" id="5_s41nj"]
 [ext_resource type="PackedScene" uid="uid://m40ygfonv80c" path="res://shared/cube/CubeTop.blend" id="5_terun"]
@@ -118,107 +117,105 @@ material = SubResource("StandardMaterial3D_vd21r")
 text = "0"
 font_size = 24
 
-[node name="Cube" type="StaticBody3D" groups=["cubes"]]
+[node name="Cube" type="StaticBody3D" unique_id=1491103079 groups=["cubes"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.5, 0.5)
 collision_layer = 13
 collision_mask = 12
 script = ExtResource("1_q4yb4")
 
-[node name="CubeScanner" type="Area3D" parent="."]
+[node name="CubeScanner" type="Area3D" parent="." unique_id=1359935716]
 collision_layer = 4
 collision_mask = 4
 script = ExtResource("5_s41nj")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="CubeScanner"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CubeScanner" unique_id=515920400]
 shape = SubResource("BoxShape3D_y1sac")
 
-[node name="TopMesh" type="MeshInstance3D" parent="."]
+[node name="TopMesh" type="MeshInstance3D" parent="." unique_id=1228266334]
 transform = Transform3D(0.707107, 0, 0.707107, 0, 0.1, 0, -0.707107, 0, 0.707107, 0, 0.575, 0)
 visible = false
 mesh = SubResource("CylinderMesh_sjbvx")
 script = ExtResource("4_wdcma")
 
-[node name="MeshOld" type="MeshInstance3D" parent="."]
+[node name="MeshOld" type="MeshInstance3D" parent="." unique_id=736912911]
 visible = false
 mesh = ExtResource("2_m3nde")
 
-[node name="CubeTop" parent="." instance=ExtResource("5_terun")]
+[node name="CubeTop" parent="." unique_id=194841626 instance=ExtResource("5_terun")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.575783, 0)
 
-[node name="CubeBody" parent="." instance=ExtResource("4_s40ef")]
-
-[node name="Collider" type="CollisionShape3D" parent="."]
+[node name="Collider" type="CollisionShape3D" parent="." unique_id=1194951411]
 shape = SubResource("BoxShape3D_aokb8")
 
-[node name="NearbyMinesLabel" type="Label3D" parent="."]
+[node name="NearbyMinesLabel" type="Label3D" parent="." unique_id=1702114885]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.515925, 0)
 no_depth_test = true
 render_priority = 127
 modulate = Color(0, 0, 0, 1)
 font_size = 100
 
-[node name="Flag" type="Sprite3D" parent="."]
+[node name="Flag" type="Sprite3D" parent="." unique_id=720382257]
 transform = Transform3D(-1.74846e-08, 0.4, 1.74846e-08, 0, -1.74846e-08, 0.4, 0.4, 1.74846e-08, 7.64274e-16, 0, 0.61, 0)
 visible = false
 texture = ExtResource("12_bksym")
 
-[node name="Label3D" type="Label3D" parent="."]
+[node name="Label3D" type="Label3D" parent="." unique_id=190194028]
 
-[node name="Node3D" type="Node3D" parent="."]
+[node name="Node3D" type="Node3D" parent="." unique_id=854930231]
 
-[node name="Mine" type="Sprite3D" parent="Node3D"]
+[node name="Mine" type="Sprite3D" parent="Node3D" unique_id=177674688]
 transform = Transform3D(0.28, 0, 0, 0, -1.22392e-08, -0.28, 0, 0.28, -1.22392e-08, 0, 0.399, 0)
 visible = false
 texture = ExtResource("11_n6pam")
 
-[node name="Stains" type="Node3D" parent="Node3D"]
+[node name="Stains" type="Node3D" parent="Node3D" unique_id=938209846]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
 visible = false
 
-[node name="Sprite3D5" type="Sprite3D" parent="Node3D/Stains"]
+[node name="Sprite3D5" type="Sprite3D" parent="Node3D/Stains" unique_id=1077826884]
 transform = Transform3D(-4.37114e-08, -1, 4.37114e-08, 0, -4.37114e-08, -1, 1, -4.37114e-08, 1.91069e-15, 0, 0.501, 0)
 texture = SubResource("NoiseTexture2D_fr8oe")
 
-[node name="Sprite3D" type="Sprite3D" parent="Node3D/Stains"]
+[node name="Sprite3D" type="Sprite3D" parent="Node3D/Stains" unique_id=2046187104]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.495107)
 texture = SubResource("NoiseTexture2D_fr8oe")
 
-[node name="Sprite3D2" type="Sprite3D" parent="Node3D/Stains"]
+[node name="Sprite3D2" type="Sprite3D" parent="Node3D/Stains" unique_id=376632074]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.494462, 0, -0.00129542)
 texture = SubResource("NoiseTexture2D_fr8oe")
 
-[node name="Sprite3D4" type="Sprite3D" parent="Node3D/Stains"]
+[node name="Sprite3D4" type="Sprite3D" parent="Node3D/Stains" unique_id=751097229]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.493393, 0, -0.00129542)
 texture = SubResource("NoiseTexture2D_fr8oe")
 
-[node name="Sprite3D3" type="Sprite3D" parent="Node3D/Stains"]
+[node name="Sprite3D3" type="Sprite3D" parent="Node3D/Stains" unique_id=1436346717]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.497349)
 texture = SubResource("NoiseTexture2D_fr8oe")
 
-[node name="RevealCube" type="AudioStreamPlayer" parent="."]
+[node name="RevealCube" type="AudioStreamPlayer" parent="." unique_id=1586621699]
 stream = SubResource("AudioStreamRandomizer_8afpo")
 volume_db = -8.901
 bus = &"Sound Effects"
 
-[node name="PlaceFlag" type="AudioStreamPlayer" parent="."]
+[node name="PlaceFlag" type="AudioStreamPlayer" parent="." unique_id=935769338]
 stream = ExtResource("7_eeb88")
 volume_db = -28.576
 bus = &"Sound Effects"
 
-[node name="RemoveFlag" type="AudioStreamPlayer" parent="."]
+[node name="RemoveFlag" type="AudioStreamPlayer" parent="." unique_id=14757448]
 stream = ExtResource("8_pc8bq")
 bus = &"Sound Effects"
 
-[node name="HighlightCube" type="AudioStreamPlayer" parent="."]
+[node name="HighlightCube" type="AudioStreamPlayer" parent="." unique_id=1005097132]
 stream = SubResource("AudioStreamRandomizer_a7n7b")
 volume_db = -25.377
 bus = &"Sound Effects"
 
-[node name="Explosion" type="AudioStreamPlayer" parent="."]
+[node name="Explosion" type="AudioStreamPlayer" parent="." unique_id=1825092273]
 stream = ExtResource("10_llvf4")
 bus = &"Sound Effects"
 
-[node name="ScoreParticleBig" type="CPUParticles3D" parent="."]
+[node name="ScoreParticleBig" type="CPUParticles3D" parent="." unique_id=1576271222]
 transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 0.865572, 0)
 emitting = false
 amount = 1
@@ -235,7 +232,7 @@ damping_max = 0.75
 scale_amount_curve = SubResource("Curve_ovcfe")
 color_ramp = SubResource("Gradient_cvqp5")
 
-[node name="ScoreParticleSmall" type="CPUParticles3D" parent="."]
+[node name="ScoreParticleSmall" type="CPUParticles3D" parent="." unique_id=1992129905]
 transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 0.865572, 0)
 emitting = false
 amount = 1
@@ -252,7 +249,7 @@ damping_max = 0.75
 scale_amount_curve = SubResource("Curve_ovcfe")
 color_ramp = SubResource("Gradient_cvqp5")
 
-[node name="Sparks" parent="." instance=ExtResource("12_1jcsy")]
+[node name="Sparks" parent="." unique_id=1203235841 instance=ExtResource("12_1jcsy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.655911, 0)
 
 [connection signal="input_event" from="." to="." method="_on_input_event"]

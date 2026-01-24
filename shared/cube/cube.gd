@@ -66,7 +66,6 @@ func reveal_cube(play_sound: bool = false):
 
 func trigger_explosion():
 	if !has_exploded:
-		$CubeBody.visible = false
 		$Node3D/Stains.visible = true
 		mine_sprite.visible = true
 		#mine_sprite.transform = mine_sprite.transform.translated(Vector3(0, -1, 0))
