@@ -23,10 +23,10 @@ fog_depth_begin = 35.0
 fog_depth_end = 40.0
 adjustment_contrast = 1.1
 
-[node name="Loading" type="Node3D"]
+[node name="Loading" type="Node3D" unique_id=652334179]
 script = ExtResource("1_qx4wl")
 
-[node name="LoadingSplash" type="Control" parent="."]
+[node name="LoadingSplash" type="Control" parent="." unique_id=1588370148]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -34,7 +34,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ColorRect" type="ColorRect" parent="LoadingSplash"]
+[node name="ColorRect" type="ColorRect" parent="LoadingSplash" unique_id=2019758950]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -43,7 +43,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.114897, 0.114897, 0.114897, 1)
 
-[node name="Label" type="Label" parent="LoadingSplash"]
+[node name="Label" type="Label" parent="LoadingSplash" unique_id=855685317]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -60,18 +60,18 @@ text = "Loading..."
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Particles" type="Node3D" parent="."]
+[node name="Particles" type="Node3D" parent="." unique_id=1760629544]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.70835, -4.74771)
 
-[node name="Poof" parent="Particles" instance=ExtResource("2_qx4wl")]
+[node name="Poof" parent="Particles" unique_id=1731833898 instance=ExtResource("2_qx4wl")]
 
-[node name="Sparks" parent="Particles" instance=ExtResource("5_3ipkp")]
+[node name="Sparks" parent="Particles" unique_id=564390901 instance=ExtResource("5_3ipkp")]
 
-[node name="TireDebrisSnow" parent="Particles" instance=ExtResource("6_hcrdm")]
+[node name="TireDebrisSnow" parent="Particles" unique_id=288904735 instance=ExtResource("6_hcrdm")]
 
-[node name="CubeDestroyed" parent="Particles" instance=ExtResource("7_hcrdm")]
+[node name="CubeDestroyed" parent="Particles" unique_id=70777883 instance=ExtResource("7_hcrdm")]
 
-[node name="Sun" type="DirectionalLight3D" parent="."]
+[node name="Sun" type="DirectionalLight3D" parent="." unique_id=347866307]
 transform = Transform3D(-0.0871298, -0.963284, 0.253952, -0.811844, 0.216397, 0.542293, -0.577337, -0.15892, -0.800891, 0, 0, 0)
 light_color = Color(0.999999, 0.997401, 0.807223, 1)
 light_energy = 0.1
@@ -81,10 +81,10 @@ directional_shadow_split_1 = 0.2
 directional_shadow_split_2 = 0.32
 directional_shadow_split_3 = 0.4
 
-[node name="Environment" type="WorldEnvironment" parent="."]
+[node name="Environment" type="WorldEnvironment" parent="." unique_id=752723022]
 environment = SubResource("Environment_ho7hh")
 
-[node name="Camera" type="Camera3D" parent="."]
+[node name="Camera" type="Camera3D" parent="." unique_id=714763093]
 transform = Transform3D(1, 0, 0, 0, 0.559193, 0.829038, 0, -0.829038, 0.559193, 0, 26.866, 14.368)
 current = true
 fov = 20.0
