@@ -32,12 +32,12 @@ size = Vector3(0.1, 0.5, 0.01)
 [sub_resource type="BoxShape3D" id="BoxShape3D_k1xa4"]
 size = Vector3(3, 10, 14)
 
-[node name="Main" type="Node3D"]
+[node name="Main" type="Node3D" unique_id=952190665]
 script = ExtResource("1_m0fyf")
 
-[node name="HUD" parent="." instance=ExtResource("2_03owx")]
+[node name="HUD" parent="." unique_id=1296320164 instance=ExtResource("2_03owx")]
 
-[node name="Sun" type="DirectionalLight3D" parent="."]
+[node name="Sun" type="DirectionalLight3D" parent="." unique_id=1905605144]
 transform = Transform3D(-0.0871298, -0.963284, 0.253952, -0.811844, 0.216397, 0.542293, -0.577337, -0.15892, -0.800891, 0, 0, 0)
 light_color = Color(0.999999, 0.997401, 0.807223, 1)
 light_energy = 0.1
@@ -47,105 +47,105 @@ directional_shadow_split_1 = 0.2
 directional_shadow_split_2 = 0.32
 directional_shadow_split_3 = 0.4
 
-[node name="Environment" type="WorldEnvironment" parent="."]
+[node name="Environment" type="WorldEnvironment" parent="." unique_id=619548876]
 environment = SubResource("Environment_qwbq1")
 
-[node name="Camera" type="Camera3D" parent="."]
+[node name="Camera" type="Camera3D" parent="." unique_id=503975718]
 transform = Transform3D(1, 0, 0, 0, 0.559193, 0.829038, 0, -0.829038, 0.559193, 0, 26.866, 14.368)
 current = true
 fov = 20.0
 script = ExtResource("3_rbuf0")
 
-[node name="DrumsPlayer" type="AudioStreamPlayer" parent="."]
+[node name="DrumsPlayer" type="AudioStreamPlayer" parent="." unique_id=1676027926]
 stream = ExtResource("3_trn2v")
 autoplay = true
 bus = &"Percussion"
 
-[node name="BassPlayer" type="AudioStreamPlayer" parent="."]
+[node name="BassPlayer" type="AudioStreamPlayer" parent="." unique_id=1401131683]
 stream = ExtResource("4_03owx")
 autoplay = true
 bus = &"Bass"
 
-[node name="Snow" parent="." instance=ExtResource("6_bv4rx")]
+[node name="Snow" parent="." unique_id=317101561 instance=ExtResource("6_bv4rx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -11.2124, -11.3809)
 
-[node name="Player" parent="." instance=ExtResource("1_mwkh8")]
+[node name="Player" parent="." unique_id=145953444 instance=ExtResource("1_mwkh8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.15148, -2.25592)
 
-[node name="InitialChunks" type="Node3D" parent="."]
+[node name="InitialChunks" type="Node3D" parent="." unique_id=1622186074]
 
-[node name="CubeChunk1" parent="InitialChunks" instance=ExtResource("5_2r6wr")]
+[node name="CubeChunk1" parent="InitialChunks" unique_id=450677211 instance=ExtResource("5_2r6wr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 0, -17.35)
 
-[node name="ForestChunkLeft1" parent="InitialChunks" instance=ExtResource("7_m1pw8")]
+[node name="ForestChunkLeft1" parent="InitialChunks" unique_id=396883786 instance=ExtResource("7_m1pw8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0.5, -14)
 
-[node name="ForestChunkRight1" parent="InitialChunks" instance=ExtResource("7_m1pw8")]
+[node name="ForestChunkRight1" parent="InitialChunks" unique_id=1036435837 instance=ExtResource("7_m1pw8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0.5, -14)
 
-[node name="CubeChunk" parent="InitialChunks" instance=ExtResource("5_2r6wr")]
+[node name="CubeChunk" parent="InitialChunks" unique_id=1412546617 instance=ExtResource("5_2r6wr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 0, -9.35)
 
-[node name="CubeChunk2" parent="InitialChunks" instance=ExtResource("5_2r6wr")]
+[node name="CubeChunk2" parent="InitialChunks" unique_id=1614769311 instance=ExtResource("5_2r6wr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 0, -1.35)
 NUMBER_OF_MINES = 0
 
-[node name="ForestChunkLeft" parent="InitialChunks" instance=ExtResource("7_m1pw8")]
+[node name="ForestChunkLeft" parent="InitialChunks" unique_id=1470785669 instance=ExtResource("7_m1pw8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0.5, -6)
 
-[node name="ForestChunkRight" parent="InitialChunks" instance=ExtResource("7_m1pw8")]
+[node name="ForestChunkRight" parent="InitialChunks" unique_id=1677390573 instance=ExtResource("7_m1pw8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0.5, -6)
 
-[node name="ForestChunkLeft3" parent="InitialChunks" instance=ExtResource("7_m1pw8")]
+[node name="ForestChunkLeft3" parent="InitialChunks" unique_id=2075948323 instance=ExtResource("7_m1pw8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0.5, 2)
 
-[node name="ForestChunkRight3" parent="InitialChunks" instance=ExtResource("7_m1pw8")]
+[node name="ForestChunkRight3" parent="InitialChunks" unique_id=2063968805 instance=ExtResource("7_m1pw8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0.5, 2)
 
-[node name="Ray" type="RayCast3D" parent="."]
+[node name="Ray" type="RayCast3D" parent="." unique_id=2132813612]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 2, -18)
 target_position = Vector3(0, -2, 0)
 
-[node name="TestingMarker" type="MeshInstance3D" parent="Ray"]
+[node name="TestingMarker" type="MeshInstance3D" parent="Ray" unique_id=1589290301]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0)
 visible = false
 mesh = SubResource("BoxMesh_mtk4d")
 
-[node name="LeftRay" type="RayCast3D" parent="."]
+[node name="LeftRay" type="RayCast3D" parent="." unique_id=1661152063]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -7, 2, -18)
 target_position = Vector3(0, -2, 0)
 
-[node name="TestingMarker" type="MeshInstance3D" parent="LeftRay"]
+[node name="TestingMarker" type="MeshInstance3D" parent="LeftRay" unique_id=732313630]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0)
 visible = false
 mesh = SubResource("BoxMesh_mtk4d")
 
-[node name="RightRay" type="RayCast3D" parent="."]
+[node name="RightRay" type="RayCast3D" parent="." unique_id=862169890]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 7, 2, -18)
 target_position = Vector3(0, -2, 0)
 
-[node name="TestingMarker" type="MeshInstance3D" parent="RightRay"]
+[node name="TestingMarker" type="MeshInstance3D" parent="RightRay" unique_id=1225684759]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0)
 visible = false
 mesh = SubResource("BoxMesh_mtk4d")
 
-[node name="InvisibleWalls" type="StaticBody3D" parent="."]
+[node name="InvisibleWalls" type="StaticBody3D" parent="." unique_id=1638446682]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, -6)
 collision_layer = 8
 collision_mask = 0
 
-[node name="Left" type="CollisionShape3D" parent="InvisibleWalls"]
+[node name="Left" type="CollisionShape3D" parent="InvisibleWalls" unique_id=184530761]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.5, 0, 2.3)
 shape = SubResource("BoxShape3D_k1xa4")
 
-[node name="Right" type="CollisionShape3D" parent="InvisibleWalls"]
+[node name="Right" type="CollisionShape3D" parent="InvisibleWalls" unique_id=998842811]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.5, 0, 2.3)
 shape = SubResource("BoxShape3D_k1xa4")
 
-[node name="Behind" type="CollisionShape3D" parent="InvisibleWalls"]
+[node name="Behind" type="CollisionShape3D" parent="InvisibleWalls" unique_id=2069655714]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 10.3)
 shape = SubResource("BoxShape3D_k1xa4")
 
-[node name="Front" type="CollisionShape3D" parent="InvisibleWalls"]
+[node name="Front" type="CollisionShape3D" parent="InvisibleWalls" unique_id=133512867]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, -6.3)
 shape = SubResource("BoxShape3D_k1xa4")

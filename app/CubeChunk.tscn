@@ -1,11 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://dgxv52jn27v3c"]
+[gd_scene format=3 uid="uid://dgxv52jn27v3c"]
 
 [ext_resource type="Script" uid="uid://bw0i5u06nldb" path="res://app/cube_chunk.gd" id="1_51aoj"]
 
-[node name="CubeChunk" type="AnimatableBody3D"]
+[node name="CubeChunk" type="AnimatableBody3D" unique_id=2134313920]
 sync_to_physics = false
 script = ExtResource("1_51aoj")
 
-[node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="."]
+[node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="." unique_id=1164557452]
 
 [connection signal="screen_exited" from="VisibleOnScreenNotifier3D" to="." method="_on_visible_on_screen_notifier_3d_screen_exited"]
