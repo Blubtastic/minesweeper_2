@@ -10,7 +10,7 @@ var overlapping_cubes
 var is_controllable = true
 
 const TRAIL_VFX = preload("uid://drynt1383xlht")
-@onready var hitbox: Area3D = $CubeHitbox
+@onready var cube_hitbox: Area3D = $CubeHitbox
 @onready var damage_hitbox: Area3D = $DamageHitbox
 @onready var player_shadow: Sprite3D = $"../PlayerShadow"
 @onready var shadow_ray_cast: RayCast3D = $"../ShadowRayCast"
@@ -24,7 +24,7 @@ const TRAIL_VFX = preload("uid://drynt1383xlht")
 
 func _physics_process(delta: float) -> void:
 	var cubes = get_tree().get_nodes_in_group("cubes")
-	overlapping_cubes = hitbox.get_overlapping_bodies()
+	overlapping_cubes = cube_hitbox.get_overlapping_areas()
 	for overlapping_cube in overlapping_cubes:
 		if overlapping_cube in cubes:
 			overlapping_cube.handle_uncleared_pressed()
@@ -82,7 +82,8 @@ func damage_player():
 		TrailVfx.queue_free()
 
 func _on_cube_hitbox_area_entered(_area: Area3D) -> void:
-	damage_player()
+	#damage_player()
+	pass
 
 func move_shadow():
 	if shadow_ray_cast.is_colliding():
@@ -92,10 +93,12 @@ func move_shadow():
 		collision_point.z = global_position.z
 		player_shadow.global_transform.origin = collision_point
 
-
 func emit_debris():
 	left_debris.emit_debris()
 	right_debris.emit_debris()
 func stop_debris():
 	left_debris.stop_debris()
 	right_debris.stop_debris()
+
+func _on_damage_hitbox_area_entered(_area: Area3D) -> void:
+	damage_player()

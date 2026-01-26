@@ -1,4 +1,4 @@
-extends StaticBody3D
+extends Area3D
 
 const DAMAGE_AREA = preload("uid://ftokwp4ypb8m")
 const CUBE_DESTROYED = preload("uid://bp6e0aywkls4b")

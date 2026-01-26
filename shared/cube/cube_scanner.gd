@@ -10,7 +10,7 @@ const COLORS: Array[Color] = [
 	Color(0, 0, 0),
 	Color(0.5, 0.5, 0.5)
 ]
-@onready var Cube: StaticBody3D = $".."
+@onready var Cube: Area3D = $".."
 @onready var NearbyMinesLabel: Label3D = $"../NearbyMinesLabel"
 
 var overlapping_cubes: Array[Node3D]
