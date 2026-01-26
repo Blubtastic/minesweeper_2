@@ -33,7 +33,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, -2.275192, 0.5)
 aabb = AABB(-1, 1.5125008, -1, 10, 1.4476547, 8)
 
 [node name="Bounds" type="Node3D" parent="." unique_id=760150814]
-visible = false
 
 [node name="Ground" type="MeshInstance3D" parent="Bounds" unique_id=352861595]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 0.6, 3.5)
