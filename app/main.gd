@@ -7,11 +7,11 @@ const FOREST_CHUNK = preload("uid://dhlda46fqvnos")
 @onready var ray: RayCast3D = $Ray
 @onready var left_ray: RayCast3D = $LeftRay
 @onready var right_ray: RayCast3D = $RightRay
-@onready var cube_timer: Timer = $CubeTimer
+@onready var cubechunk_timer: Timer = $CubechunkTimer
 
 func _ready():
 	Globals.game_ended.connect(_on_game_ended)
-	start_timer(3)
+	spawn_chunk_in(3)
 
 func _physics_process(_delta: float):
 	if !left_ray.is_colliding():
@@ -29,13 +29,13 @@ func _on_game_ended():
 	var game_over_instance = GAME_OVER.instantiate()
 	add_child(game_over_instance)
 
-func start_timer(wait_time: float = 5.33):
-	cube_timer.wait_time = wait_time
-	cube_timer.one_shot = true
-	cube_timer.start()
-	await cube_timer.timeout
+func spawn_chunk_in(wait_time: float = 5.33):
+	cubechunk_timer.wait_time = wait_time
+	cubechunk_timer.one_shot = true
+	cubechunk_timer.start()
+	await cubechunk_timer.timeout
 	spawn_cubechunk()
-	start_timer()
+	spawn_chunk_in()
 
 func spawn_cubechunk():
 	var chunk_instance = CUBE_CHUNK.instantiate()
