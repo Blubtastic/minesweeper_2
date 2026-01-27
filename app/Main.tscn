@@ -29,8 +29,11 @@ adjustment_contrast = 1.1
 [sub_resource type="BoxMesh" id="BoxMesh_mtk4d"]
 size = Vector3(0.1, 0.5, 0.01)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_k1xa4"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_ldolv"]
 size = Vector3(20, 0.1, 20)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_k1xa4"]
+size = Vector3(3, 5, 20)
 
 [node name="Main" type="Node3D" unique_id=952190665]
 script = ExtResource("1_m0fyf")
@@ -139,20 +142,20 @@ metadata/_edit_group_ = true
 
 [node name="Floor" type="CollisionShape3D" parent="InvisibleWalls" unique_id=412941992]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.52, 0)
-shape = SubResource("BoxShape3D_k1xa4")
+shape = SubResource("BoxShape3D_ldolv")
 
 [node name="Left" type="CollisionShape3D" parent="InvisibleWalls" unique_id=184530761]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.5, 0, 2.3)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.5, -2, 2.3)
 shape = SubResource("BoxShape3D_k1xa4")
 
 [node name="Right" type="CollisionShape3D" parent="InvisibleWalls" unique_id=998842811]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.5, 0, 2.3)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.5, -2, 2.3)
 shape = SubResource("BoxShape3D_k1xa4")
 
 [node name="Behind" type="CollisionShape3D" parent="InvisibleWalls" unique_id=2069655714]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 10.3)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, -2, 10.3)
 shape = SubResource("BoxShape3D_k1xa4")
 
 [node name="Front" type="CollisionShape3D" parent="InvisibleWalls" unique_id=133512867]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, -6.3)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, -2, -6.3)
 shape = SubResource("BoxShape3D_k1xa4")
