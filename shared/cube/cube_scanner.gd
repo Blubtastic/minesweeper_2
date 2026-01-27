@@ -14,7 +14,7 @@ const COLORS: Array[Color] = [
 @onready var NearbyMinesLabel: Label3D = $"../NearbyMinesLabel"
 
 func update_cube() -> void:
-	var overlapping_cubes = get_overlapping_areas()
+	var overlapping_cubes = get_overlapping_areas().filter(func(node): return node.has_method("reveal_cube"))
 	
 	var nearby_items: int = get_nearby_cube_info(overlapping_cubes)
 	var nearby_mines: int = nearby_items
