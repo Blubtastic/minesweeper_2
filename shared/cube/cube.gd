@@ -40,9 +40,7 @@ func handle_uncleared_pressed():
 		if !is_cleared and !is_bomb:
 			give_points(100)
 			sparks.emitting = true
-			
-		reveal_cube(true)
-		#cube_top.unhighlight_cube()
+			reveal_cube(true)
 		if is_bomb:
 			trigger_explosion()
 
@@ -50,7 +48,6 @@ func reveal_cube(play_sound: bool = false):
 	if !is_cleared:
 		if play_sound:
 			reveal_cube_audio.play()
-	
 		give_points(10)
 		cube_top.visible = false
 		nearby_mines_label.visible = true
@@ -77,7 +74,7 @@ func spawn_explosion():
 	DamageArea.global_position = Vector3(global_position.x, global_position.y + 0.7, global_position.z)
 	await get_tree().create_timer(1.0).timeout
 	DamageArea.queue_free()
-		
+
 func give_points(points: int):
 	if !has_given_points:
 		has_given_points = true
