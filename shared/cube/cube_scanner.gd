@@ -14,15 +14,14 @@ const COLORS: Array[Color] = [
 @onready var NearbyMinesLabel: Label3D = $"../NearbyMinesLabel"
 
 func update_cube() -> void:
-	var overlapping_cubes = get_overlapping_areas().filter(func(node): return node.has_method("reveal_cube"))
+	var overlapping_cubes: Array[Area3D] = get_overlapping_areas().filter(func(node): return node.has_method("reveal_cube"))
+	var nearby_mines: int = get_nearby_cube_info(overlapping_cubes)
 	
-	var nearby_items: int = get_nearby_cube_info(overlapping_cubes)
-	var nearby_mines: int = nearby_items
 	if Cube.is_cleared:
-		var nearby_mines_text = str(nearby_mines) if nearby_mines else ''
-		var nearby_mines_color = COLORS[clamp(nearby_mines, 1, COLORS.size()) - 1]
-		var text = '' if Cube.is_bomb else nearby_mines_text
-		var color = Color(1, 1, 1) if Cube.is_bomb else nearby_mines_color
+		var nearby_mines_text := str(nearby_mines) if nearby_mines else ''
+		var nearby_mines_color := COLORS[clamp(nearby_mines, 1, COLORS.size()) - 1]
+		var text := '' if Cube.is_bomb else nearby_mines_text
+		var color := Color(1, 1, 1) if Cube.is_bomb else nearby_mines_color
 		update_label(text, color)
 		if !nearby_mines:
 			for overlapping_cube in overlapping_cubes:
