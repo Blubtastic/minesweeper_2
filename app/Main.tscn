@@ -26,9 +26,6 @@ fog_depth_begin = 35.0
 fog_depth_end = 40.0
 adjustment_contrast = 1.1
 
-[sub_resource type="BoxMesh" id="BoxMesh_mtk4d"]
-size = Vector3(0.1, 0.5, 0.01)
-
 [sub_resource type="BoxShape3D" id="BoxShape3D_ldolv"]
 size = Vector3(20, 0.1, 20)
 
@@ -44,6 +41,7 @@ script = ExtResource("1_m0fyf")
 transform = Transform3D(-0.0871298, -0.963284, 0.253952, -0.811844, 0.216397, 0.542293, -0.577337, -0.15892, -0.800891, 0, 0, 0)
 light_color = Color(0.999999, 0.997401, 0.807223, 1)
 light_energy = 0.1
+light_bake_mode = 0
 shadow_enabled = true
 shadow_normal_bias = 1.0
 directional_shadow_split_1 = 0.2
@@ -106,33 +104,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0.5, 2)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0.5, 2)
 
 [node name="CubechunkTimer" type="Timer" parent="." unique_id=1063197043]
-
-[node name="Ray" type="RayCast3D" parent="." unique_id=2132813612]
-transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 2, -18)
-target_position = Vector3(0, -2, 0)
-
-[node name="TestingMarker" type="MeshInstance3D" parent="Ray" unique_id=1589290301]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0)
-visible = false
-mesh = SubResource("BoxMesh_mtk4d")
-
-[node name="LeftRay" type="RayCast3D" parent="." unique_id=1661152063]
-transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -7, 2, -18)
-target_position = Vector3(0, -2, 0)
-
-[node name="TestingMarker" type="MeshInstance3D" parent="LeftRay" unique_id=732313630]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0)
-visible = false
-mesh = SubResource("BoxMesh_mtk4d")
-
-[node name="RightRay" type="RayCast3D" parent="." unique_id=862169890]
-transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 7, 2, -18)
-target_position = Vector3(0, -2, 0)
-
-[node name="TestingMarker" type="MeshInstance3D" parent="RightRay" unique_id=1225684759]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0)
-visible = false
-mesh = SubResource("BoxMesh_mtk4d")
 
 [node name="InvisibleWalls" type="StaticBody3D" parent="." unique_id=1638446682]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.07282, -6)
