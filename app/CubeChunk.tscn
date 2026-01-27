@@ -18,16 +18,6 @@ height = 10.0
 sync_to_physics = false
 script = ExtResource("1_51aoj")
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=456326284]
-transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
-visible = false
-shadow_enabled = true
-directional_shadow_max_distance = 1.0
-
-[node name="Camera3D" type="Camera3D" parent="." unique_id=764036109]
-transform = Transform3D(1, 0, 0, 0, 0.8749833, 0.4841531, 0, -0.4841531, 0.8749833, 4.753381, 4.6188564, 10.557506)
-visible = false
-
 [node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="." unique_id=1164557452]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, -2.275192, 0.5)
 aabb = AABB(-1, 1.5125008, -1, 10, 1.4476547, 8)
