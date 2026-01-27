@@ -65,7 +65,7 @@ func _physics_process(delta: float) -> void:
 func damage_player():
 	if not invincible:
 		Globals.player_hp -= 1
-		glow_animation_player.play("new_animation")
+		#glow_animation_player.play("new_animation")
 		velocity.y = LAUNCH_VELOCITY
 		invincible = true
 		Globals.is_player_flying = true
