@@ -10,6 +10,12 @@ func _ready():
 	Globals.game_ended.connect(_on_game_ended)
 	spawn_chunk_in(3)
 
+func _input(event):
+	if event is InputEventKey and event.pressed:
+		if event.is_action_pressed("restart"):
+			Globals.reset_game()
+			get_tree().reload_current_scene()
+
 func _on_game_ended():
 	var game_over_instance = GAME_OVER.instantiate()
 	add_child(game_over_instance)

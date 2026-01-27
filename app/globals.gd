@@ -16,10 +16,7 @@ func _physics_process(_delta: float) -> void:
 		if game_over == false:
 			game_ended.emit()
 			game_over = true
-	
-	if Input.is_action_pressed("restart"):
-		reset_game()
-	
+
 	# enable bass when player first explodes
 	if is_player_flying:
 		set_percussion_enabled(true)
@@ -48,4 +45,3 @@ func reset_game():
 	is_player_flying = false
 	game_over = false
 	print(score)
-	get_tree().reload_current_scene()
