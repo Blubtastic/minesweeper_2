@@ -15,7 +15,6 @@ const TRAIL_VFX = preload("uid://drynt1383xlht")
 @onready var player_shadow: Sprite3D = $"../PlayerShadow"
 @onready var shadow_ray_cast: RayCast3D = $"../ShadowRayCast"
 @onready var body: MeshInstance3D = $PlayerModel/Body
-@onready var glow_animation_player: AnimationPlayer = $GlowAnimationPlayer
 @onready var poof: GPUParticles3D = $Poof
 @onready var sparks: GPUParticles3D = $Sparks
 @onready var left_debris: Node3D = $TireDebrisSnowLeft
@@ -65,7 +64,6 @@ func _physics_process(delta: float) -> void:
 func damage_player():
 	if not invincible:
 		Globals.player_hp -= 1
-		#glow_animation_player.play("new_animation")
 		velocity.y = LAUNCH_VELOCITY
 		invincible = true
 		Globals.is_player_flying = true
