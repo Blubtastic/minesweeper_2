@@ -9,7 +9,6 @@ const CUBE_DESTROYED = preload("uid://bp6e0aywkls4b")
 @onready var place_flag_audio: AudioStreamPlayer = $PlaceFlag
 @onready var remove_flag_audio: AudioStreamPlayer = $RemoveFlag
 @onready var explosion_audio: AudioStreamPlayer = $Explosion
-@onready var cube_scanner: Area3D = $CubeScanner
 @onready var nearby_mines_label: Label3D = $NearbyMinesLabel
 
 @onready var cube_top: Node3D = $CubeTop
@@ -24,6 +23,18 @@ var nearby_cubes: Array[Node3D]
 var has_given_points: bool = false
 
 signal cube_was_cleared
+
+
+const COLORS: Array[Color] = [
+	Color(0, 0, 1),
+	Color(0, 0.5, 0),
+	Color(1, 0, 0),
+	Color(0, 0, 0.5),
+	Color(0.3, 0.05, 0),
+	Color(0, 0.4, 0.5),
+	Color(0, 0, 0),
+	Color(0.5, 0.5, 0.5)
+]
 
 func _ready():
 	if isLoadingCleared:
@@ -53,7 +64,7 @@ func reveal_cube(play_sound: bool = false):
 		nearby_mines_label.visible = true
 		is_cleared = true;
 		cube_was_cleared.emit(self)
-		cube_scanner.update_cube()
+		update_cube()
 		if is_bomb:
 			pass # ground effect for exploded area
 
@@ -91,3 +102,27 @@ func display_score(points: int):
 func display_score_big(points: int):
 	score_particle_big.mesh.text = str(points)
 	score_particle_big.emitting = true
+
+
+func update_cube() -> void:
+	var overlapping_cubes: Array[Area3D] = get_overlapping_areas().filter(func(node): return node.has_method("reveal_cube"))
+	var nearby_mines: int = get_nearby_cube_info(overlapping_cubes)
+	
+	if is_cleared:
+		var nearby_mines_text := str(nearby_mines) if nearby_mines else ''
+		var nearby_mines_color := COLORS[clamp(nearby_mines, 1, COLORS.size()) - 1]
+		var text := '' if is_bomb else nearby_mines_text
+		var color := Color(1, 1, 1) if is_bomb else nearby_mines_color
+		update_label(text, color)
+		if !nearby_mines:
+			for overlapping_cube in overlapping_cubes:
+				overlapping_cube.reveal_cube()
+
+func get_nearby_cube_info(nearbyCubes: Array[Area3D]) -> int:
+	var bombs := nearbyCubes.filter(func(nearbyCube): return nearbyCube.is_bomb)
+	return bombs.size()
+
+func update_label(text: String, color: Color) -> void:
+	nearby_mines_label.text = text
+	nearby_mines_label.modulate = color
+	nearby_mines_label.outline_modulate = color
