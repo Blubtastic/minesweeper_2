@@ -2,8 +2,6 @@
 
 [ext_resource type="Script" uid="uid://cahfvs4cexpdp" path="res://shared/player/player.gd" id="1_fjkuh"]
 [ext_resource type="PackedScene" uid="uid://ddwftyj3tif34" path="res://features/Poof/Poof.tscn" id="3_b81g5"]
-[ext_resource type="Script" uid="uid://cg7ggtirlh1bm" path="res://shared/player/fade_emission_gradually.gd" id="3_jlho0"]
-[ext_resource type="PackedScene" uid="uid://drynt1383xlht" path="res://shared/cube/TrailVFX.tscn" id="3_rkr5s"]
 [ext_resource type="PackedScene" uid="uid://dvabslbqfwp0v" path="res://features/Sparks/Sparks.tscn" id="4_j4a84"]
 [ext_resource type="PackedScene" uid="uid://dbi36hqar6db8" path="res://shared/player/PlayerShadow.tscn" id="4_vrm5f"]
 [ext_resource type="PackedScene" uid="uid://b7wmb8jxswbil" path="res://shared/player/TireDebris/TireDebrisSnow.tscn" id="5_5hepr"]
@@ -19,36 +17,12 @@ size = Vector3(0.3, 0.258521, 0.5)
 radius = 0.01
 height = 0.64248
 
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_obdjf"]
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_lqd42"]
-noise = SubResource("FastNoiseLite_obdjf")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wta5e"]
-albedo_color = Color(0.43, 0.43, 0.43, 1)
-albedo_texture = SubResource("NoiseTexture2D_lqd42")
-metallic = 1.0
-roughness = 0.83
-emission_enabled = true
-emission = Color(1, 0.721569, 0, 1)
-emission_energy_multiplier = 0.0
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_mp83p"]
-material = SubResource("StandardMaterial3D_wta5e")
-radius = 0.3
-height = 1.5
-
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_dw4xx"]
-radius = 0.3
-height = 1.5
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uxr23"]
 diffuse_mode = 3
 albedo_color = Color(0.252285, 0.261702, 4.81308e-08, 1)
 roughness = 0.0
-emission_enabled = true
 emission = Color(0, 1, 1, 1)
-emission_energy_multiplier = 0.0
+emission_energy_multiplier = 5.0
 
 [sub_resource type="BoxMesh" id="BoxMesh_8nayr"]
 material = SubResource("StandardMaterial3D_uxr23")
@@ -65,43 +39,6 @@ material = SubResource("StandardMaterial3D_fxman")
 top_radius = 0.1
 bottom_radius = 0.1
 height = 0.05
-
-[sub_resource type="Animation" id="Animation_qfi50"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("PlayerModel/Body:mesh:material:emission_energy_multiplier")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [5.0]
-}
-
-[sub_resource type="Animation" id="Animation_i4374"]
-resource_name = "new_animation"
-length = 1.2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("PlayerModel/Body:mesh:material:emission_energy_multiplier")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.01, 1.2),
-"transitions": PackedFloat32Array(1, 0.482969, 1),
-"update": 0,
-"values": [0.0, 5.0, 0.0]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_pox7b"]
-_data = {
-&"RESET": SubResource("Animation_qfi50"),
-&"new_animation": SubResource("Animation_i4374")
-}
 
 [node name="Player" type="Node3D" unique_id=1154084459]
 
@@ -153,32 +90,6 @@ collision_mask = 8
 [node name="CollisionShape3D" type="CollisionShape3D" parent="AlivePlayer/CubeHitbox" unique_id=1851477878]
 shape = SubResource("CapsuleShape3D_qlff2")
 
-[node name="DeadPlayer" type="RigidBody3D" parent="AlivePlayer" unique_id=1780125791]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
-visible = false
-inertia = Vector3(0.01, 1, 0.01)
-freeze = true
-metadata/_edit_group_ = true
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="AlivePlayer/DeadPlayer" unique_id=1364326193]
-mesh = SubResource("CapsuleMesh_mp83p")
-script = ExtResource("3_jlho0")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="AlivePlayer/DeadPlayer" unique_id=1099605795]
-shape = SubResource("CapsuleShape3D_dw4xx")
-disabled = true
-
-[node name="VFX" type="Node3D" parent="AlivePlayer/DeadPlayer" unique_id=1340496553]
-
-[node name="TrailVFXTop" parent="AlivePlayer/DeadPlayer/VFX" unique_id=1629634898 instance=ExtResource("3_rkr5s")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.512902, 0)
-
-[node name="TrailVFXTopCenter" parent="AlivePlayer/DeadPlayer/VFX" unique_id=686298382 instance=ExtResource("3_rkr5s")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0148265, 0)
-
-[node name="TrailVFX2Bottom" parent="AlivePlayer/DeadPlayer/VFX" unique_id=909428417 instance=ExtResource("3_rkr5s")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.505966, 0)
-
 [node name="PlayerModel" type="Node3D" parent="AlivePlayer" unique_id=395487580]
 
 [node name="Body" type="MeshInstance3D" parent="AlivePlayer/PlayerModel" unique_id=1401574444]
@@ -210,10 +121,6 @@ transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -0.175
 cast_shadow = 0
 mesh = SubResource("CylinderMesh_6xd78")
 skeleton = NodePath("../..")
-
-[node name="GlowAnimationPlayer" type="AnimationPlayer" parent="AlivePlayer" unique_id=2120522588]
-reset_on_save = false
-libraries/ = SubResource("AnimationLibrary_pox7b")
 
 [connection signal="area_entered" from="AlivePlayer/DamageHitbox" to="AlivePlayer" method="_on_damage_hitbox_area_entered"]
 [connection signal="area_entered" from="AlivePlayer/CubeHitbox" to="AlivePlayer" method="_on_cube_hitbox_area_entered"]
