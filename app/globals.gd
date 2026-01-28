@@ -12,10 +12,6 @@ func _ready():
 	set_percussion_enabled(false)
 	
 func _physics_process(_delta: float) -> void:
-	if (player_hp <= 0):
-		if game_over == false:
-			game_ended.emit()
-			game_over = true
 
 	# enable bass when player first explodes
 	if is_player_flying:
@@ -38,7 +34,15 @@ func set_percussion_enabled(enabled: bool):
 	var bus_index = AudioServer.get_bus_index("Percussion")
 	AudioServer.set_bus_mute(bus_index, !enabled)
 
+func damage_player(damage: int):
+	if (player_hp - damage <= 0):
+		if game_over == false:
+			game_ended.emit()
+			game_over = true
+	player_hp -= damage
+
 func reset_game():
+	set_percussion_enabled(false)
 	player_hp = 3
 	score = 0
 	world_speed = 1.5
