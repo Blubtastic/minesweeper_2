@@ -34,8 +34,9 @@ fractal_lacunarity = 20.0
 noise = SubResource("FastNoiseLite_3l74d")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1ijvx"]
-transparency = 1
+diffuse_mode = 3
 vertex_color_use_as_albedo = true
+roughness = 0.0
 emission = Color(0, 1, 0, 1)
 normal_texture = SubResource("NoiseTexture2D_q3d2d")
 
@@ -43,14 +44,15 @@ normal_texture = SubResource("NoiseTexture2D_q3d2d")
 material = SubResource("StandardMaterial3D_1ijvx")
 text = "999"
 font_size = 64
+curve_step = 10.0
 
 [sub_resource type="Curve" id="Curve_ovcfe"]
-_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.195652, 1), 0.0, 0.0, 0, 0, Vector2(0.970109, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.195652, 1), 0.0, 0.0, 0, 0, Vector2(0.8955223, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 4
 
 [sub_resource type="Gradient" id="Gradient_cvqp5"]
-offsets = PackedFloat32Array(0, 0.677419, 1)
-colors = PackedColorArray(0, 1, 0, 1, 0, 0.380392, 0, 1, 0, 0.380392, 0, 0)
+offsets = PackedFloat32Array(0, 0.8623025, 1)
+colors = PackedColorArray(0, 1, 0, 1, 0, 0.47648424, 0, 1, 7.294817e-08, 0.09793358, 0, 1)
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_qvm27"]
 fractal_lacunarity = 20.0
