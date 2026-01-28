@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://b8yejfq3fcemn"]
+[gd_scene format=3 uid="uid://b8yejfq3fcemn"]
 
 [ext_resource type="Script" uid="uid://cxbc63why7ydl" path="res://shared/cube/explosion_effect.gd" id="1_g7e70"]
 
@@ -18,8 +18,9 @@ _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.689498, 1), 0.0, 0.0, 0, 0, Ve
 point_count = 3
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pvr4k"]
-transparency = 1
+diffuse_mode = 3
 vertex_color_use_as_albedo = true
+roughness = 0.0
 emission = Color(0.523438, 1, 0, 1)
 emission_energy_multiplier = 2.02
 
@@ -33,7 +34,7 @@ _data = [Vector2(0, 0.0135783), 0.0, 0.0, 0, 0, Vector2(0.200935, 1), 0.0, 0.0, 
 point_count = 3
 
 [sub_resource type="Gradient" id="Gradient_4pro2"]
-colors = PackedColorArray(0.286275, 0.278431, 0.168627, 1, 0.29, 0.282073, 0.1711, 0)
+colors = PackedColorArray(0.286275, 0.278431, 0.168627, 1, 1, 1, 1, 1)
 
 [sub_resource type="Curve" id="Curve_11igq"]
 _data = [Vector2(0, 0.0135783), 0.0, 0.0, 0, 0, Vector2(0.238462, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.00319493), 0.0, 0.0, 0, 0]
@@ -42,10 +43,10 @@ point_count = 3
 [sub_resource type="Gradient" id="Gradient_omovn"]
 colors = PackedColorArray(1, 0.721569, 0, 1, 1, 0.207843, 0, 1)
 
-[node name="ExplosionEffect" type="Node3D"]
+[node name="ExplosionEffect" type="Node3D" unique_id=291960086]
 script = ExtResource("1_g7e70")
 
-[node name="Debris" type="CPUParticles3D" parent="."]
+[node name="Debris" type="CPUParticles3D" parent="." unique_id=1283614101]
 emitting = false
 amount = 24
 lifetime = 0.5
@@ -62,7 +63,7 @@ scale_amount_min = 0.5
 scale_amount_max = 1.5
 scale_amount_curve = SubResource("Curve_7psm2")
 
-[node name="Smoke" type="CPUParticles3D" parent="."]
+[node name="Smoke" type="CPUParticles3D" parent="." unique_id=197226042]
 emitting = false
 amount = 12
 lifetime = 2.0
@@ -83,7 +84,7 @@ scale_amount_curve = SubResource("Curve_2dncm")
 color = Color(0.286275, 0.278431, 0.168627, 1)
 color_ramp = SubResource("Gradient_4pro2")
 
-[node name="Fire" type="CPUParticles3D" parent="."]
+[node name="Fire" type="CPUParticles3D" parent="." unique_id=933133968]
 emitting = false
 amount = 12
 one_shot = true
