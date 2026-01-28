@@ -67,10 +67,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.103678, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0995955, 0)
 
 [node name="TireDebrisSnowLeft" parent="AlivePlayer" unique_id=34965598 instance=ExtResource("5_5hepr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.166163, -0.168178, 0.183808)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.166163, -0.168178, 0.12635526)
 
 [node name="TireDebrisSnowRight" parent="AlivePlayer" unique_id=649540690 instance=ExtResource("5_5hepr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.171288, -0.168178, 0.183808)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.171288, -0.168178, 0.12635526)
 
 [node name="Collision" type="CollisionShape3D" parent="AlivePlayer" unique_id=655269563]
 shape = SubResource("BoxShape3D_4to0f")
