@@ -1,7 +1,5 @@
 [gd_scene format=3 uid="uid://62fr2rhqfdeo"]
 
-[ext_resource type="Script" uid="uid://bm14wfb0rhkfo" path="res://features/Snow/snow.gd" id="1_ntv5t"]
-
 [sub_resource type="Gradient" id="Gradient_jcbtw"]
 offsets = PackedFloat32Array(0.484043, 1)
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
@@ -71,4 +69,3 @@ preprocess = 1.0
 visibility_aabb = AABB(-36.0427, -61.9711, -39.0134, 94.6783, 64.8998, 92.5556)
 process_material = SubResource("ParticleProcessMaterial_7gmvt")
 draw_pass_1 = SubResource("QuadMesh_t6son")
-script = ExtResource("1_ntv5t")
