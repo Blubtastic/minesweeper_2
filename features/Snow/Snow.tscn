@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://62fr2rhqfdeo"]
+[gd_scene format=3 uid="uid://62fr2rhqfdeo"]
 
 [ext_resource type="Script" uid="uid://bm14wfb0rhkfo" path="res://features/Snow/snow.gd" id="1_ntv5t"]
 
@@ -57,12 +57,13 @@ billboard_keep_scale = true
 material = SubResource("StandardMaterial3D_88tjl")
 size = Vector2(0.25, 0.25)
 
-[node name="Snow" type="Node3D"]
+[node name="Snow" type="Node3D" unique_id=546563478]
 
-[node name="Snow" type="GPUParticles3D" parent="."]
+[node name="Snow" type="GPUParticles3D" parent="." unique_id=741586224]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 24, 0)
 amount = 256
 lifetime = 3.5
+preprocess = 1.0
 visibility_aabb = AABB(-36.0427, -61.9711, -39.0134, 94.6783, 64.8998, 92.5556)
 process_material = SubResource("ParticleProcessMaterial_7gmvt")
 draw_pass_1 = SubResource("QuadMesh_t6son")
