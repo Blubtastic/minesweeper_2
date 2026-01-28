@@ -1,9 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://qhpvf7y1n474"]
+[gd_scene format=3 uid="uid://qhpvf7y1n474"]
 
-[ext_resource type="Script" uid="uid://c1gwtejje3dmj" path="res://ui/game_over_score.gd" id="1_5eixk"]
-[ext_resource type="Script" uid="uid://l82iatcudrfa" path="res://ui/restart_button.gd" id="1_oo8kp"]
+[ext_resource type="Script" uid="uid://c1gwtejje3dmj" path="res://2D/game_over_score.gd" id="1_5eixk"]
+[ext_resource type="Script" uid="uid://l82iatcudrfa" path="res://2D/restart_button.gd" id="1_oo8kp"]
 
-[node name="GameOver" type="Control"]
+[node name="GameOver" type="Control" unique_id=1031293600]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -11,7 +11,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1887840285]
 layout_mode = 0
 offset_left = 285.0
 offset_top = 143.0
@@ -19,7 +19,7 @@ offset_right = 675.0
 offset_bottom = 268.0
 color = Color(0, 0, 0, 0.27451)
 
-[node name="Title" type="Label" parent="."]
+[node name="Title" type="Label" parent="." unique_id=87844780]
 layout_mode = 0
 offset_left = 286.0
 offset_top = 142.0
@@ -29,7 +29,7 @@ theme_override_font_sizes/font_size = 64
 text = "Game Over"
 horizontal_alignment = 1
 
-[node name="ScoreAndText" type="Label" parent="."]
+[node name="ScoreAndText" type="Label" parent="." unique_id=180617542]
 layout_mode = 0
 offset_left = 285.0
 offset_top = 232.0
@@ -38,7 +38,7 @@ offset_bottom = 255.0
 horizontal_alignment = 1
 script = ExtResource("1_5eixk")
 
-[node name="CenterContainer" type="CenterContainer" parent="."]
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=1344173591]
 layout_mode = 1
 anchors_preset = 13
 anchor_left = 0.5
@@ -47,7 +47,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Button" type="Button" parent="."]
+[node name="Button" type="Button" parent="." unique_id=839169750]
 layout_mode = 0
 offset_left = 407.0
 offset_top = 281.0
