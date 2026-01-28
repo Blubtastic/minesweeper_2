@@ -68,7 +68,7 @@ autoplay = true
 bus = &"Bass"
 
 [node name="Snow" parent="." unique_id=317101561 instance=ExtResource("6_bv4rx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -11.2124, -11.3809)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8316574, -11.2124, -11.3809)
 
 [node name="Player" parent="." unique_id=145953444 instance=ExtResource("1_mwkh8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.15148, -2.25592)
