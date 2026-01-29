@@ -40,8 +40,3 @@ func spawn_forest():
 	var forest_position = Vector3(-9, 0.5,-17.42)
 	forest_instance.transform.origin = forest_position
 	add_child(forest_instance)
-	
-	var forest_instance2 = FOREST_CHUNK.instantiate()
-	var forest_position2 = Vector3(9, 0.5, -17.42)
-	forest_instance2.transform.origin = forest_position2
-	add_child(forest_instance2)
