@@ -79,7 +79,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.15148, -2.25592)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 0, -17.35)
 
 [node name="ForestChunkLeft1" parent="InitialChunks" unique_id=1726180872 instance=ExtResource("7_m1pw8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0.5, -14)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0.57, -14)
 
 [node name="CubeChunk" parent="InitialChunks" unique_id=1412546617 instance=ExtResource("5_2r6wr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 0, -9.35)
@@ -89,10 +89,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 0, -1.35)
 NUMBER_OF_MINES = 0
 
 [node name="ForestChunkLeft" parent="InitialChunks" unique_id=1905221884 instance=ExtResource("7_m1pw8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0.5, -6)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0.57, -6)
 
 [node name="ForestChunkLeft3" parent="InitialChunks" unique_id=295309255 instance=ExtResource("7_m1pw8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0.5, 2)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0.57, 2)
 
 [node name="CubechunkTimer" type="Timer" parent="." unique_id=1063197043]
 
@@ -103,7 +103,7 @@ collision_mask = 0
 metadata/_edit_group_ = true
 
 [node name="Floor" type="CollisionShape3D" parent="InvisibleWalls" unique_id=412941992]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.52, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.5886023, 0)
 shape = SubResource("BoxShape3D_ldolv")
 
 [node name="Left" type="CollisionShape3D" parent="InvisibleWalls" unique_id=184530761]

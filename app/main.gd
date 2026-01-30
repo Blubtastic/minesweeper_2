@@ -37,6 +37,6 @@ func spawn_cubechunk():
 
 func spawn_forest():
 	var forest_instance = FOREST_CHUNK.instantiate()
-	var forest_position = Vector3(-9, 0.5,-17.42)
+	var forest_position = Vector3(-9, 0.57,-17.42)
 	forest_instance.transform.origin = forest_position
 	add_child(forest_instance)
