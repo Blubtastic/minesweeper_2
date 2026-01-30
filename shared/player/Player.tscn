@@ -94,31 +94,26 @@ shape = SubResource("CapsuleShape3D_qlff2")
 
 [node name="Body" type="MeshInstance3D" parent="AlivePlayer/PlayerModel" unique_id=1401574444]
 layers = 16
-cast_shadow = 0
 mesh = SubResource("BoxMesh_8nayr")
 skeleton = NodePath("../..")
 
 [node name="WheelFrontRight" type="MeshInstance3D" parent="AlivePlayer/PlayerModel" unique_id=261154365]
 transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0.175, -0.07, -0.15)
-cast_shadow = 0
 mesh = SubResource("CylinderMesh_6xd78")
 skeleton = NodePath("../..")
 
 [node name="WheelBackRight" type="MeshInstance3D" parent="AlivePlayer/PlayerModel" unique_id=1297394425]
 transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0.175, -0.07, 0.15)
-cast_shadow = 0
 mesh = SubResource("CylinderMesh_6xd78")
 skeleton = NodePath("../..")
 
 [node name="WheelFrontLeft" type="MeshInstance3D" parent="AlivePlayer/PlayerModel" unique_id=284323459]
 transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -0.175, -0.07, -0.15)
-cast_shadow = 0
 mesh = SubResource("CylinderMesh_6xd78")
 skeleton = NodePath("../..")
 
 [node name="WheelBackLeft" type="MeshInstance3D" parent="AlivePlayer/PlayerModel" unique_id=815272790]
 transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -0.175, -0.07, 0.15)
-cast_shadow = 0
 mesh = SubResource("CylinderMesh_6xd78")
 skeleton = NodePath("../..")
 
