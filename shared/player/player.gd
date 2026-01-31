@@ -5,6 +5,7 @@ const FORWARD_SPEED = 7.0
 const BACKWARD_SPEED = 5.0
 const JUMP_VELOCITY = 6
 const LAUNCH_VELOCITY = 12
+const TERMINAL_VELOCITY = 40
 var invincible: bool = false
 var overlapping_cubes
 var is_controllable = true
@@ -63,9 +64,12 @@ func _physics_process(delta: float) -> void:
 
 func damage_player():
 	if not invincible:
-		#Globals.player_hp -= 1
+		if Globals.player_hp < 2:
+			velocity.y = TERMINAL_VELOCITY
+			despawn()
+		else:
+			velocity.y = LAUNCH_VELOCITY
 		Globals.damage_player(1)
-		velocity.y = LAUNCH_VELOCITY
 		invincible = true
 		Globals.is_player_flying = true
 		
@@ -101,3 +105,8 @@ func stop_debris():
 
 func _on_damage_hitbox_area_entered(_area: Area3D) -> void:
 	damage_player()
+
+func despawn(delay: int = 2):
+	player_shadow.visible = false
+	await get_tree().create_timer(delay).timeout
+	queue_free()
