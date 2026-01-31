@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://l82iatcudrfa" path="res://2D/restart_button.gd" id="1_oo8kp"]
 [ext_resource type="Shader" uid="uid://dvxkh85q1fbvj" path="res://2D/game_over/blur_shader.gdshader" id="2_02873"]
 [ext_resource type="Texture2D" uid="uid://dw7o1danwup2e" path="res://2D/game_over/white.png" id="3_5q8jb"]
+[ext_resource type="Script" uid="uid://46ckf1otpelq" path="res://2D/menu_button.gd" id="6_5q8jb"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_a48gh"]
 shader = ExtResource("2_02873")
@@ -58,13 +59,23 @@ text = "Your score is 1530"
 horizontal_alignment = 1
 script = ExtResource("1_5eixk")
 
-[node name="Button" type="Button" parent="Elements" unique_id=839169750]
+[node name="RestartButton" type="Button" parent="Elements" unique_id=839169750]
 layout_mode = 0
-offset_left = 407.0
+offset_left = 485.0
 offset_top = 346.0
-offset_right = 543.0
+offset_right = 621.0
 offset_bottom = 396.0
 text = "Try again"
 script = ExtResource("1_oo8kp")
 
-[connection signal="pressed" from="Elements/Button" to="Elements/Button" method="_on_pressed"]
+[node name="MenuButton" type="Button" parent="Elements" unique_id=1087514802]
+layout_mode = 0
+offset_left = 324.0
+offset_top = 346.0
+offset_right = 460.0
+offset_bottom = 396.0
+text = "Main menu"
+script = ExtResource("6_5q8jb")
+
+[connection signal="pressed" from="Elements/RestartButton" to="Elements/RestartButton" method="_on_pressed"]
+[connection signal="pressed" from="Elements/MenuButton" to="Elements/MenuButton" method="_on_pressed"]

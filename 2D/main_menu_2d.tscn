@@ -1,9 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://bnxqp40rt11bk"]
+[gd_scene format=3 uid="uid://bnxqp40rt11bk"]
 
 [ext_resource type="Script" uid="uid://b7ft5a8elf3ba" path="res://2D/version_number.gd" id="1_n3c66"]
 [ext_resource type="Script" uid="uid://b54ilbiutn1xc" path="res://2D/start_button.gd" id="1_u8pln"]
 
-[node name="MainMenu2D" type="Control"]
+[node name="MainMenu2D" type="Control" unique_id=772130292]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -12,7 +12,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_n3c66")
 
-[node name="VersionNumber" type="Label" parent="."]
+[node name="VersionNumber" type="Label" parent="." unique_id=1584455564]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -31,7 +31,7 @@ text = "v0.0.2"
 horizontal_alignment = 2
 vertical_alignment = 2
 
-[node name="Start 1player" type="Button" parent="."]
+[node name="Start 1player" type="Button" parent="." unique_id=2064860424]
 layout_mode = 0
 offset_left = 376.0
 offset_top = 355.12
@@ -41,7 +41,7 @@ theme_override_font_sizes/font_size = 24
 text = "1 player"
 script = ExtResource("1_u8pln")
 
-[node name="Start 2player" type="Button" parent="."]
+[node name="Start 2player" type="Button" parent="." unique_id=1257719732]
 layout_mode = 0
 offset_left = 376.0
 offset_top = 424.11
@@ -50,7 +50,7 @@ offset_bottom = 477.11
 theme_override_font_sizes/font_size = 24
 text = "2 player"
 
-[node name="Control" type="Control" parent="."]
+[node name="Control" type="Control" parent="." unique_id=1875039120]
 layout_mode = 1
 anchors_preset = 13
 anchor_left = 0.5
