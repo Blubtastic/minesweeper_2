@@ -4,6 +4,7 @@ const GAME_OVER = preload("uid://qhpvf7y1n474")
 const CUBE_CHUNK = preload("uid://dgxv52jn27v3c")
 const FOREST_CHUNK = preload("uid://dhlda46fqvnos")
 
+@onready var hud: Control = $HUD
 @onready var cubechunk_timer: Timer = $CubechunkTimer
 
 func _ready():
@@ -17,6 +18,7 @@ func _input(event):
 			get_tree().reload_current_scene()
 
 func _on_game_ended():
+	hud.visible = false
 	var game_over_instance = GAME_OVER.instantiate()
 	add_child(game_over_instance)
 

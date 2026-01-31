@@ -1,6 +1,7 @@
 extends Node
 
-var player_hp = 3
+const PLAYER_HP_START: int = 1
+var player_hp: int
 var score = 0
 var world_speed = 1.5
 var is_player_flying: bool = false
@@ -9,6 +10,7 @@ var game_over: bool = false
 signal game_ended()
 
 func _ready():
+	player_hp = PLAYER_HP_START
 	set_percussion_enabled(false)
 	
 func _physics_process(_delta: float) -> void:
@@ -43,7 +45,7 @@ func damage_player(damage: int):
 
 func reset_game():
 	set_percussion_enabled(false)
-	player_hp = 3
+	player_hp = PLAYER_HP_START
 	score = 0
 	world_speed = 1.5
 	is_player_flying = false
