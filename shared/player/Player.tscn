@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dqeksnc1bqwgt"]
 
 [ext_resource type="Script" uid="uid://cahfvs4cexpdp" path="res://shared/player/player.gd" id="1_fjkuh"]
+[ext_resource type="PackedScene" uid="uid://bej6m82ih40n5" path="res://2D/thumb_circle_touch.tscn" id="1_fxman"]
 [ext_resource type="PackedScene" uid="uid://ddwftyj3tif34" path="res://features/Poof/Poof.tscn" id="3_b81g5"]
 [ext_resource type="PackedScene" uid="uid://dvabslbqfwp0v" path="res://features/Sparks/Sparks.tscn" id="4_j4a84"]
 [ext_resource type="PackedScene" uid="uid://dbi36hqar6db8" path="res://shared/player/PlayerShadow.tscn" id="4_vrm5f"]
@@ -42,7 +43,10 @@ height = 0.05
 
 [node name="Player" type="Node3D" unique_id=1154084459]
 
+[node name="ThumbCircleTouch" parent="." unique_id=871642653 instance=ExtResource("1_fxman")]
+
 [node name="PhoneUI" parent="." unique_id=1174820554 instance=ExtResource("8_81m0s")]
+visible = false
 
 [node name="PlayerShadow" parent="." unique_id=774143020 instance=ExtResource("4_vrm5f")]
 transform = Transform3D(1.3, 0, 0, 0, -5.68248e-08, 1.3, 0, -1.3, -5.68248e-08, 0, -0.175307, 0)
