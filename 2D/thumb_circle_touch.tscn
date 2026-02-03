@@ -31,4 +31,9 @@ shape = SubResource("RectangleShape2D_5khau")
 passby_press = true
 script = ExtResource("1_dxfsg")
 
+[node name="DebugTouchPoint" type="Label" parent="." unique_id=472154627]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
 [connection signal="pressed" from="TouchScreenButton" to="TouchScreenButton" method="_on_pressed"]
