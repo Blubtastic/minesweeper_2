@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bej6m82ih40n5"]
 
 [ext_resource type="Script" uid="uid://cqci5qy4b4v83" path="res://2D/thumb_circle_touch.gd" id="1_dxfsg"]
+[ext_resource type="Script" uid="uid://c7nlr2dhbsdr0" path="res://2D/draw_circle.gd" id="2_nd7hb"]
 
 [sub_resource type="Gradient" id="Gradient_8xfq6"]
 offsets = PackedFloat32Array(0)
@@ -22,6 +23,24 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_dxfsg")
+
+[node name="Circle" type="Control" parent="." unique_id=1853332947]
+anchors_preset = 0
+offset_left = 823.0
+offset_top = 431.0
+offset_right = 863.0
+offset_bottom = 471.0
+
+[node name="Center" type="Polygon2D" parent="Circle" unique_id=1008981783]
+color = Color(0, 0, 0, 1)
+script = ExtResource("2_nd7hb")
+radius = 10.0
+
+[node name="FollowThumb" type="Polygon2D" parent="Circle" unique_id=1963091658]
+position = Vector2(-100, 0)
+color = Color(0, 0, 0, 1)
+script = ExtResource("2_nd7hb")
 
 [node name="TouchScreenButton" type="TouchScreenButton" parent="." unique_id=254969116]
 position = Vector2(454.99997, 144)
@@ -29,7 +48,6 @@ scale = Vector2(5.1, 4.0099998)
 texture_normal = SubResource("GradientTexture2D_nd7hb")
 shape = SubResource("RectangleShape2D_5khau")
 passby_press = true
-script = ExtResource("1_dxfsg")
 
 [node name="DebugTouchPoint" type="Label" parent="." unique_id=472154627]
 layout_mode = 0
