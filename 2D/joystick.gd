@@ -1,22 +1,27 @@
 extends Control
 
-@onready var touch_screen_button: TouchScreenButton = $TouchScreenButton
-@onready var circle: Control = $Circle
-@onready var icon_movable: Polygon2D = $Circle/ThumbIcon
+@onready var icon_movable: Polygon2D = $ThumbIcon
 
 @export var max_radius: int = 100
+var touch_radius: int = max_radius * 2
 const INITIAL: Vector2 = Vector2(0,0)
 signal joystick_moved()
 
 func _ready():
 	disable_if_not_touch()
 
-func _input(event: InputEvent) -> void:
+# scoops up inputs not consumed by other things like buttons.
+# note that Control nodes covering an area will consume input before it reaches here.
+func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventScreenDrag:
 		move_joystick(event)
 	if event is InputEventScreenTouch:
 		if not event.is_pressed():
 			move_joystick()
+			# TODO: Maybe this code is a problem. If an event is NOT drag, reset joystick. 
+			# Cleanest would be to reset joystick of ALL events are not Drag. 
+
+
 
 func move_joystick(event: InputEventScreenDrag = null):
 	if event == null:
@@ -24,7 +29,7 @@ func move_joystick(event: InputEventScreenDrag = null):
 		joystick_moved.emit(INITIAL, 1)
 		return
 	
-	var center: Vector2 = circle.global_position
+	var center: Vector2 = global_position
 	var thumb: Vector2 = event.position
 	var direction = center - thumb
 	var distance = direction.length()

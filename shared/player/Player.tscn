@@ -6,7 +6,21 @@
 [ext_resource type="PackedScene" uid="uid://dvabslbqfwp0v" path="res://features/Sparks/Sparks.tscn" id="4_j4a84"]
 [ext_resource type="PackedScene" uid="uid://dbi36hqar6db8" path="res://shared/player/PlayerShadow.tscn" id="4_vrm5f"]
 [ext_resource type="PackedScene" uid="uid://b7wmb8jxswbil" path="res://shared/player/TireDebris/TireDebrisSnow.tscn" id="5_5hepr"]
-[ext_resource type="PackedScene" uid="uid://d3euse4yt0vwp" path="res://2D/phone_ui.tscn" id="8_81m0s"]
+
+[sub_resource type="Gradient" id="Gradient_rkubv"]
+offsets = PackedFloat32Array(0, 0.6674009, 0.6696035)
+colors = PackedColorArray(0, 0, 0, 0.3137255, 0, 0, 0, 0.3137255, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_jf3a6"]
+gradient = SubResource("Gradient_rkubv")
+width = 128
+height = 128
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0, 0)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fxman"]
+size = Vector2(128, 128)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4to0f"]
 size = Vector3(0.3, 0.258521, 0.5)
@@ -43,10 +57,30 @@ height = 0.05
 
 [node name="Player" type="Node3D" unique_id=1154084459]
 
-[node name="ThumbCircleTouch" parent="." unique_id=871642653 instance=ExtResource("1_fxman")]
+[node name="Space" type="Control" parent="." unique_id=484577530]
+layout_mode = 3
+anchor_left = 0.791
+anchor_top = 0.619
+anchor_right = 0.791
+anchor_bottom = 0.619
+offset_left = -0.35998535
+offset_top = -0.26000977
+offset_right = 163.64001
+offset_bottom = 164.73999
 
-[node name="PhoneUI" parent="." unique_id=1174820554 instance=ExtResource("8_81m0s")]
-visible = false
+[node name="Space" type="TouchScreenButton" parent="Space" unique_id=1305422909]
+scale = Vector2(1.2734376, 1.2734377)
+texture_normal = SubResource("GradientTexture2D_jf3a6")
+shape = SubResource("RectangleShape2D_fxman")
+passby_press = true
+action = "ui_accept"
+
+[node name="Joystick" parent="." unique_id=871642653 instance=ExtResource("1_fxman")]
+offset_left = 125.0
+offset_top = 410.0
+offset_right = 125.0
+offset_bottom = 410.0
+max_radius = 75
 
 [node name="PlayerShadow" parent="." unique_id=774143020 instance=ExtResource("4_vrm5f")]
 transform = Transform3D(1.3, 0, 0, 0, -5.68248e-08, 1.3, 0, -1.3, -5.68248e-08, 0, -0.175307, 0)
