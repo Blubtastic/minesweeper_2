@@ -23,7 +23,7 @@ func _input(event: InputEvent) -> void:
 func move_joystick(event: InputEventScreenDrag = null):
 	if event == null:
 		icon_movable.position = INITIAL
-		joystick_moved.emit(INITIAL)
+		joystick_moved.emit(INITIAL, 1)
 		return
 	
 	var center: Vector2 = circle.global_position
@@ -35,7 +35,8 @@ func move_joystick(event: InputEventScreenDrag = null):
 		direction = direction.normalized() * max_radius
 		clamped_position = -direction
 	icon_movable.position = clamped_position
-	joystick_moved.emit(clamped_position)
+	var speed = clamp(distance / max_radius, 0, 1)
+	joystick_moved.emit(clamped_position, speed)
 
 func disable_if_not_touch():
 	if DisplayServer.is_touchscreen_available():

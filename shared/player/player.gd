@@ -10,6 +10,7 @@ var invincible: bool = false
 var overlapping_cubes
 var is_controllable = true
 var joystick_direction: Vector2 = Vector2(0,0)
+var speed_intensity: float = 1
 
 const TRAIL_VFX = preload("uid://drynt1383xlht")
 @onready var cube_hitbox: Area3D = $CubeHitbox
@@ -28,8 +29,9 @@ func _ready():
 	if thumb_circle_touch.visible:
 		thumb_circle_touch.joystick_moved.connect(_on_joystick_moved)
 
-func _on_joystick_moved(dir: Vector2):
+func _on_joystick_moved(dir: Vector2, speed: float):
 	joystick_direction = dir
+	speed_intensity = speed
 
 func _physics_process(delta: float) -> void:
 	var cubes = get_tree().get_nodes_in_group("cubes")
@@ -50,18 +52,18 @@ func _physics_process(delta: float) -> void:
 	var input_dir := Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down") + joystick_direction
 	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	if direction:
-		velocity.x = direction.x * SPEED
+		velocity.x = direction.x * SPEED * speed_intensity
 		if is_on_floor():
 			emit_debris()
 		else:
 			stop_debris()
 		if direction.z > 0:
-			velocity.z = direction.z * BACKWARD_SPEED + Globals.world_speed
+			velocity.z = direction.z * BACKWARD_SPEED * speed_intensity + Globals.world_speed
 		if direction.z < 0:
-			velocity.z = direction.z * FORWARD_SPEED + Globals.world_speed
+			velocity.z = direction.z * FORWARD_SPEED * speed_intensity + Globals.world_speed
 	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
-		velocity.z = move_toward(velocity.z, Globals.world_speed, SPEED)
+		velocity.x = move_toward(velocity.x, 0, SPEED * speed_intensity)
+		velocity.z = move_toward(velocity.z, Globals.world_speed, SPEED * speed_intensity)
 		stop_debris()
 	rotation.z = -velocity.x / 30
 	rotation.x = -velocity.z / 30
