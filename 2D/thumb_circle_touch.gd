@@ -11,6 +11,10 @@ func _input(event: InputEvent) -> void:
 	if event is InputEventScreenDrag:
 		debug_touch_point.text = str(event.position)
 		move_thumb_icon(event)
+	if event is InputEventScreenTouch:
+		if not event.is_pressed():
+			print("released")
+			thumb_icon.position = Vector2(0,0)
 
 func move_thumb_icon(event: InputEventScreenDrag):
 	var center: Vector2 = circle.global_position
@@ -22,7 +26,8 @@ func move_thumb_icon(event: InputEventScreenDrag):
 		direction = direction.normalized() * max_radius
 		var final_position = -direction
 		thumb_icon.position = final_position
-		print(final_position, direction)
 	else:
 		var final_position = thumb - center
 		thumb_icon.position = final_position
+
+# TODO: translate thumb_icon position to PLAYER INPUT
