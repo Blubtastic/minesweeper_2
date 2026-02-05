@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bej6m82ih40n5"]
 
-[ext_resource type="Script" uid="uid://cqci5qy4b4v83" path="res://2D/thumb_circle_touch.gd" id="1_dxfsg"]
+[ext_resource type="Script" uid="uid://cqci5qy4b4v83" path="res://2D/joystick.gd" id="1_dxfsg"]
 [ext_resource type="Script" uid="uid://c7nlr2dhbsdr0" path="res://2D/draw_circle.gd" id="2_nd7hb"]
 
 [sub_resource type="Gradient" id="Gradient_8xfq6"]
@@ -16,7 +16,7 @@ fill_to = Vector2(0, 0)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5khau"]
 size = Vector2(100, 100)
 
-[node name="ThumbCircleTouch" type="Control" unique_id=871642653]
+[node name="Joystick" type="Control" unique_id=871642653]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -24,7 +24,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_dxfsg")
-max_radius = 75
 
 [node name="Circle" type="Control" parent="." unique_id=1853332947]
 anchors_preset = 0
