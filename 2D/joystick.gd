@@ -5,7 +5,7 @@ extends Control
 @onready var circle: Control = $Circle
 @onready var icon_movable: Polygon2D = $Circle/ThumbIcon
 
-@export var max_radius: int = 150
+@export var max_radius: int = 100
 const INITIAL: Vector2 = Vector2(0,0)
 signal joystick_moved()
 
