@@ -20,7 +20,16 @@ const TRAIL_VFX = preload("uid://drynt1383xlht")
 @onready var sparks: GPUParticles3D = $Sparks
 @onready var left_debris: Node3D = $TireDebrisSnowLeft
 @onready var right_debris: Node3D = $TireDebrisSnowRight
+@onready var thumb_circle_touch: Control = $"../ThumbCircleTouch"
 
+var joystick_direction: Vector2 = Vector2(0,0)
+
+func _ready():
+	thumb_circle_touch.joystick_moved.connect(_on_joystick_moved)
+
+func _on_joystick_moved(dir: Vector2):
+	print("signal fired and received!", dir)
+	joystick_direction = dir
 
 func _physics_process(delta: float) -> void:
 	var cubes = get_tree().get_nodes_in_group("cubes")
@@ -38,7 +47,8 @@ func _physics_process(delta: float) -> void:
 		velocity.y = JUMP_VELOCITY
 		poof.restart()
 	
-	var input_dir := Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
+	#var input_dir := Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
+	var input_dir = joystick_direction
 	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	if direction:
 		velocity.x = direction.x * SPEED

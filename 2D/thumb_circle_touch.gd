@@ -6,6 +6,8 @@ extends Control
 @onready var thumb_icon: Polygon2D = $Circle/ThumbIcon
 
 @export var max_radius = 150
+const INITIAL: Vector2 = Vector2(0,0)
+signal joystick_moved()
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventScreenDrag:
@@ -14,7 +16,8 @@ func _input(event: InputEvent) -> void:
 	if event is InputEventScreenTouch:
 		if not event.is_pressed():
 			print("released")
-			thumb_icon.position = Vector2(0,0)
+			thumb_icon.position = INITIAL
+			joystick_moved.emit(INITIAL)
 
 func move_thumb_icon(event: InputEventScreenDrag):
 	var center: Vector2 = circle.global_position
@@ -22,17 +25,12 @@ func move_thumb_icon(event: InputEventScreenDrag):
 
 	var direction = center - thumb
 	var distance = direction.length()
+	var final_position: Vector2 = thumb - center
 	if distance > max_radius:
 		direction = direction.normalized() * max_radius
-		var final_position = -direction
-		thumb_icon.position = final_position
-	else:
-		var final_position = thumb - center
-		thumb_icon.position = final_position
+		final_position = -direction
+	thumb_icon.position = final_position
+	joystick_moved.emit(final_position)
 
-# TODO: TRANSLATAE THUMB_ICON POSITION TO PLAYER INPUT
-# Emit signal with -direction (Vector2)
-# Put this node as child of Player, connect signal
 
-# Extra
-# emit input_strength - distance clamped to max_radius
+# TODO: switch between joystick or WASD based on device
