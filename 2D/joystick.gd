@@ -10,8 +10,7 @@ signal joystick_moved()
 func _ready():
 	disable_if_not_touch()
 
-# scoops up inputs not consumed by other things like buttons.
-# note that Control nodes covering an area will consume input before it reaches here.
+# Scoops up inputs not consumed by other things. Note that Control nodes covering an area will consume input before it reaches here.
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventScreenDrag:
 		move_joystick(event)
