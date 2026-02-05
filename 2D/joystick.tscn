@@ -10,10 +10,16 @@ script = ExtResource("1_dxfsg")
 metadata/_edit_use_anchors_ = true
 
 [node name="CenterIcon" type="Polygon2D" parent="." unique_id=1008981783]
-color = Color(0, 0, 0, 0.29411766)
+color = Color(0, 0, 0, 0.15686275)
 script = ExtResource("2_nd7hb")
-radius = 20.0
+radius = 75.0
+
+[node name="CenterTinyIcon" type="Polygon2D" parent="." unique_id=1266250164]
+color = Color(0, 0, 0, 1)
+script = ExtResource("2_nd7hb")
+radius = 5.0
 
 [node name="ThumbIcon" type="Polygon2D" parent="." unique_id=1963091658]
-color = Color(0, 0, 0, 0.29411766)
+color = Color(0, 0, 0, 1)
 script = ExtResource("2_nd7hb")
+radius = 20.0

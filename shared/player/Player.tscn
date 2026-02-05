@@ -77,10 +77,10 @@ passby_press = true
 action = "ui_accept"
 
 [node name="Joystick" parent="." unique_id=871642653 instance=ExtResource("1_fxman")]
-offset_left = 116.96
-offset_top = 417.72
-offset_right = 116.96
-offset_bottom = 417.72
+offset_left = 100.13
+offset_top = 442.255
+offset_right = 100.13
+offset_bottom = 442.255
 max_radius = 75
 
 [node name="PlayerShadow" parent="." unique_id=774143020 instance=ExtResource("4_vrm5f")]
