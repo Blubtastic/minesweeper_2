@@ -25,24 +25,23 @@ func _unhandled_input(event: InputEvent) -> void:
 	# Could be safer by doing this check for all event.index
 	if event is InputEventScreenTouch:
 		if not event.is_pressed():
-			move_joystick()
+			reset_joystick()
 
 func move_joystick(event: InputEventScreenDrag = null):
-	if event == null:
-		joystick_moved.emit(ORIGIN, 1)
-		thumb_position = ORIGIN
-		return
-	var center: Vector2 = global_position
 	var thumb: Vector2 = event.position
-	var direction = center - thumb
+	var direction = global_position - thumb
 	var distance = direction.length()
-	var clamped_position: Vector2 = thumb - center
+	var clamped_position: Vector2 = thumb - global_position
 	if distance > max_radius:
 		direction = direction.normalized() * max_radius
 		clamped_position = -direction
 	var speed = clamp(distance / max_radius, 0, 1)
 	joystick_moved.emit(clamped_position, speed)
 	thumb_position = clamped_position
+
+func reset_joystick():
+	joystick_moved.emit(ORIGIN, 1)
+	thumb_position = ORIGIN
 
 func disable_if_not_touch():
 	if DisplayServer.is_touchscreen_available():
