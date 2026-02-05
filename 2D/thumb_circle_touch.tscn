@@ -27,17 +27,17 @@ script = ExtResource("1_dxfsg")
 
 [node name="Circle" type="Control" parent="." unique_id=1853332947]
 anchors_preset = 0
-offset_left = 823.0
-offset_top = 431.0
-offset_right = 863.0
-offset_bottom = 471.0
+offset_left = 736.15
+offset_top = 339.33
+offset_right = 776.15
+offset_bottom = 379.33
 
-[node name="Center" type="Polygon2D" parent="Circle" unique_id=1008981783]
+[node name="CenterIcon" type="Polygon2D" parent="Circle" unique_id=1008981783]
 color = Color(0, 0, 0, 1)
 script = ExtResource("2_nd7hb")
 radius = 10.0
 
-[node name="FollowThumb" type="Polygon2D" parent="Circle" unique_id=1963091658]
+[node name="ThumbIcon" type="Polygon2D" parent="Circle" unique_id=1963091658]
 position = Vector2(-100, 0)
 color = Color(0, 0, 0, 1)
 script = ExtResource("2_nd7hb")
