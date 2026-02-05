@@ -30,4 +30,9 @@ func move_thumb_icon(event: InputEventScreenDrag):
 		var final_position = thumb - center
 		thumb_icon.position = final_position
 
-# TODO: translate thumb_icon position to PLAYER INPUT
+# TODO: TRANSLATAE THUMB_ICON POSITION TO PLAYER INPUT
+# Emit signal with -direction (Vector2)
+# Put this node as child of Player, connect signal
+
+# Extra
+# emit input_strength - distance clamped to max_radius
