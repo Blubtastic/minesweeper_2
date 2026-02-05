@@ -24,13 +24,14 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_dxfsg")
+max_radius = 75
 
 [node name="Circle" type="Control" parent="." unique_id=1853332947]
 anchors_preset = 0
-offset_left = 736.15
-offset_top = 339.33
-offset_right = 776.15
-offset_bottom = 379.33
+offset_left = 794.9
+offset_top = 386.7
+offset_right = 834.9
+offset_bottom = 426.7
 
 [node name="CenterIcon" type="Polygon2D" parent="Circle" unique_id=1008981783]
 color = Color(0, 0, 0, 1)
@@ -38,7 +39,6 @@ script = ExtResource("2_nd7hb")
 radius = 10.0
 
 [node name="ThumbIcon" type="Polygon2D" parent="Circle" unique_id=1963091658]
-position = Vector2(-100, 0)
 color = Color(0, 0, 0, 1)
 script = ExtResource("2_nd7hb")
 
