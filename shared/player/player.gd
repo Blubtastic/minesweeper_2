@@ -9,6 +9,7 @@ const TERMINAL_VELOCITY = 40
 var invincible: bool = false
 var overlapping_cubes
 var is_controllable = true
+var joystick_direction: Vector2 = Vector2(0,0)
 
 const TRAIL_VFX = preload("uid://drynt1383xlht")
 @onready var cube_hitbox: Area3D = $CubeHitbox
@@ -22,13 +23,12 @@ const TRAIL_VFX = preload("uid://drynt1383xlht")
 @onready var right_debris: Node3D = $TireDebrisSnowRight
 @onready var thumb_circle_touch: Control = $"../ThumbCircleTouch"
 
-var joystick_direction: Vector2 = Vector2(0,0)
 
 func _ready():
-	thumb_circle_touch.joystick_moved.connect(_on_joystick_moved)
+	if thumb_circle_touch.visible:
+		thumb_circle_touch.joystick_moved.connect(_on_joystick_moved)
 
 func _on_joystick_moved(dir: Vector2):
-	print("signal fired and received!", dir)
 	joystick_direction = dir
 
 func _physics_process(delta: float) -> void:

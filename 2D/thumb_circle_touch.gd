@@ -9,6 +9,9 @@ extends Control
 const INITIAL: Vector2 = Vector2(0,0)
 signal joystick_moved()
 
+func _ready():
+	disable_if_not_touch()
+
 func _input(event: InputEvent) -> void:
 	if event is InputEventScreenDrag:
 		debug_touch_point.text = str(event.position)
@@ -32,5 +35,10 @@ func move_thumb_icon(event: InputEventScreenDrag):
 	thumb_icon.position = final_position
 	joystick_moved.emit(final_position)
 
-
-# TODO: switch between joystick or WASD based on device
+func disable_if_not_touch():
+	if DisplayServer.is_touchscreen_available():
+		visible = true
+		set_process_mode(Node.PROCESS_MODE_INHERIT)
+	else:
+		visible = false
+		set_process_mode(Node.PROCESS_MODE_DISABLED)
