@@ -1,6 +1,6 @@
 extends Node
 
-const PLAYER_HP_START: int = 1
+const PLAYER_HP_START: int = 3
 var player_hp: int
 var score = 0
 var world_speed = 1.5

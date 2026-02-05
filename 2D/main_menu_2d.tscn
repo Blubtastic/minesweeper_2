@@ -33,20 +33,20 @@ vertical_alignment = 2
 
 [node name="Start 1player" type="Button" parent="." unique_id=2064860424]
 layout_mode = 0
-offset_left = 376.0
-offset_top = 355.12
-offset_right = 582.0
-offset_bottom = 408.12
+offset_left = 425.0
+offset_top = 355.0
+offset_right = 631.0
+offset_bottom = 408.0
 theme_override_font_sizes/font_size = 24
 text = "1 player"
 script = ExtResource("1_u8pln")
 
 [node name="Start 2player" type="Button" parent="." unique_id=1257719732]
 layout_mode = 0
-offset_left = 376.0
-offset_top = 424.11
-offset_right = 582.0
-offset_bottom = 477.11
+offset_left = 425.0
+offset_top = 423.99
+offset_right = 631.0
+offset_bottom = 476.99
 theme_override_font_sizes/font_size = 24
 text = "2 player"
 

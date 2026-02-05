@@ -102,8 +102,8 @@ directional_shadow_split_2 = 0.32
 directional_shadow_split_3 = 0.4
 
 [node name="Camera3D" type="Camera3D" parent="Environment" unique_id=280486300]
-transform = Transform3D(1, 0, 0, 0, 0.64171726, 0.7669413, 0, -0.7669413, 0.64171726, -0.270058, 2.25718, 2.0099)
-fov = 107.4
+transform = Transform3D(1, 0, 0, 0, 0.5447706, 0.83858514, 0, -0.83858514, 0.5447706, -0.26604733, 1.6013522, 0.88033366)
+fov = 116.4
 
 [node name="SpotLight3D" type="SpotLight3D" parent="Environment" unique_id=1735751909]
 transform = Transform3D(1, 0, 0, 0, 0.5105431, 0.8598522, 0, -0.8598522, 0.5105431, -0.316147, 2.9032, 0.870646)

@@ -30,7 +30,7 @@ Globals="*res://app/Globals.tscn"
 
 [display]
 
-window/size/viewport_width=960
+window/size/viewport_width=1056
 window/size/viewport_height=540
 window/stretch/mode="viewport"
 window/vsync/vsync_mode=0

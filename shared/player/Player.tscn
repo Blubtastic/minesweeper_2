@@ -59,14 +59,15 @@ height = 0.05
 
 [node name="Space" type="Control" parent="." unique_id=484577530]
 layout_mode = 3
-anchor_left = 0.791
-anchor_top = 0.619
-anchor_right = 0.791
-anchor_bottom = 0.619
-offset_left = -0.35998535
-offset_top = -0.26000977
-offset_right = 163.64001
-offset_bottom = 164.73999
+anchor_left = 0.80500007
+anchor_top = 0.648
+anchor_right = 0.80500007
+anchor_bottom = 0.648
+offset_left = 18.134949
+offset_top = -8.132019
+offset_right = 182.13501
+offset_bottom = 156.86746
+metadata/_edit_group_ = true
 
 [node name="Space" type="TouchScreenButton" parent="Space" unique_id=1305422909]
 scale = Vector2(1.2734376, 1.2734377)
@@ -76,10 +77,10 @@ passby_press = true
 action = "ui_accept"
 
 [node name="Joystick" parent="." unique_id=871642653 instance=ExtResource("1_fxman")]
-offset_left = 125.0
-offset_top = 410.0
-offset_right = 125.0
-offset_bottom = 410.0
+offset_left = 116.96
+offset_top = 417.72
+offset_right = 116.96
+offset_bottom = 417.72
 max_radius = 75
 
 [node name="PlayerShadow" parent="." unique_id=774143020 instance=ExtResource("4_vrm5f")]
