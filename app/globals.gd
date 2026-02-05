@@ -50,4 +50,3 @@ func reset_game():
 	world_speed = 1.5
 	is_player_flying = false
 	game_over = false
-	print(score)
