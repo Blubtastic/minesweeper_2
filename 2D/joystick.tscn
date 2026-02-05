@@ -33,12 +33,12 @@ offset_right = 834.9
 offset_bottom = 426.7
 
 [node name="CenterIcon" type="Polygon2D" parent="Circle" unique_id=1008981783]
-color = Color(0, 0, 0, 1)
+color = Color(0, 0, 0, 0.29411766)
 script = ExtResource("2_nd7hb")
-radius = 10.0
+radius = 20.0
 
 [node name="ThumbIcon" type="Polygon2D" parent="Circle" unique_id=1963091658]
-color = Color(0, 0, 0, 1)
+color = Color(0, 0, 0, 0.29411766)
 script = ExtResource("2_nd7hb")
 
 [node name="TouchScreenButton" type="TouchScreenButton" parent="." unique_id=254969116]
