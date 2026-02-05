@@ -1,7 +1,6 @@
 extends Control
 
 @onready var touch_screen_button: TouchScreenButton = $TouchScreenButton
-@onready var debug_touch_point: Label = $DebugTouchPoint
 @onready var circle: Control = $Circle
 @onready var icon_movable: Polygon2D = $Circle/ThumbIcon
 
@@ -14,7 +13,6 @@ func _ready():
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventScreenDrag:
-		debug_touch_point.text = str(event.position)
 		move_joystick(event)
 	if event is InputEventScreenTouch:
 		if not event.is_pressed():

@@ -16,6 +16,21 @@ fill_to = Vector2(0, 0)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5khau"]
 size = Vector2(100, 100)
 
+[sub_resource type="Gradient" id="Gradient_rkubv"]
+offsets = PackedFloat32Array(0, 0.6674009, 0.6696035)
+colors = PackedColorArray(0, 0, 0, 0.3137255, 0, 0, 0, 0.3137255, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_f7a4b"]
+gradient = SubResource("Gradient_rkubv")
+width = 128
+height = 128
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0, 0)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oyxx4"]
+size = Vector2(128, 128)
+
 [node name="Joystick" type="Control" unique_id=871642653]
 layout_mode = 3
 anchors_preset = 15
@@ -27,9 +42,9 @@ script = ExtResource("1_dxfsg")
 
 [node name="Circle" type="Control" parent="." unique_id=1853332947]
 anchors_preset = 0
-offset_left = 794.9
+offset_left = 150.0
 offset_top = 386.7
-offset_right = 834.9
+offset_right = 190.0
 offset_bottom = 426.7
 
 [node name="CenterIcon" type="Polygon2D" parent="Circle" unique_id=1008981783]
@@ -42,15 +57,18 @@ color = Color(0, 0, 0, 0.29411766)
 script = ExtResource("2_nd7hb")
 
 [node name="TouchScreenButton" type="TouchScreenButton" parent="." unique_id=254969116]
-position = Vector2(454.99997, 144)
+position = Vector2(-4, 143.00002)
 scale = Vector2(5.1, 4.0099998)
 texture_normal = SubResource("GradientTexture2D_nd7hb")
 shape = SubResource("RectangleShape2D_5khau")
 passby_press = true
 
-[node name="DebugTouchPoint" type="Label" parent="." unique_id=472154627]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
+[node name="Space" type="TouchScreenButton" parent="." unique_id=2124384389]
+position = Vector2(759, 334)
+scale = Vector2(1.2734376, 1.2734377)
+texture_normal = SubResource("GradientTexture2D_f7a4b")
+shape = SubResource("RectangleShape2D_oyxx4")
+passby_press = true
+action = "ui_accept"
 
 [connection signal="pressed" from="TouchScreenButton" to="TouchScreenButton" method="_on_pressed"]
