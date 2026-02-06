@@ -32,12 +32,18 @@ Globals="*res://app/Globals.tscn"
 
 window/size/viewport_width=1056
 window/size/viewport_height=540
-window/stretch/mode="viewport"
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
 window/vsync/vsync_mode=0
+window/emulate_touch_from_mouse=true
 
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/script-ide/plugin.cfg")
+
+[gui]
+
+theme/default_theme_scale=1.5
 
 [input]
 
