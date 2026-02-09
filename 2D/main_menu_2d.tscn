@@ -12,7 +12,50 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_n3c66")
 
-[node name="VersionNumber" type="Label" parent="." unique_id=1584455564]
+[node name="Control" type="Control" parent="." unique_id=1486150250]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Story mode" type="Button" parent="Control" unique_id=2064860424]
+layout_mode = 0
+offset_left = -83.0
+offset_top = 44.0
+offset_right = 123.0
+offset_bottom = 97.0
+theme_override_font_sizes/font_size = 24
+text = "Story mode"
+script = ExtResource("1_u8pln")
+
+[node name="Endless mode" type="Button" parent="Control" unique_id=1257719732]
+layout_mode = 0
+offset_left = -83.0
+offset_top = 120.0
+offset_right = 123.0
+offset_bottom = 173.0
+theme_override_font_sizes/font_size = 24
+text = "Endless mode"
+
+[node name="Version" type="Control" parent="." unique_id=1702157166]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="VersionNum" type="Label" parent="Version" unique_id=1584455564]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -31,33 +74,5 @@ text = "v0.0.2"
 horizontal_alignment = 2
 vertical_alignment = 2
 
-[node name="Start 1player" type="Button" parent="." unique_id=2064860424]
-layout_mode = 0
-offset_left = 425.0
-offset_top = 355.0
-offset_right = 631.0
-offset_bottom = 408.0
-theme_override_font_sizes/font_size = 24
-text = "1 player"
-script = ExtResource("1_u8pln")
-
-[node name="Start 2player" type="Button" parent="." unique_id=1257719732]
-layout_mode = 0
-offset_left = 425.0
-offset_top = 423.99
-offset_right = 631.0
-offset_bottom = 476.99
-theme_override_font_sizes/font_size = 24
-text = "2 player"
-
-[node name="Control" type="Control" parent="." unique_id=1875039120]
-layout_mode = 1
-anchors_preset = 13
-anchor_left = 0.5
-anchor_right = 0.5
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[connection signal="pressed" from="Start 1player" to="Start 1player" method="_on_pressed"]
-[connection signal="pressed" from="Start 2player" to="Start 2player" method="_on_pressed"]
+[connection signal="pressed" from="Control/Story mode" to="Control/Story mode" method="_on_pressed"]
+[connection signal="pressed" from="Control/Endless mode" to="Control/Endless mode" method="_on_pressed"]

@@ -57,30 +57,48 @@ height = 0.05
 
 [node name="Player" type="Node3D" unique_id=1154084459]
 
-[node name="Space" type="Control" parent="." unique_id=484577530]
+[node name="Jump" type="Control" parent="." unique_id=1474105499]
 layout_mode = 3
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="Space" type="Control" parent="Jump" unique_id=484577530]
+layout_mode = 1
 anchor_left = 0.80500007
 anchor_top = 0.648
 anchor_right = 0.80500007
 anchor_bottom = 0.648
-offset_left = 18.134949
-offset_top = -8.132019
-offset_right = 182.13501
-offset_bottom = 156.86746
+offset_left = -200.0
+offset_top = -200.0
+offset_right = -35.99994
+offset_bottom = -36.787994
 metadata/_edit_group_ = true
 
-[node name="Space" type="TouchScreenButton" parent="Space" unique_id=1305422909]
+[node name="Space" type="TouchScreenButton" parent="Jump/Space" unique_id=1305422909]
 scale = Vector2(1.2734376, 1.2734377)
 texture_normal = SubResource("GradientTexture2D_jf3a6")
 shape = SubResource("RectangleShape2D_fxman")
 passby_press = true
 action = "ui_accept"
 
-[node name="Joystick" parent="." unique_id=871642653 instance=ExtResource("1_fxman")]
-offset_left = 100.13
-offset_top = 442.255
-offset_right = 100.13
-offset_bottom = 442.255
+[node name="Joysticky" type="Control" parent="." unique_id=1351636836]
+layout_mode = 3
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+grow_vertical = 0
+
+[node name="Joystick" parent="Joysticky" unique_id=871642653 instance=ExtResource("1_fxman")]
+layout_mode = 0
+offset_left = 120.0
+offset_top = -120.0
+offset_right = 120.0
+offset_bottom = -120.0
 max_radius = 75
 
 [node name="PlayerShadow" parent="." unique_id=774143020 instance=ExtResource("4_vrm5f")]

@@ -38,44 +38,54 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Title" type="Label" parent="Elements" unique_id=87844780]
+[node name="Control" type="Control" parent="Elements" unique_id=543653366]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="Label" parent="Elements/Control" unique_id=87844780]
 layout_mode = 0
-offset_left = 337.0
-offset_top = 125.0
-offset_right = 724.0
-offset_bottom = 213.0
+offset_left = -191.0
+offset_top = -158.0
+offset_right = 196.0
+offset_bottom = -70.0
 theme_override_font_sizes/font_size = 64
 text = "Game Over"
 horizontal_alignment = 1
 
-[node name="ScoreAndText" type="Label" parent="Elements" unique_id=180617542]
+[node name="ScoreAndText" type="Label" parent="Elements/Control" unique_id=180617542]
 layout_mode = 0
-offset_left = 336.0
-offset_top = 229.0
-offset_right = 725.0
-offset_bottom = 263.0
+offset_left = -192.0
+offset_top = -54.0
+offset_right = 197.0
+offset_bottom = -20.0
 theme_override_font_sizes/font_size = 24
 text = "Your score is 1530"
 horizontal_alignment = 1
 script = ExtResource("1_5eixk")
 
-[node name="RestartButton" type="Button" parent="Elements" unique_id=839169750]
+[node name="RestartButton" type="Button" parent="Elements/Control" unique_id=839169750]
 layout_mode = 0
-offset_left = 567.0
-offset_top = 346.0
-offset_right = 703.0
-offset_bottom = 396.0
+offset_left = 39.0
+offset_top = 63.0
+offset_right = 175.0
+offset_bottom = 113.0
 text = "Try again"
 script = ExtResource("1_oo8kp")
 
-[node name="MenuButton" type="Button" parent="Elements" unique_id=1087514802]
+[node name="MenuButton" type="Button" parent="Elements/Control" unique_id=1087514802]
 layout_mode = 0
-offset_left = 358.0
-offset_top = 346.0
-offset_right = 494.0
-offset_bottom = 396.0
+offset_left = -170.0
+offset_top = 63.0
+offset_right = -27.0
+offset_bottom = 113.0
 text = "Main menu"
 script = ExtResource("6_5q8jb")
 
-[connection signal="pressed" from="Elements/RestartButton" to="Elements/RestartButton" method="_on_pressed"]
-[connection signal="pressed" from="Elements/MenuButton" to="Elements/MenuButton" method="_on_pressed"]
+[connection signal="pressed" from="Elements/Control/RestartButton" to="Elements/Control/RestartButton" method="_on_pressed"]
+[connection signal="pressed" from="Elements/Control/MenuButton" to="Elements/Control/MenuButton" method="_on_pressed"]

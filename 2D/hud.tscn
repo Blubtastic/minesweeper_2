@@ -14,45 +14,58 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="HP1" type="Sprite2D" parent="." unique_id=1681794439]
-position = Vector2(1004, 50)
+[node name="HPBar" type="Control" parent="." unique_id=1842190998]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+grow_horizontal = 0
+
+[node name="HP1" type="Sprite2D" parent="HPBar" unique_id=1681794439]
+position = Vector2(-52, 50)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_rbyyf")
 script = ExtResource("2_546lt")
 hp_count = 1
 
-[node name="HP2" type="Sprite2D" parent="." unique_id=1246250940]
-position = Vector2(929, 50)
+[node name="HP2" type="Sprite2D" parent="HPBar" unique_id=1246250940]
+position = Vector2(-127, 50)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_rbyyf")
 script = ExtResource("2_546lt")
 hp_count = 2
 
-[node name="HP3" type="Sprite2D" parent="." unique_id=1433238474]
-position = Vector2(854, 50)
+[node name="HP3" type="Sprite2D" parent="HPBar" unique_id=1433238474]
+position = Vector2(-202, 50)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_rbyyf")
 script = ExtResource("2_546lt")
 hp_count = 3
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=1290444015]
+[node name="Score" type="Control" parent="." unique_id=186425533]
+layout_mode = 1
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ColorRect" type="ColorRect" parent="Score" unique_id=1290444015]
 layout_mode = 0
 offset_top = 18.0
 offset_right = 181.0
 offset_bottom = 75.0
 color = Color(0.211765, 0.239216, 0.321569, 1)
 
-[node name="Score" type="Label" parent="." unique_id=1701316172]
+[node name="Score" type="Label" parent="Score" unique_id=1701316172]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -519.0
-offset_top = -258.0
-offset_right = -355.0
-offset_bottom = -191.0
+offset_left = -11.0
+offset_top = -8.0
+offset_right = 153.0
+offset_bottom = 59.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 0
@@ -63,12 +76,22 @@ horizontal_alignment = 2
 vertical_alignment = 1
 script = ExtResource("2_276te")
 
-[node name="FPSCounter" type="Label" parent="." unique_id=1899932197]
+[node name="FPS" type="Control" parent="." unique_id=1727391426]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="FPSCounter" type="Label" parent="FPS" unique_id=1899932197]
 layout_mode = 0
-offset_left = 911.0
-offset_top = 561.0
-offset_right = 951.0
-offset_bottom = 584.0
+offset_left = -103.0
+offset_top = -32.0
+offset_right = -7.0
+offset_bottom = 2.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "60"
 horizontal_alignment = 2
