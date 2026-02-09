@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://bo56d0akw4s83"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_en103"]
+shading_mode = 0
+disable_ambient_light = true
+disable_fog = true
+disable_specular_occlusion = true
+disable_receive_shadows = true
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_ofwdw"]
+material = SubResource("StandardMaterial3D_en103")
+size = Vector2(48, 24)
+
+[node name="WhiteBars3D" type="Node3D" unique_id=1274816826]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1734081992]
+cast_shadow = 0
+gi_mode = 0
+mesh = SubResource("PlaneMesh_ofwdw")
