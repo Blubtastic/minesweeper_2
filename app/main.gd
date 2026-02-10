@@ -22,7 +22,7 @@ func _on_game_ended():
 	var game_over_instance = GAME_OVER.instantiate()
 	add_child(game_over_instance)
 
-func spawn_chunk_in(wait_time: float = 5.33):
+func spawn_chunk_in(wait_time: float = 5.325):
 	cubechunk_timer.wait_time = wait_time
 	cubechunk_timer.one_shot = true
 	cubechunk_timer.start()
