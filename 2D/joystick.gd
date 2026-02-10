@@ -15,6 +15,7 @@ func _process(delta: float):
 	icon_movable.position = lerped_thump_position
 	queue_redraw()
 
+# todo: glitchy movement when using touchscreens. maybe lerp?
 func _draw():
 	draw_line(ORIGIN, lerped_thump_position, Color.BLACK, 2.0)
 
