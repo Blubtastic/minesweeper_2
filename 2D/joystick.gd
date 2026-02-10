@@ -5,19 +5,18 @@ extends Control
 const ORIGIN: Vector2 = Vector2(0,0)
 signal joystick_moved()
 var thumb_position = global_position
-var lerped_thump_position = thumb_position
+var lerped_thump_position = global_position
 
 func _ready():
 	disable_if_not_touch()
 
 func _process(delta: float):
-	lerped_thump_position = lerp(lerped_thump_position, thumb_position, delta*100)
+	lerped_thump_position = lerp(icon_movable.position, thumb_position, clampf(delta*100, 0, 1))
 	icon_movable.position = lerped_thump_position
 	queue_redraw()
 
-# todo: glitchy movement when using touchscreens. maybe lerp?
 func _draw():
-	draw_line(ORIGIN, lerped_thump_position, Color.BLACK, 2.0)
+	draw_line(ORIGIN, icon_movable.position, Color.BLACK, 2.0)
 
 # Scoops up inputs not consumed by other things. Note that Control nodes covering an area will consume input before it reaches here.
 func _unhandled_input(event: InputEvent) -> void:
