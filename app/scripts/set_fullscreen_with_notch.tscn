@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://kb1sh58mgyyq"]
+
+[ext_resource type="Script" uid="uid://vyk71vroi8mb" path="res://app/scripts/set_fullscreen_with_notch.gd" id="1_mnitv"]
+[ext_resource type="PackedScene" uid="uid://c1p7v7melj8n4" path="res://app/Main.tscn" id="2_fnddm"]
+
+[node name="SetFullscreenWithNotch" type="MarginContainer" unique_id=275731980]
+script = ExtResource("1_mnitv")
+
+[node name="Main" parent="." unique_id=952190665 instance=ExtResource("2_fnddm")]
