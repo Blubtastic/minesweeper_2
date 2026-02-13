@@ -1,7 +1,5 @@
 extends Button
 
-const MAIN_MENU = preload("uid://celxavas2i8qt")
-
 func _on_pressed() -> void:
+	get_tree().change_scene_to_file("res://2D/main_menu.tscn")
 	Globals.reset_game()
-	get_tree().change_scene_to_packed(MAIN_MENU)

@@ -145,17 +145,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5, -1.5)
 [node name="ForestChunkOptimized2" parent="Forest" unique_id=268743978 instance=ExtResource("3_cyuw3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, -5, -1.5)
 
-[node name="ForestChunkOptimized3" parent="Forest" unique_id=101018282 instance=ExtResource("3_cyuw3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, -5, -1.5)
-
 [node name="ForestChunkOptimized4" parent="Forest" unique_id=541185308 instance=ExtResource("3_cyuw3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5, -9.5)
 
 [node name="ForestChunkOptimized5" parent="Forest" unique_id=508709575 instance=ExtResource("3_cyuw3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, -5, -9.5)
-
-[node name="ForestChunkOptimized6" parent="Forest" unique_id=1396358874 instance=ExtResource("3_cyuw3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, -5, -9.5)
 
 [node name="PlayerModel" type="Node3D" parent="." unique_id=1131668939]
 transform = Transform3D(0.617654, -0.00759272, -0.786413, -0.142901, 0.982224, -0.121719, 0.773358, 0.187559, 0.60559, -0.977921, -0.103376, -0.936959)
