@@ -28,21 +28,22 @@ grow_vertical = 2
 
 [node name="Story mode" type="Button" parent="Control" unique_id=2064860424]
 layout_mode = 0
-offset_left = -83.0
+offset_left = -209.0
 offset_top = 44.0
-offset_right = 123.0
+offset_right = -3.0
 offset_bottom = 97.0
 theme_override_font_sizes/font_size = 24
-text = "Story mode"
+text = "Play"
 script = ExtResource("1_u8pln")
 
 [node name="Endless mode" type="Button" parent="Control" unique_id=1257719732]
 layout_mode = 0
-offset_left = -83.0
-offset_top = 120.0
-offset_right = 123.0
-offset_bottom = 173.0
+offset_left = 46.0
+offset_top = 44.0
+offset_right = 252.0
+offset_bottom = 97.0
 theme_override_font_sizes/font_size = 24
+disabled = true
 text = "Endless mode"
 
 [node name="Version" type="Control" parent="." unique_id=1702157166]
