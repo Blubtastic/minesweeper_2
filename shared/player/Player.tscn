@@ -85,6 +85,7 @@ texture_normal = SubResource("GradientTexture2D_jf3a6")
 shape = SubResource("RectangleShape2D_fxman")
 passby_press = true
 action = "ui_accept"
+visibility_mode = 1
 
 [node name="Joysticky" type="Control" parent="." unique_id=1351636836]
 layout_mode = 3
