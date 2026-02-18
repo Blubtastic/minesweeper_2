@@ -9,7 +9,7 @@ const FOREST_CHUNK = preload("uid://dhlda46fqvnos")
 
 func _ready():
 	Globals.game_ended.connect(_on_game_ended)
-	spawn_chunk_in(3)
+	spawn_chunk_in(4.5)
 
 func _input(event):
 	if event is InputEventKey and event.pressed:
@@ -22,8 +22,9 @@ func _on_game_ended():
 	var game_over_instance = GAME_OVER.instantiate()
 	add_child(game_over_instance)
 
-func spawn_chunk_in(wait_time: float = 5.325):
-	cubechunk_timer.wait_time = wait_time
+func spawn_chunk_in(wait_time: float = 7.9875):
+	var world_wait_time = wait_time / Globals.world_speed
+	cubechunk_timer.wait_time = world_wait_time
 	cubechunk_timer.one_shot = true
 	cubechunk_timer.start()
 	await cubechunk_timer.timeout

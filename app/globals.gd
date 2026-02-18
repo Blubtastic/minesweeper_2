@@ -47,6 +47,6 @@ func reset_game():
 	set_percussion_enabled(false)
 	player_hp = PLAYER_HP_START
 	score = 0
-	world_speed = 1.5
+	#world_speed = 1.5
 	is_player_flying = false
 	game_over = false
