@@ -3,7 +3,7 @@ extends Node
 const PLAYER_HP_START: int = 3
 var player_hp: int
 var score = 0
-var world_speed = 1.5
+var world_speed = 1
 var is_player_flying: bool = false
 var game_over: bool = false
 
