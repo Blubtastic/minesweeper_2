@@ -59,7 +59,7 @@ func reveal_cube(play_sound: bool = false):
 	if !is_cleared:
 		if play_sound:
 			reveal_cube_audio.play()
-		give_points(10)
+		give_points(5)
 		cube_top.visible = false
 		nearby_mines_label.visible = true
 		is_cleared = true;
