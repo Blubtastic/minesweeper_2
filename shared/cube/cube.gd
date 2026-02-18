@@ -114,6 +114,7 @@ func update_cube() -> void:
 		var text := '' if is_bomb else nearby_mines_text
 		var color := Color(1, 1, 1) if is_bomb else nearby_mines_color
 		update_label(text, color)
+		await get_tree().create_timer(0.1).timeout
 		if !nearby_mines:
 			for overlapping_cube in overlapping_cubes:
 				overlapping_cube.reveal_cube()
