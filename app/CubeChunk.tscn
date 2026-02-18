@@ -17,6 +17,7 @@ height = 10.0
 [node name="CubeChunk" type="AnimatableBody3D" unique_id=2134313920]
 sync_to_physics = false
 script = ExtResource("1_51aoj")
+NUMBER_OF_MINES = 8
 
 [node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="." unique_id=1164557452]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, -2.275192, 0.5)
