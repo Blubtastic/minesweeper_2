@@ -1,6 +1,8 @@
 extends AnimatableBody3D
 
 const CUBE_SCENE = preload("uid://cnor6jdbe28rj")
+const CUBE_CHUNK = preload("uid://dgxv52jn27v3c")
+const FOREST_CHUNK = preload("uid://dhlda46fqvnos")
 
 @export var NUMBER_OF_MINES: int = 10
 
@@ -10,6 +12,8 @@ const CUBE_DISTANCE := 1.0
 var game_started: bool = false
 var cubes = []
 var buffer_cubes = []
+@export var has_spawned: bool = false
+# if over -15 in z-axis: spawn new chunk
 
 func _ready() -> void:
 	randomize()
@@ -18,6 +22,10 @@ func _ready() -> void:
 
 func _physics_process(delta):
 	move_and_collide(Vector3(0, 0, Globals.world_speed*delta))
+	if global_position.z > -15:
+		if not has_spawned:
+			spawn_next_chunk()
+		has_spawned = true
 
 func spawn_grid():
 	for w in range(GRID_WIDTH):
@@ -57,3 +65,19 @@ func set_mines():
 
 func _on_visible_on_screen_notifier_3d_screen_exited() -> void:
 	queue_free()
+
+func spawn_next_chunk():
+	spawn_cubechunk()
+
+func spawn_cubechunk():
+	var chunk_instance = CUBE_CHUNK.instantiate()
+	var chunk_position = Vector3(-4.5, 0, global_position.z - 8)
+	chunk_instance.transform.origin = chunk_position
+	add_sibling(chunk_instance)
+	spawn_forest()
+
+func spawn_forest():
+	var forest_instance = FOREST_CHUNK.instantiate()
+	var forest_position = Vector3(-9, 0.57, global_position.z - 8)
+	forest_instance.transform.origin = forest_position
+	add_sibling(forest_instance)
