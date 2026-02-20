@@ -64,7 +64,8 @@ func set_mines():
 		cubes[i].is_bomb = mine_list[i]
 
 func _on_visible_on_screen_notifier_3d_screen_exited() -> void:
-	queue_free()
+	if has_spawned == true:
+		queue_free()
 
 func spawn_next_chunk():
 	spawn_cubechunk()
