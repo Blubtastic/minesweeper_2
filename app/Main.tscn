@@ -79,9 +79,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8316574, -11.2124, -11.3809
 [node name="CubeChunk1" parent="InitialChunks" unique_id=450677211 instance=ExtResource("5_2r6wr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 0, -17.35)
 
-[node name="ForestChunkLeft1" parent="InitialChunks" unique_id=1726180872 instance=ExtResource("7_m1pw8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0.57, -14)
-
 [node name="CubeChunk" parent="InitialChunks" unique_id=1412546617 instance=ExtResource("5_2r6wr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 0, -9.35)
 has_spawned = true
@@ -91,11 +88,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 0, -1.35)
 NUMBER_OF_MINES = 0
 has_spawned = true
 
+[node name="ForestChunkLeft1" parent="InitialChunks" unique_id=1726180872 instance=ExtResource("7_m1pw8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0.57, -13.85)
+
 [node name="ForestChunkLeft" parent="InitialChunks" unique_id=1905221884 instance=ExtResource("7_m1pw8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0.57, -6)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0.57, -5.87)
 
 [node name="ForestChunkLeft3" parent="InitialChunks" unique_id=295309255 instance=ExtResource("7_m1pw8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0.57, 2)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0.57, 2.11)
 
 [node name="CubechunkTimer" type="Timer" parent="." unique_id=1063197043]
 

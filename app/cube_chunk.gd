@@ -71,13 +71,13 @@ func spawn_next_chunk():
 
 func spawn_cubechunk():
 	var chunk_instance = CUBE_CHUNK.instantiate()
-	var chunk_position = Vector3(-4.5, 0, global_position.z - 8)
+	var chunk_position = Vector3(-4.5, 0, global_position.z - 7.99)
 	chunk_instance.transform.origin = chunk_position
 	add_sibling(chunk_instance)
 	spawn_forest()
 
 func spawn_forest():
 	var forest_instance = FOREST_CHUNK.instantiate()
-	var forest_position = Vector3(-9, 0.57, global_position.z - 8)
+	var forest_position = Vector3(-9, 0.57, global_position.z - 4.49)
 	forest_instance.transform.origin = forest_position
 	add_sibling(forest_instance)
