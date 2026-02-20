@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://l82iatcudrfa" path="res://2D/restart_button.gd" id="1_oo8kp"]
 [ext_resource type="Shader" uid="uid://dvxkh85q1fbvj" path="res://2D/game_over/blur_shader.gdshader" id="2_02873"]
 [ext_resource type="Texture2D" uid="uid://dw7o1danwup2e" path="res://2D/game_over/white.png" id="3_5q8jb"]
-[ext_resource type="Script" uid="uid://46ckf1otpelq" path="res://2D/menu_button.gd" id="6_5q8jb"]
+[ext_resource type="Script" uid="uid://46ckf1otpelq" path="res://2D/go_to_menu_button.gd" id="6_5q8jb"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_a48gh"]
 shader = ExtResource("2_02873")
