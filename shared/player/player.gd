@@ -95,17 +95,10 @@ func damage_player():
 		await get_tree().create_timer(1.0).timeout
 		TrailVfx.queue_free()
 
-func _on_cube_hitbox_area_entered(_area: Area3D) -> void:
-	#damage_player()
-	pass
-
 func move_shadow():
 	if shadow_ray_cast.is_colliding():
-		var collision_point = shadow_ray_cast.get_collision_point()
-		collision_point.x = global_position.x
-		collision_point.y += 0.2
-		collision_point.z = global_position.z
-		player_shadow.global_transform.origin = collision_point
+		player_shadow.global_transform.origin = global_position
+		player_shadow.global_transform.origin.y = shadow_ray_cast.get_collision_point().y + 0.2
 
 func emit_debris():
 	left_debris.emit_debris()

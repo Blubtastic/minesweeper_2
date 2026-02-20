@@ -1,0 +1,180 @@
+[gd_scene format=3 uid="uid://dqeksnc1bqwgt"]
+
+[ext_resource type="Script" uid="uid://cahfvs4cexpdp" path="res://shared/player/player.gd" id="1_fjkuh"]
+[ext_resource type="PackedScene" uid="uid://bej6m82ih40n5" path="res://2D/joystick.tscn" id="1_fxman"]
+[ext_resource type="PackedScene" uid="uid://ddwftyj3tif34" path="res://features/Poof/Poof.tscn" id="3_b81g5"]
+[ext_resource type="PackedScene" uid="uid://dvabslbqfwp0v" path="res://features/Sparks/Sparks.tscn" id="4_j4a84"]
+[ext_resource type="PackedScene" uid="uid://dbi36hqar6db8" path="res://shared/player/PlayerShadow.tscn" id="4_vrm5f"]
+[ext_resource type="PackedScene" uid="uid://b7wmb8jxswbil" path="res://shared/player/TireDebris/TireDebrisSnow.tscn" id="5_5hepr"]
+
+[sub_resource type="Gradient" id="Gradient_rkubv"]
+offsets = PackedFloat32Array(0, 0.6674009, 0.6696035)
+colors = PackedColorArray(0, 0, 0, 0.3137255, 0, 0, 0, 0.3137255, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_jf3a6"]
+gradient = SubResource("Gradient_rkubv")
+width = 128
+height = 128
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0, 0)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fxman"]
+size = Vector2(128, 128)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4to0f"]
+size = Vector3(0.3, 0.258521, 0.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_q2sxu"]
+size = Vector3(0.3, 0.258521, 0.5)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_qlff2"]
+radius = 0.01
+height = 0.49506813
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uxr23"]
+diffuse_mode = 3
+albedo_color = Color(0.252285, 0.261702, 4.81308e-08, 1)
+roughness = 0.0
+emission = Color(0, 1, 1, 1)
+emission_energy_multiplier = 5.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_8nayr"]
+material = SubResource("StandardMaterial3D_uxr23")
+uv2_padding = 5.0
+size = Vector3(0.3, 0.3, 0.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fxman"]
+diffuse_mode = 3
+albedo_color = Color(0.466181, 0.466181, 0.466181, 1)
+roughness = 0.0
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_6xd78"]
+material = SubResource("StandardMaterial3D_fxman")
+top_radius = 0.1
+bottom_radius = 0.1
+height = 0.05
+
+[node name="Player" type="Node3D" unique_id=1154084459]
+
+[node name="Jump" type="Control" parent="." unique_id=1474105499]
+layout_mode = 3
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="Space" type="Control" parent="Jump" unique_id=484577530]
+layout_mode = 1
+anchor_left = 0.80500007
+anchor_top = 0.648
+anchor_right = 0.80500007
+anchor_bottom = 0.648
+offset_left = -200.0
+offset_top = -200.0
+offset_right = -35.99994
+offset_bottom = -36.787994
+metadata/_edit_group_ = true
+
+[node name="Space" type="TouchScreenButton" parent="Jump/Space" unique_id=1305422909]
+scale = Vector2(1.2734376, 1.2734377)
+texture_normal = SubResource("GradientTexture2D_jf3a6")
+shape = SubResource("RectangleShape2D_fxman")
+passby_press = true
+action = "ui_accept"
+visibility_mode = 1
+
+[node name="Joysticky" type="Control" parent="." unique_id=1351636836]
+layout_mode = 3
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+grow_vertical = 0
+
+[node name="Joystick" parent="Joysticky" unique_id=871642653 instance=ExtResource("1_fxman")]
+layout_mode = 0
+offset_left = 120.0
+offset_top = -120.0
+offset_right = 120.0
+offset_bottom = -120.0
+max_radius = 75
+
+[node name="PlayerShadow" parent="." unique_id=774143020 instance=ExtResource("4_vrm5f")]
+transform = Transform3D(1.3, 0, 0, 0, -5.68248e-08, 1.3, 0, -1.3, -5.68248e-08, 0, -0.175307, 0)
+layers = 8
+
+[node name="ShadowRayCast" type="RayCast3D" parent="." unique_id=1445004248]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.167437, 0)
+target_position = Vector3(0, -20, 0)
+hit_back_faces = false
+collide_with_areas = true
+
+[node name="AlivePlayer" type="CharacterBody3D" parent="." unique_id=1383705294]
+collision_layer = 8
+collision_mask = 8
+script = ExtResource("1_fjkuh")
+metadata/_edit_group_ = true
+
+[node name="Poof" parent="AlivePlayer" unique_id=1255356863 instance=ExtResource("3_b81g5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.103678, 0)
+
+[node name="Sparks" parent="AlivePlayer" unique_id=1289354349 instance=ExtResource("4_j4a84")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0995955, 0)
+
+[node name="TireDebrisSnowLeft" parent="AlivePlayer" unique_id=34965598 instance=ExtResource("5_5hepr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.166163, -0.168178, 0.12635526)
+
+[node name="TireDebrisSnowRight" parent="AlivePlayer" unique_id=649540690 instance=ExtResource("5_5hepr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.171288, -0.168178, 0.12635526)
+
+[node name="Collision" type="CollisionShape3D" parent="AlivePlayer" unique_id=655269563]
+shape = SubResource("BoxShape3D_4to0f")
+
+[node name="DamageHitbox" type="Area3D" parent="AlivePlayer" unique_id=692351953]
+collision_layer = 16
+collision_mask = 16
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="AlivePlayer/DamageHitbox" unique_id=1827210576]
+shape = SubResource("BoxShape3D_q2sxu")
+
+[node name="CubeHitbox" type="Area3D" parent="AlivePlayer" unique_id=1849128419]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0968428, 0)
+collision_layer = 8
+collision_mask = 8
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="AlivePlayer/CubeHitbox" unique_id=1851477878]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.07370594, 0)
+shape = SubResource("CapsuleShape3D_qlff2")
+
+[node name="PlayerModel" type="Node3D" parent="AlivePlayer" unique_id=395487580]
+
+[node name="Body" type="MeshInstance3D" parent="AlivePlayer/PlayerModel" unique_id=1401574444]
+layers = 16
+mesh = SubResource("BoxMesh_8nayr")
+skeleton = NodePath("../..")
+
+[node name="WheelFrontRight" type="MeshInstance3D" parent="AlivePlayer/PlayerModel" unique_id=261154365]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0.175, -0.07, -0.15)
+mesh = SubResource("CylinderMesh_6xd78")
+skeleton = NodePath("../..")
+
+[node name="WheelBackRight" type="MeshInstance3D" parent="AlivePlayer/PlayerModel" unique_id=1297394425]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0.175, -0.07, 0.15)
+mesh = SubResource("CylinderMesh_6xd78")
+skeleton = NodePath("../..")
+
+[node name="WheelFrontLeft" type="MeshInstance3D" parent="AlivePlayer/PlayerModel" unique_id=284323459]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -0.175, -0.07, -0.15)
+mesh = SubResource("CylinderMesh_6xd78")
+skeleton = NodePath("../..")
+
+[node name="WheelBackLeft" type="MeshInstance3D" parent="AlivePlayer/PlayerModel" unique_id=815272790]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -0.175, -0.07, 0.15)
+mesh = SubResource("CylinderMesh_6xd78")
+skeleton = NodePath("../..")
+
+[connection signal="area_entered" from="AlivePlayer/DamageHitbox" to="AlivePlayer" method="_on_damage_hitbox_area_entered"]
+[connection signal="area_entered" from="AlivePlayer/CubeHitbox" to="AlivePlayer" method="_on_cube_hitbox_area_entered"]
