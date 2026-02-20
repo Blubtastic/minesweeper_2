@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://dgxv52jn27v3c" path="res://app/CubeChunk.tscn" id="5_2r6wr"]
 [ext_resource type="PackedScene" uid="uid://62fr2rhqfdeo" path="res://features/Snow/Snow.tscn" id="6_bv4rx"]
 [ext_resource type="PackedScene" uid="uid://dhlda46fqvnos" path="res://features/ForestChunk/ForestChunk.tscn" id="7_m1pw8"]
-[ext_resource type="PackedScene" uid="uid://bo56d0akw4s83" path="res://app/white_bars_3d.tscn" id="10_udtt8"]
+[ext_resource type="PackedScene" uid="uid://bo56d0akw4s83" path="res://app/WhiteBars3D.tscn" id="10_udtt8"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_6867n"]
 

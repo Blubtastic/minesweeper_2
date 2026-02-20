@@ -1,14 +1,14 @@
 [gd_scene format=3 uid="uid://celxavas2i8qt"]
 
-[ext_resource type="PackedScene" uid="uid://bnxqp40rt11bk" path="res://2D/main_menu_2d.tscn" id="1_t7e0r"]
-[ext_resource type="PackedScene" uid="uid://biv38ja3npifj" path="res://2D/LogoMinedriver.blend" id="2_0dkrt"]
-[ext_resource type="PackedScene" uid="uid://kll47d13opx8" path="res://features/ForestChunk/ForestChunkOptimized.blend" id="3_cyuw3"]
-[ext_resource type="PackedScene" uid="uid://drynt1383xlht" path="res://shared/cube/TrailVFX.tscn" id="4_8uxxo"]
-[ext_resource type="PackedScene" uid="uid://b7wmb8jxswbil" path="res://shared/player/TireDebris/TireDebrisSnow.tscn" id="6_arv2f"]
-[ext_resource type="PackedScene" uid="uid://dvabslbqfwp0v" path="res://features/Sparks/Sparks.tscn" id="7_5klac"]
-[ext_resource type="PackedScene" uid="uid://62fr2rhqfdeo" path="res://features/Snow/Snow.tscn" id="8_lsdqh"]
-[ext_resource type="PackedScene" uid="uid://ddwftyj3tif34" path="res://features/Poof/Poof.tscn" id="9_jiymt"]
-[ext_resource type="PackedScene" uid="uid://cnor6jdbe28rj" path="res://shared/cube/Cube.tscn" id="10_5klac"]
+[ext_resource type="PackedScene" uid="uid://bnxqp40rt11bk" path="res://2D/menu_2d.tscn" id="1_bl1jm"]
+[ext_resource type="PackedScene" uid="uid://biv38ja3npifj" path="res://2D/LogoMinedriver.blend" id="2_5lkye"]
+[ext_resource type="PackedScene" uid="uid://kll47d13opx8" path="res://features/ForestChunk/ForestChunkOptimized.blend" id="3_imay5"]
+[ext_resource type="PackedScene" uid="uid://62fr2rhqfdeo" path="res://features/Snow/Snow.tscn" id="4_6ye1h"]
+[ext_resource type="PackedScene" uid="uid://drynt1383xlht" path="res://shared/cube/TrailVFX.tscn" id="5_35cgy"]
+[ext_resource type="PackedScene" uid="uid://b7wmb8jxswbil" path="res://shared/player/TireDebris/TireDebrisSnow.tscn" id="6_4oosk"]
+[ext_resource type="PackedScene" uid="uid://dvabslbqfwp0v" path="res://features/Sparks/Sparks.tscn" id="7_7t848"]
+[ext_resource type="PackedScene" uid="uid://ddwftyj3tif34" path="res://features/Poof/Poof.tscn" id="8_5hw4j"]
+[ext_resource type="PackedScene" uid="uid://cnor6jdbe28rj" path="res://shared/cube/Cube.tscn" id="9_lrvbg"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_wk0pr"]
 
@@ -83,7 +83,7 @@ size = Vector3(25, 2, 25)
 
 [node name="MainMenu" type="Node3D" unique_id=331791909]
 
-[node name="MainMenu2D" parent="." unique_id=415943921 instance=ExtResource("1_t7e0r")]
+[node name="MainMenu2D" parent="." unique_id=415943921 instance=ExtResource("1_bl1jm")]
 version_number = "0.0.71"
 
 [node name="Environment" type="Node3D" parent="." unique_id=2048450430]
@@ -134,21 +134,21 @@ spot_attenuation = -0.2
 spot_angle = 54.8844
 spot_angle_attenuation = 0.406127
 
-[node name="LogoMinedriver" parent="." unique_id=854977521 instance=ExtResource("2_0dkrt")]
+[node name="LogoMinedriver" parent="." unique_id=854977521 instance=ExtResource("2_5lkye")]
 transform = Transform3D(1, 0, 0, 0, 0.8759786, -0.48235002, 0, 0.48235002, 0.8759786, -0.270058, 0.9273245, -0.6397826)
 
 [node name="Forest" type="Node3D" parent="." unique_id=1738710611]
 
-[node name="ForestChunkOptimized" parent="Forest" unique_id=1123171061 instance=ExtResource("3_cyuw3")]
+[node name="ForestChunkOptimized" parent="Forest" unique_id=1123171061 instance=ExtResource("3_imay5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5, -1.5)
 
-[node name="ForestChunkOptimized2" parent="Forest" unique_id=268743978 instance=ExtResource("3_cyuw3")]
+[node name="ForestChunkOptimized2" parent="Forest" unique_id=268743978 instance=ExtResource("3_imay5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, -5, -1.5)
 
-[node name="ForestChunkOptimized4" parent="Forest" unique_id=541185308 instance=ExtResource("3_cyuw3")]
+[node name="ForestChunkOptimized4" parent="Forest" unique_id=541185308 instance=ExtResource("3_imay5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5, -9.5)
 
-[node name="ForestChunkOptimized5" parent="Forest" unique_id=508709575 instance=ExtResource("3_cyuw3")]
+[node name="ForestChunkOptimized5" parent="Forest" unique_id=508709575 instance=ExtResource("3_imay5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, -5, -9.5)
 
 [node name="PlayerModel" type="Node3D" parent="." unique_id=1131668939]
@@ -225,33 +225,33 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.02491, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.938337, -5.81037)
 shape = SubResource("BoxShape3D_8uxxo")
 
-[node name="SnowVFX" parent="." unique_id=136886222 instance=ExtResource("8_lsdqh")]
+[node name="SnowVFX" parent="." unique_id=136886222 instance=ExtResource("4_6ye1h")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -21.4755, 0)
 
 [node name="Preloads" type="Node3D" parent="." unique_id=1097348783]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -7.20614, -7.92381)
 
-[node name="TrailVFX" parent="Preloads" unique_id=941001219 instance=ExtResource("4_8uxxo")]
+[node name="TrailVFX" parent="Preloads" unique_id=941001219 instance=ExtResource("5_35cgy")]
 
-[node name="TireDebrisSnow" parent="Preloads" unique_id=196448549 instance=ExtResource("6_arv2f")]
+[node name="TireDebrisSnow" parent="Preloads" unique_id=196448549 instance=ExtResource("6_4oosk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0)
 
-[node name="Sparks" parent="Preloads" unique_id=1982086900 instance=ExtResource("7_5klac")]
+[node name="Sparks" parent="Preloads" unique_id=1982086900 instance=ExtResource("7_7t848")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 0)
 
-[node name="Snow" parent="Preloads" unique_id=417377880 instance=ExtResource("8_lsdqh")]
+[node name="Snow" parent="Preloads" unique_id=417377880 instance=ExtResource("4_6ye1h")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.411, -21.078, -2.78)
 
-[node name="Poof" parent="Preloads" unique_id=1364226047 instance=ExtResource("9_jiymt")]
+[node name="Poof" parent="Preloads" unique_id=1364226047 instance=ExtResource("8_5hw4j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 0)
 
-[node name="Cube" parent="Preloads" unique_id=2031201948 instance=ExtResource("10_5klac")]
+[node name="Cube" parent="Preloads" unique_id=2031201948 instance=ExtResource("9_lrvbg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
 isLoadingCleared = true
 
-[node name="Cube2" parent="Preloads" unique_id=571885870 instance=ExtResource("10_5klac")]
+[node name="Cube2" parent="Preloads" unique_id=571885870 instance=ExtResource("9_lrvbg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 2)
 isLoadingExploded = true
 
-[node name="Cube3" parent="Preloads" unique_id=402610004 instance=ExtResource("10_5klac")]
+[node name="Cube3" parent="Preloads" unique_id=402610004 instance=ExtResource("9_lrvbg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 2)
