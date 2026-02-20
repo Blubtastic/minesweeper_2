@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://ddwftyj3tif34"]
+[gd_scene format=3 uid="uid://ddwftyj3tif34"]
 
 [sub_resource type="Curve" id="Curve_3k5lm"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.206349, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -50,7 +50,7 @@ height = 0.4
 radial_segments = 8
 rings = 4
 
-[node name="Poof" type="GPUParticles3D"]
+[node name="Poof" type="GPUParticles3D" unique_id=534971907]
 emitting = false
 amount = 16
 lifetime = 0.6

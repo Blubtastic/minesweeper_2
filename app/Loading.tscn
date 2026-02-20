@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://brpfnvs7cakj5"]
 
 [ext_resource type="Script" uid="uid://hsuv615rxblc" path="res://app/loading.gd" id="1_qx4wl"]
-[ext_resource type="PackedScene" uid="uid://ddwftyj3tif34" path="res://features/Poof/Poof.tscn" id="2_qx4wl"]
-[ext_resource type="PackedScene" uid="uid://dvabslbqfwp0v" path="res://features/Sparks/Sparks.tscn" id="5_3ipkp"]
+[ext_resource type="PackedScene" uid="uid://ddwftyj3tif34" path="res://features/particles/Poof.tscn" id="2_qx4wl"]
+[ext_resource type="PackedScene" uid="uid://dvabslbqfwp0v" path="res://features/particles/Sparks.tscn" id="5_3ipkp"]
 [ext_resource type="PackedScene" uid="uid://b7wmb8jxswbil" path="res://shared/player/TireDebris/TireDebrisSnow.tscn" id="6_hcrdm"]
-[ext_resource type="PackedScene" uid="uid://bp6e0aywkls4b" path="res://shared/cube/CubeDestroyed.tscn" id="7_hcrdm"]
+[ext_resource type="PackedScene" uid="uid://bp6e0aywkls4b" path="res://shared/cube/explosion/CubeDestroyed.tscn" id="7_hcrdm"]
 [ext_resource type="Script" uid="uid://bb7i38v6r8s76" path="res://app/camera_shake.gd" id="7_mrh31"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_u524s"]

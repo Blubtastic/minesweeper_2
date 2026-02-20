@@ -7,7 +7,7 @@
 [ext_resource type="AudioStream" uid="uid://dya4t4p2oap3d" path="res://shared/cube/audio/remove-flag.wav" id="8_pc8bq"]
 [ext_resource type="AudioStream" uid="uid://blr22e80lqmjd" path="res://shared/cube/audio/hover-cube.wav" id="9_fg1ko"]
 [ext_resource type="AudioStream" uid="uid://cl6qd5gf6x7j3" path="res://shared/cube/audio/explosion.wav" id="10_llvf4"]
-[ext_resource type="PackedScene" uid="uid://dvabslbqfwp0v" path="res://features/Sparks/Sparks.tscn" id="12_1jcsy"]
+[ext_resource type="PackedScene" uid="uid://dvabslbqfwp0v" path="res://features/particles/Sparks.tscn" id="12_1jcsy"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_aokb8"]
 
