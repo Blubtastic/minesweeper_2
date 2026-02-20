@@ -5,6 +5,7 @@ const CUBE_CHUNK = preload("uid://dgxv52jn27v3c")
 const FOREST_CHUNK = preload("uid://dhlda46fqvnos")
 
 @export var NUMBER_OF_MINES: int = 10
+@export var has_spawned: bool = false
 
 const GRID_HEIGHT := 6
 const GRID_WIDTH := 10
@@ -12,8 +13,6 @@ const CUBE_DISTANCE := 1.0
 var game_started: bool = false
 var cubes = []
 var buffer_cubes = []
-@export var has_spawned: bool = false
-# if over -15 in z-axis: spawn new chunk
 
 func _ready() -> void:
 	randomize()
@@ -68,9 +67,6 @@ func _on_visible_on_screen_notifier_3d_screen_exited() -> void:
 		queue_free()
 
 func spawn_next_chunk():
-	spawn_cubechunk()
-
-func spawn_cubechunk():
 	var chunk_instance = CUBE_CHUNK.instantiate()
 	var chunk_position = Vector3(-4.5, 0, global_position.z - 7.99)
 	chunk_instance.transform.origin = chunk_position
