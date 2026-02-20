@@ -15,8 +15,6 @@ var speed_intensity: float = 1
 const TRAIL_VFX = preload("uid://drynt1383xlht")
 @onready var cube_hitbox: Area3D = $CubeHitbox
 @onready var damage_hitbox: Area3D = $DamageHitbox
-@onready var player_shadow: Sprite3D = $"../PlayerShadow"
-@onready var shadow_ray_cast: RayCast3D = $"../ShadowRayCast"
 @onready var body: MeshInstance3D = $PlayerModel/Body
 @onready var poof: GPUParticles3D = $Poof
 @onready var sparks: GPUParticles3D = $Sparks
@@ -71,7 +69,6 @@ func _physics_process(delta: float) -> void:
 	if is_controllable:
 		move_and_slide()
 	
-	move_shadow()
 
 func damage_player():
 	if not invincible:
@@ -95,11 +92,6 @@ func damage_player():
 		await get_tree().create_timer(1.0).timeout
 		TrailVfx.queue_free()
 
-func move_shadow():
-	if shadow_ray_cast.is_colliding():
-		player_shadow.global_transform.origin = global_position
-		player_shadow.global_transform.origin.y = shadow_ray_cast.get_collision_point().y + 0.2
-
 func emit_debris():
 	left_debris.emit_debris()
 	right_debris.emit_debris()
@@ -111,6 +103,5 @@ func _on_damage_hitbox_area_entered(_area: Area3D) -> void:
 	damage_player()
 
 func despawn(delay: int = 2):
-	player_shadow.visible = false
 	await get_tree().create_timer(delay).timeout
 	queue_free()
