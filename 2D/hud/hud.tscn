@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://csi0364mca8xy"]
 
-[ext_resource type="Texture2D" uid="uid://djmgs1cgvpm7a" path="res://icon.svg" id="1_rbyyf"]
-[ext_resource type="Script" uid="uid://di6bxnrakydkd" path="res://2D/score_label.gd" id="2_276te"]
-[ext_resource type="Script" uid="uid://cnvvliuudpfxp" path="res://2D/hp_icon.gd" id="2_546lt"]
-[ext_resource type="Script" uid="uid://dni0a8to6alsr" path="res://2D/fps_counter.gd" id="4_7ihmi"]
+[ext_resource type="Texture2D" uid="uid://djmgs1cgvpm7a" path="res://icon.svg" id="1_33ljp"]
+[ext_resource type="Script" uid="uid://cnvvliuudpfxp" path="res://2D/hud/hp_icon.gd" id="2_ldbuk"]
+[ext_resource type="Script" uid="uid://di6bxnrakydkd" path="res://2D/hud/score_label.gd" id="3_vm7kk"]
+[ext_resource type="Script" uid="uid://dni0a8to6alsr" path="res://2D/hud/fps_counter.gd" id="4_3rdee"]
 
 [node name="HUD" type="Control" unique_id=1789147469]
 layout_mode = 3
@@ -24,22 +24,22 @@ grow_horizontal = 0
 [node name="HP1" type="Sprite2D" parent="HPBar" unique_id=1681794439]
 position = Vector2(-52, 50)
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("1_rbyyf")
-script = ExtResource("2_546lt")
+texture = ExtResource("1_33ljp")
+script = ExtResource("2_ldbuk")
 hp_count = 1
 
 [node name="HP2" type="Sprite2D" parent="HPBar" unique_id=1246250940]
 position = Vector2(-127, 50)
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("1_rbyyf")
-script = ExtResource("2_546lt")
+texture = ExtResource("1_33ljp")
+script = ExtResource("2_ldbuk")
 hp_count = 2
 
 [node name="HP3" type="Sprite2D" parent="HPBar" unique_id=1433238474]
 position = Vector2(-202, 50)
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("1_rbyyf")
-script = ExtResource("2_546lt")
+texture = ExtResource("1_33ljp")
+script = ExtResource("2_ldbuk")
 hp_count = 3
 
 [node name="Score" type="Control" parent="." unique_id=186425533]
@@ -74,7 +74,7 @@ theme_override_font_sizes/font_size = 48
 text = "0"
 horizontal_alignment = 2
 vertical_alignment = 1
-script = ExtResource("2_276te")
+script = ExtResource("3_vm7kk")
 
 [node name="FPS" type="Control" parent="." unique_id=1727391426]
 layout_mode = 1
@@ -96,4 +96,4 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "60"
 horizontal_alignment = 2
 vertical_alignment = 2
-script = ExtResource("4_7ihmi")
+script = ExtResource("4_3rdee")
