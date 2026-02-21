@@ -14,8 +14,6 @@ var speed_intensity: float = 1
 
 const TRAIL_VFX = preload("uid://drynt1383xlht")
 @onready var cube_hitbox: Area3D = $CubeHitbox
-@onready var damage_hitbox: Area3D = $DamageHitbox
-@onready var body: MeshInstance3D = $PlayerModel/Body
 @onready var poof: GPUParticles3D = $Poof
 @onready var sparks: GPUParticles3D = $Sparks
 @onready var left_debris: Node3D = $TireDebrisSnowLeft
