@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://dsohjmkv58eia"]
+
+[ext_resource type="Script" uid="uid://pdbgbuterof5" path="res://shared/ui/button.gd" id="1_t307v"]
+
+[node name="Button" type="Button" unique_id=725143166]
+offset_right = 32.0
+offset_bottom = 46.0
+text = "..."
+script = ExtResource("1_t307v")
