@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://csi0364mca8xy"]
 
 [ext_resource type="Texture2D" uid="uid://djmgs1cgvpm7a" path="res://icon.svg" id="1_33ljp"]
-[ext_resource type="Script" uid="uid://cnvvliuudpfxp" path="res://2D/hud/hp_icon.gd" id="2_ldbuk"]
-[ext_resource type="Script" uid="uid://di6bxnrakydkd" path="res://2D/hud/score_label.gd" id="3_vm7kk"]
-[ext_resource type="Script" uid="uid://dni0a8to6alsr" path="res://2D/hud/fps_counter.gd" id="4_3rdee"]
+[ext_resource type="Script" uid="uid://cnvvliuudpfxp" path="res://hud/hp_icon.gd" id="2_ldbuk"]
+[ext_resource type="Script" uid="uid://di6bxnrakydkd" path="res://hud/score_label.gd" id="3_vm7kk"]
+[ext_resource type="Script" uid="uid://dni0a8to6alsr" path="res://hud/fps_counter.gd" id="4_3rdee"]
 
 [node name="HUD" type="Control" unique_id=1789147469]
 layout_mode = 3
