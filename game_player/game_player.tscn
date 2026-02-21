@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://b0boueut21rwe"]
 
-[ext_resource type="PackedScene" uid="uid://dqeksnc1bqwgt" path="res://entities/player/player.tscn" id="1_auvkx"]
 [ext_resource type="Script" uid="uid://k6whdc0a3ar0" path="res://game_player/game_player.gd" id="1_ejsqx"]
 [ext_resource type="PackedScene" uid="uid://bej6m82ih40n5" path="res://shared/joystick/joystick.tscn" id="2_ejsqx"]
+[ext_resource type="PackedScene" uid="uid://dyen06fs8v7j6" path="res://shared/player/player.tscn" id="3_ejsqx"]
 
 [sub_resource type="Gradient" id="Gradient_rkubv"]
 offsets = PackedFloat32Array(0, 0.6674009, 0.6696035)
@@ -69,7 +69,7 @@ offset_right = 120.0
 offset_bottom = -120.0
 max_radius = 75
 
-[node name="Player" parent="." unique_id=1154084459 instance=ExtResource("1_auvkx")]
+[node name="Player" parent="." unique_id=1383705294 instance=ExtResource("3_ejsqx")]
 
 [connection signal="is_flying_changed" from="Player" to="." method="_on_player_is_flying_changed"]
 [connection signal="was_damaged" from="Player" to="." method="_on_player_was_damaged"]

@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://dyen06fs8v7j6"]
 
-[ext_resource type="Script" uid="uid://cahfvs4cexpdp" path="res://entities/player/player.gd" id="1_fjkuh"]
+[ext_resource type="Script" uid="uid://cahfvs4cexpdp" path="res://shared/player/player.gd" id="1_fjkuh"]
 [ext_resource type="PackedScene" uid="uid://ddwftyj3tif34" path="res://shared/particles/poof.tscn" id="3_b81g5"]
 [ext_resource type="PackedScene" uid="uid://dvabslbqfwp0v" path="res://shared/particles/sparks.tscn" id="4_j4a84"]
-[ext_resource type="PackedScene" uid="uid://dbi36hqar6db8" path="res://entities/player/player_shadow.tscn" id="4_vrm5f"]
-[ext_resource type="PackedScene" uid="uid://b7wmb8jxswbil" path="res://entities/player/tire_debris/tire_debris_snow.tscn" id="5_5hepr"]
+[ext_resource type="PackedScene" uid="uid://dbi36hqar6db8" path="res://shared/player/player_shadow.tscn" id="4_vrm5f"]
+[ext_resource type="PackedScene" uid="uid://b7wmb8jxswbil" path="res://shared/player/tire_debris/tire_debris_snow.tscn" id="5_5hepr"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4to0f"]
 size = Vector3(0.3, 0.258521, 0.5)

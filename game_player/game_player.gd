@@ -21,12 +21,12 @@ func _on_player_is_flying_changed(is_flying: bool) -> void:
 	else:
 		Globals.remove_music_low_pass_filter()
 
-func despawn(delay: int = 2):
-	await get_tree().create_timer(delay).timeout
-	queue_free()
-
 func _on_player_was_damaged(current_health: int) -> void:
 	Globals.player_hp = current_health
 	if current_health == 0:
 		Globals.end_game()
 		despawn()
+
+func despawn(delay: int = 2):
+	await get_tree().create_timer(delay).timeout
+	queue_free()
