@@ -40,6 +40,10 @@ window/vsync/vsync_mode=0
 
 enabled=PackedStringArray("res://addons/script-ide/plugin.cfg")
 
+[global_group]
+
+player="player character(s)"
+
 [gui]
 
 theme/default_theme_scale=1.5

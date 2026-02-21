@@ -55,7 +55,7 @@ top_radius = 0.1
 bottom_radius = 0.1
 height = 0.05
 
-[node name="Player" type="Node3D" unique_id=1154084459]
+[node name="Player" type="Node3D" unique_id=1154084459 groups=["player"]]
 
 [node name="Jump" type="Control" parent="." unique_id=1474105499]
 layout_mode = 3
@@ -102,7 +102,7 @@ offset_right = 120.0
 offset_bottom = -120.0
 max_radius = 75
 
-[node name="AlivePlayer" type="CharacterBody3D" parent="." unique_id=1383705294]
+[node name="AlivePlayer" type="CharacterBody3D" parent="." unique_id=1383705294 groups=["player"]]
 collision_layer = 8
 collision_mask = 8
 script = ExtResource("1_fjkuh")

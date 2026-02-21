@@ -12,9 +12,8 @@ signal game_ended()
 func _ready():
 	player_hp = PLAYER_HP_START
 	set_percussion_enabled(false)
-	
-func _physics_process(_delta: float) -> void:
 
+func _physics_process(_delta: float) -> void:
 	# enable bass when player first explodes
 	if is_player_flying:
 		set_percussion_enabled(true)

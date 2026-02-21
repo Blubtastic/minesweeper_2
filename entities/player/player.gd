@@ -54,12 +54,12 @@ func _physics_process(delta: float) -> void:
 		else:
 			stop_debris()
 		if direction.z > 0:
-			velocity.z = direction.z * BACKWARD_SPEED * speed_intensity + Globals.world_speed
+			velocity.z = direction.z * BACKWARD_SPEED * speed_intensity + Globals.world_speed # read
 		if direction.z < 0:
-			velocity.z = direction.z * FORWARD_SPEED * speed_intensity + Globals.world_speed
+			velocity.z = direction.z * FORWARD_SPEED * speed_intensity + Globals.world_speed # read
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED * speed_intensity)
-		velocity.z = move_toward(velocity.z, Globals.world_speed, SPEED * speed_intensity)
+		velocity.z = move_toward(velocity.z, Globals.world_speed, SPEED * speed_intensity) # read
 		stop_debris()
 	rotation.z = -velocity.x / 30
 	rotation.x = -velocity.z / 30
@@ -69,12 +69,12 @@ func _physics_process(delta: float) -> void:
 
 func damage_player():
 	if not invincible:
-		if Globals.player_hp < 2:
+		if Globals.player_hp < 2: # write
 			velocity.y = TERMINAL_VELOCITY
 			despawn()
 		else:
 			velocity.y = LAUNCH_VELOCITY
-		Globals.damage_player(1)
+		Globals.damage_player(1) # write
 		invincible = true
 		Globals.is_player_flying = true
 		
@@ -82,7 +82,7 @@ func damage_player():
 		add_child(TrailVfx)
 		await get_tree().create_timer(1.0).timeout
 		invincible = false
-		Globals.is_player_flying = false
+		Globals.is_player_flying = false # write
 		await get_tree().create_timer(0.5).timeout
 		TrailVfx.get_node("Smoke").emitting = false
 		TrailVfx.get_node("Fire").emitting = false
