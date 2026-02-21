@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://brpfnvs7cakj5"]
 
 [ext_resource type="Script" uid="uid://hsuv615rxblc" path="res://app/loading.gd" id="1_qx4wl"]
+[ext_resource type="PackedScene" uid="uid://celxavas2i8qt" path="res://menu_main/menu_main.tscn" id="2_8gybp"]
 [ext_resource type="PackedScene" uid="uid://ddwftyj3tif34" path="res://shared/particles/Poof.tscn" id="2_qx4wl"]
 [ext_resource type="PackedScene" uid="uid://dvabslbqfwp0v" path="res://shared/particles/Sparks.tscn" id="5_3ipkp"]
 [ext_resource type="PackedScene" uid="uid://b7wmb8jxswbil" path="res://entities/player/TireDebris/TireDebrisSnow.tscn" id="6_hcrdm"]
@@ -25,6 +26,7 @@ adjustment_contrast = 1.1
 
 [node name="Loading" type="Node3D" unique_id=652334179]
 script = ExtResource("1_qx4wl")
+MAIN_MENU = ExtResource("2_8gybp")
 
 [node name="LoadingSplash" type="Control" parent="." unique_id=1588370148]
 layout_mode = 3
