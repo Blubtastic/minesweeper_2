@@ -22,6 +22,7 @@ const TRAIL_VFX = preload("uid://drynt1383xlht")
 
 
 func _ready():
+	# set global player_hp to initial_hp
 	if joystick.visible:
 		joystick.joystick_moved.connect(_on_joystick_moved)
 

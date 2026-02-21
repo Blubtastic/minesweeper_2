@@ -13,8 +13,6 @@ const COLORS: Array[Color] = [
 
 const DESTROYED_CUBE = preload("uid://bp6e0aywkls4b")
 
-@export var isLoadingCleared: bool = false
-@export var isLoadingExploded: bool = false
 @onready var reveal_cube_audio: AudioStreamPlayer = $RevealCube
 @onready var place_flag_audio: AudioStreamPlayer = $PlaceFlag
 @onready var remove_flag_audio: AudioStreamPlayer = $RemoveFlag
@@ -24,22 +22,12 @@ const DESTROYED_CUBE = preload("uid://bp6e0aywkls4b")
 @onready var sparks: GPUParticles3D = $Sparks
 
 var nearby_cubes: Array[Node3D]
-var is_bomb: bool = false
+@export var is_bomb: bool = false
 var has_exploded: bool = false
 var is_cleared: bool = false
 var cleared_by_player: bool = false
 
 signal cube_was_cleared
-
-
-func _ready():
-	if isLoadingCleared:
-		is_cleared = true
-	if isLoadingExploded:
-		is_bomb = true
-		sparks.emitting = true
-		reveal_cube(false)
-		spawn_explosion()
 
 func handle_uncleared_pressed():
 	if !is_cleared and !is_bomb:

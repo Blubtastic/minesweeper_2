@@ -5,12 +5,12 @@ const GAME_OVER = preload("uid://ck8cc332mqpua")
 @onready var hud: Control = $HUD
 
 func _ready():
+	Globals.reset_game()
 	Globals.game_ended.connect(_on_game_ended)
 
 func _input(event):
 	if event is InputEventKey and event.pressed:
 		if event.is_action_pressed("restart"):
-			Globals.reset_game()
 			get_tree().reload_current_scene()
 
 func _on_game_ended():

@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://b7wmb8jxswbil" path="res://entities/player/tire_debris/tire_debris_snow.tscn" id="6_hcrdm"]
 [ext_resource type="PackedScene" uid="uid://bp6e0aywkls4b" path="res://entities/cube/explosion/destroyed_cube.tscn" id="7_hcrdm"]
 [ext_resource type="Script" uid="uid://bb7i38v6r8s76" path="res://shared/camera_shake.gd" id="7_mrh31"]
+[ext_resource type="PackedScene" uid="uid://dqeksnc1bqwgt" path="res://entities/player/player.tscn" id="8_fgvwb"]
+[ext_resource type="PackedScene" uid="uid://by5iila0yby3s" path="res://moving_chunk/game_cube/game_cube.tscn" id="9_8tcy5"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_u524s"]
 
@@ -91,3 +93,9 @@ transform = Transform3D(1, 0, 0, 0, 0.559193, 0.829038, 0, -0.829038, 0.559193, 
 current = true
 fov = 20.0
 script = ExtResource("7_mrh31")
+
+[node name="Player" parent="." unique_id=1154084459 instance=ExtResource("8_fgvwb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.2128205, -5.534695)
+
+[node name="GameCube" parent="." unique_id=1255960462 instance=ExtResource("9_8tcy5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.36659554, 1.4641927, -5.487113)
