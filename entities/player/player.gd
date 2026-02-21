@@ -20,7 +20,6 @@ const TRAIL_VFX = preload("uid://drynt1383xlht")
 @onready var left_debris: Node3D = $TireDebrisSnowLeft
 @onready var right_debris: Node3D = $TireDebrisSnowRight
 
-
 signal is_flying_changed(is_flying: bool)
 signal was_damaged(current_health: int)
 
@@ -52,7 +51,6 @@ func _physics_process(delta: float) -> void:
 		stop_debris()
 	rotation.z = -velocity.x / 30
 	rotation.x = -velocity.z / 30
-
 	move_and_slide()
 
 func damage():
