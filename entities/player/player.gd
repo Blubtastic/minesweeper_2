@@ -68,7 +68,6 @@ func _physics_process(delta: float) -> void:
 
 	if is_controllable:
 		move_and_slide()
-	
 
 func damage_player():
 	if not invincible:
@@ -99,9 +98,9 @@ func stop_debris():
 	left_debris.stop_debris()
 	right_debris.stop_debris()
 
-func _on_damage_hitbox_area_entered(_area: Area3D) -> void:
-	damage_player()
-
 func despawn(delay: int = 2):
 	await get_tree().create_timer(delay).timeout
 	queue_free()
+
+func _on_damage_hitbox_area_entered(_area: Area3D) -> void:
+	damage_player()

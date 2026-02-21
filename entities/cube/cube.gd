@@ -74,17 +74,12 @@ func trigger_explosion():
 		spawn_explosion()
 
 func spawn_explosion():
-	var CubeDestroyed = DESTROYED_CUBE.instantiate()
-	add_child(CubeDestroyed)
-	CubeDestroyed.global_position = Vector3(global_position.x, global_position.y + 0.7, global_position.z)
+	var destroyed_cube = DESTROYED_CUBE.instantiate()
+	add_child(destroyed_cube)
+	destroyed_cube.global_position = Vector3(global_position.x, global_position.y + 0.7, global_position.z)
 	cube_top.visible = false
 	has_exploded = true
-	
-	var DamageArea = DAMAGE_HITBOX.instantiate()
-	add_child(DamageArea)
-	DamageArea.global_position = Vector3(global_position.x, global_position.y + 0.7, global_position.z)
-	await get_tree().create_timer(1.0).timeout
-	DamageArea.queue_free()
+
 
 func give_points(points: int):
 	if !has_given_points:

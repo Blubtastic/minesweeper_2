@@ -1,25 +1,14 @@
 [gd_scene format=3 uid="uid://bp6e0aywkls4b"]
 
 [ext_resource type="PackedScene" uid="uid://b8yejfq3fcemn" path="res://entities/cube/explosion/explosion_effect.tscn" id="1_ma7bs"]
+[ext_resource type="Script" uid="uid://cd2a4t1e218dg" path="res://entities/cube/explosion/destroyed_cube.gd" id="1_wv142"]
 [ext_resource type="AudioStream" uid="uid://cl6qd5gf6x7j3" path="res://entities/cube/audio/explosion.wav" id="2_wv142"]
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_3t23w"]
-radius = 1.0
+[sub_resource type="SphereShape3D" id="SphereShape3D_i5ix7"]
+radius = 1.5
 
 [node name="DestroyedCube" type="Node3D" unique_id=40352864]
-
-[node name="ExplosionForce" type="Area3D" parent="." unique_id=1189014351]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
-collision_layer = 9
-collision_mask = 9
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="ExplosionForce" unique_id=1146383542]
-transform = Transform3D(1.41917, 0, 0, 0, 1.41917, 0, 0, 0, 1.41917, 0, 0, 0)
-shape = SubResource("SphereShape3D_3t23w")
-
-[node name="Timer" type="Timer" parent="ExplosionForce" unique_id=1996245591]
-wait_time = 0.1
-autostart = true
+script = ExtResource("1_wv142")
 
 [node name="ExplosionEffect" parent="." unique_id=291960086 instance=ExtResource("1_ma7bs")]
 
@@ -27,4 +16,11 @@ autostart = true
 stream = ExtResource("2_wv142")
 volume_db = -20.0
 
-[connection signal="timeout" from="ExplosionForce/Timer" to="ExplosionForce" method="_on_timer_timeout"]
+[node name="DamagePlayer" type="Area3D" parent="." unique_id=2030044732]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7, 0)
+collision_layer = 16
+collision_mask = 16
+monitoring = false
+
+[node name="Hitbox" type="CollisionShape3D" parent="DamagePlayer" unique_id=1271088236]
+shape = SubResource("SphereShape3D_i5ix7")
