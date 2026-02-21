@@ -8,5 +8,4 @@ func _ready():
 	poof.restart()
 	sparks.restart()
 	await get_tree().create_timer(0.5).timeout
-	print(MAIN_MENU)
 	get_tree().change_scene_to_packed(MAIN_MENU)
