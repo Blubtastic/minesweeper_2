@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://celxavas2i8qt"]
 
-[ext_resource type="PackedScene" uid="uid://bnxqp40rt11bk" path="res://menu/menu_2d.tscn" id="1_6tlrr"]
-[ext_resource type="PackedScene" uid="uid://biv38ja3npifj" path="res://menu/LogoMinedriver.blend" id="2_604no"]
+[ext_resource type="PackedScene" uid="uid://bnxqp40rt11bk" path="res://menu_main/menu_main_ui.tscn" id="1_6tlrr"]
+[ext_resource type="PackedScene" uid="uid://biv38ja3npifj" path="res://menu_main/LogoMinedriver.blend" id="2_604no"]
 [ext_resource type="PackedScene" uid="uid://kll47d13opx8" path="res://ForestChunk/ForestChunkOptimized.blend" id="3_bj7it"]
 [ext_resource type="PackedScene" uid="uid://62fr2rhqfdeo" path="res://shared/particles/Snow.tscn" id="4_v5f0t"]
 [ext_resource type="PackedScene" uid="uid://drynt1383xlht" path="res://entities/cube/TrailVFX.tscn" id="5_h4t8p"]

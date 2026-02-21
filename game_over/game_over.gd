@@ -27,7 +27,7 @@ func start_blur_after_delay(delay: float = 1):
 
 
 func _on_main_menu_pressed() -> void:
-	get_tree().change_scene_to_file("res://menu/menu.tscn")
+	get_tree().change_scene_to_file("res://menu_main/menu_main.tscn")
 	Globals.reset_game()
 
 func _on_try_again_pressed() -> void:
