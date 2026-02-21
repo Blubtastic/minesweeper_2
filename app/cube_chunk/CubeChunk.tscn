@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dgxv52jn27v3c"]
 
-[ext_resource type="Script" uid="uid://bw0i5u06nldb" path="res://app/cube_chunk.gd" id="1_51aoj"]
+[ext_resource type="Script" uid="uid://bw0i5u06nldb" path="res://app/cube_chunk/cube_chunk.gd" id="1_51aoj"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0e5no"]
 albedo_color = Color(1, 1, 0, 1)
