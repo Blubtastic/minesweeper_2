@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://de7cmht80sasj"
-path="res://.godot/imported/tambourine.wav-fb29dc82d284a1ffc21c037db9c99ffc.sample"
+path="res://.godot/imported/tambourine.wav-bf8f77c9d91c44e0b4ff844e6bc32463.sample"
 
 [deps]
 
-source_file="res://app/music/tambourine.wav"
-dest_files=["res://.godot/imported/tambourine.wav-fb29dc82d284a1ffc21c037db9c99ffc.sample"]
+source_file="res://main/music/tambourine.wav"
+dest_files=["res://.godot/imported/tambourine.wav-bf8f77c9d91c44e0b4ff844e6bc32463.sample"]
 
 [params]
 
