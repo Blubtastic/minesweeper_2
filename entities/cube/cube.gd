@@ -1,6 +1,5 @@
 extends Area3D
 
-const DAMAGE_HITBOX = preload("uid://ftokwp4ypb8m")
 const DESTROYED_CUBE = preload("uid://bp6e0aywkls4b")
 
 @export var isLoadingCleared: bool = false
