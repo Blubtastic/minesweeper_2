@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://by5iila0yby3s"]
 
-[ext_resource type="PackedScene" uid="uid://cnor6jdbe28rj" path="res://entities/cube/cube.tscn" id="1_3obgb"]
+[ext_resource type="PackedScene" uid="uid://cnor6jdbe28rj" path="res://shared/cube/cube.tscn" id="1_3obgb"]
 [ext_resource type="Script" uid="uid://rf6crek63ku0" path="res://moving_chunk/game_cube/game_cube.gd" id="1_y3lh6"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_3l74d"]

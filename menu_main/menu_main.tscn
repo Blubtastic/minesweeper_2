@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://b7wmb8jxswbil" path="res://entities/player/tire_debris/tire_debris_snow.tscn" id="6_psc6d"]
 [ext_resource type="PackedScene" uid="uid://dvabslbqfwp0v" path="res://shared/particles/sparks.tscn" id="7_vr336"]
 [ext_resource type="PackedScene" uid="uid://ddwftyj3tif34" path="res://shared/particles/poof.tscn" id="8_k6vai"]
-[ext_resource type="PackedScene" uid="uid://cnor6jdbe28rj" path="res://entities/cube/cube.tscn" id="9_a4v77"]
+[ext_resource type="PackedScene" uid="uid://cnor6jdbe28rj" path="res://shared/cube/cube.tscn" id="9_a4v77"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_wk0pr"]
 

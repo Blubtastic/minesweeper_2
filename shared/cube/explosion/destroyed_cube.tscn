@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://bp6e0aywkls4b"]
 
-[ext_resource type="PackedScene" uid="uid://b8yejfq3fcemn" path="res://entities/cube/explosion/explosion_effect.tscn" id="1_ma7bs"]
-[ext_resource type="Script" uid="uid://cd2a4t1e218dg" path="res://entities/cube/explosion/destroyed_cube.gd" id="1_wv142"]
-[ext_resource type="AudioStream" uid="uid://cl6qd5gf6x7j3" path="res://entities/cube/audio/explosion.wav" id="2_wv142"]
+[ext_resource type="PackedScene" uid="uid://b8yejfq3fcemn" path="res://shared/cube/explosion/explosion_effect.tscn" id="1_ma7bs"]
+[ext_resource type="Script" uid="uid://cd2a4t1e218dg" path="res://shared/cube/explosion/destroyed_cube.gd" id="1_wv142"]
+[ext_resource type="AudioStream" uid="uid://cl6qd5gf6x7j3" path="res://shared/cube/audio/explosion.wav" id="2_wv142"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_i5ix7"]
 radius = 1.5

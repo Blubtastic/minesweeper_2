@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://bbvy78gqnhud1"
-path="res://.godot/imported/place_flag.wav-01303467d8542f9b15abdf40489daf50.sample"
+path="res://.godot/imported/place_flag.wav-77bd500321d0767f98c484cadb40a9b2.sample"
 
 [deps]
 
-source_file="res://entities/cube/audio/place_flag.wav"
-dest_files=["res://.godot/imported/place_flag.wav-01303467d8542f9b15abdf40489daf50.sample"]
+source_file="res://shared/cube/audio/place_flag.wav"
+dest_files=["res://.godot/imported/place_flag.wav-77bd500321d0767f98c484cadb40a9b2.sample"]
 
 [params]
 
