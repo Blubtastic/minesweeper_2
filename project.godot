@@ -26,7 +26,7 @@ buses/default_bus_layout="uid://cittafeuu2sxy"
 
 [autoload]
 
-Globals="*res://app/Globals.tscn"
+Globals="*res://context/Globals.tscn"
 
 [display]
 
