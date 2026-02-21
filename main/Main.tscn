@@ -8,7 +8,7 @@
 [ext_resource type="AudioStream" uid="uid://d2fkaegd6wagp" path="res://main/music/bass-loop.wav" id="4_03owx"]
 [ext_resource type="PackedScene" uid="uid://dgxv52jn27v3c" path="res://cube_chunk/CubeChunk.tscn" id="5_2r6wr"]
 [ext_resource type="PackedScene" uid="uid://62fr2rhqfdeo" path="res://shared/particles/Snow.tscn" id="6_bv4rx"]
-[ext_resource type="PackedScene" uid="uid://dhlda46fqvnos" path="res://ForestChunk/ForestChunk.tscn" id="7_m1pw8"]
+[ext_resource type="PackedScene" uid="uid://dhlda46fqvnos" path="res://moving_chunk/ForestChunk.tscn" id="7_m1pw8"]
 [ext_resource type="PackedScene" uid="uid://bo56d0akw4s83" path="res://shared/WhiteBars3D.tscn" id="10_udtt8"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_6867n"]
