@@ -16,16 +16,6 @@ const TRAIL_VFX = preload("uid://drynt1383xlht")
 @onready var sparks: GPUParticles3D = $Sparks
 @onready var left_debris: Node3D = $TireDebrisSnowLeft
 @onready var right_debris: Node3D = $TireDebrisSnowRight
-@onready var joystick: Control = $"../Joysticky/Joystick"
-
-func _ready():
-	# set global player_hp to initial_hp
-	if joystick.visible:
-		joystick.joystick_moved.connect(_on_joystick_moved)
-
-func _on_joystick_moved(dir: Vector2, speed: float):
-	joystick_direction = dir
-	speed_intensity = speed
 
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():

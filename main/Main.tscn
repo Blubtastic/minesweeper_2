@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://c1p7v7melj8n4"]
 
 [ext_resource type="Script" uid="uid://b3ynraryv822m" path="res://main/main.gd" id="1_m0fyf"]
-[ext_resource type="PackedScene" uid="uid://dqeksnc1bqwgt" path="res://entities/player/player.tscn" id="1_mwkh8"]
+[ext_resource type="PackedScene" uid="uid://b0boueut21rwe" path="res://game_player/game_player.tscn" id="2_0i4oc"]
 [ext_resource type="PackedScene" uid="uid://csi0364mca8xy" path="res://hud/hud.tscn" id="2_03owx"]
 [ext_resource type="Script" uid="uid://bb7i38v6r8s76" path="res://shared/camera_shake.gd" id="3_rbuf0"]
 [ext_resource type="AudioStream" uid="uid://bnfwa6l1uxuyl" path="res://main/music/drum_loop.wav" id="3_trn2v"]
@@ -36,7 +36,7 @@ size = Vector3(3, 5, 20)
 [node name="Main" type="Node3D" unique_id=952190665]
 script = ExtResource("1_m0fyf")
 
-[node name="Player" parent="." unique_id=145953444 instance=ExtResource("1_mwkh8")]
+[node name="GamePlayer" parent="." unique_id=1696932808 groups=["player"] instance=ExtResource("2_0i4oc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.15148, -2.25592)
 
 [node name="HUD" parent="." unique_id=1296320164 instance=ExtResource("2_03owx")]
