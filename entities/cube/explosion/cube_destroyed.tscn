@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bp6e0aywkls4b"]
 
-[ext_resource type="PackedScene" uid="uid://b8yejfq3fcemn" path="res://entities/cube/explosion/ExplosionEffect.tscn" id="1_dv8yx"]
+[ext_resource type="PackedScene" uid="uid://b8yejfq3fcemn" path="res://entities/cube/explosion/explosion_effect.tscn" id="1_dv8yx"]
 [ext_resource type="AudioStream" uid="uid://cl6qd5gf6x7j3" path="res://entities/cube/audio/explosion.wav" id="4_atccu"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_3t23w"]

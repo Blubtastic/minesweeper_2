@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://m40ygfonv80c"
-path="res://.godot/imported/CubeTop.blend-7639c8d4d8e8377ac32f1be454f13071.scn"
+uid="uid://biv38ja3npifj"
+path="res://.godot/imported/logo_minedriver.blend-696e2f954c5f0afe32dabd9b0cd32d37.scn"
 
 [deps]
 
-source_file="res://entities/cube/models/CubeTop.blend"
-dest_files=["res://.godot/imported/CubeTop.blend-7639c8d4d8e8377ac32f1be454f13071.scn"]
+source_file="res://menu_main/logo_minedriver.blend"
+dest_files=["res://.godot/imported/logo_minedriver.blend-696e2f954c5f0afe32dabd9b0cd32d37.scn"]
 
 [params]
 
@@ -21,8 +21,8 @@ nodes/root_scale=1.0
 nodes/import_as_skeleton_bones=false
 nodes/use_name_suffixes=true
 nodes/use_node_type_suffixes=true
-meshes/ensure_tangents=false
-meshes/generate_lods=false
+meshes/ensure_tangents=true
+meshes/generate_lods=true
 meshes/create_shadow_meshes=true
 meshes/light_baking=1
 meshes/lightmap_texel_size=0.2
@@ -39,14 +39,14 @@ materials/extract_format=0
 materials/extract_path=""
 _subresources={
 "meshes": {
-"CubeTop_Cube_001": {
+"LogoMinedriver_Text": {
 "generate/lightmap_uv": 0,
 "generate/lods": 0,
 "generate/shadow_meshes": 0,
 "lods/normal_merge_angle": 20.0,
 "save_to_file/enabled": false,
-"save_to_file/fallback_path": "res://shared/cube/CubeTop.res",
-"save_to_file/path": "uid://do4l42gdqwlwb"
+"save_to_file/fallback_path": "res://2D/LogoMinedriver.res",
+"save_to_file/path": "uid://ct7yl57agnkix"
 }
 }
 }
@@ -69,4 +69,4 @@ blender/materials/export_materials=1
 blender/animation/limit_playback=true
 blender/animation/always_sample=true
 blender/animation/group_tracks=true
-gltf/naming_version=2
+gltf/naming_version=0

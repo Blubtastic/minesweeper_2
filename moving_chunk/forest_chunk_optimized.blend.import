@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://kll47d13opx8"
-path="res://.godot/imported/ForestChunkOptimized.blend-455c8438191c3d1214256ad64027813c.scn"
+path="res://.godot/imported/forest_chunk_optimized.blend-103b9ae16e33f7c5aa79e077bf7b8a5b.scn"
 
 [deps]
 
-source_file="res://moving_chunk/ForestChunkOptimized.blend"
-dest_files=["res://.godot/imported/ForestChunkOptimized.blend-455c8438191c3d1214256ad64027813c.scn"]
+source_file="res://moving_chunk/forest_chunk_optimized.blend"
+dest_files=["res://.godot/imported/forest_chunk_optimized.blend-103b9ae16e33f7c5aa79e077bf7b8a5b.scn"]
 
 [params]
 

@@ -2,10 +2,10 @@
 
 [ext_resource type="Script" uid="uid://cahfvs4cexpdp" path="res://entities/player/player.gd" id="1_fjkuh"]
 [ext_resource type="PackedScene" uid="uid://bej6m82ih40n5" path="res://shared/joystick/joystick.tscn" id="1_fxman"]
-[ext_resource type="PackedScene" uid="uid://ddwftyj3tif34" path="res://shared/particles/Poof.tscn" id="3_b81g5"]
-[ext_resource type="PackedScene" uid="uid://dvabslbqfwp0v" path="res://shared/particles/Sparks.tscn" id="4_j4a84"]
-[ext_resource type="PackedScene" uid="uid://dbi36hqar6db8" path="res://entities/player/PlayerShadow.tscn" id="4_vrm5f"]
-[ext_resource type="PackedScene" uid="uid://b7wmb8jxswbil" path="res://entities/player/TireDebris/TireDebrisSnow.tscn" id="5_5hepr"]
+[ext_resource type="PackedScene" uid="uid://ddwftyj3tif34" path="res://shared/particles/poof.tscn" id="3_b81g5"]
+[ext_resource type="PackedScene" uid="uid://dvabslbqfwp0v" path="res://shared/particles/sparks.tscn" id="4_j4a84"]
+[ext_resource type="PackedScene" uid="uid://dbi36hqar6db8" path="res://entities/player/player_shadow.tscn" id="4_vrm5f"]
+[ext_resource type="PackedScene" uid="uid://b7wmb8jxswbil" path="res://entities/player/TireDebris/tire_debris_snow.tscn" id="5_5hepr"]
 
 [sub_resource type="Gradient" id="Gradient_rkubv"]
 offsets = PackedFloat32Array(0, 0.6674009, 0.6696035)
