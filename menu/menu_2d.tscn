@@ -1,10 +1,9 @@
 [gd_scene format=3 uid="uid://bnxqp40rt11bk"]
 
-[ext_resource type="Script" uid="uid://b7ft5a8elf3ba" path="res://menu/version_number.gd" id="1_2t43u"]
+[ext_resource type="Script" uid="uid://b7ft5a8elf3ba" path="res://menu/menu_2d.gd" id="1_2t43u"]
 [ext_resource type="PackedScene" uid="uid://dsohjmkv58eia" path="res://shared/ui/button.tscn" id="2_beipr"]
-[ext_resource type="Script" uid="uid://b54ilbiutn1xc" path="res://2D/go_to_main_button.gd" id="2_ma7kf"]
 
-[node name="MainMenu2D" type="Control" unique_id=772130292]
+[node name="Menu2D" type="Control" unique_id=772130292]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -13,7 +12,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_2t43u")
 
-[node name="Control" type="Control" parent="." unique_id=1486150250]
+[node name="AnchorCenter" type="Control" parent="." unique_id=1486150250]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -27,7 +26,7 @@ offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Play" parent="Control" unique_id=725143166 instance=ExtResource("2_beipr")]
+[node name="Play" parent="AnchorCenter" unique_id=725143166 instance=ExtResource("2_beipr")]
 layout_mode = 0
 offset_left = -209.0
 offset_top = 47.0
@@ -35,28 +34,15 @@ offset_right = -3.0
 offset_bottom = 93.0
 text = "Play"
 
-[node name="Story mode" type="Button" parent="Control" unique_id=2064860424]
-visible = false
-layout_mode = 0
-offset_left = -209.0
-offset_top = 131.0
-offset_right = -3.0
-offset_bottom = 184.0
-theme_override_font_sizes/font_size = 24
-text = "Play"
-script = ExtResource("2_ma7kf")
-
-[node name="Endless mode" type="Button" parent="Control" unique_id=1257719732]
+[node name="EndlessMode" parent="AnchorCenter" unique_id=114641764 instance=ExtResource("2_beipr")]
 layout_mode = 0
 offset_left = 46.0
-offset_top = 44.0
-offset_right = 252.0
-offset_bottom = 97.0
-theme_override_font_sizes/font_size = 24
-disabled = true
+offset_top = 48.0
+offset_right = 253.0
+offset_bottom = 94.0
 text = "Endless mode"
 
-[node name="Version" type="Control" parent="." unique_id=1702157166]
+[node name="AnchorBottomRight" type="Control" parent="." unique_id=1702157166]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -66,7 +52,7 @@ anchor_bottom = 1.0
 grow_horizontal = 0
 grow_vertical = 0
 
-[node name="VersionNum" type="Label" parent="Version" unique_id=1584455564]
+[node name="VersionNum" type="Label" parent="AnchorBottomRight" unique_id=1584455564]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -85,5 +71,4 @@ text = "v0.0.2"
 horizontal_alignment = 2
 vertical_alignment = 2
 
-[connection signal="pressed" from="Control/Play" to="." method="_on_play_pressed"]
-[connection signal="pressed" from="Control/Endless mode" to="Control/Endless mode" method="_on_pressed"]
+[connection signal="pressed" from="AnchorCenter/Play" to="." method="_on_play_pressed"]
