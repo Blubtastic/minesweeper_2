@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://bjpkhrcmt7lw"
-path="res://.godot/imported/open-tile.wav-77ca344e5cd186f8a842ce490da2910f.sample"
+path="res://.godot/imported/open_tile.wav-82bba9805f54e6457f9faed9675bfdbf.sample"
 
 [deps]
 
-source_file="res://entities/cube/audio/open-tile.wav"
-dest_files=["res://.godot/imported/open-tile.wav-77ca344e5cd186f8a842ce490da2910f.sample"]
+source_file="res://entities/cube/audio/open_tile.wav"
+dest_files=["res://.godot/imported/open_tile.wav-82bba9805f54e6457f9faed9675bfdbf.sample"]
 
 [params]
 
