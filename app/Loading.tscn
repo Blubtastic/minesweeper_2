@@ -26,7 +26,7 @@ adjustment_contrast = 1.1
 
 [node name="Loading" type="Node3D" unique_id=652334179]
 script = ExtResource("1_qx4wl")
-MAIN_MENU = ExtResource("2_8gybp")
+NEXT_SCENE = ExtResource("2_8gybp")
 
 [node name="LoadingSplash" type="Control" parent="." unique_id=1588370148]
 layout_mode = 3
