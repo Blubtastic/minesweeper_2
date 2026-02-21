@@ -4,9 +4,12 @@ const SPEED = 5.0
 const FORWARD_SPEED = 7.0
 const BACKWARD_SPEED = 5.0
 const JUMP_VELOCITY = 6
-const LAUNCH_VELOCITY = 12
+const DAMAGED_VELOCITY = 12
 const TERMINAL_VELOCITY = 40
+
 var invincible: bool = false
+var health: int = 3
+var external_speed: float = 0
 var joystick_direction: Vector2 = Vector2(0,0)
 var speed_intensity: float = 1
 
@@ -16,6 +19,10 @@ const TRAIL_VFX = preload("uid://drynt1383xlht")
 @onready var sparks: GPUParticles3D = $Sparks
 @onready var left_debris: Node3D = $TireDebrisSnowLeft
 @onready var right_debris: Node3D = $TireDebrisSnowRight
+
+
+signal is_flying_changed(is_flying: bool)
+signal was_damaged(current_health: int)
 
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
@@ -36,12 +43,12 @@ func _physics_process(delta: float) -> void:
 		else:
 			stop_debris()
 		if direction.z > 0:
-			velocity.z = direction.z * BACKWARD_SPEED * speed_intensity + Globals.world_speed # read
+			velocity.z = direction.z * BACKWARD_SPEED * speed_intensity + external_speed # read
 		if direction.z < 0:
-			velocity.z = direction.z * FORWARD_SPEED * speed_intensity + Globals.world_speed # read
+			velocity.z = direction.z * FORWARD_SPEED * speed_intensity + external_speed # read
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED * speed_intensity)
-		velocity.z = move_toward(velocity.z, Globals.world_speed, SPEED * speed_intensity) # read
+		velocity.z = move_toward(velocity.z, external_speed, SPEED * speed_intensity) # read
 		stop_debris()
 	rotation.z = -velocity.x / 30
 	rotation.x = -velocity.z / 30
@@ -50,20 +57,17 @@ func _physics_process(delta: float) -> void:
 
 func damage():
 	if not invincible:
-		if Globals.player_hp < 2: # write
-			velocity.y = TERMINAL_VELOCITY
-			despawn()
-		else:
-			velocity.y = LAUNCH_VELOCITY
-		Globals.damage_player(1) # write
+		health -= 1
+		velocity.y = DAMAGED_VELOCITY if health > 0 else TERMINAL_VELOCITY
+		was_damaged.emit(health)
+		is_flying_changed.emit(true)
 		invincible = true
-		Globals.is_player_flying = true
 		
 		var TrailVfx = TRAIL_VFX.instantiate()
 		add_child(TrailVfx)
 		await get_tree().create_timer(1.0).timeout
 		invincible = false
-		Globals.is_player_flying = false # write
+		is_flying_changed.emit(false)
 		await get_tree().create_timer(0.5).timeout
 		TrailVfx.get_node("Smoke").emitting = false
 		TrailVfx.get_node("Fire").emitting = false
@@ -76,10 +80,6 @@ func emit_debris():
 func stop_debris():
 	left_debris.stop_debris()
 	right_debris.stop_debris()
-
-func despawn(delay: int = 2):
-	await get_tree().create_timer(delay).timeout
-	queue_free()
 
 func _on_damage_hitbox_area_entered(_area: Area3D) -> void:
 	damage()

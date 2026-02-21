@@ -70,3 +70,6 @@ offset_bottom = -120.0
 max_radius = 75
 
 [node name="Player" parent="." unique_id=1154084459 instance=ExtResource("1_auvkx")]
+
+[connection signal="is_flying_changed" from="Player" to="." method="_on_player_is_flying_changed"]
+[connection signal="was_damaged" from="Player" to="." method="_on_player_was_damaged"]
