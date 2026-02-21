@@ -12,6 +12,7 @@ const COLORS: Array[Color] = [
 ]
 
 const DESTROYED_CUBE = preload("uid://bp6e0aywkls4b")
+const SPARKS = preload("res://shared/particles/sparks.tscn")
 
 @onready var reveal_cube_audio: AudioStreamPlayer = $RevealCube
 @onready var place_flag_audio: AudioStreamPlayer = $PlaceFlag
@@ -20,7 +21,6 @@ const DESTROYED_CUBE = preload("uid://bp6e0aywkls4b")
 
 @onready var nearby_mines_label: Label3D = $NearbyMinesLabel
 @onready var cube_top: Node3D = $CubeTop
-@onready var sparks: GPUParticles3D = $Sparks
 @export var is_bomb: bool = false
 
 var nearby_cubes: Array[Node3D]
@@ -30,10 +30,16 @@ var cleared_by_player: bool = false
 
 signal cube_was_cleared
 
+func fire_particle(particle: PackedScene):
+	var particle_instance = particle.instantiate()
+	particle_instance.transform.origin = transform.origin
+	add_sibling(particle_instance)
+
+
 func damage():
 	if !is_cleared and !is_bomb:
 		cleared_by_player = true
-		sparks.emitting = true
+		fire_particle(SPARKS)
 		reveal_cube(true)
 	if is_bomb:
 		trigger_explosion()

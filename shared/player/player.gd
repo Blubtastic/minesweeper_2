@@ -15,9 +15,9 @@ var speed_intensity: float = 1
 
 const TRAIL_VFX = preload("uid://drynt1383xlht")
 const POOF = preload("uid://ddwftyj3tif34")
+const SPARKS = preload("res://shared/particles/sparks.tscn")
 
 @onready var cube_hitbox: Area3D = $CubeHitbox
-@onready var sparks: GPUParticles3D = $Sparks
 @onready var left_debris: Node3D = $TireDebrisSnowLeft
 @onready var right_debris: Node3D = $TireDebrisSnowRight
 
@@ -28,13 +28,11 @@ func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity += get_gravity() * 2 * delta
 	else:
-		sparks.emitting = true
+		fire_particle(SPARKS)
 	
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
-		var poof_instance = POOF.instantiate()
-		poof_instance.transform.origin = transform.origin
-		add_sibling(poof_instance)
+		fire_particle(POOF)
 	
 	var input_dir := Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down") + joystick_direction
 	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
@@ -55,6 +53,11 @@ func _physics_process(delta: float) -> void:
 	rotation.z = -velocity.x / 30
 	rotation.x = -velocity.z / 30
 	move_and_slide()
+
+func fire_particle(particle: PackedScene):
+	var particle_instance = particle.instantiate()
+	particle_instance.transform.origin = transform.origin
+	add_sibling(particle_instance)
 
 func damage():
 	if not invincible:

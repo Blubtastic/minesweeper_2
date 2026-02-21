@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://dyen06fs8v7j6"]
 
 [ext_resource type="Script" uid="uid://cahfvs4cexpdp" path="res://shared/player/player.gd" id="1_fjkuh"]
-[ext_resource type="PackedScene" uid="uid://dvabslbqfwp0v" path="res://shared/particles/sparks.tscn" id="4_j4a84"]
 [ext_resource type="PackedScene" uid="uid://dbi36hqar6db8" path="res://shared/player/player_shadow.tscn" id="4_vrm5f"]
 [ext_resource type="PackedScene" uid="uid://b7wmb8jxswbil" path="res://shared/player/tire_debris/tire_debris_snow.tscn" id="5_5hepr"]
 
@@ -45,9 +44,6 @@ script = ExtResource("1_fjkuh")
 
 [node name="PlayerShadow" parent="." unique_id=774143020 instance=ExtResource("4_vrm5f")]
 transform = Transform3D(1.3, 0, 0, 0, 1.3, 0, 0, 0, 1.3, 0, -0.175307, 0)
-
-[node name="Sparks" parent="." unique_id=1289354349 instance=ExtResource("4_j4a84")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0995955, 0)
 
 [node name="TireDebrisSnowLeft" parent="." unique_id=34965598 instance=ExtResource("5_5hepr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.166163, -0.168178, 0.12635526)
