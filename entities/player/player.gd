@@ -7,8 +7,6 @@ const JUMP_VELOCITY = 6
 const LAUNCH_VELOCITY = 12
 const TERMINAL_VELOCITY = 40
 var invincible: bool = false
-var overlapping_cubes
-var is_controllable = true
 var joystick_direction: Vector2 = Vector2(0,0)
 var speed_intensity: float = 1
 
@@ -20,7 +18,6 @@ const TRAIL_VFX = preload("uid://drynt1383xlht")
 @onready var right_debris: Node3D = $TireDebrisSnowRight
 @onready var joystick: Control = $"../Joysticky/Joystick"
 
-
 func _ready():
 	# set global player_hp to initial_hp
 	if joystick.visible:
@@ -31,17 +28,11 @@ func _on_joystick_moved(dir: Vector2, speed: float):
 	speed_intensity = speed
 
 func _physics_process(delta: float) -> void:
-	var cubes = get_tree().get_nodes_in_group("cubes")
-	overlapping_cubes = cube_hitbox.get_overlapping_areas()
-	for overlapping_cube in overlapping_cubes:
-		if overlapping_cube in cubes:
-			overlapping_cube.handle_uncleared_pressed()
-
 	if not is_on_floor():
 		velocity += get_gravity() * 2 * delta
 	else:
 		sparks.emitting = true
-
+	
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 		poof.restart()
@@ -65,10 +56,9 @@ func _physics_process(delta: float) -> void:
 	rotation.z = -velocity.x / 30
 	rotation.x = -velocity.z / 30
 
-	if is_controllable:
-		move_and_slide()
+	move_and_slide()
 
-func damage_player():
+func damage():
 	if not invincible:
 		if Globals.player_hp < 2: # write
 			velocity.y = TERMINAL_VELOCITY
@@ -102,4 +92,8 @@ func despawn(delay: int = 2):
 	queue_free()
 
 func _on_damage_hitbox_area_entered(_area: Area3D) -> void:
-	damage_player()
+	damage()
+
+func _on_cube_hitbox_area_entered(area: Area3D) -> void:
+	if area.has_method("damage"):
+		area.damage()

@@ -17,19 +17,20 @@ const DESTROYED_CUBE = preload("uid://bp6e0aywkls4b")
 @onready var place_flag_audio: AudioStreamPlayer = $PlaceFlag
 @onready var remove_flag_audio: AudioStreamPlayer = $RemoveFlag
 @onready var explosion_audio: AudioStreamPlayer = $Explosion
+
 @onready var nearby_mines_label: Label3D = $NearbyMinesLabel
 @onready var cube_top: Node3D = $CubeTop
 @onready var sparks: GPUParticles3D = $Sparks
+@export var is_bomb: bool = false
 
 var nearby_cubes: Array[Node3D]
-@export var is_bomb: bool = false
 var has_exploded: bool = false
 var is_cleared: bool = false
 var cleared_by_player: bool = false
 
 signal cube_was_cleared
 
-func handle_uncleared_pressed():
+func damage():
 	if !is_cleared and !is_bomb:
 		cleared_by_player = true
 		sparks.emitting = true
