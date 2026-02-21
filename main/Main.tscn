@@ -6,7 +6,7 @@
 [ext_resource type="Script" uid="uid://bb7i38v6r8s76" path="res://shared/camera_shake.gd" id="3_rbuf0"]
 [ext_resource type="AudioStream" uid="uid://bnfwa6l1uxuyl" path="res://main/music/drum-loop.wav" id="3_trn2v"]
 [ext_resource type="AudioStream" uid="uid://d2fkaegd6wagp" path="res://main/music/bass-loop.wav" id="4_03owx"]
-[ext_resource type="PackedScene" uid="uid://dgxv52jn27v3c" path="res://cube_chunk/CubeChunk.tscn" id="5_2r6wr"]
+[ext_resource type="PackedScene" uid="uid://dgxv52jn27v3c" path="res://moving_chunk/cube_chunk/CubeChunk.tscn" id="5_2r6wr"]
 [ext_resource type="PackedScene" uid="uid://62fr2rhqfdeo" path="res://shared/particles/Snow.tscn" id="6_bv4rx"]
 [ext_resource type="PackedScene" uid="uid://dhlda46fqvnos" path="res://moving_chunk/ForestChunk.tscn" id="7_m1pw8"]
 [ext_resource type="PackedScene" uid="uid://bo56d0akw4s83" path="res://shared/WhiteBars3D.tscn" id="10_udtt8"]
