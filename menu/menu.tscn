@@ -105,17 +105,14 @@ directional_shadow_split_3 = 0.4
 transform = Transform3D(1, 0, 0, 0, 0.5447706, 0.83858514, 0, -0.83858514, 0.5447706, -0.26604733, 1.6013522, 0.88033366)
 fov = 116.4
 
-[node name="SpotLight3D2" type="SpotLight3D" parent="Environment" unique_id=893002526]
-transform = Transform3D(0.0046782894, -0.018943802, 0.9998096, -0.038494598, 0.99907607, 0.019110026, -0.9992479, -0.03857667, 0.0039447327, 4.48749, 1.12939, -0.390179)
+[node name="SpotLight3DTop" type="SpotLight3D" parent="Environment" unique_id=2071886049]
+transform = Transform3D(0.99506366, 0.09712259, 0.020384755, -0.0215754, 0.011224688, 0.99970424, 0.09686505, -0.99520916, 0.013264738, -0.18180656, 5.1103644, -0.7569468)
 light_color = Color(1, 1, 0.890196, 1)
-light_energy = 0.25
+light_energy = 5.0
 light_bake_mode = 1
-spot_range = 7.77803
-spot_attenuation = -0.2
-spot_angle = 54.8844
-spot_angle_attenuation = 0.406127
+spot_angle_attenuation = 1e-05
 
-[node name="SpotLight3D3" type="SpotLight3D" parent="Environment" unique_id=2069966545]
+[node name="SpotLight3DLeft" type="SpotLight3D" parent="Environment" unique_id=2069966545]
 transform = Transform3D(0.0034880596, 0.00013408485, -0.999994, 0.038387798, -0.999263, -8.7132904e-08, -0.9992569, -0.03838756, -0.003490636, -4.49039, 1.15744, -0.30778)
 light_color = Color(1, 1, 0.890196, 1)
 light_energy = 0.25
@@ -125,7 +122,17 @@ spot_attenuation = -0.2
 spot_angle = 54.8844
 spot_angle_attenuation = 0.406127
 
-[node name="LogoMinedriver" parent="." unique_id=2007408728 instance=ExtResource("2_604no")]
+[node name="SpotLight3DRight" type="SpotLight3D" parent="Environment" unique_id=893002526]
+transform = Transform3D(0.0046782894, -0.018943802, 0.9998096, -0.038494598, 0.99907607, 0.019110026, -0.9992479, -0.03857667, 0.0039447327, 4.48749, 1.12939, -0.390179)
+light_color = Color(1, 1, 0.890196, 1)
+light_energy = 0.25
+light_bake_mode = 1
+spot_range = 7.77803
+spot_attenuation = -0.2
+spot_angle = 54.8844
+spot_angle_attenuation = 0.406127
+
+[node name="LogoMinedriver" parent="." unique_id=82306354 instance=ExtResource("2_604no")]
 transform = Transform3D(1, 0, 0, 0, 0.8759786, -0.48235002, 0, 0.48235002, 0.8759786, -0.270058, 0.9273245, -0.6397826)
 
 [node name="Forest" type="Node3D" parent="." unique_id=1738710611]
