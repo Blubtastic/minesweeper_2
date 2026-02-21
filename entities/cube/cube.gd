@@ -1,7 +1,7 @@
 extends Area3D
 
-const DAMAGE_AREA_3D = preload("uid://ftokwp4ypb8m")
-const CUBE_DESTROYED = preload("uid://bp6e0aywkls4b")
+const DAMAGE_HITBOX = preload("uid://ftokwp4ypb8m")
+const DESTROYED_CUBE = preload("uid://bp6e0aywkls4b")
 
 @export var isLoadingCleared: bool = false
 @export var isLoadingExploded: bool = false
@@ -74,13 +74,13 @@ func trigger_explosion():
 		spawn_explosion()
 
 func spawn_explosion():
-	var CubeDestroyed = CUBE_DESTROYED.instantiate()
+	var CubeDestroyed = DESTROYED_CUBE.instantiate()
 	add_child(CubeDestroyed)
 	CubeDestroyed.global_position = Vector3(global_position.x, global_position.y + 0.7, global_position.z)
 	cube_top.visible = false
 	has_exploded = true
 	
-	var DamageArea = DAMAGE_AREA_3D.instantiate()
+	var DamageArea = DAMAGE_HITBOX.instantiate()
 	add_child(DamageArea)
 	DamageArea.global_position = Vector3(global_position.x, global_position.y + 0.7, global_position.z)
 	await get_tree().create_timer(1.0).timeout
