@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://dya4t4p2oap3d"
-path="res://.godot/imported/remove-flag.wav-085750757b9b5a1cda49ec553b7178f1.sample"
+path="res://.godot/imported/remove-flag.wav-72f2717851d5f5f72d2078461d1c2f47.sample"
 
 [deps]
 
-source_file="res://shared/cube/audio/remove-flag.wav"
-dest_files=["res://.godot/imported/remove-flag.wav-085750757b9b5a1cda49ec553b7178f1.sample"]
+source_file="res://entities/cube/audio/remove-flag.wav"
+dest_files=["res://.godot/imported/remove-flag.wav-72f2717851d5f5f72d2078461d1c2f47.sample"]
 
 [params]
 

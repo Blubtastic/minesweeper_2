@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://blr22e80lqmjd"
-path="res://.godot/imported/hover-cube.wav-3f6c0cfa931bf926d23978fab6f2caa6.sample"
+path="res://.godot/imported/hover-cube.wav-21e26ee561868bf61af534fa818b2f87.sample"
 
 [deps]
 
-source_file="res://shared/cube/audio/hover-cube.wav"
-dest_files=["res://.godot/imported/hover-cube.wav-3f6c0cfa931bf926d23978fab6f2caa6.sample"]
+source_file="res://entities/cube/audio/hover-cube.wav"
+dest_files=["res://.godot/imported/hover-cube.wav-21e26ee561868bf61af534fa818b2f87.sample"]
 
 [params]
 
