@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://b0boueut21rwe"]
 
 [ext_resource type="Script" uid="uid://k6whdc0a3ar0" path="res://game_player/game_player.gd" id="1_ejsqx"]
-[ext_resource type="PackedScene" uid="uid://bej6m82ih40n5" path="res://shared/joystick/joystick.tscn" id="2_ejsqx"]
+[ext_resource type="PackedScene" uid="uid://bej6m82ih40n5" path="res://shared/ui/joystick/joystick.tscn" id="2_ejsqx"]
 [ext_resource type="PackedScene" uid="uid://dyen06fs8v7j6" path="res://shared/player/player.tscn" id="3_ejsqx"]
 
 [sub_resource type="Gradient" id="Gradient_rkubv"]
