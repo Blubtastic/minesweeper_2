@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://ck8cc332mqpua"]
 
-[ext_resource type="Script" uid="uid://c1gwtejje3dmj" path="res://2D/game_over/game_over_score.gd" id="1_5eixk"]
-[ext_resource type="Script" uid="uid://skwev3mkt1g5" path="res://2D/game_over/game_over.gd" id="1_8og0a"]
-[ext_resource type="Shader" uid="uid://dvxkh85q1fbvj" path="res://2D/game_over/blur_shader.gdshader" id="2_02873"]
-[ext_resource type="Texture2D" uid="uid://dw7o1danwup2e" path="res://2D/game_over/white.png" id="3_5q8jb"]
+[ext_resource type="Script" uid="uid://c1gwtejje3dmj" path="res://game_over/game_over_score.gd" id="1_5eixk"]
+[ext_resource type="Script" uid="uid://skwev3mkt1g5" path="res://game_over/game_over.gd" id="1_8og0a"]
+[ext_resource type="Shader" uid="uid://dvxkh85q1fbvj" path="res://game_over/blur_shader.gdshader" id="2_02873"]
+[ext_resource type="Texture2D" uid="uid://dw7o1danwup2e" path="res://game_over/white.png" id="3_5q8jb"]
 [ext_resource type="PackedScene" uid="uid://dsohjmkv58eia" path="res://shared/ui/button.tscn" id="6_fut5c"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_a48gh"]

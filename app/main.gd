@@ -1,6 +1,7 @@
 extends Node3D
 
-const GAME_OVER = preload("uid://qhpvf7y1n474")
+const GAME_OVER = preload("uid://ck8cc332mqpua")
+
 @onready var hud: Control = $HUD
 
 func _ready():
