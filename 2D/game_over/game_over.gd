@@ -24,3 +24,12 @@ func _physics_process(delta: float) -> void:
 func start_blur_after_delay(delay: float = 1):
 	await get_tree().create_timer(delay).timeout
 	blur_has_started = true
+
+
+func _on_main_menu_pressed() -> void:
+	get_tree().change_scene_to_file("res://menu/menu.tscn")
+	Globals.reset_game()
+
+func _on_try_again_pressed() -> void:
+	Globals.reset_game()
+	get_tree().reload_current_scene()

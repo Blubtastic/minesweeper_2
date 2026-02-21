@@ -1,11 +1,10 @@
-[gd_scene format=3 uid="uid://qhpvf7y1n474"]
+[gd_scene format=3 uid="uid://ck8cc332mqpua"]
 
 [ext_resource type="Script" uid="uid://c1gwtejje3dmj" path="res://2D/game_over/game_over_score.gd" id="1_5eixk"]
 [ext_resource type="Script" uid="uid://skwev3mkt1g5" path="res://2D/game_over/game_over.gd" id="1_8og0a"]
-[ext_resource type="Script" uid="uid://l82iatcudrfa" path="res://2D/restart_button.gd" id="1_oo8kp"]
 [ext_resource type="Shader" uid="uid://dvxkh85q1fbvj" path="res://2D/game_over/blur_shader.gdshader" id="2_02873"]
 [ext_resource type="Texture2D" uid="uid://dw7o1danwup2e" path="res://2D/game_over/white.png" id="3_5q8jb"]
-[ext_resource type="Script" uid="uid://46ckf1otpelq" path="res://2D/go_to_menu_button.gd" id="6_5q8jb"]
+[ext_resource type="PackedScene" uid="uid://dsohjmkv58eia" path="res://shared/ui/button.tscn" id="6_fut5c"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_a48gh"]
 shader = ExtResource("2_02873")
@@ -69,23 +68,21 @@ text = "Your score is 1530"
 horizontal_alignment = 1
 script = ExtResource("1_5eixk")
 
-[node name="RestartButton" type="Button" parent="Elements/Control" unique_id=839169750]
-layout_mode = 0
-offset_left = 39.0
-offset_top = 63.0
-offset_right = 175.0
-offset_bottom = 113.0
-text = "Try again"
-script = ExtResource("1_oo8kp")
-
-[node name="MenuButton" type="Button" parent="Elements/Control" unique_id=1087514802]
+[node name="MainMenu" parent="Elements/Control" unique_id=725143166 instance=ExtResource("6_fut5c")]
 layout_mode = 0
 offset_left = -170.0
-offset_top = 63.0
+offset_top = 65.0
 offset_right = -27.0
-offset_bottom = 113.0
+offset_bottom = 111.0
 text = "Main menu"
-script = ExtResource("6_5q8jb")
 
-[connection signal="pressed" from="Elements/Control/RestartButton" to="Elements/Control/RestartButton" method="_on_pressed"]
-[connection signal="pressed" from="Elements/Control/MenuButton" to="Elements/Control/MenuButton" method="_on_pressed"]
+[node name="TryAgain" parent="Elements/Control" unique_id=616473934 instance=ExtResource("6_fut5c")]
+layout_mode = 0
+offset_left = 38.0
+offset_top = 65.0
+offset_right = 175.0
+offset_bottom = 111.0
+text = "Try again"
+
+[connection signal="pressed" from="Elements/Control/MainMenu" to="." method="_on_main_menu_pressed"]
+[connection signal="pressed" from="Elements/Control/TryAgain" to="." method="_on_try_again_pressed"]

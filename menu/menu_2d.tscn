@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bnxqp40rt11bk"]
 
 [ext_resource type="Script" uid="uid://b7ft5a8elf3ba" path="res://menu/version_number.gd" id="1_2t43u"]
+[ext_resource type="PackedScene" uid="uid://dsohjmkv58eia" path="res://shared/ui/button.tscn" id="2_beipr"]
 [ext_resource type="Script" uid="uid://b54ilbiutn1xc" path="res://2D/go_to_main_button.gd" id="2_ma7kf"]
 
 [node name="MainMenu2D" type="Control" unique_id=772130292]
@@ -26,12 +27,21 @@ offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Story mode" type="Button" parent="Control" unique_id=2064860424]
+[node name="Play" parent="Control" unique_id=725143166 instance=ExtResource("2_beipr")]
 layout_mode = 0
 offset_left = -209.0
-offset_top = 44.0
+offset_top = 47.0
 offset_right = -3.0
-offset_bottom = 97.0
+offset_bottom = 93.0
+text = "Play"
+
+[node name="Story mode" type="Button" parent="Control" unique_id=2064860424]
+visible = false
+layout_mode = 0
+offset_left = -209.0
+offset_top = 131.0
+offset_right = -3.0
+offset_bottom = 184.0
 theme_override_font_sizes/font_size = 24
 text = "Play"
 script = ExtResource("2_ma7kf")
@@ -75,5 +85,5 @@ text = "v0.0.2"
 horizontal_alignment = 2
 vertical_alignment = 2
 
-[connection signal="pressed" from="Control/Story mode" to="Control/Story mode" method="_on_pressed"]
+[connection signal="pressed" from="Control/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="Control/Endless mode" to="Control/Endless mode" method="_on_pressed"]
