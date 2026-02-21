@@ -42,7 +42,7 @@ enabled=PackedStringArray("res://addons/script-ide/plugin.cfg")
 
 [global_group]
 
-player="player character(s)"
+move_with_world="objects in this group is moved with world_speed every _physics_process"
 
 [gui]
 

@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://duikkj6usajfv"]
+
+[ext_resource type="Script" uid="uid://bb5b1ntbgt6xp" path="res://context/move_with_world.gd" id="1_2kq1c"]
+
+[node name="MoveWithWorld" type="Node3D" unique_id=1229857641]
+script = ExtResource("1_2kq1c")

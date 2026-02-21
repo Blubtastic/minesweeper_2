@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://dvabslbqfwp0v"]
+[gd_scene format=3 uid="uid://dvabslbqfwp0v"]
 
 [sub_resource type="Curve" id="Curve_i42mu"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.174603, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -34,7 +34,7 @@ height = 0.1
 radial_segments = 4
 rings = 1
 
-[node name="Sparks" type="GPUParticles3D"]
+[node name="Sparks" type="GPUParticles3D" unique_id=1464151162]
 cast_shadow = 0
 emitting = false
 lifetime = 0.2

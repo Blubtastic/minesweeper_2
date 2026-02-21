@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://62fr2rhqfdeo" path="res://shared/particles/snow.tscn" id="6_bv4rx"]
 [ext_resource type="PackedScene" uid="uid://dhlda46fqvnos" path="res://moving_chunk/forest_chunk.tscn" id="7_m1pw8"]
 [ext_resource type="PackedScene" uid="uid://bo56d0akw4s83" path="res://shared/screen_border.tscn" id="10_udtt8"]
+[ext_resource type="PackedScene" uid="uid://duikkj6usajfv" path="res://context/move_with_world.tscn" id="11_bsumw"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_6867n"]
 
@@ -128,3 +129,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36.982, 0.677, -6)
 
 [node name="WhiteBars3DRight" parent="." unique_id=315739988 instance=ExtResource("10_udtt8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36.982, 0.677, -6)
+
+[node name="MoveWithWorld" parent="." unique_id=1229857641 instance=ExtResource("11_bsumw")]
