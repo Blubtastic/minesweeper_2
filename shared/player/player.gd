@@ -29,10 +29,10 @@ signal was_damaged(current_health: int)
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity += get_gravity() * 2 * delta
-	else:
+	if get_last_slide_collision():
 		if sparks.has_method("fire_once"):
 			sparks.fire_once(global_position)
-	
+
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 		if poof.has_method("fire_once"):
