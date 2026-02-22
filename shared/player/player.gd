@@ -14,8 +14,10 @@ var joystick_direction: Vector2 = Vector2(0,0)
 var speed_intensity: float = 1
 
 const TRAIL_VFX = preload("uid://drynt1383xlht")
+const SPARKS = preload("uid://dvabslbqfwp0v")
 const POOF = preload("uid://ddwftyj3tif34")
-const SPARKS = preload("res://shared/particles/sparks.tscn")
+@export var sparks: Node3D
+@export var poof: Node3D
 
 @onready var cube_hitbox: Area3D = $CubeHitbox
 @onready var left_debris: Node3D = $TireDebrisSnowLeft
@@ -28,11 +30,13 @@ func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity += get_gravity() * 2 * delta
 	else:
-		fire_particle(SPARKS)
+		if sparks.has_method("fire_once"):
+			sparks.fire_once(global_position)
 	
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
-		fire_particle(POOF)
+		if poof.has_method("fire_once"):
+			poof.fire_once(global_position)
 	
 	var input_dir := Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down") + joystick_direction
 	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()

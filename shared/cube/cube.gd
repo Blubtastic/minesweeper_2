@@ -12,7 +12,7 @@ const COLORS: Array[Color] = [
 ]
 
 const DESTROYED_CUBE = preload("uid://bp6e0aywkls4b")
-const SPARKS = preload("res://shared/particles/sparks.tscn")
+const SPARKS = preload("uid://dvabslbqfwp0v")
 
 @onready var reveal_cube_audio: AudioStreamPlayer = $RevealCube
 @onready var place_flag_audio: AudioStreamPlayer = $PlaceFlag

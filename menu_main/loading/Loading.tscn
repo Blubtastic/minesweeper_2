@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://hsuv615rxblc" path="res://menu_main/loading/loading.gd" id="1_qx4wl"]
 [ext_resource type="PackedScene" uid="uid://celxavas2i8qt" path="res://menu_main/menu_main.tscn" id="2_8gybp"]
-[ext_resource type="PackedScene" uid="uid://ddwftyj3tif34" path="res://shared/particles/poof.tscn" id="2_qx4wl"]
-[ext_resource type="PackedScene" uid="uid://dvabslbqfwp0v" path="res://shared/particles/sparks.tscn" id="5_3ipkp"]
+[ext_resource type="PackedScene" uid="uid://ddwftyj3tif34" path="res://app/particles/poof.tscn" id="2_qx4wl"]
+[ext_resource type="PackedScene" uid="uid://dvabslbqfwp0v" path="res://app/particles/sparks.tscn" id="5_3ipkp"]
 [ext_resource type="PackedScene" uid="uid://b7wmb8jxswbil" path="res://shared/player/tire_debris/tire_debris_snow.tscn" id="6_hcrdm"]
 [ext_resource type="PackedScene" uid="uid://bp6e0aywkls4b" path="res://shared/cube/explosion/destroyed_cube.tscn" id="7_hcrdm"]
 [ext_resource type="Script" uid="uid://bb7i38v6r8s76" path="res://shared/camera_shake.gd" id="7_mrh31"]

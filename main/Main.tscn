@@ -7,7 +7,7 @@
 [ext_resource type="AudioStream" uid="uid://bnfwa6l1uxuyl" path="res://main/music/drum_loop.wav" id="3_trn2v"]
 [ext_resource type="AudioStream" uid="uid://d2fkaegd6wagp" path="res://main/music/bass_loop.wav" id="4_03owx"]
 [ext_resource type="PackedScene" uid="uid://dgxv52jn27v3c" path="res://moving_chunk/cube_chunk/cube_chunk.tscn" id="5_2r6wr"]
-[ext_resource type="PackedScene" uid="uid://62fr2rhqfdeo" path="res://shared/particles/snow.tscn" id="6_bv4rx"]
+[ext_resource type="PackedScene" uid="uid://62fr2rhqfdeo" path="res://app/particles/snow.tscn" id="6_bv4rx"]
 [ext_resource type="PackedScene" uid="uid://dhlda46fqvnos" path="res://moving_chunk/forest_chunk.tscn" id="7_m1pw8"]
 [ext_resource type="PackedScene" uid="uid://bo56d0akw4s83" path="res://shared/screen_border.tscn" id="10_udtt8"]
 [ext_resource type="PackedScene" uid="uid://duikkj6usajfv" path="res://context/move_with_world.tscn" id="11_bsumw"]
