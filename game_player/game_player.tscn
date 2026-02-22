@@ -78,7 +78,6 @@ poof = NodePath("../Poof")
 [node name="Poof" parent="." unique_id=534971907 instance=ExtResource("4_cx7ix")]
 
 [node name="Sparks" parent="." unique_id=1464151162 instance=ExtResource("5_8jeuh")]
-local_coords = true
 
 [connection signal="is_flying_changed" from="Player" to="." method="_on_player_is_flying_changed"]
 [connection signal="was_damaged" from="Player" to="." method="_on_player_was_damaged"]

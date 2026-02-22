@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://m40ygfonv80c" path="res://shared/cube/cube_top.blend" id="5_terun"]
 [ext_resource type="AudioStream" uid="uid://bjpkhrcmt7lw" path="res://shared/cube/audio/open_tile.wav" id="6_o0a8b"]
 [ext_resource type="AudioStream" uid="uid://bbvy78gqnhud1" path="res://shared/cube/audio/place_flag.wav" id="7_eeb88"]
+[ext_resource type="PackedScene" uid="uid://dvabslbqfwp0v" path="res://app/particles/sparks.tscn" id="8_fsqdy"]
 [ext_resource type="AudioStream" uid="uid://dya4t4p2oap3d" path="res://shared/cube/audio/remove_flag.wav" id="8_pc8bq"]
 [ext_resource type="AudioStream" uid="uid://blr22e80lqmjd" path="res://shared/cube/audio/hover_cube.wav" id="9_fg1ko"]
 [ext_resource type="AudioStream" uid="uid://cl6qd5gf6x7j3" path="res://shared/cube/audio/explosion.wav" id="10_llvf4"]
@@ -72,3 +73,7 @@ bus = &"Sound Effects"
 [node name="Explosion" type="AudioStreamPlayer" parent="." unique_id=1825092273]
 stream = ExtResource("10_llvf4")
 bus = &"Sound Effects"
+
+[node name="Sparks" parent="." unique_id=1464151162 instance=ExtResource("8_fsqdy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6397953, 0)
+local_coords = true

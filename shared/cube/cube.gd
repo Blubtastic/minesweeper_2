@@ -12,8 +12,8 @@ const COLORS: Array[Color] = [
 ]
 
 const DESTROYED_CUBE = preload("uid://bp6e0aywkls4b")
-const SPARKS = preload("uid://dvabslbqfwp0v")
 
+@onready var sparks: GPUParticles3D = $Sparks
 @onready var reveal_cube_audio: AudioStreamPlayer = $RevealCube
 @onready var place_flag_audio: AudioStreamPlayer = $PlaceFlag
 @onready var remove_flag_audio: AudioStreamPlayer = $RemoveFlag
@@ -30,16 +30,10 @@ var cleared_by_player: bool = false
 
 signal cube_was_cleared
 
-func fire_particle(particle: PackedScene):
-	var particle_instance = particle.instantiate()
-	particle_instance.transform.origin = transform.origin
-	add_sibling(particle_instance)
-
-
 func damage():
 	if !is_cleared and !is_bomb:
 		cleared_by_player = true
-		fire_particle(SPARKS)
+		sparks.emitting = true
 		reveal_cube(true)
 	if is_bomb:
 		trigger_explosion()

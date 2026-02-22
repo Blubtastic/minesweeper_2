@@ -14,8 +14,6 @@ var joystick_direction: Vector2 = Vector2(0,0)
 var speed_intensity: float = 1
 
 const TRAIL_VFX = preload("uid://drynt1383xlht")
-const SPARKS = preload("uid://dvabslbqfwp0v")
-const POOF = preload("uid://ddwftyj3tif34")
 @export var sparks: Node3D
 @export var poof: Node3D
 

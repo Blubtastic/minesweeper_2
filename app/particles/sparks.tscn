@@ -36,12 +36,13 @@ height = 0.1
 radial_segments = 4
 rings = 1
 
-[node name="Sparks" type="GPUParticles3D" unique_id=1464151162 groups=["move_with_world"]]
+[node name="Sparks" type="GPUParticles3D" unique_id=1464151162]
 cast_shadow = 0
 emitting = false
 lifetime = 0.2
 one_shot = true
 explosiveness = 1.0
+local_coords = true
 process_material = SubResource("ParticleProcessMaterial_mx354")
 draw_pass_1 = SubResource("CylinderMesh_vdkyx")
 script = ExtResource("1_xsbaj")
