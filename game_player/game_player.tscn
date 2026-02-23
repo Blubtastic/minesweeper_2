@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://k6whdc0a3ar0" path="res://game_player/game_player.gd" id="1_ejsqx"]
 [ext_resource type="PackedScene" uid="uid://bej6m82ih40n5" path="res://shared/ui/joystick/joystick.tscn" id="2_ejsqx"]
 [ext_resource type="PackedScene" uid="uid://dyen06fs8v7j6" path="res://shared/player/player.tscn" id="3_ejsqx"]
-[ext_resource type="PackedScene" uid="uid://ddwftyj3tif34" path="res://app/particles/poof.tscn" id="4_cx7ix"]
+[ext_resource type="PackedScene" uid="uid://bqxows5t0aoxo" path="res://game_player/particles/player_poof.tscn" id="4_cx7ix"]
 [ext_resource type="PackedScene" uid="uid://dvabslbqfwp0v" path="res://app/particles/sparks.tscn" id="5_8jeuh"]
 
 [sub_resource type="Gradient" id="Gradient_rkubv"]
@@ -71,11 +71,9 @@ offset_right = 120.0
 offset_bottom = -120.0
 max_radius = 75
 
-[node name="Player" parent="." unique_id=1383705294 node_paths=PackedStringArray("sparks", "poof") instance=ExtResource("3_ejsqx")]
+[node name="Player" parent="." unique_id=1383705294 node_paths=PackedStringArray("sparks") instance=ExtResource("3_ejsqx")]
 sparks = NodePath("../Sparks")
-poof = NodePath("../Poof")
-
-[node name="Poof" parent="." unique_id=534971907 instance=ExtResource("4_cx7ix")]
+poof = ExtResource("4_cx7ix")
 
 [node name="Sparks" parent="." unique_id=1464151162 instance=ExtResource("5_8jeuh")]
 

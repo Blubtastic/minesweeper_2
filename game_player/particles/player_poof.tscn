@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://bqxows5t0aoxo"]
+
+[ext_resource type="PackedScene" uid="uid://ddwftyj3tif34" path="res://app/particles/poof.tscn" id="1_nu8fv"]
+[ext_resource type="Script" uid="uid://q1qiajs5je7r" path="res://game_player/particles/move_particle.gd" id="2_o151e"]
+
+[node name="PlayerPoof" unique_id=534971907 instance=ExtResource("1_nu8fv")]
+script = ExtResource("2_o151e")

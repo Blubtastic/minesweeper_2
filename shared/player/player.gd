@@ -15,7 +15,7 @@ var speed_intensity: float = 1
 
 const TRAIL_VFX = preload("uid://drynt1383xlht")
 @export var sparks: Node3D
-@export var poof: Node3D
+@export var poof: PackedScene
 
 @onready var cube_hitbox: Area3D = $CubeHitbox
 @onready var left_debris: Node3D = $TireDebrisSnowLeft
@@ -33,8 +33,9 @@ func _physics_process(delta: float) -> void:
 
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
-		if poof.has_method("fire_once"):
-			poof.fire_once(global_position)
+		var poof_instance = poof.instantiate()
+		add_sibling(poof_instance)
+		poof_instance.global_position = global_position
 	
 	var input_dir := Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down") + joystick_direction
 	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
