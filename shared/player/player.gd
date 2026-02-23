@@ -24,19 +24,20 @@ const TRAIL_VFX = preload("uid://drynt1383xlht")
 signal is_flying_changed(is_flying: bool)
 signal was_damaged(current_health: int)
 
+func fire_oneshot_particle(scene: PackedScene):
+	var instance = scene.instantiate()
+	add_sibling(instance)
+	instance.global_position = global_position
+
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity += get_gravity() * 2 * delta
 	if get_last_slide_collision():
-		var sparks_instance = sparks.instantiate()
-		add_sibling(sparks_instance)
-		sparks_instance.global_position = global_position
+		fire_oneshot_particle(sparks)
 
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
-		var poof_instance = poof.instantiate()
-		add_sibling(poof_instance)
-		poof_instance.global_position = global_position
+		fire_oneshot_particle(poof)
 	
 	var input_dir := Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down") + joystick_direction
 	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
