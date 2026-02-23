@@ -1,14 +1,14 @@
 [gd_scene format=3 uid="uid://brpfnvs7cakj5"]
 
-[ext_resource type="Script" uid="uid://hsuv615rxblc" path="res://menu_main/loading/loading.gd" id="1_qx4wl"]
-[ext_resource type="PackedScene" uid="uid://celxavas2i8qt" path="res://menu_main/menu_main.tscn" id="2_8gybp"]
-[ext_resource type="PackedScene" uid="uid://ddwftyj3tif34" path="res://app/particles/poof.tscn" id="2_qx4wl"]
-[ext_resource type="PackedScene" uid="uid://dvabslbqfwp0v" path="res://app/particles/sparks.tscn" id="5_3ipkp"]
-[ext_resource type="PackedScene" uid="uid://b7wmb8jxswbil" path="res://shared/player/tire_debris/tire_debris_snow.tscn" id="6_hcrdm"]
-[ext_resource type="PackedScene" uid="uid://bp6e0aywkls4b" path="res://shared/cube/explosion/destroyed_cube.tscn" id="7_hcrdm"]
-[ext_resource type="Script" path="res://shared/camera_shake.gd" id="7_mrh31"]
-[ext_resource type="PackedScene" uid="uid://dyen06fs8v7j6" path="res://shared/player/player.tscn" id="8_f8el0"]
-[ext_resource type="PackedScene" uid="uid://by5iila0yby3s" path="res://moving_chunk/game_cube/game_cube.tscn" id="9_8tcy5"]
+[ext_resource type="Script" uid="uid://hsuv615rxblc" path="res://menu_main/loading/loading.gd" id="1_dwj2s"]
+[ext_resource type="PackedScene" uid="uid://celxavas2i8qt" path="res://menu_main/menu_main.tscn" id="2_724q4"]
+[ext_resource type="PackedScene" uid="uid://ddwftyj3tif34" path="res://app/particles/poof.tscn" id="3_s0t0j"]
+[ext_resource type="PackedScene" uid="uid://dvabslbqfwp0v" path="res://app/particles/sparks.tscn" id="4_x5aln"]
+[ext_resource type="PackedScene" uid="uid://b7wmb8jxswbil" path="res://shared/player/tire_debris/tire_debris_snow.tscn" id="5_0i7cf"]
+[ext_resource type="PackedScene" uid="uid://bp6e0aywkls4b" path="res://shared/cube/explosion/destroyed_cube.tscn" id="6_vrifd"]
+[ext_resource type="Script" path="res://shared/camera_shake.gd" id="7_tgddf"]
+[ext_resource type="PackedScene" uid="uid://dyen06fs8v7j6" path="res://shared/player/player.tscn" id="8_8k2jv"]
+[ext_resource type="PackedScene" uid="uid://by5iila0yby3s" path="res://moving_chunk/game_cube/game_cube.tscn" id="9_mpyr8"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_u524s"]
 
@@ -27,8 +27,8 @@ fog_depth_end = 40.0
 adjustment_contrast = 1.1
 
 [node name="Loading" type="Node3D" unique_id=652334179]
-script = ExtResource("1_qx4wl")
-NEXT_SCENE = ExtResource("2_8gybp")
+script = ExtResource("1_dwj2s")
+NEXT_SCENE = ExtResource("2_724q4")
 
 [node name="LoadingSplash" type="Control" parent="." unique_id=1588370148]
 layout_mode = 3
@@ -67,13 +67,13 @@ vertical_alignment = 1
 [node name="Particles" type="Node3D" parent="." unique_id=1760629544]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.70835, -4.74771)
 
-[node name="Poof" parent="Particles" unique_id=1731833898 instance=ExtResource("2_qx4wl")]
+[node name="Poof" parent="Particles" unique_id=1731833898 instance=ExtResource("3_s0t0j")]
 
-[node name="Sparks" parent="Particles" unique_id=564390901 instance=ExtResource("5_3ipkp")]
+[node name="Sparks" parent="Particles" unique_id=564390901 instance=ExtResource("4_x5aln")]
 
-[node name="TireDebrisSnow" parent="Particles" unique_id=288904735 instance=ExtResource("6_hcrdm")]
+[node name="TireDebrisSnow" parent="Particles" unique_id=288904735 instance=ExtResource("5_0i7cf")]
 
-[node name="CubeDestroyed" parent="Particles" unique_id=70777883 instance=ExtResource("7_hcrdm")]
+[node name="CubeDestroyed" parent="Particles" unique_id=70777883 instance=ExtResource("6_vrifd")]
 
 [node name="Sun" type="DirectionalLight3D" parent="." unique_id=347866307]
 transform = Transform3D(-0.0871298, -0.963284, 0.253952, -0.811844, 0.216397, 0.542293, -0.577337, -0.15892, -0.800891, 0, 0, 0)
@@ -92,9 +92,9 @@ environment = SubResource("Environment_ho7hh")
 transform = Transform3D(1, 0, 0, 0, 0.559193, 0.829038, 0, -0.829038, 0.559193, 0, 26.866, 14.368)
 current = true
 fov = 20.0
-script = ExtResource("7_mrh31")
+script = ExtResource("7_tgddf")
 
-[node name="Player" parent="." unique_id=1383705294 instance=ExtResource("8_f8el0")]
+[node name="Player" parent="." unique_id=1383705294 instance=ExtResource("8_8k2jv")]
 
-[node name="GameCube" parent="." unique_id=1255960462 instance=ExtResource("9_8tcy5")]
+[node name="GameCube" parent="." unique_id=1255960462 instance=ExtResource("9_mpyr8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.36659554, 1.4641927, -5.487113)
