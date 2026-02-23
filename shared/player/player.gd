@@ -14,7 +14,7 @@ var joystick_direction: Vector2 = Vector2(0,0)
 var speed_intensity: float = 1
 
 const TRAIL_VFX = preload("uid://drynt1383xlht")
-@export var sparks: Node3D
+@export var sparks: PackedScene
 @export var poof: PackedScene
 
 @onready var cube_hitbox: Area3D = $CubeHitbox
@@ -28,8 +28,9 @@ func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity += get_gravity() * 2 * delta
 	if get_last_slide_collision():
-		if sparks.has_method("fire_once"):
-			sparks.fire_once(global_position)
+		var sparks_instance = sparks.instantiate()
+		add_sibling(sparks_instance)
+		sparks_instance.global_position = global_position
 
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
