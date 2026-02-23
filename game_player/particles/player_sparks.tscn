@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://j55l10fhpgty"]
 
-[ext_resource type="PackedScene" uid="uid://dvabslbqfwp0v" path="res://app/particles/sparks.tscn" id="1_2db4a"]
+[ext_resource type="PackedScene" uid="uid://dvabslbqfwp0v" path="res://shared/particles/sparks.tscn" id="1_2db4a"]
 [ext_resource type="Script" uid="uid://q1qiajs5je7r" path="res://game_player/particles/move_particle.gd" id="2_31f55"]
 
 [node name="Sparks" unique_id=1464151162 instance=ExtResource("1_2db4a")]
