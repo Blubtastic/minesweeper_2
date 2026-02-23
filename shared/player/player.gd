@@ -32,7 +32,8 @@ func fire_oneshot_particle(scene: PackedScene):
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity += get_gravity() * 2 * delta
-	if get_last_slide_collision():
+	var collission = get_last_slide_collision()
+	if collission and collission.get_angle() == 0.0:
 		fire_oneshot_particle(sparks)
 
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
