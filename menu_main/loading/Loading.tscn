@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dvabslbqfwp0v" path="res://app/particles/sparks.tscn" id="5_3ipkp"]
 [ext_resource type="PackedScene" uid="uid://b7wmb8jxswbil" path="res://shared/player/tire_debris/tire_debris_snow.tscn" id="6_hcrdm"]
 [ext_resource type="PackedScene" uid="uid://bp6e0aywkls4b" path="res://shared/cube/explosion/destroyed_cube.tscn" id="7_hcrdm"]
-[ext_resource type="Script" uid="uid://bb7i38v6r8s76" path="res://shared/camera_shake.gd" id="7_mrh31"]
+[ext_resource type="Script" path="res://shared/camera_shake.gd" id="7_mrh31"]
 [ext_resource type="PackedScene" uid="uid://dyen06fs8v7j6" path="res://shared/player/player.tscn" id="8_f8el0"]
 [ext_resource type="PackedScene" uid="uid://by5iila0yby3s" path="res://moving_chunk/game_cube/game_cube.tscn" id="9_8tcy5"]
 
