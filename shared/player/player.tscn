@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cahfvs4cexpdp" path="res://shared/player/player.gd" id="1_fjkuh"]
 [ext_resource type="PackedScene" uid="uid://dbi36hqar6db8" path="res://shared/player/player_shadow.tscn" id="4_vrm5f"]
-[ext_resource type="PackedScene" uid="uid://b7wmb8jxswbil" path="res://shared/player/tire_debris/tire_debris_snow.tscn" id="5_5hepr"]
+[ext_resource type="PackedScene" uid="uid://b7wmb8jxswbil" path="res://shared/player/particles/tire_debris_snow.tscn" id="5_5hepr"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4to0f"]
 size = Vector3(0.3, 0.258521, 0.5)

@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://celxavas2i8qt" path="res://menu_main/menu_main.tscn" id="2_fgvwb"]
 [ext_resource type="PackedScene" uid="uid://ddwftyj3tif34" path="res://shared/particles/poof.tscn" id="3_8tcy5"]
 [ext_resource type="PackedScene" uid="uid://dvabslbqfwp0v" path="res://shared/particles/sparks.tscn" id="4_0ijpb"]
-[ext_resource type="PackedScene" uid="uid://b7wmb8jxswbil" path="res://shared/player/tire_debris/tire_debris_snow.tscn" id="5_kuxwp"]
+[ext_resource type="PackedScene" uid="uid://b7wmb8jxswbil" path="res://shared/player/particles/tire_debris_snow.tscn" id="5_kuxwp"]
 [ext_resource type="PackedScene" uid="uid://bp6e0aywkls4b" path="res://shared/cube/explosion/destroyed_cube.tscn" id="6_4ypgr"]
 [ext_resource type="Script" path="res://shared/camera_shake.gd" id="7_iqxcn"]
 [ext_resource type="PackedScene" uid="uid://dyen06fs8v7j6" path="res://shared/player/player.tscn" id="8_chek2"]

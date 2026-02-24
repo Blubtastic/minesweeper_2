@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://b7wmb8jxswbil"]
 
-[ext_resource type="Script" uid="uid://c2da17o3ewcd3" path="res://shared/player/tire_debris/tire_debris_snow.gd" id="1_y4myt"]
+[ext_resource type="Script" uid="uid://c2da17o3ewcd3" path="res://shared/player/particles/tire_debris_snow.gd" id="1_y4myt"]
 
 [sub_resource type="Gradient" id="Gradient_e8ae3"]
 colors = PackedColorArray(0.45098, 0.45098, 0.45098, 0.505882, 1, 1, 1, 0.490196)
