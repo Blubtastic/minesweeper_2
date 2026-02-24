@@ -3,13 +3,13 @@
 [ext_resource type="Script" path="res://shared/player/player_shadow.gd" id="1_gmjod"]
 
 [sub_resource type="Gradient" id="Gradient_cv0kd"]
-offsets = PackedFloat32Array(0, 0.45918366, 0.6122449, 1)
-colors = PackedColorArray(0, 0, 0.078431375, 0.29411766, 0, 0, 0.078431375, 0.29411766, 0, 0, 0, 0, 1, 1, 1, 0)
+offsets = PackedFloat32Array(0, 0.45918366, 0.68259805, 1)
+colors = PackedColorArray(0, 0, 0.078431375, 0.3529412, 0, 0, 0.078431375, 0.3529412, 0, 0, 0, 0, 1, 1, 1, 0)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_05q8o"]
 gradient = SubResource("Gradient_cv0kd")
-width = 40
-height = 40
+width = 32
+height = 32
 fill = 1
 fill_from = Vector2(0.5, 0.5)
 
