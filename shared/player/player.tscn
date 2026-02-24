@@ -46,10 +46,10 @@ script = ExtResource("1_fjkuh")
 transform = Transform3D(1.3, 0, 0, 0, 1.3, 0, 0, 0, 1.3, 0, -0.175307, 0)
 
 [node name="TireDebrisSnowLeft" parent="." unique_id=34965598 instance=ExtResource("5_5hepr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.166163, -0.168178, 0.12635526)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.166163, -0.18674009, 0.12635526)
 
 [node name="TireDebrisSnowRight" parent="." unique_id=649540690 instance=ExtResource("5_5hepr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.171288, -0.168178, 0.12635526)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.171288, -0.18674009, 0.12635526)
 
 [node name="Collision" type="CollisionShape3D" parent="." unique_id=655269563]
 shape = SubResource("BoxShape3D_4to0f")
