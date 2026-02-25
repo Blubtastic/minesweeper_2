@@ -21,3 +21,4 @@ func _on_game_ended():
 	hud.visible = false
 	var game_over_instance = GAME_OVER.instantiate()
 	add_child(game_over_instance)
+	Music.kill_music()

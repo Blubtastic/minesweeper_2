@@ -17,9 +17,24 @@ func stop_music():
 	bass_player.stop()
 	tambourine.stop()
 func restart_music():
+	drums_player.pitch_scale = 1
 	drums_player.play()
+	bass_player.pitch_scale = 1
 	bass_player.play()
+	tambourine.pitch_scale = 1
 	tambourine.play()
+
+func kill_music():
+	var tween = get_tree().create_tween()
+	tween.parallel().tween_property(drums_player, "pitch_scale", 0, 2)
+	tween.parallel().tween_property(bass_player, "pitch_scale", 0, 2)
+	tween.parallel().tween_property(tambourine, "pitch_scale", 0, 2)
+
+
+func set_music_pitch(pitch_scale: float):
+	drums_player.pitch_scale = pitch_scale
+	bass_player.pitch_scale = pitch_scale
+	tambourine.pitch_scale = pitch_scale
 
 func mute_drums(mute: bool):
 	drums_player.volume_db = -80 if mute else 0
