@@ -7,6 +7,9 @@ const GAME_OVER = preload("uid://ck8cc332mqpua")
 func _ready():
 	Globals.reset_game()
 	Globals.game_ended.connect(_on_game_ended)
+	Music.restart_music()
+	Music.mute_drums(true)
+	Music.mute_tambourine(true)
 
 func _input(event):
 	if event is InputEventKey and event.pressed:

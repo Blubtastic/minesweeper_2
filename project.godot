@@ -27,6 +27,7 @@ buses/default_bus_layout="uid://cittafeuu2sxy"
 [autoload]
 
 Globals="*res://context/globals.tscn"
+Music="*uid://dmc4wcj0k8c6y"
 
 [display]
 

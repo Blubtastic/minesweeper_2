@@ -76,4 +76,3 @@ bus = &"Sound Effects"
 
 [node name="Sparks" parent="." unique_id=1464151162 instance=ExtResource("8_fsqdy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6397953, 0)
-local_coords = true

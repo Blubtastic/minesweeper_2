@@ -17,13 +17,15 @@ func _physics_process(_delta: float):
 
 func _on_player_is_flying_changed(is_flying: bool) -> void:
 	if is_flying == true:
-		Globals.add_music_low_pass_filter()
+		Music.add_music_low_pass_filter()
 	else:
-		Globals.remove_music_low_pass_filter()
+		Music.remove_music_low_pass_filter()
 
 func _on_player_was_damaged(current_health: int) -> void:
 	Globals.player_hp = current_health
-	Globals.set_percussion_enabled(true)
+	Music.mute_drums(false)
+	if current_health == 1:
+		Music.mute_tambourine(false)
 	if current_health == 0:
 		Globals.end_game()
 		despawn()

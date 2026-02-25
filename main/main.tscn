@@ -3,9 +3,7 @@
 [ext_resource type="Script" uid="uid://b3ynraryv822m" path="res://main/main.gd" id="1_m0fyf"]
 [ext_resource type="PackedScene" uid="uid://b0boueut21rwe" path="res://game_player/game_player.tscn" id="2_0i4oc"]
 [ext_resource type="PackedScene" uid="uid://csi0364mca8xy" path="res://hud/hud.tscn" id="2_03owx"]
-[ext_resource type="Script" path="res://shared/camera_shake.gd" id="3_rbuf0"]
-[ext_resource type="AudioStream" uid="uid://bnfwa6l1uxuyl" path="res://main/music/drum_loop.wav" id="3_trn2v"]
-[ext_resource type="AudioStream" uid="uid://d2fkaegd6wagp" path="res://main/music/bass_loop.wav" id="4_03owx"]
+[ext_resource type="Script" uid="uid://bb7i38v6r8s76" path="res://shared/camera_shake.gd" id="3_rbuf0"]
 [ext_resource type="PackedScene" uid="uid://dgxv52jn27v3c" path="res://moving_chunk/cube_chunk/cube_chunk.tscn" id="5_2r6wr"]
 [ext_resource type="PackedScene" uid="uid://62fr2rhqfdeo" path="res://shared/particles/snow.tscn" id="6_bv4rx"]
 [ext_resource type="PackedScene" uid="uid://dhlda46fqvnos" path="res://moving_chunk/forest_chunk.tscn" id="7_m1pw8"]
@@ -60,16 +58,6 @@ transform = Transform3D(1, 0, 0, 0, 0.5591928, 0.8290376, 0, -0.8290376, 0.55919
 current = true
 fov = 17.0
 script = ExtResource("3_rbuf0")
-
-[node name="DrumsPlayer" type="AudioStreamPlayer" parent="." unique_id=1676027926]
-stream = ExtResource("3_trn2v")
-autoplay = true
-bus = &"Percussion"
-
-[node name="BassPlayer" type="AudioStreamPlayer" parent="." unique_id=1401131683]
-stream = ExtResource("4_03owx")
-autoplay = true
-bus = &"Bass"
 
 [node name="Snow" parent="." unique_id=317101561 instance=ExtResource("6_bv4rx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8316574, -11.2124, -11.3809)

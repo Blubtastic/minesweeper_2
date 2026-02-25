@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://dmc4wcj0k8c6y"]
+
+[ext_resource type="Script" uid="uid://bgvs4g614aco6" path="res://context/music.gd" id="1_1cxor"]
+[ext_resource type="AudioStream" uid="uid://bnfwa6l1uxuyl" path="res://main/music/drum_loop.wav" id="2_hsmy5"]
+[ext_resource type="AudioStream" uid="uid://d2fkaegd6wagp" path="res://main/music/bass_loop.wav" id="3_dafnh"]
+[ext_resource type="AudioStream" uid="uid://de7cmht80sasj" path="res://main/music/tambourine.wav" id="4_nscao"]
+
+[node name="Node" type="Node" unique_id=86297352]
+script = ExtResource("1_1cxor")
+
+[node name="DrumsPlayer" type="AudioStreamPlayer" parent="." unique_id=719521355]
+stream = ExtResource("2_hsmy5")
+bus = &"Music"
+
+[node name="BassPlayer" type="AudioStreamPlayer" parent="." unique_id=121440455]
+stream = ExtResource("3_dafnh")
+bus = &"Music"
+
+[node name="Tambourine" type="AudioStreamPlayer" parent="." unique_id=945629045]
+stream = ExtResource("4_nscao")
+bus = &"Music"
