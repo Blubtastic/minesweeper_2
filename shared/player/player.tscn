@@ -24,7 +24,7 @@ emission_energy_multiplier = 5.0
 [sub_resource type="BoxMesh" id="BoxMesh_8nayr"]
 material = SubResource("StandardMaterial3D_uxr23")
 uv2_padding = 5.0
-size = Vector3(0.3, 0.3, 0.5)
+size = Vector3(0.3, 0.17, 0.5)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fxman"]
 diffuse_mode = 3
@@ -36,6 +36,9 @@ material = SubResource("StandardMaterial3D_fxman")
 top_radius = 0.1
 bottom_radius = 0.1
 height = 0.05
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_7r5ry"]
+material = SubResource("StandardMaterial3D_uxr23")
 
 [node name="Player" type="CharacterBody3D" unique_id=1383705294]
 collision_layer = 8
@@ -73,6 +76,13 @@ shape = SubResource("CapsuleShape3D_qlff2")
 [node name="PlayerModel" type="Node3D" parent="." unique_id=395487580]
 
 [node name="Body" type="MeshInstance3D" parent="PlayerModel" unique_id=1401574444]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.032356262, 0)
+layers = 16
+mesh = SubResource("BoxMesh_8nayr")
+skeleton = NodePath("../..")
+
+[node name="Body2" type="MeshInstance3D" parent="PlayerModel" unique_id=1517299679]
+transform = Transform3D(0.7939974, 0, 0, 0, 0.7939974, 0, 0, 0, 0.7939974, 0, 0.095687866, 0)
 layers = 16
 mesh = SubResource("BoxMesh_8nayr")
 skeleton = NodePath("../..")
@@ -87,8 +97,28 @@ transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0.175,
 mesh = SubResource("CylinderMesh_6xd78")
 skeleton = NodePath("../..")
 
+[node name="WheelBackRight2" type="MeshInstance3D" parent="PlayerModel" unique_id=570118640]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0.175, -0.07, 0.0674347)
+mesh = SubResource("CylinderMesh_6xd78")
+skeleton = NodePath("../..")
+
+[node name="WheelBackRight3" type="MeshInstance3D" parent="PlayerModel" unique_id=1765097804]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0.175, -0.07, -0.027322382)
+mesh = SubResource("CylinderMesh_6xd78")
+skeleton = NodePath("../..")
+
 [node name="WheelFrontLeft" type="MeshInstance3D" parent="PlayerModel" unique_id=284323459]
 transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -0.175, -0.07, -0.15)
+mesh = SubResource("CylinderMesh_6xd78")
+skeleton = NodePath("../..")
+
+[node name="WheelFrontLeft2" type="MeshInstance3D" parent="PlayerModel" unique_id=1871215711]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -0.175, -0.07, -0.061911017)
+mesh = SubResource("CylinderMesh_6xd78")
+skeleton = NodePath("../..")
+
+[node name="WheelFrontLeft3" type="MeshInstance3D" parent="PlayerModel" unique_id=151892117]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -0.175, -0.07, 0.03971252)
 mesh = SubResource("CylinderMesh_6xd78")
 skeleton = NodePath("../..")
 
@@ -96,6 +126,14 @@ skeleton = NodePath("../..")
 transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -0.175, -0.07, 0.15)
 mesh = SubResource("CylinderMesh_6xd78")
 skeleton = NodePath("../..")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="PlayerModel" unique_id=217090443]
+transform = Transform3D(0.0421649, 0, 0, 0, 0.014763221, 0.042724278, 0, -0.33136496, 0.0019034841, 0.00012207031, 0.10849762, -0.3756485)
+mesh = SubResource("CylinderMesh_7r5ry")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="PlayerModel" unique_id=654896178]
+transform = Transform3D(0.10669183, 0, 0, 0, 0.006745386, 0.10988823, 0, -0.15140222, 0.004895823, 0.00012207031, 0.10445404, -0.19538116)
+mesh = SubResource("CylinderMesh_7r5ry")
 
 [connection signal="area_entered" from="DamageHitbox" to="." method="_on_damage_hitbox_area_entered"]
 [connection signal="area_entered" from="CubeHitbox" to="." method="_on_cube_hitbox_area_entered"]
