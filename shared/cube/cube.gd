@@ -18,6 +18,7 @@ const DESTROYED_CUBE = preload("uid://bp6e0aywkls4b")
 @onready var place_flag_audio: AudioStreamPlayer = $PlaceFlag
 @onready var remove_flag_audio: AudioStreamPlayer = $RemoveFlag
 @onready var explosion_audio: AudioStreamPlayer = $Explosion
+@onready var pop: AudioStreamPlayer = $Pop
 
 @onready var nearby_mines_label: Label3D = $NearbyMinesLabel
 @onready var cube_top: Node3D = $CubeTop
@@ -43,6 +44,7 @@ func reveal_cube(play_sound: bool = false):
 		if play_sound:
 			reveal_cube_audio.play()
 		cube_top.visible = false
+		pop.play()
 		nearby_mines_label.visible = true
 		is_cleared = true;
 		cube_was_cleared.emit(self)

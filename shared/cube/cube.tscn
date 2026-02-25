@@ -65,7 +65,7 @@ bus = &"Sound Effects"
 stream = ExtResource("8_pc8bq")
 bus = &"Sound Effects"
 
-[node name="HighlightCube" type="AudioStreamPlayer" parent="." unique_id=1005097132]
+[node name="Pop" type="AudioStreamPlayer" parent="." unique_id=1005097132]
 stream = SubResource("AudioStreamRandomizer_a7n7b")
 volume_db = -25.377
 bus = &"Sound Effects"
