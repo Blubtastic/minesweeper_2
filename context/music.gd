@@ -3,6 +3,7 @@ extends Node
 @onready var drums_player: AudioStreamPlayer = $DrumsPlayer
 @onready var bass_player: AudioStreamPlayer = $BassPlayer
 @onready var tambourine: AudioStreamPlayer = $Tambourine
+var lowpass_filter_tween: Tween
 
 func stop_music():
 	drums_player.stop()
@@ -19,15 +20,26 @@ func mute_tambourine(mute: bool):
 	tambourine.volume_db = -80 if mute else 0
 
 
-# ---
-
-func add_music_low_pass_filter():
+func start_low_pass_filter():
 	set_music_low_pass_filter(true)
-func remove_music_low_pass_filter():
+	await lowpass_filter_tween.finished
 	set_music_low_pass_filter(false)
 
 func set_music_low_pass_filter(enabled: bool):
 	var bus_index = AudioServer.get_bus_index("Music")
 	var effect = AudioServer.get_bus_effect(bus_index, 0) # hard coded to first since we only have 1 atm.
 	if effect is AudioEffectLowPassFilter:
-		AudioServer.set_bus_effect_enabled(bus_index, 0, enabled)
+		if lowpass_filter_tween:
+			lowpass_filter_tween.kill()
+		lowpass_filter_tween = create_tween()
+		lowpass_filter_tween.set_trans(Tween.TRANS_CUBIC)
+		if enabled:
+			lowpass_filter_tween.parallel().tween_property(
+				effect, "cutoff_hz", 600, 0.1
+			)
+			lowpass_filter_tween.play()
+		else:
+			lowpass_filter_tween.parallel().tween_property(
+				effect, "cutoff_hz", 20500, 3
+			)
+			lowpass_filter_tween.play()

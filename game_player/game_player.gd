@@ -17,9 +17,7 @@ func _physics_process(_delta: float):
 
 func _on_player_is_flying_changed(is_flying: bool) -> void:
 	if is_flying == true:
-		Music.add_music_low_pass_filter()
-	else:
-		Music.remove_music_low_pass_filter()
+		Music.start_low_pass_filter()
 
 func _on_player_was_damaged(current_health: int) -> void:
 	Globals.player_hp = current_health
