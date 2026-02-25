@@ -12,7 +12,6 @@ func _ready():
 
 func add_music_low_pass_filter():
 	set_music_low_pass_filter(true)
-	set_percussion_enabled(true)
 func remove_music_low_pass_filter():
 	set_music_low_pass_filter(false)
 

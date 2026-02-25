@@ -1,0 +1,79 @@
+[gd_scene format=3 uid="uid://b0boueut21rwe"]
+
+[ext_resource type="Script" uid="uid://k6whdc0a3ar0" path="res://game_player/game_player.gd" id="1_ejsqx"]
+[ext_resource type="PackedScene" uid="uid://bej6m82ih40n5" path="res://shared/ui/joystick/joystick.tscn" id="2_ejsqx"]
+[ext_resource type="PackedScene" uid="uid://dyen06fs8v7j6" path="res://shared/player/player.tscn" id="3_ejsqx"]
+[ext_resource type="PackedScene" uid="uid://j55l10fhpgty" path="res://game_player/particles/player_sparks.tscn" id="4_8jeuh"]
+[ext_resource type="PackedScene" uid="uid://bqxows5t0aoxo" path="res://game_player/particles/player_poof.tscn" id="4_cx7ix"]
+
+[sub_resource type="Gradient" id="Gradient_rkubv"]
+offsets = PackedFloat32Array(0, 0.6674009, 0.6696035)
+colors = PackedColorArray(0, 0, 0, 0.3137255, 0, 0, 0, 0.3137255, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_kk2f7"]
+gradient = SubResource("Gradient_rkubv")
+width = 128
+height = 128
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0, 0)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cx7ix"]
+size = Vector2(128, 128)
+
+[node name="GamePlayer" type="Node3D" unique_id=1696932808]
+script = ExtResource("1_ejsqx")
+
+[node name="Jump" type="Control" parent="." unique_id=1308299038]
+layout_mode = 3
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="Space" type="Control" parent="Jump" unique_id=654679483]
+layout_mode = 1
+anchor_left = 0.80500007
+anchor_top = 0.648
+anchor_right = 0.80500007
+anchor_bottom = 0.648
+offset_left = -200.0
+offset_top = -200.0
+offset_right = -35.99994
+offset_bottom = -36.787994
+metadata/_edit_group_ = true
+
+[node name="Space" type="TouchScreenButton" parent="Jump/Space" unique_id=1033845971]
+scale = Vector2(1.2734376, 1.2734377)
+texture_normal = SubResource("GradientTexture2D_kk2f7")
+shape = SubResource("RectangleShape2D_cx7ix")
+passby_press = true
+action = "ui_accept"
+visibility_mode = 1
+
+[node name="AnchorBottomLeft" type="Control" parent="." unique_id=1230488980]
+layout_mode = 3
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+grow_vertical = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="Joystick" parent="AnchorBottomLeft" unique_id=871642653 instance=ExtResource("2_ejsqx")]
+layout_mode = 0
+offset_left = 120.0
+offset_top = -120.0
+offset_right = 120.0
+offset_bottom = -120.0
+max_radius = 75
+
+[node name="Player" parent="." unique_id=1383705294 instance=ExtResource("3_ejsqx")]
+sparks = ExtResource("4_8jeuh")
+poof = ExtResource("4_cx7ix")
+
+[connection signal="is_flying_changed" from="Player" to="." method="_on_player_is_flying_changed"]
+[connection signal="was_damaged" from="Player" to="." method="_on_player_was_damaged"]

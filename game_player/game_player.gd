@@ -23,6 +23,7 @@ func _on_player_is_flying_changed(is_flying: bool) -> void:
 
 func _on_player_was_damaged(current_health: int) -> void:
 	Globals.player_hp = current_health
+	Globals.set_percussion_enabled(true)
 	if current_health == 0:
 		Globals.end_game()
 		despawn()
