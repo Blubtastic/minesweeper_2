@@ -3,7 +3,14 @@ extends Node
 @onready var drums_player: AudioStreamPlayer = $DrumsPlayer
 @onready var bass_player: AudioStreamPlayer = $BassPlayer
 @onready var tambourine: AudioStreamPlayer = $Tambourine
+@onready var main_menu: AudioStreamPlayer = $MainMenu
+
 var lowpass_filter_tween: Tween
+
+func stop_cozy():
+	main_menu.stop()
+func play_cozy():
+	main_menu.play()
 
 func stop_music():
 	drums_player.stop()

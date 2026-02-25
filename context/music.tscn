@@ -4,6 +4,7 @@
 [ext_resource type="AudioStream" uid="uid://bnfwa6l1uxuyl" path="res://main/music/drum_loop.wav" id="2_hsmy5"]
 [ext_resource type="AudioStream" uid="uid://d2fkaegd6wagp" path="res://main/music/bass_loop.wav" id="3_dafnh"]
 [ext_resource type="AudioStream" uid="uid://de7cmht80sasj" path="res://main/music/tambourine.wav" id="4_nscao"]
+[ext_resource type="AudioStream" uid="uid://bpw6eoh8h3lcv" path="res://main/music/menu-music-1.wav" id="5_dafnh"]
 
 [node name="Node" type="Node" unique_id=86297352]
 script = ExtResource("1_1cxor")
@@ -18,4 +19,8 @@ bus = &"Music"
 
 [node name="Tambourine" type="AudioStreamPlayer" parent="." unique_id=945629045]
 stream = ExtResource("4_nscao")
+bus = &"Music"
+
+[node name="MainMenu" type="AudioStreamPlayer" parent="." unique_id=2000773516]
+stream = ExtResource("5_dafnh")
 bus = &"Music"

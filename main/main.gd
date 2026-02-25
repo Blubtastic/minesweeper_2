@@ -8,6 +8,7 @@ func _ready():
 	Globals.reset_game()
 	Globals.game_ended.connect(_on_game_ended)
 	Music.restart_music()
+	Music.stop_cozy()
 	Music.mute_drums(true)
 	Music.mute_tambourine(true)
 
