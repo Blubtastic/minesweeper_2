@@ -26,10 +26,9 @@ func restart_music():
 
 func kill_music():
 	var tween = get_tree().create_tween()
-	tween.parallel().tween_property(drums_player, "pitch_scale", 0, 2)
-	tween.parallel().tween_property(bass_player, "pitch_scale", 0, 2)
-	tween.parallel().tween_property(tambourine, "pitch_scale", 0, 2)
-
+	tween.parallel().tween_property(drums_player, "pitch_scale", 0.0001, 2)
+	tween.parallel().tween_property(bass_player, "pitch_scale", 0.0001, 2)
+	tween.parallel().tween_property(tambourine, "pitch_scale", 0.0001, 2)
 
 func set_music_pitch(pitch_scale: float):
 	drums_player.pitch_scale = pitch_scale
