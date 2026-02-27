@@ -10,6 +10,9 @@ func _on_cube_cube_was_cleared(cube_ref) -> void:
 		display_score(score)
 	Globals.score += score
 
+func _on_cube_cube_exploded() -> void:
+	Globals.exploded_cube_effects()
+
 func display_score(points: int):
 	score_particles.mesh.text = str(points)
 	score_particles.emitting = true

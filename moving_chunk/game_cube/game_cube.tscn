@@ -52,4 +52,5 @@ damping_max = 0.75
 scale_amount_curve = SubResource("Curve_btgbu")
 color_ramp = SubResource("Gradient_v2bu3")
 
+[connection signal="cube_exploded" from="Cube" to="." method="_on_cube_cube_exploded"]
 [connection signal="cube_was_cleared" from="Cube" to="." method="_on_cube_cube_was_cleared"]

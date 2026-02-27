@@ -3,11 +3,11 @@ extends Camera3D
 var shake_intensity: float = 1.0
 var shake_decay: float = 0.5
 var shaking: bool = false
-var has_shaken: bool = false
 var original_transform
 
 func _ready():
 	original_transform = global_transform
+	Globals.start_exploded_cube_effects.connect(_on_start_shake_camera)
 
 func _process(delta: float) -> void:
 	if shaking:
@@ -26,11 +26,11 @@ func _process(delta: float) -> void:
 
 # Function to start the camera shake
 func start_shake(intensity: float, decay: float):
-	if has_shaken:
-		return
-	has_shaken = true
 	shaking = true
 	shake_intensity = intensity
 	shake_decay = decay
 	# Save the current transform as the original
 	original_transform = global_transform
+
+func _on_start_shake_camera():
+	start_shake(.6, 6)

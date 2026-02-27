@@ -30,6 +30,7 @@ var is_cleared: bool = false
 var cleared_by_player: bool = false
 
 signal cube_was_cleared
+signal cube_exploded
 
 func damage():
 	if !is_cleared and !is_bomb:
@@ -54,6 +55,7 @@ func reveal_cube(play_sound: bool = false):
 
 func trigger_explosion():
 	if !has_exploded:
+		cube_exploded.emit()
 		explosion_audio.play()
 		spawn_explosion()
 
