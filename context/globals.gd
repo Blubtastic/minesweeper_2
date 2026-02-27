@@ -16,8 +16,6 @@ func end_game():
 	if game_over == false:
 		game_ended.emit()
 		game_over = true
-		var tween = get_tree().create_tween()
-		tween.tween_method(set_world_speed, world_speed, 0, 2)
 
 func reset_game():
 	score = 0

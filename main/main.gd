@@ -22,3 +22,5 @@ func _on_game_ended():
 	var game_over_instance = GAME_OVER.instantiate()
 	add_child(game_over_instance)
 	Music.kill_music()
+	var tween = create_tween()
+	tween.tween_method(Globals.set_world_speed, Globals.world_speed, 0, 2)
