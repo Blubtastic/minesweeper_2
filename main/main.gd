@@ -24,3 +24,9 @@ func _on_game_ended():
 	Music.kill_music()
 	var tween = create_tween()
 	tween.tween_method(Globals.set_world_speed, Globals.world_speed, 0, 2)
+
+# TODO: control game_over logic from here
+
+# TODO: control world_speed increase/decrease from here
+	# One mode for gradually increase it (Stress mode)
+	# One mode for setting it to player_speed if player.position.z < -3 or something (Chill mode)
