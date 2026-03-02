@@ -25,7 +25,7 @@ func _on_player_was_damaged(current_health: int) -> void:
 	if current_health == 1:
 		Music.mute_tambourine(false)
 	if current_health == 0:
-		Globals.end_game()
+		Globals.player_died()
 		despawn()
 
 func despawn(delay: int = 2):

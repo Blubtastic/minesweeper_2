@@ -2,9 +2,12 @@ extends Node
 
 var player_hp: int
 var score = 0
+var score_2 = 0
 var initial_world_speed: float = 1.0
 var world_speed: float = 1.0
 var game_over: bool = false
+
+# global parameter is_2p
 
 signal game_ended()
 signal start_exploded_cube_effects()
@@ -12,13 +15,14 @@ signal start_exploded_cube_effects()
 func set_world_speed(speed: float):
 	world_speed = speed
 
-func end_game():
+func player_died():
 	if game_over == false:
 		game_ended.emit()
 		game_over = true
 
 func reset_game():
 	score = 0
+	score_2 = 0
 	game_over = false
 	world_speed = initial_world_speed
 
