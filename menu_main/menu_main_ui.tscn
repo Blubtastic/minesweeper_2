@@ -32,7 +32,7 @@ offset_left = -209.0
 offset_top = 47.0
 offset_right = -3.0
 offset_bottom = 93.0
-text = "Play"
+text = "Stress"
 
 [node name="EndlessMode" parent="AnchorCenter" unique_id=114641764 instance=ExtResource("2_lyey1")]
 layout_mode = 0
@@ -40,7 +40,8 @@ offset_left = 46.0
 offset_top = 48.0
 offset_right = 253.0
 offset_bottom = 94.0
-text = "Endless mode"
+disabled = true
+text = "Chill"
 
 [node name="AnchorBottomRight" type="Control" parent="." unique_id=1702157166]
 layout_mode = 1
