@@ -31,9 +31,9 @@ Music="*uid://dmc4wcj0k8c6y"
 
 [display]
 
-window/size/viewport_width=1056
-window/size/viewport_height=540
-window/stretch/mode="canvas_items"
+window/size/viewport_width=528
+window/size/viewport_height=270
+window/stretch/mode="viewport"
 window/stretch/aspect="expand"
 window/vsync/vsync_mode=0
 
