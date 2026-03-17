@@ -40,7 +40,6 @@ offset_left = 46.0
 offset_top = 48.0
 offset_right = 253.0
 offset_bottom = 94.0
-disabled = true
 text = "Chill"
 
 [node name="AnchorBottomRight" type="Control" parent="." unique_id=1702157166]
@@ -73,3 +72,4 @@ horizontal_alignment = 2
 vertical_alignment = 2
 
 [connection signal="pressed" from="AnchorCenter/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="AnchorCenter/EndlessMode" to="." method="_on_endless_mode_pressed"]
