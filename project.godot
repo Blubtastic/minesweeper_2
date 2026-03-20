@@ -33,6 +33,8 @@ Music="*uid://dmc4wcj0k8c6y"
 
 window/size/viewport_width=528
 window/size/viewport_height=270
+window/size/window_width_override=1056
+window/size/window_height_override=540
 window/stretch/mode="viewport"
 window/stretch/aspect="expand"
 window/vsync/vsync_mode=0
