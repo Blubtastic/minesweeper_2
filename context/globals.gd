@@ -1,5 +1,6 @@
 extends Node
 
+var is_2p: bool = false
 var initial_world_speed: float = 1.0
 var world_speed: float = 1.0
 var game_over: bool = false
@@ -8,6 +9,7 @@ var game_mode: float = 0 # 0 is Stress, 1 is Chill
 var score = 0
 var player_hp: int
 var player1_position: Vector3 = Vector3.ZERO
+var player1_velocity: Vector3 = Vector3.ZERO
 
 # global parameter is_2p
 var score_2 = 0
@@ -20,6 +22,9 @@ func set_world_speed(speed: float):
 
 func set_player1_position(position: Vector3):
 	player1_position = position
+
+func set_player1_velocity(velocity: Vector3):
+	player1_velocity = velocity
 
 func player_died():
 	if game_over == false:
@@ -36,11 +41,9 @@ func exploded_cube_effects():
 	start_exploded_cube_effects.emit()
 
 func _physics_process(delta: float):
-	if game_mode == 1:
+	# Accelerate camera based on player position
+	if game_mode == 1 and !is_2p:
 		if player1_position.z > 1:
-			#Globals.set_world_speed(0)
-			Globals.world_speed = lerpf(world_speed, 0, delta*5)
+			world_speed = lerpf(world_speed, 0, 2*delta)
 		else:
-			#Globals.set_world_speed(1)
-			Globals.world_speed = lerpf(world_speed, initial_world_speed, delta*5)
-	
+			world_speed = lerpf(world_speed, initial_world_speed*7, 0.7*delta)
