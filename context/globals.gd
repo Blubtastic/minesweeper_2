@@ -47,3 +47,13 @@ func _physics_process(delta: float):
 			world_speed = lerpf(world_speed, 0, 2*delta)
 		else:
 			world_speed = lerpf(world_speed, initial_world_speed*7, 0.7*delta)
+
+# TODO: Intuitive camera acceleration idea 2:
+# WHAT: Increase speed the closer the player are to screen top.
+# HOW: 
+# - Set up some vars: 
+#   - player_speed (hardcode to 7 for now)
+#   - SCREEN_BOT (camera stands still)
+#   - SCREEN_TOP (camera moves at max speed)
+# - then set camera speed (world_speed) based on where 
+#   player_position is within [SCREEN_BOT, SCREEN_TOP].
