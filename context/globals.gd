@@ -35,9 +35,12 @@ func reset_game():
 func exploded_cube_effects():
 	start_exploded_cube_effects.emit()
 
-func _physics_process(_delta: float):
+func _physics_process(delta: float):
 	if game_mode == 1:
 		if player1_position.z > 1:
-			Globals.set_world_speed(0)
+			#Globals.set_world_speed(0)
+			Globals.world_speed = lerpf(world_speed, 0, delta*5)
 		else:
-			Globals.set_world_speed(1)
+			#Globals.set_world_speed(1)
+			Globals.world_speed = lerpf(world_speed, initial_world_speed, delta*5)
+	
