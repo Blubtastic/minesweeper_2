@@ -16,6 +16,7 @@ func _physics_process(_delta: float):
 	player.external_speed = Globals.world_speed
 	Globals.set_player1_position(player.position)
 	Globals.set_player1_velocity(player.velocity)
+	print(player.position.z)
 
 func _on_player_is_flying_changed(is_flying: bool) -> void:
 	if is_flying == true:
