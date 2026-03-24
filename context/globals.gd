@@ -40,29 +40,14 @@ func reset_game():
 func exploded_cube_effects():
 	start_exploded_cube_effects.emit()
 
+# Set world_speed from player_position
+# TODO: rewrite hard-coding to react to environment
 var player_speed: float = 7
 var world_height = 10
 var top_offset = 6
 func _physics_process(_delta: float):
-	# Accelerate camera based on player position
-	#if game_mode == 1 and !is_2p:
-		#if player1_position.z > 1:
-			#world_speed = lerpf(world_speed, 0, 2*delta)
-		#else:
-			#world_speed = lerpf(world_speed, initial_world_speed*7, 0.7*delta)
-
-	if game_mode == 1 and !is_2p:
+	if game_mode == 1 and !is_2p and !game_over:
 		var player_position_relative = player1_position.z + top_offset
-		var ratio = player_position_relative / world_height
-		world_speed = (1-ratio) * initial_world_speed*7
-
-
-# TODO: Intuitive camera acceleration idea 2:
-# WHAT: Increase speed the closer the player are to screen top.
-# HOW: 
-# - Set up some vars: 
-#   - player_speed (hardcode to 7 for now)
-#   - SCREEN_BOT (camera stands still)
-#   - SCREEN_TOP (camera moves at max speed)
-# - then set camera speed (world_speed) based on where 
-#   player_position is within [SCREEN_BOT, SCREEN_TOP].
+		var ratio = 1 - (player_position_relative / world_height)
+		var speed = ratio * initial_world_speed*player_speed
+		world_speed = clamp(speed, 0, initial_world_speed*player_speed)
