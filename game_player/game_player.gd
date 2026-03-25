@@ -4,6 +4,7 @@ extends Node3D
 @onready var player: CharacterBody3D = $Player
 
 func _ready():
+	player.speed = Globals.player_speed
 	Globals.player_hp = player.health
 	if joystick.visible:
 		joystick.joystick_moved.connect(_on_joystick_moved)

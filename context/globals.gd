@@ -1,7 +1,8 @@
 extends Node
 
 var is_2p: bool = false
-var initial_world_speed: float = 1.0
+var scrolling_world_speed: float = 1.0
+var player_speed: float = 7
 var world_speed: float = 1.0
 var game_over: bool = false
 var game_mode: float = 0 # 0 is Stress, 1 is Chill
@@ -35,19 +36,16 @@ func reset_game():
 	score = 0
 	score_2 = 0
 	game_over = false
-	world_speed = initial_world_speed
+	world_speed = scrolling_world_speed
 
 func exploded_cube_effects():
 	start_exploded_cube_effects.emit()
 
-# Set world_speed from player_position
-# TODO: rewrite hard-coding to react to environment
-var player_speed: float = 7
-var world_height = 10
 var top_offset = 6
+var world_height = 10
 func _physics_process(_delta: float):
 	if game_mode == 1 and !is_2p and !game_over:
-		var player_position_relative = player1_position.z + top_offset
-		var ratio = 1 - (player_position_relative / world_height)
-		var speed = ratio * initial_world_speed*player_speed
-		world_speed = clamp(speed, 0, initial_world_speed*player_speed)
+		var player_z_relative = player1_position.z + top_offset
+		var ratio = 1 - (player_z_relative / world_height)
+		var speed = ratio * player_speed
+		world_speed = clamp(speed, 0, player_speed)

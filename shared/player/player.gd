@@ -1,8 +1,8 @@
 extends CharacterBody3D
 
-const SPEED = 5.0
-const FORWARD_SPEED = 7.0
-const BACKWARD_SPEED = 5.0
+@export var speed = 5.0
+var speed_forward = speed+2
+var speed_backwards = speed
 const JUMP_VELOCITY = 6
 const DAMAGED_VELOCITY = 12
 const TERMINAL_VELOCITY = 40
@@ -43,18 +43,18 @@ func _physics_process(delta: float) -> void:
 	var input_dir := Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down") + joystick_direction
 	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	if direction:
-		velocity.x = direction.x * SPEED * speed_intensity
+		velocity.x = direction.x * speed * speed_intensity
 		if is_on_floor():
 			emit_debris()
 		else:
 			stop_debris()
 		if direction.z > 0:
-			velocity.z = direction.z * BACKWARD_SPEED * speed_intensity + external_speed # read
+			velocity.z = direction.z * speed_backwards * speed_intensity + external_speed # read
 		if direction.z < 0:
-			velocity.z = direction.z * FORWARD_SPEED * speed_intensity + external_speed # read
+			velocity.z = direction.z * speed_forward * speed_intensity + external_speed # read
 	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED * speed_intensity)
-		velocity.z = move_toward(velocity.z, external_speed, SPEED * speed_intensity) # read
+		velocity.x = move_toward(velocity.x, 0, speed * speed_intensity)
+		velocity.z = move_toward(velocity.z, external_speed, speed * speed_intensity) # read
 		stop_debris()
 	rotation.z = -velocity.x / 30
 	rotation.x = -velocity.z / 30
