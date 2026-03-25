@@ -4,7 +4,7 @@ var shake_intensity: float = 1.0
 var shake_decay: float = 0.5
 var shaking: bool = false
 var original_transform
-@onready var game_player: Node3D = $"../GamePlayer"
+#@onready var game_player: Node3D = $"../GamePlayer"
 
 # TODO flytt kamera opp når man skytes opp
 var yPosition = 26.866
@@ -14,8 +14,8 @@ func _ready():
 	Globals.start_exploded_cube_effects.connect(_on_start_shake_camera)
 
 func _process(delta: float) -> void:
-	if game_player and game_player.player and game_player.player.position.y:
-		position.y = yPosition + game_player.player.position.y/2
+	#if game_player and game_player.player and game_player.player.position.y:
+		#position.y = yPosition + game_player.player.position.y/2
 	if shaking:
 		# Apply random offset to the camera's position
 		var rand_vector = randf_range(-shake_intensity, shake_intensity)
