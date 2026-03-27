@@ -26,21 +26,37 @@ offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Play" parent="AnchorCenter" unique_id=725143166 instance=ExtResource("2_lyey1")]
+[node name="Play" parent="AnchorCenter" unique_id=544335324 instance=ExtResource("2_lyey1")]
 layout_mode = 0
 offset_left = -209.0
-offset_top = 47.0
+offset_top = 44.0
 offset_right = -3.0
-offset_bottom = 93.0
-text = "Stress"
+offset_bottom = 90.0
+text = "Stress 1p"
+
+[node name="Play2" parent="AnchorCenter" unique_id=725143166 instance=ExtResource("2_lyey1")]
+layout_mode = 0
+offset_left = -209.0
+offset_top = 93.0
+offset_right = -3.0
+offset_bottom = 139.0
+text = "Stress 2p"
 
 [node name="EndlessMode" parent="AnchorCenter" unique_id=114641764 instance=ExtResource("2_lyey1")]
 layout_mode = 0
 offset_left = 46.0
-offset_top = 48.0
+offset_top = 45.0
 offset_right = 253.0
-offset_bottom = 94.0
-text = "Chill"
+offset_bottom = 91.0
+text = "Chill 1p"
+
+[node name="EndlessMode2" parent="AnchorCenter" unique_id=371751281 instance=ExtResource("2_lyey1")]
+layout_mode = 0
+offset_left = 46.0
+offset_top = 94.0
+offset_right = 253.0
+offset_bottom = 140.0
+text = "Chill 2p"
 
 [node name="AnchorBottomRight" type="Control" parent="." unique_id=1702157166]
 layout_mode = 1
@@ -72,4 +88,6 @@ horizontal_alignment = 2
 vertical_alignment = 2
 
 [connection signal="pressed" from="AnchorCenter/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="AnchorCenter/Play2" to="." method="_on_play_2_pressed"]
 [connection signal="pressed" from="AnchorCenter/EndlessMode" to="." method="_on_endless_mode_pressed"]
+[connection signal="pressed" from="AnchorCenter/EndlessMode2" to="." method="_on_endless_mode_2_pressed"]

@@ -44,7 +44,7 @@ func exploded_cube_effects():
 var top_offset = 6
 var world_height = 10
 func _physics_process(_delta: float):
-	if game_mode == 1 and !is_2p and !game_over:
+	if game_mode == 1 and !game_over:
 		var player_z_relative = player1_position.z + top_offset
 		var ratio = 1 - (player_z_relative / world_height)
 		var speed = ratio * player_speed

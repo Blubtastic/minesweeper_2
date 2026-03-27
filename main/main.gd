@@ -1,6 +1,8 @@
 extends Node3D
 
 const GAME_OVER = preload("uid://ck8cc332mqpua")
+const GAME_PLAYER = preload("uid://b0boueut21rwe")
+@onready var game_player: Node3D = $GamePlayer
 
 @onready var hud: Control = $HUD
 
@@ -11,6 +13,10 @@ func _ready():
 	Music.stop_cozy()
 	Music.mute_drums(true)
 	Music.mute_tambourine(true)
+	if Globals.is_2p:
+		var player_2 = GAME_PLAYER.instantiate()
+		player_2.position = Vector3(game_player.position.x+3, game_player.position.y, game_player.position.z)
+		add_child(player_2)
 
 func _input(event):
 	if event is InputEventKey and event.pressed:
