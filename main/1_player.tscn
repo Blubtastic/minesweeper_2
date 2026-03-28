@@ -4,4 +4,4 @@
 
 [node name="1Player" type="Node3D" unique_id=1289688280]
 
-[node name="GamePlayer" parent="." unique_id=1696932808 instance=ExtResource("1_8lkyd")]
+[node name="GamePlayer1" parent="." unique_id=1696932808 instance=ExtResource("1_8lkyd")]

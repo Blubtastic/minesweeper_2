@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://b0boueut21rwe" path="res://game_player/game_player.tscn" id="1_778wx"]
 
-[node name="1Player" type="Node3D" unique_id=1289688280]
+[node name="2Player" type="Node3D" unique_id=1289688280]
 
 [node name="GamePlayer1" parent="." unique_id=1696932808 instance=ExtResource("1_778wx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0)
