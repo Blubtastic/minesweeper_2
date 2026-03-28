@@ -1,5 +1,12 @@
 extends CharacterBody3D
 
+@export var inputs: Dictionary = {
+	'left' = "ui_left",
+	'right' = "ui_right",
+	'up' = "ui_up",
+	'down' = "ui_down",
+	'jump' = "ui_accept"
+}
 @export var speed = 5.0
 var speed_forward = speed+2
 var speed_backwards = speed
@@ -36,11 +43,11 @@ func _physics_process(delta: float) -> void:
 	if collission and collission.get_angle() == 0.0:
 		fire_oneshot_particle(sparks, -0.16)
 
-	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
+	if Input.is_action_just_pressed(inputs.jump) and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 		fire_oneshot_particle(poof, -0.16)
 	
-	var input_dir := Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down") + joystick_direction
+	var input_dir := Input.get_vector(inputs.left, inputs.right, inputs.up, inputs.down) + joystick_direction
 	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	if direction:
 		velocity.x = direction.x * speed * speed_intensity
