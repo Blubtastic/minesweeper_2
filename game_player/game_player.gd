@@ -1,26 +1,36 @@
 extends Node3D
 
+@export var inputs: Dictionary[String, String]
+
 @onready var joystick: Control = $AnchorBottomLeft/Joystick
 @onready var player: CharacterBody3D = $Player
 
+
 func _ready():
+	if inputs:
+		player.inputs = inputs
+	
 	player.speed = Globals.player_speed
 	Globals.player_hp = player.health
 	if joystick.visible:
 		joystick.joystick_moved.connect(_on_joystick_moved)
 
+
 func _on_joystick_moved(dir: Vector2, speed: float):
 	player.joystick_direction = dir
 	player.speed_intensity = speed
+
 
 func _physics_process(_delta: float):
 	player.external_speed = Globals.world_speed
 	Globals.set_player1_position(player.position)
 	Globals.set_player1_velocity(player.velocity)
 
+
 func _on_player_is_flying_changed(is_flying: bool) -> void:
 	if is_flying == true:
 		Music.start_low_pass_filter()
+
 
 func _on_player_was_damaged(current_health: int) -> void:
 	Globals.player_hp = current_health
@@ -30,6 +40,7 @@ func _on_player_was_damaged(current_health: int) -> void:
 	if current_health == 0:
 		Globals.player_died()
 		despawn()
+
 
 func despawn(delay: int = 2):
 	await get_tree().create_timer(delay).timeout

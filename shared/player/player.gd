@@ -1,12 +1,13 @@
 extends CharacterBody3D
 
-@export var inputs: Dictionary = {
-	'left' = "ui_left",
-	'right' = "ui_right",
-	'up' = "ui_up",
-	'down' = "ui_down",
-	'jump' = "ui_accept"
+@export var inputs: Dictionary[String, String] = {
+	"left" = "ui_left",
+	"right" = "ui_right",
+	"up" = "ui_up",
+	"down" = "ui_down",
+	"jump" = "ui_accept"
 }
+
 @export var speed = 5.0
 var speed_forward = speed+2
 var speed_backwards = speed
