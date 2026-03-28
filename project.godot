@@ -37,6 +37,7 @@ window/size/window_width_override=1584
 window/size/window_height_override=810
 window/stretch/mode="viewport"
 window/stretch/aspect="expand"
+window/stretch/scale=0.5
 window/vsync/vsync_mode=0
 
 [editor_plugins]
