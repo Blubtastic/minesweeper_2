@@ -19,6 +19,7 @@ var health: int = 3
 var external_speed: float = 0
 var joystick_direction: Vector2 = Vector2(0,0)
 var speed_intensity: float = 1
+var shield_opacity: float = 1.0
 
 const TRAIL_VFX = preload("uid://drynt1383xlht")
 @export var sparks: PackedScene
@@ -37,6 +38,14 @@ func fire_oneshot_particle(scene: PackedScene, offset_y: float):
 	add_sibling(instance)
 	instance.global_position = Vector3(global_position.x, global_position.y+offset_y, global_position.z)
 
+func _process(_delta: float) -> void:
+	if Globals.invincible:
+		var mat = shield_mesh.get_active_material(0)
+		if mat and mat is StandardMaterial3D:
+			mat.albedo_color.a = 1
+			## TODO: use a (not tween), LERP it was! to change over time.
+			## Better perf solution is to set up signals to trigger function with tween, like with the last thing I did. But fuck it, can do that later.
+			
 func _physics_process(delta: float) -> void:
 	shield_mesh.visible = true if Globals.invincible else false
 	if not is_on_floor():
@@ -81,12 +90,10 @@ func damage():
 		was_damaged.emit(health)
 		is_flying_changed.emit(true)
 		Globals.invincible = true
-		Globals.invincible = true
 		
 		var TrailVfx = TRAIL_VFX.instantiate()
 		add_child(TrailVfx)
 		await get_tree().create_timer(1.0).timeout
-		Globals.invincible = false
 		Globals.invincible = false
 		is_flying_changed.emit(false)
 		await get_tree().create_timer(0.5).timeout
