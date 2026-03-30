@@ -1,5 +1,6 @@
 extends Node
 
+var invincible: bool = false
 var is_2p: bool = false
 var scrolling_world_speed: float = 1.0
 var player_speed: float = 7
@@ -33,6 +34,7 @@ func player_died():
 		game_over = true
 
 func reset_game():
+	invincible = false
 	score = 0
 	score_2 = 0
 	game_over = false

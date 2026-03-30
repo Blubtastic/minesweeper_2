@@ -15,7 +15,6 @@ const JUMP_VELOCITY = 6
 const DAMAGED_VELOCITY = 12
 const TERMINAL_VELOCITY = 40
 
-var invincible: bool = false
 var health: int = 3
 var external_speed: float = 0
 var joystick_direction: Vector2 = Vector2(0,0)
@@ -25,6 +24,7 @@ const TRAIL_VFX = preload("uid://drynt1383xlht")
 @export var sparks: PackedScene
 @export var poof: PackedScene
 
+@onready var shield_mesh: MeshInstance3D = $ShieldMesh
 @onready var cube_hitbox: Area3D = $CubeHitbox
 @onready var left_debris: Node3D = $TireDebrisSnowLeft
 @onready var right_debris: Node3D = $TireDebrisSnowRight
@@ -38,6 +38,7 @@ func fire_oneshot_particle(scene: PackedScene, offset_y: float):
 	instance.global_position = Vector3(global_position.x, global_position.y+offset_y, global_position.z)
 
 func _physics_process(delta: float) -> void:
+	shield_mesh.visible = true if Globals.invincible else false
 	if not is_on_floor():
 		velocity += get_gravity() * 2 * delta
 	var collission = get_last_slide_collision()
@@ -74,17 +75,19 @@ func fire_particle(particle: PackedScene):
 	add_sibling(particle_instance)
 
 func damage():
-	if not invincible:
+	if not Globals.invincible:
 		health -= 1
 		velocity.y = DAMAGED_VELOCITY if health > 0 else TERMINAL_VELOCITY
 		was_damaged.emit(health)
 		is_flying_changed.emit(true)
-		invincible = true
+		Globals.invincible = true
+		Globals.invincible = true
 		
 		var TrailVfx = TRAIL_VFX.instantiate()
 		add_child(TrailVfx)
 		await get_tree().create_timer(1.0).timeout
-		invincible = false
+		Globals.invincible = false
+		Globals.invincible = false
 		is_flying_changed.emit(false)
 		await get_tree().create_timer(0.5).timeout
 		TrailVfx.get_node("Smoke").emitting = false
