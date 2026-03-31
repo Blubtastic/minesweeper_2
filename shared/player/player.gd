@@ -31,7 +31,7 @@ const TRAIL_VFX = preload("uid://drynt1383xlht")
 @onready var right_debris: Node3D = $TireDebrisSnowRight
 
 signal is_flying_changed(is_flying: bool)
-signal was_damaged(current_health: int) # TODO: connect to in game_player
+signal was_damaged(current_hp: int)
 
 
 func fire_oneshot_particle(scene: PackedScene, offset_y: float):
@@ -40,28 +40,29 @@ func fire_oneshot_particle(scene: PackedScene, offset_y: float):
 	instance.global_position = Vector3(global_position.x, global_position.y+offset_y, global_position.z)
 
 
-func _process(delta: float) -> void:
+func update_shield_opacity(delta: float) -> void:
 	var mat = shield_mesh.get_active_material(0)
 	var goal_opacity = 0.5 if Globals.players_invincible else 0.0
 	if mat and mat is StandardMaterial3D:
-		shield_opacity = lerpf(shield_opacity, goal_opacity, delta*30)
+		shield_opacity = lerpf(shield_opacity, goal_opacity, delta*15)
 		mat.albedo_color.a = shield_opacity
 
 
 func _physics_process(delta: float) -> void:
+	update_shield_opacity(delta)
 	if not is_on_floor():
 		velocity += get_gravity() * 2 * delta
 	var collission = get_last_slide_collision()
 	if collission and collission.get_angle() == 0.0:
 		fire_oneshot_particle(sparks, -0.16)
-
+	
 	if Input.is_action_just_pressed(inputs.jump) and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 		fire_oneshot_particle(poof, -0.16)
 	
 	var input_dir := Input.get_vector(inputs.left, inputs.right, inputs.up, inputs.down) + joystick_direction
 	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
-	if direction:
+	if direction and hp > 0:
 		velocity.x = direction.x * speed * speed_intensity
 		if is_on_floor():
 			emit_debris()

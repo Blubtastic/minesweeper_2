@@ -44,7 +44,7 @@ func _on_player_was_damaged(current_hp: int) -> void:
 
 func _on_shared_hp_changed(new_hp: int):
 	player.hp = new_hp
-	print(new_hp)
+
 
 func despawn(delay: int = 2):
 	await get_tree().create_timer(delay).timeout
