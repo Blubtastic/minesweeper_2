@@ -32,7 +32,7 @@ func start_shake(intensity: float, decay: float):
 	original_transform = global_transform
 
 func _on_start_shake_camera():
-	if Globals.player_hp < 2:
+	if Globals.shared_hp < 2: # Better to listen to signal than out-of-sync var.
 		start_shake(.9, 3)
 	else:
 		start_shake(.6, 6)

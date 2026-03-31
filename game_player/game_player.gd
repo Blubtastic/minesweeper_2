@@ -8,11 +8,11 @@ extends Node3D
 
 
 func _ready():
+	Globals.shared_hp_changed.connect(_on_shared_hp_changed)
 	if inputs:
 		player.inputs = inputs
 	
 	player.speed = Globals.player_speed
-	Globals.player_hp = player.health
 	if joystick.visible:
 		joystick.joystick_moved.connect(_on_joystick_moved)
 
@@ -32,15 +32,19 @@ func _on_player_is_flying_changed(is_flying: bool) -> void:
 		Music.start_low_pass_filter()
 
 
-func _on_player_was_damaged(current_health: int) -> void:
-	Globals.player_hp = current_health
+func _on_player_was_damaged(current_hp: int) -> void:
+	Globals.set_shared_hp(current_hp)
 	Music.mute_drums(false)
-	if current_health == 1:
+	if current_hp == 1:
 		Music.mute_tambourine(false)
-	if current_health == 0:
-		Globals.player_died()
+	if current_hp == 0:
+		Globals.end_game()
 		despawn()
 
+
+func _on_shared_hp_changed(new_hp: int):
+	player.hp = new_hp
+	print(new_hp)
 
 func despawn(delay: int = 2):
 	await get_tree().create_timer(delay).timeout

@@ -15,7 +15,7 @@ const JUMP_VELOCITY = 6
 const DAMAGED_VELOCITY = 12
 const TERMINAL_VELOCITY = 40
 
-var health: int = 3
+@export var hp: int = 3
 var external_speed: float = 0
 var joystick_direction: Vector2 = Vector2(0,0)
 var speed_intensity: float = 1
@@ -31,7 +31,7 @@ const TRAIL_VFX = preload("uid://drynt1383xlht")
 @onready var right_debris: Node3D = $TireDebrisSnowRight
 
 signal is_flying_changed(is_flying: bool)
-signal was_damaged(current_health: int)
+signal was_damaged(current_health: int) # TODO: connect to in game_player
 
 
 func fire_oneshot_particle(scene: PackedScene, offset_y: float):
@@ -88,9 +88,9 @@ func fire_particle(particle: PackedScene):
 
 func damage():
 	if not Globals.players_invincible:
-		health -= 1
-		velocity.y = DAMAGED_VELOCITY if health > 0 else TERMINAL_VELOCITY
-		was_damaged.emit(health)
+		hp -= 1
+		velocity.y = DAMAGED_VELOCITY if hp > 0 else TERMINAL_VELOCITY
+		was_damaged.emit(hp)
 		is_flying_changed.emit(true)
 		Globals.players_invincible = true
 		
