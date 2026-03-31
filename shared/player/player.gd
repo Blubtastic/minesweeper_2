@@ -90,21 +90,21 @@ func fire_particle(particle: PackedScene):
 func damage():
 	if not Globals.players_invincible:
 		hp -= 1
-		velocity.y = DAMAGED_VELOCITY if hp > 0 else TERMINAL_VELOCITY
 		was_damaged.emit(hp)
-		is_flying_changed.emit(true)
-		Globals.players_invincible = true
-		
-		var TrailVfx = TRAIL_VFX.instantiate()
-		add_child(TrailVfx)
-		await get_tree().create_timer(1.0).timeout
-		Globals.players_invincible = false
-		is_flying_changed.emit(false)
-		await get_tree().create_timer(0.5).timeout
-		TrailVfx.get_node("Smoke").emitting = false
-		TrailVfx.get_node("Fire").emitting = false
-		await get_tree().create_timer(1.0).timeout
-		TrailVfx.queue_free()
+	velocity.y = DAMAGED_VELOCITY if hp > 0 else TERMINAL_VELOCITY
+	is_flying_changed.emit(true)
+	Globals.players_invincible = true
+	
+	var TrailVfx = TRAIL_VFX.instantiate()
+	add_child(TrailVfx)
+	await get_tree().create_timer(1.0).timeout
+	Globals.players_invincible = false
+	is_flying_changed.emit(false)
+	await get_tree().create_timer(0.5).timeout
+	TrailVfx.get_node("Smoke").emitting = false
+	TrailVfx.get_node("Fire").emitting = false
+	await get_tree().create_timer(1.0).timeout
+	TrailVfx.queue_free()
 
 
 func emit_debris():

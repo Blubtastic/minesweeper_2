@@ -9,8 +9,8 @@ func _ready():
 
 func on_cube_exploded():
 	var tween = get_tree().create_tween()
-	if Globals.shared_hp < 2: # Better to listen to signal than out-of-sync var.
-		tween.tween_method(camera_jump.bind(10), 0.0, 0.4, .2)
+	if Globals.shared_hp <= 1:
+		tween.tween_method(camera_jump, 0.0, 0.4, .2)
 	else:
 		tween.tween_method(camera_jump, 0.0, 1.0, 1.2)
 

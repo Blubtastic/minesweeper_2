@@ -5,7 +5,7 @@
 [ext_resource type="AudioStream" uid="uid://cl6qd5gf6x7j3" path="res://shared/cube/audio/explosion.wav" id="2_wv142"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_i5ix7"]
-radius = 1.5
+radius = 1.0
 
 [node name="DestroyedCube" type="Node3D" unique_id=40352864]
 script = ExtResource("1_wv142")
