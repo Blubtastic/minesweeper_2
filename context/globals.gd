@@ -5,16 +5,14 @@ var world_speed: float = 1.0
 var is_2p: bool = false
 var game_mode: float = 0 # 0 is Stress, 1 is Chill
 var game_over: bool = false
-var score = 0
-var top_offset = 9
-var world_height = 10
+var score: int = 0
+var top_offset: float = 9
+var world_height: float = 10
 
-# Global player vars
-var players_invincible: bool = false
-var player_speed: float = 7
 var player_hp: int # needs to be local
-var player1_position: Vector3 = Vector3.ZERO
-var player2_position: Vector3 = Vector3.ZERO
+var players_invincible: bool = false
+var player_speed: float = 7 # in the future, should be local
+var player_positions = { 1: Vector3.ZERO, 2: Vector3.ZERO }
 
 signal game_ended()
 signal start_exploded_cube_effects()
@@ -26,21 +24,16 @@ func _physics_process(_delta: float):
 
 
 func move_camera():
-	var player2_position_var = player2_position if is_2p else player1_position
-	var average_position = (player1_position.z + player2_position_var.z) / 2
-	var average_z = average_position + top_offset
-	var ratio = 1 - (average_z / world_height)
+	var average_z_position = (player_positions[1].z + player_positions[2].z) / 2
+	var z_position = (average_z_position if is_2p else player_positions[1].z)  + top_offset
+	var ratio = 1 - (z_position / world_height)
 	set_world_speed(clamp(ratio * player_speed, 0, player_speed))
 
 
 func set_world_speed(speed: float):
 	world_speed = speed
-
 func set_player_position(player_num: int, position: Vector3):
-	if player_num == 1:
-		player1_position = position
-	if player_num == 2:
-		player2_position = position
+	player_positions[player_num] = position
 
 
 func player_died():
