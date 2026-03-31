@@ -5,9 +5,16 @@ extends Node3D
 
 @onready var joystick: Control = $AnchorBottomLeft/Joystick
 @onready var player: CharacterBody3D = $Player
+@onready var colored_roof_1: MeshInstance3D = $Player/ColoredRoof1
+@onready var colored_roof_2: MeshInstance3D = $Player/ColoredRoof2
 
 
 func _ready():
+	if player_num == 1:
+		colored_roof_1.visible = true
+	else:
+		colored_roof_2.visible = true
+	
 	Globals.shared_hp_changed.connect(_on_shared_hp_changed)
 	if inputs:
 		player.inputs = inputs
