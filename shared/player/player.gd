@@ -42,7 +42,7 @@ func fire_oneshot_particle(scene: PackedScene, offset_y: float):
 
 func _process(delta: float) -> void:
 	var mat = shield_mesh.get_active_material(0)
-	var goal_opacity = 0.5 if Globals.invincible else 0.0
+	var goal_opacity = 0.5 if Globals.players_invincible else 0.0
 	if mat and mat is StandardMaterial3D:
 		shield_opacity = lerpf(shield_opacity, goal_opacity, delta*30)
 		mat.albedo_color.a = shield_opacity
@@ -87,17 +87,17 @@ func fire_particle(particle: PackedScene):
 
 
 func damage():
-	if not Globals.invincible:
+	if not Globals.players_invincible:
 		health -= 1
 		velocity.y = DAMAGED_VELOCITY if health > 0 else TERMINAL_VELOCITY
 		was_damaged.emit(health)
 		is_flying_changed.emit(true)
-		Globals.invincible = true
+		Globals.players_invincible = true
 		
 		var TrailVfx = TRAIL_VFX.instantiate()
 		add_child(TrailVfx)
 		await get_tree().create_timer(1.0).timeout
-		Globals.invincible = false
+		Globals.players_invincible = false
 		is_flying_changed.emit(false)
 		await get_tree().create_timer(0.5).timeout
 		TrailVfx.get_node("Smoke").emitting = false

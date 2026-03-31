@@ -23,3 +23,4 @@ inputs = Dictionary[String, String]({
 "right": "2p_right",
 "up": "2p_up"
 })
+player_num = 2

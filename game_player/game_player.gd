@@ -1,6 +1,7 @@
 extends Node3D
 
 @export var inputs: Dictionary[String, String]
+@export var player_num: int = 1
 
 @onready var joystick: Control = $AnchorBottomLeft/Joystick
 @onready var player: CharacterBody3D = $Player
@@ -23,8 +24,7 @@ func _on_joystick_moved(dir: Vector2, speed: float):
 
 func _physics_process(_delta: float):
 	player.external_speed = Globals.world_speed
-	Globals.set_player1_position(player.position)
-	Globals.set_player1_velocity(player.velocity)
+	Globals.set_player_position(player_num, player.position)
 
 
 func _on_player_is_flying_changed(is_flying: bool) -> void:
