@@ -21,10 +21,10 @@ signal shared_hp_changed(new_hp)
 
 func _physics_process(_delta: float):
 	if game_mode == 1 and !game_over:
-		move_camera()
+		move_world()
 
 
-func move_camera():
+func move_world():
 	var average_z_position = (player_positions[1].z + player_positions[2].z) / 2
 	var z_position = (average_z_position if is_2p else player_positions[1].z)  + top_offset
 	var ratio = 1 - (z_position / world_height)
@@ -53,8 +53,8 @@ func end_game():
 func reset_game():
 	set_world_speed(default_world_speed)
 	game_over = false
-	score = 0
 	players_invincible = false
+	score = 0
 	shared_hp = 3
 
 
