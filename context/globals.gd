@@ -11,7 +11,7 @@ var world_height: float = 10
 
 var shared_hp: int = 3
 var players_invincible: bool = false
-var player_speed: float = 7 # in the future, should be local
+var player_speed: float = 5 # in the future, should be local
 var player_positions = { 1: Vector3.ZERO, 2: Vector3.ZERO }
 
 signal game_ended()
