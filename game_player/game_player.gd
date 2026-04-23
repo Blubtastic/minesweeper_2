@@ -14,11 +14,11 @@ func _ready():
 		colored_roof_1.visible = true
 	else:
 		colored_roof_2.visible = true
-	
+
 	Globals.shared_hp_changed.connect(_on_shared_hp_changed)
 	if inputs:
 		player.inputs = inputs
-	
+
 	player.speed = Globals.player_speed
 	if joystick.visible:
 		joystick.joystick_moved.connect(_on_joystick_moved)
