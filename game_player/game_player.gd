@@ -19,14 +19,14 @@ func _ready():
 	if inputs:
 		player.inputs = inputs
 
-	player.speed = Globals.player_speed
+	player.base_speed = Globals.player_speed
 	if joystick.visible:
 		joystick.joystick_moved.connect(_on_joystick_moved)
 
 
 func _on_joystick_moved(dir: Vector2, speed: float):
 	player.joystick_direction = dir
-	player.speed_intensity = speed
+	player.speed_multiplier = speed
 
 
 func _physics_process(_delta: float):
