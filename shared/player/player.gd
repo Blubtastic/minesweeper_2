@@ -20,7 +20,7 @@ extends CharacterBody3D
 @export var speed_multiplier: float = 1.0  # Current speed intensity (0-1 range)
 
 # ==================== MOVEMENT PHYSICS ====================
-const ACCELERATION = 100
+const ACCELERATION = 80
 const JUMP_VELOCITY = 6.0
 const JUMP_PARTICLE_OFFSET_Y = -0.16
 const ROTATION_DAMPING = 30.0  # Higher = less rotation tilt
@@ -117,7 +117,7 @@ func apply_movement(direction: Vector3, delta: float) -> void:
 
 
 func apply_deceleration(delta: float) -> void:
-	var decel_rate = base_speed * speed_multiplier * ACCELERATION * delta
+	var decel_rate = ACCELERATION * delta
 	velocity.x = move_toward(velocity.x, 0.0, decel_rate)
 	velocity.z = move_toward(velocity.z, external_speed, decel_rate)
 
