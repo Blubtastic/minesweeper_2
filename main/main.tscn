@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dgxv52jn27v3c" path="res://moving_chunk/cube_chunk/cube_chunk.tscn" id="5_2r6wr"]
 [ext_resource type="PackedScene" uid="uid://62fr2rhqfdeo" path="res://shared/particles/snow.tscn" id="6_bv4rx"]
 [ext_resource type="PackedScene" uid="uid://dhlda46fqvnos" path="res://moving_chunk/forest_chunk.tscn" id="7_m1pw8"]
+[ext_resource type="PackedScene" uid="uid://dmvvw5465oh3q" path="res://main/pause_menu.tscn" id="9_grrlh"]
 [ext_resource type="PackedScene" uid="uid://bo56d0akw4s83" path="res://shared/screen_border.tscn" id="10_udtt8"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_6867n"]
@@ -35,6 +36,8 @@ size = Vector3(3, 5, 20)
 script = ExtResource("1_m0fyf")
 
 [node name="HUD" parent="." unique_id=1296320164 instance=ExtResource("2_03owx")]
+
+[node name="PauseMenu" parent="." unique_id=2014856477 instance=ExtResource("9_grrlh")]
 
 [node name="Sun" type="DirectionalLight3D" parent="." unique_id=1905605144]
 transform = Transform3D(-0.0871298, -0.963284, 0.253952, -0.811844, 0.216397, 0.542293, -0.577337, -0.15892, -0.800891, 0, 0, 0)
