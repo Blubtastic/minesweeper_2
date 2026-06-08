@@ -40,10 +40,6 @@ window/stretch/aspect="expand"
 window/stretch/scale=0.5
 window/vsync/vsync_mode=0
 
-[editor_plugins]
-
-enabled=PackedStringArray("res://addons/script-ide/plugin.cfg")
-
 [global_group]
 
 move_with_world="objects in this group is moved with world_speed every _physics_process"
