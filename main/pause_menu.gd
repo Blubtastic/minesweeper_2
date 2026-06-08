@@ -2,17 +2,19 @@ extends Control
 
 
 var is_menu_open: bool = false
+@onready var menu_button: Button = $VBoxContainer/VBoxContainer/MainMenu
 
 
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	toggle_menu(is_menu_open)
 
-
 func toggle_menu(is_open: bool) -> void:
 	is_menu_open = is_open
 	visible = is_open
 	get_tree().paused = is_open
+	if is_open:
+		menu_button.grab_focus()
 
 
 func _input(event: InputEvent) -> void:
