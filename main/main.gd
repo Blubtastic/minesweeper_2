@@ -14,7 +14,7 @@ func _ready():
 	Music.stop_cozy()
 	Music.mute_drums(true)
 	Music.mute_tambourine(true)
-	
+
 	if Globals.is_2p:
 		var player_2 = _2_PLAYERS.instantiate()
 		player_2.position = Vector3(0,1,0)

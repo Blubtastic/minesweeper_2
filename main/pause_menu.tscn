@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://dmvvw5465oh3q"]
 
+[ext_resource type="Script" uid="uid://dtu3p8kxcwq5x" path="res://main/pause_menu.gd" id="1_hhokr"]
+
 [node name="PauseMenu" type="Control" unique_id=2014856477]
 layout_mode = 3
 anchors_preset = 15
@@ -7,3 +9,60 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_hhokr")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1746022170]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.39215687)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=2015573700]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -61.0
+offset_top = -158.0
+offset_right = 61.0
+offset_bottom = 158.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 24
+
+[node name="Label" type="Label" parent="VBoxContainer" unique_id=1949174876]
+layout_mode = 2
+text = "Pause"
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer" unique_id=55439231]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="MainMenu" type="Button" parent="VBoxContainer/VBoxContainer" unique_id=1083641020]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Main menu"
+
+[node name="Restart" type="Button" parent="VBoxContainer/VBoxContainer" unique_id=1199248169]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Restart"
+
+[node name="Cancel" type="Button" parent="VBoxContainer/VBoxContainer" unique_id=574907130]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Cancel"
+
+[node name="Margin" type="MarginContainer" parent="VBoxContainer" unique_id=1464261875]
+layout_mode = 2
+theme_override_constants/margin_top = 120
+
+[connection signal="pressed" from="VBoxContainer/VBoxContainer/MainMenu" to="." method="_on_main_menu_pressed"]
+[connection signal="pressed" from="VBoxContainer/VBoxContainer/Restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="VBoxContainer/VBoxContainer/Cancel" to="." method="_on_cancel_pressed"]
