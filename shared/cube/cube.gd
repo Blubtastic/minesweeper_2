@@ -37,10 +37,13 @@ func damage():
 		cleared_by_player = true
 		sparks.emitting = true
 		if is_bomb:
+			reveal_cube(true, 3)
 			trigger_explosion()
-		reveal_cube(true)
+		else:
+			reveal_cube(true)
 
-func reveal_cube(play_sound: bool = false, is_recursive: bool = true):
+# Setting a clear_radius will clear siblings in the radius, even if it's a mine.
+func reveal_cube(play_sound: bool = false, clear_radius: int = -1):
 	if !is_cleared:
 		if play_sound:
 			reveal_cube_audio.play()
@@ -53,13 +56,10 @@ func reveal_cube(play_sound: bool = false, is_recursive: bool = true):
 		var nearby_mines: int = get_nearby_cube_info(overlapping_cubes)
 		if !is_bomb:
 			set_text(nearby_mines)
-		if is_recursive:
-			if is_bomb:
-				clear_siblings(overlapping_cubes, false)
-				# Also: ground effect for exploded area
-			else:
-				if !nearby_mines:
-					clear_siblings(overlapping_cubes, true)
+		if clear_radius == -1 and !nearby_mines:
+			clear_siblings(overlapping_cubes, clear_radius)
+		if clear_radius > 1:
+			clear_siblings(overlapping_cubes, clear_radius - 1)
 
 
 func trigger_explosion():
@@ -77,11 +77,12 @@ func spawn_explosion():
 	has_exploded = true
 
 
-func clear_siblings(overlapping_cubes: Array[Area3D], is_recursive: bool) -> void:
-	await get_tree().create_timer(0.05).timeout
+func clear_siblings(overlapping_cubes: Array[Area3D], clear_radius: int) -> void:
+	if clear_radius == -1:
+		await get_tree().create_timer(0.05).timeout
 	for overlapping_cube in overlapping_cubes:
 		if overlapping_cube:
-			overlapping_cube.reveal_cube(false, is_recursive)
+			overlapping_cube.reveal_cube(false, clear_radius)
 
 
 func set_text(nearby_mines: int) -> void:
