@@ -1,13 +1,7 @@
 extends CharacterBody3D
 
 # ==================== INPUT CONFIGURATION ====================
-@export var inputs: Dictionary[String, String] = {
-	"left" = "ui_left",
-	"right" = "ui_right",
-	"up" = "ui_up",
-	"down" = "ui_down",
-	"jump" = "ui_accept"
-}
+@export_range(1,2) var player_id := 1
 
 # ==================== GAMEPLAY CONFIG ====================
 @export var hp: int = 3
@@ -78,7 +72,7 @@ func update_collision_particles() -> void:
 # ==================== JUMP AND GRAVITY ====================
 func update_jump_and_gravity(delta: float) -> void:
 	if is_on_floor():
-		if Input.is_action_just_pressed(inputs.jump):
+		if Input.is_action_just_pressed("jump_player" + str(player_id)):
 			apply_jump()
 	else:
 		apply_gravity(delta)
@@ -95,7 +89,12 @@ func apply_gravity(delta: float) -> void:
 
 # ==================== HORIZONTAL MOVEMENT ====================
 func update_horizontal_movement(delta: float) -> void:
-	var input_dir := Input.get_vector(inputs.left, inputs.right, inputs.up, inputs.down) + joystick_direction
+	var input_dir := Input.get_vector(
+		"move_left_player" + str(player_id),
+		"move_right_player" + str(player_id),
+		"move_up_player" + str(player_id),
+		"move_down_player" + str(player_id),
+	)
 	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	if direction and hp > 0:
 		apply_movement(direction, delta)

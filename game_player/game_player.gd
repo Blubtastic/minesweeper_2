@@ -1,7 +1,6 @@
 extends Node3D
 
-@export var inputs: Dictionary[String, String]
-@export var player_num: int = 1
+@export_range(1,2) var player_id := 1
 
 @onready var joystick: Control = $AnchorBottomLeft/Joystick
 @onready var player: CharacterBody3D = $Player
@@ -10,14 +9,14 @@ extends Node3D
 
 
 func _ready():
-	if player_num == 1:
+	if player_id == 1:
 		colored_roof_1.visible = true
 	else:
 		colored_roof_2.visible = true
 
 	Globals.shared_hp_changed.connect(_on_shared_hp_changed)
-	if inputs:
-		player.inputs = inputs
+	if player_id:
+		player.player_id = player_id
 
 	player.base_speed = Globals.player_speed
 	if joystick.visible:
@@ -31,7 +30,7 @@ func _on_joystick_moved(dir: Vector2, speed: float):
 
 func _physics_process(_delta: float):
 	player.external_speed = Globals.world_speed
-	Globals.set_player_position(player_num, player.position)
+	Globals.set_player_position(player_id, player.position)
 
 
 func _on_player_is_flying_changed(is_flying: bool) -> void:
