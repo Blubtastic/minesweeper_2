@@ -36,17 +36,16 @@ func damage():
 	if !is_cleared:
 		cleared_by_player = true
 		sparks.emitting = true
+		reveal_cube_audio.play()
 		if is_bomb:
-			reveal_cube(true, 3)
+			reveal_cube(3)
 			trigger_explosion()
 		else:
-			reveal_cube(true)
+			reveal_cube()
 
 # Setting a clear_radius will clear siblings in the radius, even if it's a mine.
-func reveal_cube(play_sound: bool = false, clear_radius: int = -1):
+func reveal_cube(clear_radius: int = -1):
 	if !is_cleared:
-		if play_sound:
-			reveal_cube_audio.play()
 		cube_top.visible = false
 		pop.play()
 		nearby_mines_label.visible = true
@@ -82,7 +81,7 @@ func clear_siblings(overlapping_cubes: Array[Area3D], clear_radius: int) -> void
 		await get_tree().create_timer(0.05).timeout
 	for overlapping_cube in overlapping_cubes:
 		if overlapping_cube:
-			overlapping_cube.reveal_cube(false, clear_radius)
+			overlapping_cube.reveal_cube(clear_radius)
 
 
 func set_text(nearby_mines: int) -> void:
