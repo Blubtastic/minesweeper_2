@@ -164,11 +164,11 @@ func spawn_damage_trail_vfx() -> void:
 
 
 func cleanup_damage_trail_vfx() -> void:
+	await get_tree().create_timer(TRAIL_VFX_DURATION).timeout
 	var trail_vfx = get_node_or_null("DamageTrailVFX")
 	if not trail_vfx:
 		return
 
-	await get_tree().create_timer(TRAIL_VFX_DURATION).timeout
 	trail_vfx.get_node("Smoke").emitting = false
 	trail_vfx.get_node("Fire").emitting = false
 

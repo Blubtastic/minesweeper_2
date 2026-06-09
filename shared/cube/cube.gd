@@ -33,14 +33,14 @@ signal cube_was_cleared
 signal cube_exploded
 
 func damage():
-	if !is_cleared and !is_bomb:
+	if !is_cleared:
 		cleared_by_player = true
 		sparks.emitting = true
+		if is_bomb:
+			trigger_explosion()
 		reveal_cube(true)
-	if is_bomb:
-		trigger_explosion()
 
-func reveal_cube(play_sound: bool = false):
+func reveal_cube(play_sound: bool = false, is_recursive: bool = true):
 	if !is_cleared:
 		if play_sound:
 			reveal_cube_audio.play()
@@ -49,15 +49,25 @@ func reveal_cube(play_sound: bool = false):
 		nearby_mines_label.visible = true
 		is_cleared = true;
 		cube_was_cleared.emit(self)
-		update_cube()
-		if is_bomb:
-			pass # ground effect for exploded area
+		var overlapping_cubes: Array[Area3D] = get_overlapping_areas().filter(func(node): return node.has_method("reveal_cube"))
+		var nearby_mines: int = get_nearby_cube_info(overlapping_cubes)
+		if !is_bomb:
+			set_text(nearby_mines)
+		if is_recursive:
+			if is_bomb:
+				clear_siblings(overlapping_cubes, false)
+				# Also: ground effect for exploded area
+			else:
+				if !nearby_mines:
+					clear_siblings(overlapping_cubes, true)
+
 
 func trigger_explosion():
 	if !has_exploded:
 		cube_exploded.emit()
 		explosion_audio.play()
 		spawn_explosion()
+
 
 func spawn_explosion():
 	var destroyed_cube = DESTROYED_CUBE.instantiate()
@@ -66,25 +76,26 @@ func spawn_explosion():
 	cube_top.visible = false
 	has_exploded = true
 
-func update_cube() -> void:
-	var overlapping_cubes: Array[Area3D] = get_overlapping_areas().filter(func(node): return node.has_method("reveal_cube"))
-	var nearby_mines: int = get_nearby_cube_info(overlapping_cubes)
-	
-	if is_cleared:
-		var nearby_mines_text := str(nearby_mines) if nearby_mines else ''
-		var nearby_mines_color := COLORS[clamp(nearby_mines, 1, COLORS.size()) - 1]
-		var text := '' if is_bomb else nearby_mines_text
-		var color := Color(1, 1, 1) if is_bomb else nearby_mines_color
-		update_label(text, color)
-		await get_tree().create_timer(0.05).timeout
-		if !nearby_mines:
-			for overlapping_cube in overlapping_cubes:
-				if overlapping_cube:
-					overlapping_cube.reveal_cube()
+
+func clear_siblings(overlapping_cubes: Array[Area3D], is_recursive: bool) -> void:
+	await get_tree().create_timer(0.05).timeout
+	for overlapping_cube in overlapping_cubes:
+		if overlapping_cube:
+			overlapping_cube.reveal_cube(false, is_recursive)
+
+
+func set_text(nearby_mines: int) -> void:
+	var nearby_mines_text := str(nearby_mines) if nearby_mines else ''
+	var nearby_mines_color := COLORS[clamp(nearby_mines, 1, COLORS.size()) - 1]
+	var text := '' if is_bomb else nearby_mines_text
+	var color := Color(1, 1, 1) if is_bomb else nearby_mines_color
+	update_label(text, color)
+
 
 func get_nearby_cube_info(nearbyCubes: Array[Area3D]) -> int:
 	var bombs := nearbyCubes.filter(func(nearbyCube): return nearbyCube.is_bomb)
 	return bombs.size()
+
 
 func update_label(text: String, color: Color) -> void:
 	nearby_mines_label.text = text
