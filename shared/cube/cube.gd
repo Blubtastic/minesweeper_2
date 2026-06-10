@@ -32,6 +32,7 @@ var cleared_by_player: bool = false
 signal cube_was_cleared
 signal cube_exploded
 
+
 func damage():
 	if !is_cleared:
 		cleared_by_player = true
@@ -59,41 +60,30 @@ func handle_siblings(clear_radius: int = -1):
 		return
 	var overlapping_cubes: Array[Area3D] = get_overlapping_areas().filter(func(node): return node.has_method("handle_siblings"))
 	var nearby_mines: int = get_nearby_cube_info(overlapping_cubes)
-	set_text(nearby_mines)
+	set_cube_label(nearby_mines)
 	reveal_self()
+	clear_siblings(overlapping_cubes, nearby_mines, clear_radius)
 
+
+func clear_siblings(overlapping_cubes: Array[Area3D], nearby_mines: int, clear_radius: int) -> void:
 	if clear_radius == -1 and !nearby_mines:
-		clear_siblings(overlapping_cubes, clear_radius)
+		await get_tree().create_timer(0.05).timeout
+		for overlapping_cube in overlapping_cubes:
+			overlapping_cube.handle_siblings(-1)
 	if clear_radius > 1:
-		clear_cross_siblings(overlapping_cubes, clear_radius - 1)
+		await get_tree().create_timer(0.04).timeout
+		for overlapping_cube in overlapping_cubes:
+			if (overlapping_cube.global_position.x == global_position.x
+			or overlapping_cube.global_position.z == global_position.z):
+				overlapping_cube.handle_siblings(clear_radius - 1)
 
 
-func clear_siblings(overlapping_cubes: Array[Area3D], clear_radius: int) -> void:
-	var clear_delay = 0.05 if clear_radius == -1 else 0.04
-	await get_tree().create_timer(clear_delay).timeout
-	for overlapping_cube in overlapping_cubes:
-		if overlapping_cube:
-			overlapping_cube.handle_siblings(clear_radius)
-
-
-func clear_cross_siblings(overlapping_cubes: Array[Area3D], clear_radius: int) -> void:
-	var clear_delay = 0.05 if clear_radius == -1 else 0.04
-	await get_tree().create_timer(clear_delay).timeout
-	for overlapping_cube in overlapping_cubes:
-		if overlapping_cube:
-			if overlapping_cube.global_position.x == global_position.x:
-				overlapping_cube.handle_siblings(clear_radius)
-			if overlapping_cube.global_position.z == global_position.z:
-				overlapping_cube.handle_siblings(clear_radius)
-
-
-func set_text(nearby_mines: int) -> void:
+func set_cube_label(nearby_mines: int) -> void:
 	var nearby_mines_text := str(nearby_mines) if nearby_mines else ''
 	var nearby_mines_color := COLORS[clamp(nearby_mines, 1, COLORS.size()) - 1]
 	var text := 'X' if is_bomb else nearby_mines_text
 	var color := Color(0,0,0) if is_bomb else nearby_mines_color
 	update_label(text, color)
-
 
 func update_label(text: String, color: Color) -> void:
 	nearby_mines_label.text = text
