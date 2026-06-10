@@ -21,7 +21,7 @@ func _physics_process(delta: float) -> void:
 	if amount < max_blur:
 		blur.material.set_shader_parameter("amount", amount)
 
-func start_blur_after_delay(delay: float = 1):
+func start_blur_after_delay(delay: float = 1) -> void:
 	await get_tree().create_timer(delay).timeout
 	blur_has_started = true
 

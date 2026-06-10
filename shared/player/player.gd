@@ -64,7 +64,7 @@ func update_visuals(delta: float) -> void:
 
 
 func update_collision_particles() -> void:
-	var collision = get_last_slide_collision()
+	var collision := get_last_slide_collision()
 	if collision and collision.get_angle() == 0.0:
 		fire_oneshot_particle(sparks, DEBRIS_PARTICLE_OFFSET_Y)
 
@@ -106,17 +106,17 @@ func update_horizontal_movement(delta: float) -> void:
 
 func apply_movement(direction: Vector3, delta: float) -> void:
 	# Lateral movement
-	var max_x_velocity = direction.x * base_speed * speed_multiplier
+	var max_x_velocity := direction.x * base_speed * speed_multiplier
 	velocity.x = move_toward(velocity.x, max_x_velocity, ACCELERATION * delta)
 
 	# Forward/backward movement (with directional bonus)
-	var z_speed = base_speed if direction.z > 0 else base_speed + forward_speed_bonus
-	var max_z_velocity = direction.z * z_speed * speed_multiplier + external_speed
+	var z_speed := base_speed if direction.z > 0 else base_speed + forward_speed_bonus
+	var max_z_velocity := direction.z * z_speed * speed_multiplier + external_speed
 	velocity.z = move_toward(velocity.z, max_z_velocity, ACCELERATION * delta)
 
 
 func apply_deceleration(delta: float) -> void:
-	var decel_rate = ACCELERATION * delta
+	var decel_rate := ACCELERATION * delta
 	velocity.x = move_toward(velocity.x, 0.0, decel_rate)
 	velocity.z = move_toward(velocity.z, external_speed, decel_rate)
 
@@ -158,14 +158,14 @@ func damage() -> void:
 
 
 func spawn_damage_trail_vfx() -> void:
-	var trail_vfx = TRAIL_VFX.instantiate()
+	var trail_vfx := TRAIL_VFX.instantiate()
 	add_child(trail_vfx)
 	trail_vfx.name = "DamageTrailVFX"
 
 
 func cleanup_damage_trail_vfx() -> void:
 	await get_tree().create_timer(TRAIL_VFX_DURATION).timeout
-	var trail_vfx = get_node_or_null("DamageTrailVFX")
+	var trail_vfx := get_node_or_null("DamageTrailVFX")
 	if not trail_vfx:
 		return
 
@@ -178,24 +178,24 @@ func cleanup_damage_trail_vfx() -> void:
 
 # ==================== SHIELD VISUAL ====================
 func update_shield_visual(delta: float) -> void:
-	var mat = shield_mesh.get_active_material(0)
+	var mat := shield_mesh.get_active_material(0)
 	if not mat or not mat is StandardMaterial3D:
 		return
 
-	var goal_opacity = SHIELD_OPACITY_GOAL_ACTIVE if Globals.players_invincible else SHIELD_OPACITY_GOAL_INACTIVE
+	var goal_opacity := SHIELD_OPACITY_GOAL_ACTIVE if Globals.players_invincible else SHIELD_OPACITY_GOAL_INACTIVE
 	shield_opacity = lerpf(shield_opacity, goal_opacity, delta * SHIELD_OPACITY_LERP_SPEED)
 	mat.albedo_color.a = shield_opacity
 
 
 # ==================== PARTICLE EFFECTS ====================
 func fire_particle(particle: PackedScene) -> void:
-	var particle_instance = particle.instantiate()
+	var particle_instance := particle.instantiate()
 	particle_instance.transform.origin = transform.origin
 	add_sibling(particle_instance)
 
 
 func fire_oneshot_particle(scene: PackedScene, offset_y: float) -> void:
-	var instance = scene.instantiate()
+	var instance := scene.instantiate()
 	add_sibling(instance)
 	instance.global_position = Vector3(global_position.x, global_position.y + offset_y, global_position.z)
 

@@ -29,6 +29,10 @@ buses/default_bus_layout="uid://cittafeuu2sxy"
 Globals="*res://context/globals.tscn"
 Music="*uid://dmc4wcj0k8c6y"
 
+[debug]
+
+gdscript/warnings/untyped_declaration=1
+
 [display]
 
 window/size/viewport_width=528

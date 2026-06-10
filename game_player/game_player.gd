@@ -8,7 +8,7 @@ extends Node3D
 @onready var colored_roof_2: MeshInstance3D = $Player/ColoredRoof2
 
 
-func _ready():
+func _ready() -> void:
 	if player_id == 1:
 		colored_roof_1.visible = true
 	else:
@@ -23,12 +23,12 @@ func _ready():
 		joystick.joystick_moved.connect(_on_joystick_moved)
 
 
-func _on_joystick_moved(dir: Vector2, speed: float):
+func _on_joystick_moved(dir: Vector2, speed: float) -> void:
 	player.joystick_direction = dir
 	player.speed_multiplier = speed
 
 
-func _physics_process(_delta: float):
+func _physics_process(_delta: float) -> void:
 	player.external_speed = Globals.world_speed
 	Globals.set_player_position(player_id, player.position)
 
@@ -48,10 +48,10 @@ func _on_player_was_damaged(current_hp: int) -> void:
 		despawn()
 
 
-func _on_shared_hp_changed(new_hp: int):
+func _on_shared_hp_changed(new_hp: int) -> void:
 	player.hp = new_hp
 
 
-func despawn(delay: int = 2):
+func despawn(delay: int = 2) -> void:
 	await get_tree().create_timer(delay).timeout
 	queue_free()

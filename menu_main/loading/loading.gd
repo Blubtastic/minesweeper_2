@@ -4,7 +4,7 @@ extends Node3D
 @onready var tire_debris_snow: Node3D = $Particles/TireDebrisSnow
 @export var NEXT_SCENE: Resource
 
-func _ready():
+func _ready() -> void:
 	poof.restart()
 	sparks.restart()
 	await get_tree().create_timer(0.5).timeout

@@ -3,16 +3,16 @@ extends Node3D
 const CAMERA_JUMP_CURVE = preload("uid://ckyoktsd8fghh")
 var initial_y: float = 0
 
-func _ready():
+func _ready() -> void:
 	initial_y = position.y
 	Globals.start_exploded_cube_effects.connect(on_cube_exploded)
 
-func on_cube_exploded():
-	var tween = get_tree().create_tween()
+func on_cube_exploded() -> void:
+	var tween := get_tree().create_tween()
 	if Globals.shared_hp <= 1:
 		tween.tween_method(camera_jump, 0.0, 0.4, .2)
 	else:
 		tween.tween_method(camera_jump, 0.0, 1.0, 1.2)
 
-func camera_jump(elapsed_time: float, intensity: float = 0.5):
+func camera_jump(elapsed_time: float, intensity: float = 0.5) -> void:
 	position.y = initial_y + (CAMERA_JUMP_CURVE.sample(elapsed_time)*intensity)

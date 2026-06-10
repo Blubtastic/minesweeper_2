@@ -4,10 +4,10 @@ extends Node3D
 @onready var smoke: CPUParticles3D = $Smoke
 @onready var fire: CPUParticles3D = $Fire
 
-func _ready():
+func _ready()-> void:
 	explode()
 
-func explode():
+func explode() -> void:
 	debris.emitting = true
 	smoke.emitting = true
 	fire.emitting = true

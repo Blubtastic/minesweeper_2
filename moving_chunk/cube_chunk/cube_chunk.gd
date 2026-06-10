@@ -9,8 +9,8 @@ const FOREST_CHUNK = preload("uid://dhlda46fqvnos")
 const GRID_HEIGHT := 6
 const GRID_WIDTH := 10
 const CUBE_DISTANCE := 1.0
-var cubes = []
-var buffer_cubes = []
+var cubes := []
+var buffer_cubes := []
 
 
 func _ready() -> void:
@@ -19,7 +19,7 @@ func _ready() -> void:
 	set_mines()
 
 
-func _physics_process(delta):
+func _physics_process(delta: float) -> void:
 	move_and_collide(Vector3(0, 0, Globals.world_speed*delta))
 	if global_position.z > -15:
 		if not has_spawned:
@@ -27,11 +27,11 @@ func _physics_process(delta):
 			has_spawned = true
 
 
-func spawn_grid():
+func spawn_grid() -> void:
 	for w in range(GRID_WIDTH):
 		for h in range(GRID_HEIGHT):
-			var cube_instance = GAME_CUBE.instantiate()
-			var cube_position = Vector3(w * CUBE_DISTANCE, 0, h * CUBE_DISTANCE)
+			var cube_instance := GAME_CUBE.instantiate()
+			var cube_position := Vector3(w * CUBE_DISTANCE, 0, h * CUBE_DISTANCE)
 			cube_instance.transform.origin = cube_position
 			add_child(cube_instance)
 			cubes.append(cube_instance)
@@ -39,16 +39,16 @@ func spawn_grid():
 	spawn_buffer_row(GRID_HEIGHT+1)
 
 
-func spawn_buffer_row(row: int):
+func spawn_buffer_row(row: int) -> void:
 	for w in range(GRID_WIDTH):
-		var cube_instance = GAME_CUBE.instantiate()
-		var cube_position = Vector3(w * CUBE_DISTANCE, 0, row * CUBE_DISTANCE)
+		var cube_instance := GAME_CUBE.instantiate()
+		var cube_position := Vector3(w * CUBE_DISTANCE, 0, row * CUBE_DISTANCE)
 		cube_instance.transform.origin = cube_position
 		add_child(cube_instance)
 		buffer_cubes.append(cube_instance)
 
 
-func randomized_mines():
+func randomized_mines() -> Array:
 	var mine_list := []
 	for i in range(NUMBER_OF_MINES):
 		mine_list.append(true)
@@ -60,8 +60,8 @@ func randomized_mines():
 	return fullList
 
 
-func set_mines():
-	var mine_list = randomized_mines()
+func set_mines() -> void:
+	var mine_list := randomized_mines()
 	for i in range(cubes.size()):
 		cubes[i].cube.is_bomb = mine_list[i]
 
@@ -71,16 +71,16 @@ func _on_visible_on_screen_notifier_3d_screen_exited() -> void:
 		queue_free()
 
 
-func spawn_next_chunk():
-	var chunk_instance = CUBE_CHUNK.instantiate()
-	var chunk_position = Vector3(-4.5, 0, global_position.z - 7.99)
+func spawn_next_chunk() -> void:
+	var chunk_instance := CUBE_CHUNK.instantiate()
+	var chunk_position := Vector3(-4.5, 0, global_position.z - 7.99)
 	chunk_instance.transform.origin = chunk_position
 	add_sibling(chunk_instance)
 	spawn_forest()
 
 
-func spawn_forest():
-	var forest_instance = FOREST_CHUNK.instantiate()
-	var forest_position = Vector3(-9, 0.57, global_position.z - 4.49)
+func spawn_forest() -> void:
+	var forest_instance := FOREST_CHUNK.instantiate()
+	var forest_position := Vector3(-9, 0.57, global_position.z - 4.49)
 	forest_instance.transform.origin = forest_position
 	add_sibling(forest_instance)

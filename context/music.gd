@@ -7,16 +7,16 @@ extends Node
 
 var lowpass_filter_tween: Tween
 
-func stop_cozy():
+func stop_cozy() -> void:
 	main_menu.stop()
-func play_cozy():
+func play_cozy() -> void:
 	main_menu.play()
 
-func stop_music():
+func stop_music() -> void:
 	drums_player.stop()
 	bass_player.stop()
 	tambourine.stop()
-func restart_music():
+func restart_music() -> void:
 	drums_player.pitch_scale = 1
 	drums_player.play()
 	bass_player.pitch_scale = 1
@@ -24,31 +24,31 @@ func restart_music():
 	tambourine.pitch_scale = 1
 	tambourine.play()
 
-func kill_music():
-	var tween = get_tree().create_tween()
+func kill_music() -> void:
+	var tween := get_tree().create_tween()
 	tween.parallel().tween_property(drums_player, "pitch_scale", 0.0001, 2)
 	tween.parallel().tween_property(bass_player, "pitch_scale", 0.0001, 2)
 	tween.parallel().tween_property(tambourine, "pitch_scale", 0.0001, 2)
 
-func set_music_pitch(pitch_scale: float):
+func set_music_pitch(pitch_scale: float) -> void:
 	drums_player.pitch_scale = pitch_scale
 	bass_player.pitch_scale = pitch_scale
 	tambourine.pitch_scale = pitch_scale
 
-func mute_drums(mute: bool):
+func mute_drums(mute: bool) -> void:
 	drums_player.volume_db = -80 if mute else 0
-func mute_tambourine(mute: bool):
+func mute_tambourine(mute: bool) -> void:
 	tambourine.volume_db = -80 if mute else 0
 
 
-func start_low_pass_filter():
+func start_low_pass_filter() -> void:
 	set_music_low_pass_filter(true)
 	await lowpass_filter_tween.finished
 	set_music_low_pass_filter(false)
 
-func set_music_low_pass_filter(enabled: bool):
-	var bus_index = AudioServer.get_bus_index("Music")
-	var effect = AudioServer.get_bus_effect(bus_index, 0) # hard coded to first since we only have 1 atm.
+func set_music_low_pass_filter(enabled: bool) -> void:
+	var bus_index := AudioServer.get_bus_index("Music")
+	var effect := AudioServer.get_bus_effect(bus_index, 0) # hard coded to first since we only have 1 atm.
 	if effect is AudioEffectLowPassFilter:
 		if lowpass_filter_tween:
 			lowpass_filter_tween.kill()

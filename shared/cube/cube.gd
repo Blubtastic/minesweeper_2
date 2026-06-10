@@ -13,7 +13,7 @@ const COLORS: Array[Color] = [
 	Color(0.5, 0.5, 0.5)
 ]
 
-const DESTROYED_CUBE = preload("uid://bp6e0aywkls4b")
+const DESTROYED_CUBE := preload("uid://bp6e0aywkls4b")
 
 @onready var sparks: GPUParticles3D = $Sparks
 @onready var reveal_cube_audio: AudioStreamPlayer = $RevealCube
@@ -34,7 +34,7 @@ signal cube_was_cleared
 signal cube_exploded
 
 
-func clear_by_player():
+func clear_by_player() -> void:
 	if !is_cleared:
 		cleared_by_player = true
 		sparks.emitting = true
@@ -47,13 +47,13 @@ func clear_by_player():
 
 
 # Setting clear_radius will clear ALL siblings in the radius, including mines.
-func clear_recursively(clear_radius: int = -1):
+func clear_recursively(clear_radius: int = -1) -> void:
 	# Prevent re-clearing, since no clear_radius means infinite recursion.
 	if clear_radius == -1 and is_cleared:
 		return
 	reveal_self()
-	var nearby_cubes := get_overlapping_areas().filter(func(node): return node is Cube)
-	var nearby_mines := nearby_cubes.filter(func(cube): return cube.is_bomb).size()
+	var nearby_cubes := get_overlapping_areas().filter(func(node: Area3D) -> bool: return node is Cube)
+	var nearby_mines := nearby_cubes.filter(func(cube: Area3D) -> bool: return cube.is_bomb).size()
 	set_cube_label(nearby_mines)
 	clear_siblings(nearby_cubes, nearby_mines, clear_radius)
 
@@ -95,11 +95,11 @@ func update_label(text: String, color: Color) -> void:
 	nearby_mines_label.outline_modulate = color
 
 
-func trigger_explosion():
+func trigger_explosion() -> void:
 	if !has_exploded:
 		has_exploded = true
 		cube_exploded.emit()
 		explosion_audio.play()
-		var destroyed_cube = DESTROYED_CUBE.instantiate()
+		var destroyed_cube := DESTROYED_CUBE.instantiate()
 		add_child(destroyed_cube)
 		destroyed_cube.global_position = Vector3(global_position.x, global_position.y + 0.7, global_position.z)

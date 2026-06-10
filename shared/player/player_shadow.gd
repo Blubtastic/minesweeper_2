@@ -2,7 +2,7 @@ extends Node3D
 @onready var player_shadow: Sprite3D = $PlayerShadow
 @onready var shadow_ray_cast: RayCast3D = $ShadowRayCast
 
-func _physics_process(_delta: float):
+func _physics_process(_delta: float) -> void:
 	player_shadow.global_transform.origin = global_position
 	player_shadow.global_rotation_degrees = Vector3.ZERO
 	if shadow_ray_cast.is_colliding():

@@ -12,22 +12,22 @@ var world_height: float = 10
 var shared_hp: int = 3
 var players_invincible: bool = false
 var player_speed: float = 5 # in the future, should be local
-var player_positions = { 1: Vector3.ZERO, 2: Vector3.ZERO }
+var player_positions := { 1: Vector3.ZERO, 2: Vector3.ZERO }
 
 signal game_ended()
 signal start_exploded_cube_effects()
-signal shared_hp_changed(new_hp)
+signal shared_hp_changed(new_hp: int)
 
 
-func _physics_process(_delta: float):
+func _physics_process(_delta: float) -> void:
 	if game_mode == 1 and !game_over:
 		move_world()
 
 
-func move_world():
-	var average_z_position = (player_positions[1].z + player_positions[2].z) / 2
-	var z_position = (average_z_position if is_2p else player_positions[1].z)  + top_offset
-	var ratio = 1 - (z_position / world_height)
+func move_world() -> void:
+	var average_z_position: float = (player_positions[1].z + player_positions[2].z) / 2
+	var z_position: float = (average_z_position if is_2p else player_positions[1].z)  + top_offset
+	var ratio := 1 - (z_position / world_height)
 	set_world_speed(clamp(ratio * player_speed, 0, player_speed))
 
 
@@ -36,21 +36,21 @@ func set_shared_hp(new_hp: int) -> void:
 	shared_hp = new_hp
 
 
-func set_world_speed(speed: float):
+func set_world_speed(speed: float) -> void:
 	world_speed = speed
 
 
-func set_player_position(player_num: int, position: Vector3):
+func set_player_position(player_num: int, position: Vector3) -> void:
 	player_positions[player_num] = position
 
 
-func end_game():
+func end_game() -> void:
 	if game_over == false:
 		game_ended.emit()
 		game_over = true
 
 
-func reset_game():
+func reset_game() -> void:
 	set_world_speed(default_world_speed)
 	game_over = false
 	players_invincible = false
@@ -58,5 +58,5 @@ func reset_game():
 	shared_hp = 3
 
 
-func exploded_cube_effects():
+func exploded_cube_effects() -> void:
 	start_exploded_cube_effects.emit()
