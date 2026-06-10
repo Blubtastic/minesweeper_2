@@ -1,5 +1,7 @@
 extends Area3D
 
+class_name Cube
+
 const COLORS: Array[Color] = [
 	Color(0, 0, 1),
 	Color(0, 0.5, 0),
@@ -50,8 +52,8 @@ func clear_recursively(clear_radius: int = -1):
 	if clear_radius == -1 and is_cleared:
 		return
 	reveal_self()
-	var nearby_cubes := get_overlapping_areas().filter(func(node): return node.has_method("clear_recursively"))
-	var nearby_mines := get_nearby_cube_info(nearby_cubes)
+	var nearby_cubes := get_overlapping_areas().filter(func(node): return node is Cube)
+	var nearby_mines := nearby_cubes.filter(func(cube): return cube.is_bomb).size()
 	set_cube_label(nearby_mines)
 	clear_siblings(nearby_cubes, nearby_mines, clear_radius)
 
@@ -64,7 +66,7 @@ func clear_siblings(nearby_cubes: Array[Area3D], nearby_mines: int, clear_radius
 			nearby_cube.clear_recursively(-1)
 	# If clear_radius is set, clear in a cross pattern until clear_radius is 1.
 	if clear_radius > 1:
-		await get_tree().create_timer(0.04).timeout
+		await get_tree().create_timer(0.03).timeout
 		for nearby_cube in nearby_cubes:
 			if (nearby_cube.global_position.x == global_position.x
 			or nearby_cube.global_position.z == global_position.z):
@@ -93,21 +95,11 @@ func update_label(text: String, color: Color) -> void:
 	nearby_mines_label.outline_modulate = color
 
 
-func get_nearby_cube_info(nearbyCubes: Array[Area3D]) -> int:
-	var bombs := nearbyCubes.filter(func(nearbyCube): return nearbyCube.is_bomb)
-	return bombs.size()
-
-
 func trigger_explosion():
 	if !has_exploded:
+		has_exploded = true
 		cube_exploded.emit()
 		explosion_audio.play()
-		spawn_explosion()
-
-
-func spawn_explosion():
-	var destroyed_cube = DESTROYED_CUBE.instantiate()
-	add_child(destroyed_cube)
-	destroyed_cube.global_position = Vector3(global_position.x, global_position.y + 0.7, global_position.z)
-	cube_top.visible = false
-	has_exploded = true
+		var destroyed_cube = DESTROYED_CUBE.instantiate()
+		add_child(destroyed_cube)
+		destroyed_cube.global_position = Vector3(global_position.x, global_position.y + 0.7, global_position.z)
