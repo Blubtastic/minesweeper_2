@@ -24,7 +24,6 @@ const DESTROYED_CUBE = preload("uid://bp6e0aywkls4b")
 @onready var cube_top: Node3D = $CubeTop
 @export var is_bomb: bool = false
 
-var nearby_cubes: Array[Node3D]
 var has_exploded: bool = false
 var is_cleared: bool = false
 var cleared_by_player: bool = false
@@ -33,16 +32,43 @@ signal cube_was_cleared
 signal cube_exploded
 
 
-func damage():
+func clear_by_player():
 	if !is_cleared:
 		cleared_by_player = true
 		sparks.emitting = true
 		reveal_cube_audio.play()
 		if is_bomb:
-			handle_siblings(3) # Clear all cubes in a 3 unit radius
+			clear_recursively(3)
 			trigger_explosion()
 		else:
-			handle_siblings()
+			clear_recursively()
+
+
+# Setting clear_radius will clear ALL siblings in the radius, including mines.
+func clear_recursively(clear_radius: int = -1):
+	# Prevent re-clearing, since no clear_radius means infinite recursion.
+	if clear_radius == -1 and is_cleared:
+		return
+	reveal_self()
+	var nearby_cubes := get_overlapping_areas().filter(func(node): return node.has_method("clear_recursively"))
+	var nearby_mines := get_nearby_cube_info(nearby_cubes)
+	set_cube_label(nearby_mines)
+	clear_siblings(nearby_cubes, nearby_mines, clear_radius)
+
+
+func clear_siblings(nearby_cubes: Array[Area3D], nearby_mines: int, clear_radius: int = -1) -> void:
+	# If clear_radius isn't set, clear until a nearby mine is spotted.
+	if clear_radius == -1 and !nearby_mines:
+		await get_tree().create_timer(0.05).timeout
+		for nearby_cube in nearby_cubes:
+			nearby_cube.clear_recursively(-1)
+	# If clear_radius is set, clear in a cross pattern until clear_radius is 1.
+	if clear_radius > 1:
+		await get_tree().create_timer(0.04).timeout
+		for nearby_cube in nearby_cubes:
+			if (nearby_cube.global_position.x == global_position.x
+			or nearby_cube.global_position.z == global_position.z):
+				nearby_cube.clear_recursively(clear_radius - 1)
 
 
 func reveal_self() -> void:
@@ -52,30 +78,6 @@ func reveal_self() -> void:
 		pop.play()
 		nearby_mines_label.visible = true
 		cube_was_cleared.emit(self)
-
-
-# Setting a clear_radius will clear siblings in the radius, even if it's a mine.
-func handle_siblings(clear_radius: int = -1):
-	if clear_radius == -1 and is_cleared:
-		return
-	var overlapping_cubes: Array[Area3D] = get_overlapping_areas().filter(func(node): return node.has_method("handle_siblings"))
-	var nearby_mines: int = get_nearby_cube_info(overlapping_cubes)
-	set_cube_label(nearby_mines)
-	reveal_self()
-	clear_siblings(overlapping_cubes, nearby_mines, clear_radius)
-
-
-func clear_siblings(overlapping_cubes: Array[Area3D], nearby_mines: int, clear_radius: int) -> void:
-	if clear_radius == -1 and !nearby_mines:
-		await get_tree().create_timer(0.05).timeout
-		for overlapping_cube in overlapping_cubes:
-			overlapping_cube.handle_siblings(-1)
-	if clear_radius > 1:
-		await get_tree().create_timer(0.04).timeout
-		for overlapping_cube in overlapping_cubes:
-			if (overlapping_cube.global_position.x == global_position.x
-			or overlapping_cube.global_position.z == global_position.z):
-				overlapping_cube.handle_siblings(clear_radius - 1)
 
 
 func set_cube_label(nearby_mines: int) -> void:
