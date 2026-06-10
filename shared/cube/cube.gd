@@ -65,7 +65,7 @@ func handle_siblings(clear_radius: int = -1):
 	if clear_radius == -1 and !nearby_mines:
 		clear_siblings(overlapping_cubes, clear_radius)
 	if clear_radius > 1:
-		clear_siblings(overlapping_cubes, clear_radius - 1)
+		clear_cross_siblings(overlapping_cubes, clear_radius - 1)
 
 
 func clear_siblings(overlapping_cubes: Array[Area3D], clear_radius: int) -> void:
@@ -74,6 +74,17 @@ func clear_siblings(overlapping_cubes: Array[Area3D], clear_radius: int) -> void
 	for overlapping_cube in overlapping_cubes:
 		if overlapping_cube:
 			overlapping_cube.handle_siblings(clear_radius)
+
+
+func clear_cross_siblings(overlapping_cubes: Array[Area3D], clear_radius: int) -> void:
+	var clear_delay = 0.05 if clear_radius == -1 else 0.04
+	await get_tree().create_timer(clear_delay).timeout
+	for overlapping_cube in overlapping_cubes:
+		if overlapping_cube:
+			if overlapping_cube.global_position.x == global_position.x:
+				overlapping_cube.handle_siblings(clear_radius)
+			if overlapping_cube.global_position.z == global_position.z:
+				overlapping_cube.handle_siblings(clear_radius)
 
 
 func set_text(nearby_mines: int) -> void:
