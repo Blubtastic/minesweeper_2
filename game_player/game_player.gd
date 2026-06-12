@@ -7,6 +7,8 @@ extends Node3D
 @onready var colored_roof_1: MeshInstance3D = $Player/ColoredRoof1
 @onready var colored_roof_2: MeshInstance3D = $Player/ColoredRoof2
 
+const IMPACT_GRENADE = preload("uid://5s7j7ty55jtj")
+
 
 func _ready() -> void:
 	if player_id == 1:
@@ -32,6 +34,9 @@ func _physics_process(_delta: float) -> void:
 	player.external_speed = Globals.world_speed
 	Globals.set_player_position(player_id, player.position)
 
+	if Input.is_action_just_pressed("use_powerup_player" + str(player_id)):
+		use_powerup()
+
 
 func _on_player_is_flying_changed(is_flying: bool) -> void:
 	if is_flying == true:
@@ -56,3 +61,11 @@ func _on_shared_hp_changed(new_hp: int) -> void:
 func despawn(delay: int = 2) -> void:
 	await get_tree().create_timer(delay).timeout
 	queue_free()
+
+
+func use_powerup() -> void:
+	var instance := IMPACT_GRENADE.instantiate()
+	instance.transform.origin = Vector3(player.global_position.x, player.global_position.y-0.8, player.global_position.z-0.5)
+	instance.linear_velocity = Vector3(0, 2.5, -5)
+	instance.source = self
+	add_child(instance)

@@ -9,10 +9,14 @@ roughness = 0.4
 
 [sub_resource type="SphereMesh" id="SphereMesh_qvba2"]
 material = SubResource("StandardMaterial3D_yictk")
+radius = 0.25
+height = 0.5
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_lbw4y"]
+radius = 0.25
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_fulid"]
+radius = 0.15
 
 [node name="ImpactGrenade" type="RigidBody3D" unique_id=762002745]
 script = ExtResource("1_fulid")

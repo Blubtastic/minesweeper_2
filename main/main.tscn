@@ -8,7 +8,6 @@
 [ext_resource type="PackedScene" uid="uid://62fr2rhqfdeo" path="res://shared/particles/snow.tscn" id="6_bv4rx"]
 [ext_resource type="PackedScene" uid="uid://dhlda46fqvnos" path="res://moving_chunk/forest_chunk.tscn" id="7_m1pw8"]
 [ext_resource type="PackedScene" uid="uid://dmvvw5465oh3q" path="res://main/pause_menu.tscn" id="9_grrlh"]
-[ext_resource type="PackedScene" uid="uid://5s7j7ty55jtj" path="res://shared/powerup/impact_grenade.tscn" id="10_0i4oc"]
 [ext_resource type="PackedScene" uid="uid://bo56d0akw4s83" path="res://shared/screen_border.tscn" id="10_udtt8"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_6867n"]
@@ -120,6 +119,3 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36.982, 0.677, -6)
 
 [node name="WhiteBars3DRight" parent="." unique_id=315739988 instance=ExtResource("10_udtt8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36.982, 0.677, -6)
-
-[node name="ImpactGrenade" parent="." unique_id=762002745 instance=ExtResource("10_0i4oc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1883035, -6.524171)
