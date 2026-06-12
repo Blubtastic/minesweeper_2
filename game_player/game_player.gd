@@ -1,5 +1,7 @@
 extends Node3D
 
+## A wrapper for a controllable character that knows about the project
+
 @export_range(1,2) var player_id := 1
 
 @onready var joystick: Control = $AnchorBottomLeft/Joystick

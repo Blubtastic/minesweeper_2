@@ -1,7 +1,6 @@
 extends CharacterBody3D
 
 ## A controllable character that knows about the Godot engine.
-## It knows about the engine's built-in functionality, but not the project.
 
 # ==================== INPUT CONFIGURATION ====================
 @export_range(1,2) var player_id := 1
