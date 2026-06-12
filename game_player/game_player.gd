@@ -67,5 +67,5 @@ func use_powerup() -> void:
 	var instance := IMPACT_GRENADE.instantiate()
 	instance.transform.origin = Vector3(player.global_position.x, player.global_position.y-0.8, player.global_position.z-0.5)
 	instance.linear_velocity = Vector3(0, 2.5, -5)
-	instance.source = self
+	instance.source = player
 	add_child(instance)
