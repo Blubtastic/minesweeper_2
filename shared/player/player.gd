@@ -217,5 +217,5 @@ func _on_damage_hitbox_area_entered(_area: Area3D) -> void:
 
 
 func _on_cube_hitbox_area_entered(area: Area3D) -> void:
-	if area.has_method("clear_by_player"):
-		area.clear_by_player()
+	if area.has_method("damage"):
+		area.damage(self)

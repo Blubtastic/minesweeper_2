@@ -34,7 +34,7 @@ signal cube_was_cleared
 signal cube_exploded
 
 
-func clear_by_player() -> void:
+func damage(_source: Node) -> void:
 	if !is_cleared:
 		cleared_by_player = true
 		sparks.emitting = true
