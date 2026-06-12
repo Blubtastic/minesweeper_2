@@ -39,6 +39,7 @@ func _on_player_is_flying_changed(is_flying: bool) -> void:
 
 
 func _on_player_was_damaged(current_hp: int) -> void:
+	Globals.trigger_camera_effects()
 	Globals.set_shared_hp(current_hp)
 	Music.mute_drums(false)
 	if current_hp == 1:

@@ -58,5 +58,6 @@ func reset_game() -> void:
 	shared_hp = 3
 
 
-func exploded_cube_effects() -> void:
+# IMPROVE: split into two effects: SHAKE and JUMP.
+func trigger_camera_effects() -> void:
 	start_exploded_cube_effects.emit()
