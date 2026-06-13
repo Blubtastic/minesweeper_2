@@ -6,17 +6,16 @@ extends Node3D
 
 func _on_cube_cube_was_cleared(cube_ref: Cube) -> void:
 	var score := 5
-	# TODO: move score logic to globals.gd
 	if cube_ref.cleared_by is Player:
 		score = 100
 		display_score(score)
-	Globals.score += score
+	Globals.handle_cube_cleared(score)
 
 
 func _on_cube_cube_exploded() -> void:
 	Globals.trigger_camera_shake()
 
 
-func display_score(points: int) -> void:
-	score_particles.mesh.text = str(points)
+func display_score(amount: int) -> void:
+	score_particles.mesh.text = str(amount)
 	score_particles.emitting = true

@@ -64,3 +64,7 @@ func trigger_camera_shake() -> void:
 
 func trigger_camera_jump() -> void:
 	player_was_damaged.emit()
+
+
+func handle_cube_was_cleared(amount: int = 5) -> void:
+	Globals.score += amount
