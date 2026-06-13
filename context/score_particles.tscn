@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://cwejm25ywsm0s"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_3l74d"]
+fractal_lacunarity = 20.0
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_ekllm"]
+noise = SubResource("FastNoiseLite_3l74d")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1ijvx"]
+diffuse_mode = 3
+vertex_color_use_as_albedo = true
+roughness = 0.0
+emission = Color(0, 1, 0, 1)
+normal_texture = SubResource("NoiseTexture2D_ekllm")
+
+[sub_resource type="TextMesh" id="TextMesh_6w6mc"]
+material = SubResource("StandardMaterial3D_1ijvx")
+text = "999"
+font_size = 64
+curve_step = 10.0
+
+[sub_resource type="Curve" id="Curve_btgbu"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.195652, 1), 0.0, 0.0, 0, 0, Vector2(0.8955223, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="Gradient" id="Gradient_v2bu3"]
+offsets = PackedFloat32Array(0, 0.8623025, 1)
+colors = PackedColorArray(0, 1, 0, 1, 0, 0.47648424, 0, 1, 7.294817e-08, 0.09793358, 0, 1)
+
+[node name="ScoreParticles" type="CPUParticles3D" unique_id=21252393]
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 0, 0)
+emitting = false
+amount = 1
+one_shot = true
+local_coords = true
+mesh = SubResource("TextMesh_6w6mc")
+direction = Vector3(0, 1, 1)
+spread = 0.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 0.75
+initial_velocity_max = 0.75
+damping_min = 0.75
+damping_max = 0.75
+scale_amount_curve = SubResource("Curve_btgbu")
+color_ramp = SubResource("Gradient_v2bu3")

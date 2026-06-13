@@ -1,5 +1,7 @@
 extends Node
 
+const SCORE_PARTICLES = preload("uid://cwejm25ywsm0s")
+
 var default_world_speed: float = 1.0
 var world_speed: float = 1.0
 var is_2p: bool = false
@@ -66,5 +68,18 @@ func trigger_camera_jump() -> void:
 	player_was_damaged.emit()
 
 
-func handle_cube_was_cleared(amount: int = 5) -> void:
-	Globals.score += amount
+func handle_cube_was_cleared(ref: Cube) -> void:
+	var score_granted := 5
+	if ref.cleared_by is Player:
+		score_granted = 100
+		spawn_score_granted_particle(score_granted, ref.global_position)
+	Globals.score += score_granted
+
+
+func spawn_score_granted_particle(amount: int, pos: Vector3) -> void:
+	var score_instance := SCORE_PARTICLES.instantiate()
+	add_child(score_instance)
+	score_instance.global_position = pos
+	score_instance.global_position.y += 1
+	score_instance.mesh.text = str(amount)
+	score_instance.emitting = true
