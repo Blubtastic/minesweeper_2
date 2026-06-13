@@ -1,6 +1,6 @@
 extends AnimatableBody3D
 
-const GAME_CUBE = preload("uid://by5iila0yby3s")
+const CUBE = preload("uid://cnor6jdbe28rj")
 const CUBE_CHUNK = preload("uid://dgxv52jn27v3c")
 const FOREST_CHUNK = preload("uid://dhlda46fqvnos")
 
@@ -30,18 +30,26 @@ func _physics_process(delta: float) -> void:
 func spawn_grid() -> void:
 	for w in range(GRID_WIDTH):
 		for h in range(GRID_HEIGHT):
-			var cube_instance := GAME_CUBE.instantiate()
+			var cube_instance := CUBE.instantiate()
 			var cube_position := Vector3(w * CUBE_DISTANCE, 0, h * CUBE_DISTANCE)
 			cube_instance.transform.origin = cube_position
 			add_child(cube_instance)
+			
+			#cube_instance TODO: CONNECT SIGNAL FROM CUBE TO Globals HERE
+			#func _on_cube_cube_was_cleared(cube_ref: Cube) -> void:
+				#Globals.handle_cube_was_cleared(cube_ref)
+			#func _on_cube_cube_exploded() -> void:
+				#Globals.trigger_camera_shake()
+			
 			cubes.append(cube_instance)
+	
 	spawn_buffer_row(GRID_HEIGHT)
 	spawn_buffer_row(GRID_HEIGHT+1)
 
 
 func spawn_buffer_row(row: int) -> void:
 	for w in range(GRID_WIDTH):
-		var cube_instance := GAME_CUBE.instantiate()
+		var cube_instance := CUBE.instantiate()
 		var cube_position := Vector3(w * CUBE_DISTANCE, 0, row * CUBE_DISTANCE)
 		cube_instance.transform.origin = cube_position
 		add_child(cube_instance)
@@ -63,7 +71,7 @@ func randomized_mines() -> Array:
 func set_mines() -> void:
 	var mine_list := randomized_mines()
 	for i in range(cubes.size()):
-		cubes[i].cube.is_bomb = mine_list[i]
+		cubes[i].is_bomb = mine_list[i]
 
 
 func _on_visible_on_screen_notifier_3d_screen_exited() -> void:
