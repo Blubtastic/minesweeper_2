@@ -35,12 +35,8 @@ func spawn_grid() -> void:
 			cube_instance.transform.origin = cube_position
 			add_child(cube_instance)
 			
-			#cube_instance TODO: CONNECT SIGNAL FROM CUBE TO Globals HERE
-			#func _on_cube_cube_was_cleared(cube_ref: Cube) -> void:
-				#Globals.handle_cube_was_cleared(cube_ref)
-			#func _on_cube_cube_exploded() -> void:
-				#Globals.trigger_camera_shake()
-			
+			cube_instance.cube_was_cleared.connect(func(ref: Node3D) -> void: Globals.handle_cube_was_cleared(ref))
+			cube_instance.cube_exploded.connect(func() -> void: Globals.trigger_camera_shake())
 			cubes.append(cube_instance)
 	
 	spawn_buffer_row(GRID_HEIGHT)
