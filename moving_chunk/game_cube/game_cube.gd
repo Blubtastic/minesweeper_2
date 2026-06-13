@@ -6,7 +6,8 @@ extends Node3D
 
 func _on_cube_cube_was_cleared(cube_ref: Cube) -> void:
 	var score := 5
-	if cube_ref.cleared_by_player == true:
+	# TODO: move score logic to globals.gd
+	if cube_ref.cleared_by is Player:
 		score = 100
 		display_score(score)
 	Globals.score += score

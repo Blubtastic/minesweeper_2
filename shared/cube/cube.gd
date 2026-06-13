@@ -29,13 +29,15 @@ const DESTROYED_CUBE := preload("uid://bp6e0aywkls4b")
 var has_exploded: bool = false
 var is_cleared: bool = false
 var cleared_by_player: bool = false
+var cleared_by: Node
 
 signal cube_was_cleared
 signal cube_exploded
 
 
-func damage(_source: Node) -> void:
+func damage(source: Node) -> void:
 	if !is_cleared:
+		cleared_by = source
 		cleared_by_player = true
 		sparks.emitting = true
 		reveal_cube_audio.play()

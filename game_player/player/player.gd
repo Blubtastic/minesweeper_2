@@ -1,5 +1,7 @@
 extends CharacterBody3D
 
+class_name Player
+
 ## A controllable character that knows about the Godot engine.
 
 # ==================== INPUT CONFIGURATION ====================
