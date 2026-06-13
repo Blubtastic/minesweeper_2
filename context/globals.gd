@@ -15,7 +15,8 @@ var player_speed: float = 5 # in the future, should be local
 var player_positions := { 1: Vector3.ZERO, 2: Vector3.ZERO }
 
 signal game_ended()
-signal start_exploded_cube_effects()
+signal cube_exploded()
+signal player_was_damaged()
 signal shared_hp_changed(new_hp: int)
 
 
@@ -58,6 +59,8 @@ func reset_game() -> void:
 	shared_hp = 3
 
 
-# IMPROVE: split into two effects: SHAKE and JUMP.
-func trigger_camera_effects() -> void:
-	start_exploded_cube_effects.emit()
+func trigger_camera_shake() -> void:
+	cube_exploded.emit()
+
+func trigger_camera_jump() -> void:
+	player_was_damaged.emit()

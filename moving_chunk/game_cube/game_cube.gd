@@ -3,6 +3,7 @@ extends Node3D
 @onready var cube: Area3D = $Cube
 @onready var score_particles: CPUParticles3D = $ScoreParticles
 
+
 func _on_cube_cube_was_cleared(cube_ref: Cube) -> void:
 	var score := 5
 	if cube_ref.cleared_by_player == true:
@@ -10,8 +11,10 @@ func _on_cube_cube_was_cleared(cube_ref: Cube) -> void:
 		display_score(score)
 	Globals.score += score
 
+
 func _on_cube_cube_exploded() -> void:
-	pass
+	Globals.trigger_camera_shake()
+
 
 func display_score(points: int) -> void:
 	score_particles.mesh.text = str(points)

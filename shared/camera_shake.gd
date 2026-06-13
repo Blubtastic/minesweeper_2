@@ -7,7 +7,7 @@ var original_transform: Transform3D
 
 func _ready() -> void:
 	original_transform = global_transform
-	Globals.start_exploded_cube_effects.connect(_on_start_shake_camera)
+	Globals.cube_exploded.connect(camera_shake)
 
 func _process(delta: float) -> void:
 	if shaking:
@@ -31,7 +31,7 @@ func start_shake(intensity: float, decay: float) -> void:
 	# Save the current transform as the original
 	original_transform = global_transform
 
-func _on_start_shake_camera() -> void:
+func camera_shake() -> void:
 	if Globals.shared_hp <= 1:
 		start_shake(.9, 3)
 	else:

@@ -5,9 +5,9 @@ var initial_y: float = 0
 
 func _ready() -> void:
 	initial_y = position.y
-	Globals.start_exploded_cube_effects.connect(on_cube_exploded)
+	Globals.player_was_damaged.connect(handle_camera_jump)
 
-func on_cube_exploded() -> void:
+func handle_camera_jump() -> void:
 	var tween := get_tree().create_tween()
 	if Globals.shared_hp <= 1:
 		tween.tween_method(camera_jump, 0.0, 0.4, .2)
