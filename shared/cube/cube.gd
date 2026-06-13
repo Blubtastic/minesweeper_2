@@ -34,9 +34,8 @@ signal cube_was_cleared
 signal cube_exploded
 
 
-func damage(source: Node) -> void:
+func damage(_source: Node) -> void:
 	if !is_cleared:
-		print(source)
 		cleared_by_player = true
 		sparks.emitting = true
 		reveal_cube_audio.play()

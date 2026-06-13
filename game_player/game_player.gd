@@ -1,15 +1,15 @@
 extends Node3D
 
-## A wrapper for a controllable character that knows about the project
+
+const SPARKS := preload("uid://dvabslbqfwp0v")
+const IMPACT_GRENADE := preload("uid://5s7j7ty55jtj")
+
 
 @export_range(1,2) var player_id := 1
-
 @onready var joystick: Control = $AnchorBottomLeft/Joystick
 @onready var player: CharacterBody3D = $Player
 @onready var colored_roof_1: MeshInstance3D = $Player/ColoredRoof1
 @onready var colored_roof_2: MeshInstance3D = $Player/ColoredRoof2
-
-const IMPACT_GRENADE = preload("uid://5s7j7ty55jtj")
 
 
 func _ready() -> void:
@@ -65,9 +65,16 @@ func despawn(delay: int = 2) -> void:
 	queue_free()
 
 
+# Hardcoded to fire ImpactGrenade powerup
 func use_powerup() -> void:
-	var instance := IMPACT_GRENADE.instantiate()
-	instance.transform.origin = Vector3(player.global_position.x, player.global_position.y-0.8, player.global_position.z-0.5)
-	instance.linear_velocity = Vector3(0, 2.5, -5)
-	instance.source = player
-	add_child(instance)
+	var fire_position := Vector3(player.global_position.x, player.global_position.y-0.8, player.global_position.z-0.5)
+	var impact_grenade_instance := IMPACT_GRENADE.instantiate()
+	impact_grenade_instance.transform.origin = fire_position
+	impact_grenade_instance.linear_velocity = Vector3(0, 2.5, -5)
+	impact_grenade_instance.source = player
+	add_child(impact_grenade_instance)
+	
+	var sparks_instance := SPARKS.instantiate()
+	sparks_instance.transform.origin = fire_position
+	sparks_instance.emitting = true
+	add_sibling(sparks_instance)
