@@ -3,18 +3,19 @@ extends RigidBody3D
 class_name ImpactGrenade
 
 @export var source: Node
-@onready var clear_hitbox: Area3D = $ClearHitbox
-var impacted_cube: Area3D = null
+@onready var damage_area: Area3D = $ClearHitbox
+var impact_item: Area3D = null
+var direct_hit := true
 
 func _on_area_3d_area_entered(area: Area3D) -> void:
 	if area.has_method("damage"):
-		area.damage(source)
-		impacted_cube = area
-
-	var affected_cubes := clear_hitbox.get_overlapping_areas().filter(
-		func (cube: Area3D) -> bool: return cube.has_method("damage") and cube != impacted_cube
+		area.damage(self)
+		impact_item = area
+	direct_hit = false
+	var affected_items := damage_area.get_overlapping_areas().filter(
+		func (item: Area3D) -> bool: return item.has_method("damage") and item != impact_item
 	)
-	for cube: Area3D in affected_cubes:
-		cube.damage(self)
+	for item: Area3D in affected_items:
+		item.damage(self)
 
 	queue_free()

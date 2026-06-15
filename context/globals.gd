@@ -67,17 +67,19 @@ func trigger_camera_shake() -> void:
 func trigger_camera_jump() -> void:
 	player_was_damaged.emit()
 
-
+## Handles global consequences of the cube being cleared, like score.
 func handle_cube_was_cleared(ref: Cube) -> void:
 	var score_granted := 5
 	if ref.cleared_by is Player:
-		if !ref.is_bomb:
+		if ref.is_bomb:
+			score_granted = 0
+		else:
 			score_granted = 100
 			spawn_score_granted_particle(score_granted, ref.global_position)
 	if ref.cleared_by is ImpactGrenade:
-		#if ref.cleared_by.
-		score_granted = 100
-		spawn_score_granted_particle(score_granted, ref.global_position)
+		if ref.cleared_by.direct_hit == true:
+			score_granted = 100
+			spawn_score_granted_particle(score_granted, ref.global_position)
 	Globals.score += score_granted
 
 
