@@ -70,10 +70,10 @@ func use_powerup() -> void:
 	var fire_position := Vector3(player.global_position.x, player.global_position.y-0.8, player.global_position.z-0.5)
 	var impact_grenade_instance := IMPACT_GRENADE.instantiate()
 	impact_grenade_instance.transform.origin = fire_position
-	impact_grenade_instance.linear_velocity = Vector3(0, 2.5, -5)
+	impact_grenade_instance.linear_velocity = Vector3(0, 5, -5)
 	impact_grenade_instance.source = player
 	add_child(impact_grenade_instance)
-	
+
 	var sparks_instance := SPARKS.instantiate()
 	sparks_instance.transform.origin = fire_position
 	sparks_instance.emitting = true

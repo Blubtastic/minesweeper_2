@@ -18,7 +18,20 @@ radius = 0.25
 [sub_resource type="SphereShape3D" id="SphereShape3D_fulid"]
 radius = 0.15
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_yictk"]
+radius = 2.5
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qvba2"]
+transparency = 1
+albedo_color = Color(1, 1, 1, 0.14901961)
+
+[sub_resource type="SphereMesh" id="SphereMesh_lbw4y"]
+material = SubResource("StandardMaterial3D_qvba2")
+radius = 2.5
+height = 5.0
+
 [node name="ImpactGrenade" type="RigidBody3D" unique_id=762002745]
+gravity_scale = 2.0
 script = ExtResource("1_fulid")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1931732663]
@@ -27,9 +40,19 @@ mesh = SubResource("SphereMesh_qvba2")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1849978814]
 shape = SubResource("SphereShape3D_lbw4y")
 
-[node name="Area3D" type="Area3D" parent="." unique_id=1591158606]
+[node name="ImpactHitbox" type="Area3D" parent="." unique_id=1591158606]
+monitorable = false
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1266889387]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ImpactHitbox" unique_id=1266889387]
 shape = SubResource("SphereShape3D_fulid")
 
-[connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered" flags=6]
+[node name="ClearHitbox" type="Area3D" parent="." unique_id=1655783796]
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ClearHitbox" unique_id=649163528]
+shape = SubResource("SphereShape3D_yictk")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="ClearHitbox" unique_id=1073524476]
+mesh = SubResource("SphereMesh_lbw4y")
+
+[connection signal="area_entered" from="ImpactHitbox" to="." method="_on_area_3d_area_entered" flags=6]

@@ -42,7 +42,7 @@ func damage(source: Node3D) -> void:
 		sparks.emitting = true
 		reveal_cube_audio.play()
 		if is_bomb:
-			clear_recursively(3)
+			clear_recursively()
 			trigger_explosion()
 		else:
 			clear_recursively()
