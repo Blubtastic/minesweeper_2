@@ -7,7 +7,7 @@ const IMPACT_GRENADE := preload("uid://5s7j7ty55jtj")
 
 @export_range(1,2) var player_id := 1
 @onready var joystick: Control = $AnchorBottomLeft/Joystick
-@onready var player: CharacterBody3D = $Player
+@onready var player: Player = $Player
 @onready var colored_roof_1: MeshInstance3D = $Player/ColoredRoof1
 @onready var colored_roof_2: MeshInstance3D = $Player/ColoredRoof2
 

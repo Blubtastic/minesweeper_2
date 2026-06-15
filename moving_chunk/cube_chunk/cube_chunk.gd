@@ -34,11 +34,11 @@ func spawn_grid() -> void:
 			var cube_position := Vector3(w * CUBE_DISTANCE, 0, h * CUBE_DISTANCE)
 			cube_instance.transform.origin = cube_position
 			add_child(cube_instance)
-			
+
 			cube_instance.cube_was_cleared.connect(func(ref: Node3D) -> void: Globals.handle_cube_was_cleared(ref))
 			cube_instance.cube_exploded.connect(func() -> void: Globals.trigger_camera_shake())
 			cubes.append(cube_instance)
-	
+
 	spawn_buffer_row(GRID_HEIGHT)
 	spawn_buffer_row(GRID_HEIGHT+1)
 
