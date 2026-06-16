@@ -69,7 +69,7 @@ func trigger_camera_jump() -> void:
 
 ## Handles global consequences of the cube being cleared, like score.
 func handle_cube_was_cleared(ref: Cube) -> void:
-	var score_granted := 5
+	var score_granted := 1
 	if ref.cleared_by is Player:
 		if ref.is_bomb:
 			score_granted = 0
