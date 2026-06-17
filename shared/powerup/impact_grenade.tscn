@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://5s7j7ty55jtj"]
 
 [ext_resource type="Script" uid="uid://2p2n2kk6713a" path="res://shared/powerup/impact_grenade.gd" id="1_fulid"]
+[ext_resource type="PackedScene" uid="uid://dwo5daidymqix" path="res://shared/powerup/bomb.blend" id="2_yictk"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yictk"]
 albedo_color = Color(1, 0, 0, 1)
@@ -32,9 +33,14 @@ height = 5.0
 
 [node name="ImpactGrenade" type="RigidBody3D" unique_id=762002745]
 gravity_scale = 2.0
+angular_velocity = Vector3(-2.6179938, 1.3962634, 6.981317)
 script = ExtResource("1_fulid")
 
+[node name="bomb" parent="." unique_id=1360391209 instance=ExtResource("2_yictk")]
+transform = Transform3D(0.17394611, 0.1935263, -0.04250357, -0.1324659, 0.07152389, -0.21645634, -0.14734915, 0.16415893, 0.14441718, 0, 0, 0)
+
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1931732663]
+visible = false
 mesh = SubResource("SphereMesh_qvba2")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1849978814]
