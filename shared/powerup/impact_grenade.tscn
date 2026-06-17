@@ -2,16 +2,7 @@
 
 [ext_resource type="Script" uid="uid://2p2n2kk6713a" path="res://shared/powerup/impact_grenade.gd" id="1_fulid"]
 [ext_resource type="PackedScene" uid="uid://dwo5daidymqix" path="res://shared/powerup/bomb.blend" id="2_yictk"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yictk"]
-albedo_color = Color(1, 0, 0, 1)
-metallic = 1.0
-roughness = 0.4
-
-[sub_resource type="SphereMesh" id="SphereMesh_qvba2"]
-material = SubResource("StandardMaterial3D_yictk")
-radius = 0.25
-height = 0.5
+[ext_resource type="PackedScene" uid="uid://bgq1b3qcf7nff" path="res://shared/powerup/indicator.blend" id="3_qvba2"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_lbw4y"]
 radius = 0.25
@@ -22,26 +13,13 @@ radius = 0.15
 [sub_resource type="SphereShape3D" id="SphereShape3D_yictk"]
 radius = 2.5
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qvba2"]
-transparency = 1
-albedo_color = Color(1, 1, 1, 0.14901961)
-
-[sub_resource type="SphereMesh" id="SphereMesh_lbw4y"]
-material = SubResource("StandardMaterial3D_qvba2")
-radius = 2.5
-height = 5.0
-
 [node name="ImpactGrenade" type="RigidBody3D" unique_id=762002745]
 gravity_scale = 2.0
 angular_velocity = Vector3(-2.6179938, 1.3962634, 6.981317)
 script = ExtResource("1_fulid")
 
-[node name="bomb" parent="." unique_id=1360391209 instance=ExtResource("2_yictk")]
+[node name="bomb" parent="." unique_id=421097306 instance=ExtResource("2_yictk")]
 transform = Transform3D(0.17394611, 0.1935263, -0.04250357, -0.1324659, 0.07152389, -0.21645634, -0.14734915, 0.16415893, 0.14441718, 0, 0, 0)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1931732663]
-visible = false
-mesh = SubResource("SphereMesh_qvba2")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1849978814]
 shape = SubResource("SphereShape3D_lbw4y")
@@ -58,7 +36,7 @@ monitorable = false
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ClearHitbox" unique_id=649163528]
 shape = SubResource("SphereShape3D_yictk")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="ClearHitbox" unique_id=1073524476]
-mesh = SubResource("SphereMesh_lbw4y")
+[node name="indicator" parent="ClearHitbox" unique_id=1747315394 instance=ExtResource("3_qvba2")]
+transform = Transform3D(0.83248264, 0, 0, 0, 0.83248264, 0, 0, 0, 0.83248264, 0, 0, 0)
 
 [connection signal="area_entered" from="ImpactHitbox" to="." method="_on_area_3d_area_entered" flags=6]
