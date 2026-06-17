@@ -11,7 +11,7 @@ radius = 0.25
 radius = 0.15
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_yictk"]
-radius = 2.5
+radius = 2.0
 
 [node name="ImpactGrenade" type="RigidBody3D" unique_id=762002745]
 gravity_scale = 2.0
@@ -37,6 +37,6 @@ monitorable = false
 shape = SubResource("SphereShape3D_yictk")
 
 [node name="indicator" parent="ClearHitbox" unique_id=1747315394 instance=ExtResource("3_qvba2")]
-transform = Transform3D(0.83248264, 0, 0, 0, 0.83248264, 0, 0, 0, 0.83248264, 0, 0, 0)
+transform = Transform3D(0.6658642, 0, 0, 0, 0.6658642, 0, 0, 0, 0.6658642, 0, 0, 0)
 
 [connection signal="area_entered" from="ImpactHitbox" to="." method="_on_area_3d_area_entered" flags=6]
