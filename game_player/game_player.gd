@@ -68,14 +68,14 @@ func despawn(delay: int = 2) -> void:
 # Hardcoded to fire ImpactGrenade powerup
 func use_powerup() -> void:
 	var fire_position := Vector3(player.global_position.x, player.global_position.y-0.8, player.global_position.z-0.5)
-	var impact_grenade_instance := IMPACT_GRENADE.instantiate()
-	impact_grenade_instance.transform.origin = fire_position
-	impact_grenade_instance.linear_velocity = Vector3(0, 7.5, -4.5)
-	impact_grenade_instance.source = player
-	impact_grenade_instance.exploded.connect(Globals.trigger_camera_shake)
-	add_child(impact_grenade_instance)
+	var impact_grenade := IMPACT_GRENADE.instantiate()
+	impact_grenade.transform.origin = fire_position
+	impact_grenade.linear_velocity = Vector3(0, 7.5, -4.5)
+	impact_grenade.source = player
+	impact_grenade.exploded.connect(Globals.trigger_camera_shake)
+	add_child(impact_grenade)
 
-	var sparks_instance := SPARKS.instantiate()
-	sparks_instance.transform.origin = fire_position
-	sparks_instance.emitting = true
-	add_sibling(sparks_instance)
+	var sparks := SPARKS.instantiate()
+	sparks.transform.origin = fire_position
+	sparks.emitting = true
+	add_child(sparks)
