@@ -72,6 +72,7 @@ func use_powerup() -> void:
 	impact_grenade_instance.transform.origin = fire_position
 	impact_grenade_instance.linear_velocity = Vector3(0, 7.5, -4.5)
 	impact_grenade_instance.source = player
+	impact_grenade_instance.exploded.connect(Globals.trigger_camera_shake)
 	add_child(impact_grenade_instance)
 
 	var sparks_instance := SPARKS.instantiate()

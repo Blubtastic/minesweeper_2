@@ -4,6 +4,60 @@
 [ext_resource type="PackedScene" uid="uid://dwo5daidymqix" path="res://shared/powerup/bomb.blend" id="2_yictk"]
 [ext_resource type="PackedScene" uid="uid://bgq1b3qcf7nff" path="res://shared/powerup/indicator.blend" id="3_qvba2"]
 
+[sub_resource type="Animation" id="Animation_lbw4y"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("bomb:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.264, 0.264, 0.264)]
+}
+
+[sub_resource type="Animation" id="Animation_xgn0p"]
+resource_name = "despawn_bomb"
+length = 0.06666667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("bomb:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.033333335, 0.06666667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0.264, 0.264, 0.264), Vector3(2.03, 2.03, 2.03), Vector3(0.01, 0.01, 0.01)]
+}
+
+[sub_resource type="Animation" id="Animation_qvba2"]
+resource_name = "spawn_bomb"
+length = 0.16666667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("bomb:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.16666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0.03, 0.03, 0.03), Vector3(0.264, 0.264, 0.264)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lbw4y"]
+_data = {
+&"RESET": SubResource("Animation_lbw4y"),
+&"despawn_bomb": SubResource("Animation_xgn0p"),
+&"spawn_bomb": SubResource("Animation_qvba2")
+}
+
 [sub_resource type="SphereShape3D" id="SphereShape3D_lbw4y"]
 radius = 0.25
 
@@ -18,8 +72,12 @@ gravity_scale = 2.0
 angular_velocity = Vector3(-2.6179938, 1.3962634, 6.981317)
 script = ExtResource("1_fulid")
 
+[node name="AnimateBomb" type="AnimationPlayer" parent="." unique_id=562141598]
+libraries/ = SubResource("AnimationLibrary_lbw4y")
+autoplay = &"spawn_bomb"
+
 [node name="bomb" parent="." unique_id=421097306 instance=ExtResource("2_yictk")]
-transform = Transform3D(0.17394611, 0.1935263, -0.04250357, -0.1324659, 0.07152389, -0.21645634, -0.14734915, 0.16415893, 0.14441718, 0, 0, 0)
+transform = Transform3D(0.17417088, 0.19377635, -0.04255854, -0.13263705, 0.07161629, -0.21673605, -0.14753953, 0.16437101, 0.14460377, 0, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1849978814]
 shape = SubResource("SphereShape3D_lbw4y")
