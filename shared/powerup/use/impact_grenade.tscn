@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://5s7j7ty55jtj"]
 
-[ext_resource type="Script" uid="uid://2p2n2kk6713a" path="res://shared/powerup/impact_grenade.gd" id="1_fulid"]
+[ext_resource type="Script" uid="uid://2p2n2kk6713a" path="res://shared/powerup/use/impact_grenade.gd" id="1_fulid"]
 [ext_resource type="PackedScene" uid="uid://dwo5daidymqix" path="res://shared/powerup/bomb.blend" id="2_yictk"]
-[ext_resource type="PackedScene" uid="uid://bgq1b3qcf7nff" path="res://shared/powerup/indicator.blend" id="3_qvba2"]
+[ext_resource type="PackedScene" uid="uid://bgq1b3qcf7nff" path="res://shared/powerup/use/indicator.blend" id="3_qvba2"]
 
 [sub_resource type="Animation" id="Animation_lbw4y"]
 length = 0.001
@@ -76,7 +76,7 @@ script = ExtResource("1_fulid")
 libraries/ = SubResource("AnimationLibrary_lbw4y")
 autoplay = &"spawn_bomb"
 
-[node name="bomb" parent="." unique_id=421097306 instance=ExtResource("2_yictk")]
+[node name="bomb" parent="." unique_id=1675927747 instance=ExtResource("2_yictk")]
 transform = Transform3D(0.17417088, 0.19377635, -0.04255854, -0.13263705, 0.07161629, -0.21673605, -0.14753953, 0.16437101, 0.14460377, 0, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1849978814]
@@ -94,7 +94,7 @@ monitorable = false
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ClearHitbox" unique_id=649163528]
 shape = SubResource("SphereShape3D_yictk")
 
-[node name="indicator" parent="ClearHitbox" unique_id=1747315394 instance=ExtResource("3_qvba2")]
+[node name="indicator" parent="ClearHitbox" unique_id=792483137 instance=ExtResource("3_qvba2")]
 transform = Transform3D(0.6658642, 0, 0, 0, 0.6658642, 0, 0, 0, 0.6658642, 0, 0, 0)
 
 [connection signal="area_entered" from="ImpactHitbox" to="." method="_on_area_3d_area_entered" flags=6]

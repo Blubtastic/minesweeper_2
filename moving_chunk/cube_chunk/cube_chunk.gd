@@ -3,6 +3,7 @@ extends AnimatableBody3D
 const CUBE = preload("uid://cnor6jdbe28rj")
 const CUBE_CHUNK = preload("uid://dgxv52jn27v3c")
 const FOREST_CHUNK = preload("uid://dhlda46fqvnos")
+const PICKUP_IMPACT_GRENADE = preload("uid://6fwm51pmd10m")
 
 @export var NUMBER_OF_MINES: int = 10
 @export var has_spawned: bool = false

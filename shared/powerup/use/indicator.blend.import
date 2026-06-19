@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://bgq1b3qcf7nff"
-path="res://.godot/imported/indicator.blend-8109a38abdd2837118e60769853e5825.scn"
+path="res://.godot/imported/indicator.blend-7090e6a7f025c14fea1d614b3513d464.scn"
 
 [deps]
 
-source_file="res://shared/powerup/indicator.blend"
-dest_files=["res://.godot/imported/indicator.blend-8109a38abdd2837118e60769853e5825.scn"]
+source_file="res://shared/powerup/use/indicator.blend"
+dest_files=["res://.godot/imported/indicator.blend-7090e6a7f025c14fea1d614b3513d464.scn"]
 
 [params]
 
