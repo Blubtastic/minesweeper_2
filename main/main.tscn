@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://62fr2rhqfdeo" path="res://shared/particles/snow.tscn" id="6_bv4rx"]
 [ext_resource type="PackedScene" uid="uid://dhlda46fqvnos" path="res://moving_chunk/forest_chunk.tscn" id="7_m1pw8"]
 [ext_resource type="PackedScene" uid="uid://dmvvw5465oh3q" path="res://main/pause_menu.tscn" id="9_grrlh"]
+[ext_resource type="PackedScene" uid="uid://cshkipadmqt3c" path="res://shared/powerup/pickup/pickup.tscn" id="10_0i4oc"]
 [ext_resource type="PackedScene" uid="uid://bo56d0akw4s83" path="res://shared/screen_border.tscn" id="10_udtt8"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_6867n"]
@@ -119,3 +120,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36.982, 0.677, -6)
 
 [node name="WhiteBars3DRight" parent="." unique_id=315739988 instance=ExtResource("10_udtt8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36.982, 0.677, -6)
+
+[node name="PickupPowerup" parent="." unique_id=1806593528 instance=ExtResource("10_0i4oc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.059909582, 0.9644346, -5.295367)

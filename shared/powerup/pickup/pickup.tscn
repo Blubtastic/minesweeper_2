@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cshkipadmqt3c"]
 
 [ext_resource type="Script" uid="uid://bedgjnrje0fvx" path="res://shared/powerup/pickup/pickup.gd" id="1_l6bf2"]
+[ext_resource type="PackedScene" uid="uid://dwo5daidymqix" path="res://shared/powerup/bomb.blend" id="2_parmv"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_l6bf2"]
 
@@ -13,3 +14,8 @@ collision_mask = 8
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=902735976]
 shape = SubResource("SphereShape3D_l6bf2")
+
+[node name="Marker3D" type="Marker3D" parent="." unique_id=2030613413]
+
+[node name="bomb" parent="." unique_id=296692532 instance=ExtResource("2_parmv")]
+transform = Transform3D(-1.7253122e-08, 0.253338, -0.39470544, 1.1073757e-08, 0.39470544, 0.253338, 0.4690123, 0, -2.050118e-08, 0, 0, 0)
