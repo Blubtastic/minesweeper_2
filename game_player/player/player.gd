@@ -61,31 +61,18 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 
-# ==================== VISUAL UPDATES ====================
-func update_visuals(delta: float) -> void:
-	update_collision_particles()
-	update_shield_visual(delta)
-
-
-func update_collision_particles() -> void:
-	var collision := get_last_slide_collision()
-	if collision and collision.get_angle() == 0.0:
-		fire_oneshot_particle(sparks, DEBRIS_PARTICLE_OFFSET_Y)
-
-
 # ==================== JUMP AND GRAVITY ====================
 func update_jump_and_gravity(delta: float) -> void:
 	if is_on_floor():
 		if Input.is_action_just_pressed("jump_player" + str(player_id)):
-			apply_jump()
+			jump()
 	else:
 		apply_gravity(delta)
 
 
-func apply_jump() -> void:
+func jump() -> void:
 	velocity.y = JUMP_VELOCITY
 	fire_oneshot_particle(poof, JUMP_PARTICLE_OFFSET_Y)
-
 
 func apply_gravity(delta: float) -> void:
 	velocity += get_gravity() * 2.0 * delta
@@ -125,11 +112,8 @@ func apply_deceleration(delta: float) -> void:
 	velocity.z = move_toward(velocity.z, external_speed, decel_rate)
 
 
-func update_debris(should_emit: bool) -> void:
-	if should_emit:
-		emit_debris()
-	else:
-		stop_debris()
+func launch_self_upwards() -> void:
+	velocity.y = DEATH_TERMINAL_VELOCITY if is_dead else DAMAGE_VELOCITY
 
 
 # ==================== ROTATION AND TILT ====================
@@ -145,8 +129,8 @@ func damage() -> void:
 		is_dead = (hp <= 0)
 		was_damaged.emit(hp)
 
-	# Apply knockback velocity
-	velocity.y = DEATH_TERMINAL_VELOCITY if is_dead else DAMAGE_VELOCITY
+	# Apply knockback
+	launch_self_upwards()
 	is_flying_changed.emit(true)
 
 	# Trigger invincibility period
@@ -180,7 +164,12 @@ func cleanup_damage_trail_vfx() -> void:
 	trail_vfx.queue_free()
 
 
-# ==================== SHIELD VISUAL ====================
+# ==================== VISUAL UPDATES ====================
+func update_visuals(delta: float) -> void:
+	update_collision_particles()
+	update_shield_visual(delta)
+
+
 func update_shield_visual(delta: float) -> void:
 	var mat := shield_mesh.get_active_material(0)
 	if not mat or not mat is StandardMaterial3D:
@@ -189,6 +178,12 @@ func update_shield_visual(delta: float) -> void:
 	var goal_opacity := SHIELD_OPACITY_GOAL_ACTIVE if Globals.players_invincible else SHIELD_OPACITY_GOAL_INACTIVE
 	shield_opacity = lerpf(shield_opacity, goal_opacity, delta * SHIELD_OPACITY_LERP_SPEED)
 	mat.albedo_color.a = shield_opacity
+
+
+func update_collision_particles() -> void:
+	var collision := get_last_slide_collision()
+	if collision and collision.get_angle() == 0.0:
+		fire_oneshot_particle(sparks, DEBRIS_PARTICLE_OFFSET_Y)
 
 
 # ==================== PARTICLE EFFECTS ====================
@@ -204,15 +199,20 @@ func fire_oneshot_particle(scene: PackedScene, offset_y: float) -> void:
 	instance.global_position = Vector3(global_position.x, global_position.y + offset_y, global_position.z)
 
 
-# ==================== DEBRIS MANAGEMENT ====================
 func emit_debris() -> void:
 	left_debris.emit_debris()
 	right_debris.emit_debris()
 
-
 func stop_debris() -> void:
 	left_debris.stop_debris()
 	right_debris.stop_debris()
+
+func update_debris(should_emit: bool) -> void:
+	if should_emit:
+		emit_debris()
+	else:
+		stop_debris()
+
 
 
 # ==================== COLLISION CALLBACKS ====================
