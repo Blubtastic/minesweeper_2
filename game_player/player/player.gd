@@ -3,56 +3,48 @@ extends CharacterBody3D
 
 class_name Player
 
-const player_movement_script = preload("uid://bxnwnt4qelfyp")
-
-
-## A controllable character that knows about the Godot engine.
-
-# ==================== INPUT CONFIGURATION ====================
-@export_range(1,2) var player_id := 1
-
-# ==================== GAMEPLAY CONFIG ====================
-@export var hp: int = 3
-@export var sparks: PackedScene
-@export var poof: PackedScene
 
 # ==================== MOVEMENT PARAMETERS ====================
-@export var base_speed: float = 5.0  # Base movement speed
-@export var forward_speed_bonus: float = 2.0  # Extra speed when moving forward
-@export var speed_multiplier: float = 1.0  # Current speed intensity (0-1 range)
-
-# ==================== MOVEMENT PHYSICS ====================
-const ACCELERATION = 80
-const JUMP_VELOCITY = 6.0
-const JUMP_PARTICLE_OFFSET_Y = -0.16
+#@export var base_speed: float = 5.0  # Base movement speed
+#@export var forward_speed_bonus: float = 2.0  # Extra speed when moving forward
+#@export var speed_multiplier: float = 1.0  # Current speed intensity (0-1 range)
+#var external_speed: float = 0.0  # Speed applied externally (e.g., by moving platforms)
+#const ACCELERATION = 80
+#const JUMP_VELOCITY = 6.0
 #const ROTATION_DAMPING = 30.0  # Higher = less rotation tilt
+#const DAMAGE_VELOCITY = 12.0
+#const DEATH_TERMINAL_VELOCITY = 40.0
+
+
+# ==================== GAMEPLAY CONFIG ====================
+@export_range(1,2) var player_id := 1
+@export var hp: int = 3
+var is_dead: bool = false  # Track if player is dead
+var joystick_direction: Vector2 = Vector2.ZERO  # Joystick input accumulator
+
+
+# ==================== VISUALS ====================
+const JUMP_PARTICLE_OFFSET_Y = -0.16
 const DEBRIS_PARTICLE_OFFSET_Y = -0.16
-
-const DAMAGE_VELOCITY = 12.0
-const DEATH_TERMINAL_VELOCITY = 40.0
-
 const SHIELD_OPACITY_GOAL_ACTIVE = 0.5
 const SHIELD_OPACITY_GOAL_INACTIVE = 0.0
 const SHIELD_OPACITY_LERP_SPEED = 15.0
-
 const INVINCIBILITY_DURATION = 1.0
 const INVINCIBILITY_RECOVERY_DELAY = 0.5
 const TRAIL_VFX_DURATION = 1.0
 const TRAIL_VFX_FADE_DURATION = 1.0
-
+var shield_opacity: float = 0.0  # Current shield visual opacity
 const TRAIL_VFX = preload("uid://drynt1383xlht")
 @onready var shield_mesh: MeshInstance3D = $ShieldMesh
-@onready var cube_hitbox: Area3D = $CubeHitbox
 @onready var left_debris: Node3D = $TireDebrisSnowLeft
 @onready var right_debris: Node3D = $TireDebrisSnowRight
+@export var sparks: PackedScene
+@export var poof: PackedScene
 
-# ==================== INTERNAL STATE ====================
-var external_speed: float = 0.0  # Speed applied externally (e.g., by moving platforms)
-var joystick_direction: Vector2 = Vector2.ZERO  # Joystick input accumulator
-var shield_opacity: float = 0.0  # Current shield visual opacity
-var is_dead: bool = false  # Track if player is dead
+@onready var cube_hitbox: Area3D = $CubeHitbox
 
-# ==================== IMPORT SCRIPTS ====================
+
+# ==================== IMPORT SCRIPTS & SIGNALS ====================
 var player_movement := PlayerMovement.new(self)
 
 signal is_flying_changed(is_flying: bool)
@@ -61,16 +53,33 @@ signal was_damaged(current_hp: int)
 
 func _physics_process(delta: float) -> void:
 	player_movement.handle_base_movement(delta)
+
+	## MOVE HORIZONTALLY
+	var input_dir := Input.get_vector(
+		"move_left_player" + str(player_id),
+		"move_right_player" + str(player_id),
+		"move_up_player" + str(player_id),
+		"move_down_player" + str(player_id),
+	)
+	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+	player_movement.update_horizontal_movement(direction, delta)
+
+	## JUMP
 	if is_on_floor() and Input.is_action_just_pressed("jump_player" + str(player_id)):
 		player_movement.jump()
 		## TODO: poof-particle
 		# e.g: fire_oneshot_particle(poof, JUMP_PARTICLE_OFFSET_Y)
 
-	#update_jump_and_gravity(delta)
-	update_horizontal_movement(delta)
-	#update_rotation_tilt()
+	## Tire debris
+	update_horizontal_debris(direction)
+
+	## TODO: disconnect visuals from movement
 	update_visuals(delta)
+
+	#update_jump_and_gravity(delta)
+	#update_rotation_tilt()
 	#move_and_slide()
+
 
 
 # ==================== JUMP AND GRAVITY ====================
@@ -82,50 +91,34 @@ func _physics_process(delta: float) -> void:
 		#apply_gravity(delta)
 
 
-func jump() -> void:
-	velocity.y = JUMP_VELOCITY
-	fire_oneshot_particle(poof, JUMP_PARTICLE_OFFSET_Y)
-
-func apply_gravity(delta: float) -> void:
-	velocity += get_gravity() * 2.0 * delta
-
-
-# ==================== HORIZONTAL MOVEMENT ====================
-func update_horizontal_movement(delta: float) -> void:
-	var input_dir := Input.get_vector(
-		"move_left_player" + str(player_id),
-		"move_right_player" + str(player_id),
-		"move_up_player" + str(player_id),
-		"move_down_player" + str(player_id),
-	)
-	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
-	if direction and hp > 0:
-		apply_movement(direction, delta)
-		update_debris(is_on_floor())
-	else:
-		apply_deceleration(delta)
-		update_debris(false)
+#func jump() -> void:
+	#velocity.y = JUMP_VELOCITY
+	#fire_oneshot_particle(poof, JUMP_PARTICLE_OFFSET_Y)
+#
+#func apply_gravity(delta: float) -> void:
+	#velocity += get_gravity() * 2.0 * delta
 
 
-func apply_movement(direction: Vector3, delta: float) -> void:
-	# Lateral movement
-	var max_x_velocity := direction.x * base_speed * speed_multiplier
-	velocity.x = move_toward(velocity.x, max_x_velocity, ACCELERATION * delta)
 
-	# Forward/backward movement (with directional bonus)
-	var z_speed := base_speed if direction.z > 0 else base_speed + forward_speed_bonus
-	var max_z_velocity := direction.z * z_speed * speed_multiplier + external_speed
-	velocity.z = move_toward(velocity.z, max_z_velocity, ACCELERATION * delta)
-
-
-func apply_deceleration(delta: float) -> void:
-	var decel_rate := ACCELERATION * delta
-	velocity.x = move_toward(velocity.x, 0.0, decel_rate)
-	velocity.z = move_toward(velocity.z, external_speed, decel_rate)
+#func apply_movement(direction: Vector3, delta: float) -> void:
+	## Lateral movement
+	#var max_x_velocity := direction.x * base_speed * speed_multiplier
+	#velocity.x = move_toward(velocity.x, max_x_velocity, ACCELERATION * delta)
+#
+	## Forward/backward movement (with directional bonus)
+	#var z_speed := base_speed if direction.z > 0 else base_speed + forward_speed_bonus
+	#var max_z_velocity := direction.z * z_speed * speed_multiplier + external_speed
+	#velocity.z = move_toward(velocity.z, max_z_velocity, ACCELERATION * delta)
 
 
-func launch_self_upwards() -> void:
-	velocity.y = DEATH_TERMINAL_VELOCITY if is_dead else DAMAGE_VELOCITY
+#func apply_deceleration(delta: float) -> void:
+	#var decel_rate := ACCELERATION * delta
+	#velocity.x = move_toward(velocity.x, 0.0, decel_rate)
+	#velocity.z = move_toward(velocity.z, external_speed, decel_rate)
+
+
+#func launch_self_upwards() -> void:
+	#velocity.y = DEATH_TERMINAL_VELOCITY if is_dead else DAMAGE_VELOCITY
 
 
 # ==================== ROTATION AND TILT ====================
@@ -142,7 +135,7 @@ func damage() -> void:
 		was_damaged.emit(hp)
 
 	# Apply knockback
-	launch_self_upwards()
+	player_movement.launch_self_upwards(is_dead)
 	is_flying_changed.emit(true)
 
 	# Trigger invincibility period
@@ -177,6 +170,13 @@ func cleanup_damage_trail_vfx() -> void:
 
 
 # ==================== VISUAL UPDATES ====================
+func update_horizontal_debris(direction: Vector3) -> void:
+	if direction and hp > 0:
+		update_debris(is_on_floor())
+	else:
+		update_debris(false)
+
+
 func update_visuals(delta: float) -> void:
 	update_collision_particles()
 	update_shield_visual(delta)

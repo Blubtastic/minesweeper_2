@@ -2,8 +2,6 @@ extends Node
 
 class_name PlayerMovement
 
-# ==================== INPUT CONFIGURATION ====================
-@export_range(1,2) var player_id := 1
 
 # ==================== MOVEMENT PHYSICS ====================
 @export var base_speed: float = 5.0  # Base movement speed
@@ -23,7 +21,6 @@ func _init(player: Player) -> void:
 
 func handle_base_movement(delta: float) -> void:
 	apply_gravity(delta)
-	update_horizontal_movement(delta)
 	update_rotation_tilt()
 	p.move_and_slide()
 
@@ -36,14 +33,7 @@ func apply_gravity(delta: float) -> void:
 	p.velocity += p.get_gravity() * 2.0 * delta
 
 
-func update_horizontal_movement(delta: float) -> void:
-	var input_dir := Input.get_vector(
-		"move_left_player" + str(player_id),
-		"move_right_player" + str(player_id),
-		"move_up_player" + str(player_id),
-		"move_down_player" + str(player_id),
-	)
-	var direction := (p.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+func update_horizontal_movement(direction: Vector3, delta: float) -> void:
 	if direction:
 		apply_movement(direction, delta)
 	else:

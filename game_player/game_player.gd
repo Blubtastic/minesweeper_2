@@ -22,18 +22,17 @@ func _ready() -> void:
 	if player_id:
 		player.player_id = player_id
 
-	player.base_speed = Globals.player_speed
+	player.player_movement.base_speed = Globals.player_speed
 	if joystick.visible:
 		joystick.joystick_moved.connect(_on_joystick_moved)
 
 
 func _on_joystick_moved(dir: Vector2, speed: float) -> void:
 	player.joystick_direction = dir
-	player.speed_multiplier = speed
+	player.player_movement.speed_multiplier = speed
 
 
 func _physics_process(_delta: float) -> void:
-	player.external_speed = Globals.world_speed
 	Globals.set_player_position(player_id, player.position)
 
 	if Input.is_action_just_pressed("use_powerup_player" + str(player_id)):
