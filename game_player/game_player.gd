@@ -9,6 +9,7 @@ const SPARKS := preload("uid://dvabslbqfwp0v")
 @onready var colored_roof_1: MeshInstance3D = $Player/ColoredRoof1
 @onready var colored_roof_2: MeshInstance3D = $Player/ColoredRoof2
 var available_powerup: PackedScene
+@onready var bomb_powerup_mesh: Node3D = $Player/bomb
 
 
 func _ready() -> void:
@@ -77,6 +78,7 @@ func use_powerup() -> void:
 	powerup_instance.exploded.connect(Globals.trigger_camera_shake)
 	add_child(powerup_instance)
 	available_powerup = null
+	bomb_powerup_mesh.visible = false
 
 	var sparks_instance := SPARKS.instantiate()
 	sparks_instance.transform.origin = fire_position
@@ -88,3 +90,4 @@ func _on_pickup_area_area_entered(area: Area3D) -> void:
 		available_powerup = area.powerup
 		print(area.powerup)
 		area.pick_up()
+		bomb_powerup_mesh.visible = true
