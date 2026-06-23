@@ -1,6 +1,10 @@
 extends CharacterBody3D
 
+
 class_name Player
+
+const player_movement_script = preload("uid://bxnwnt4qelfyp")
+
 
 ## A controllable character that knows about the Godot engine.
 
@@ -21,7 +25,7 @@ class_name Player
 const ACCELERATION = 80
 const JUMP_VELOCITY = 6.0
 const JUMP_PARTICLE_OFFSET_Y = -0.16
-const ROTATION_DAMPING = 30.0  # Higher = less rotation tilt
+#const ROTATION_DAMPING = 30.0  # Higher = less rotation tilt
 const DEBRIS_PARTICLE_OFFSET_Y = -0.16
 
 const DAMAGE_VELOCITY = 12.0
@@ -48,26 +52,34 @@ var joystick_direction: Vector2 = Vector2.ZERO  # Joystick input accumulator
 var shield_opacity: float = 0.0  # Current shield visual opacity
 var is_dead: bool = false  # Track if player is dead
 
+# ==================== IMPORT SCRIPTS ====================
+var player_movement := PlayerMovement.new(self)
 
 signal is_flying_changed(is_flying: bool)
 signal was_damaged(current_hp: int)
 
 
 func _physics_process(delta: float) -> void:
-	update_visuals(delta)
-	update_jump_and_gravity(delta)
+	player_movement.handle_base_movement(delta)
+	if is_on_floor() and Input.is_action_just_pressed("jump_player" + str(player_id)):
+		player_movement.jump()
+		## TODO: poof-particle
+		# e.g: fire_oneshot_particle(poof, JUMP_PARTICLE_OFFSET_Y)
+
+	#update_jump_and_gravity(delta)
 	update_horizontal_movement(delta)
-	update_rotation_tilt()
-	move_and_slide()
+	#update_rotation_tilt()
+	update_visuals(delta)
+	#move_and_slide()
 
 
 # ==================== JUMP AND GRAVITY ====================
-func update_jump_and_gravity(delta: float) -> void:
-	if is_on_floor():
-		if Input.is_action_just_pressed("jump_player" + str(player_id)):
-			jump()
-	else:
-		apply_gravity(delta)
+#func update_jump_and_gravity(delta: float) -> void:
+	#if is_on_floor():
+		#if Input.is_action_just_pressed("jump_player" + str(player_id)):
+			#jump()
+	#else:
+		#apply_gravity(delta)
 
 
 func jump() -> void:
@@ -117,9 +129,9 @@ func launch_self_upwards() -> void:
 
 
 # ==================== ROTATION AND TILT ====================
-func update_rotation_tilt() -> void:
-	rotation.z = -velocity.x / ROTATION_DAMPING
-	rotation.x = -velocity.z / ROTATION_DAMPING
+#func update_rotation_tilt() -> void:
+	#rotation.z = -velocity.x / ROTATION_DAMPING
+	#rotation.x = -velocity.z / ROTATION_DAMPING
 
 
 # ==================== DAMAGE AND KNOCKBACK ====================
