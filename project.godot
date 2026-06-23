@@ -233,6 +233,7 @@ use_powerup_player2={
 3d_physics/layer_3="cube"
 3d_physics/layer_4="player"
 3d_physics/layer_5="damage_player"
+3d_physics/layer_8="powerup"
 
 [physics]
 

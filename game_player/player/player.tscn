@@ -28,7 +28,7 @@ size = Vector3(0.3, 0.17, 0.5)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fxman"]
 diffuse_mode = 3
-albedo_color = Color(0.466181, 0.466181, 0.466181, 1)
+albedo_color = Color(0.049776644, 0.04977665, 0.049776614, 1)
 roughness = 0.0
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_6xd78"]
@@ -50,8 +50,8 @@ roughness = 0.6
 material = SubResource("StandardMaterial3D_7r5ry")
 
 [node name="Player" type="CharacterBody3D" unique_id=1383705294]
-collision_layer = 8
-collision_mask = 8
+collision_layer = 136
+collision_mask = 136
 script = ExtResource("1_fjkuh")
 
 [node name="PlayerShadow" parent="." unique_id=774143020 instance=ExtResource("4_vrm5f")]
@@ -137,11 +137,11 @@ mesh = SubResource("CylinderMesh_6xd78")
 skeleton = NodePath("../..")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="PlayerModel" unique_id=217090443]
-transform = Transform3D(0.0421649, 0, 0, 0, 0.014763221, 0.042724278, 0, -0.33136496, 0.0019034841, 0.00012207031, 0.10849762, -0.2285414)
+transform = Transform3D(0.042156015, 0.0068032066, -3.303104e-05, -0.00012211285, 0.05911559, 0.042081784, 0.0008567783, -0.3263123, 0.0076229563, 0.00072764605, 0.09017388, -0.22799668)
 mesh = SubResource("CylinderMesh_7r5ry")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="PlayerModel" unique_id=654896178]
-transform = Transform3D(0.10669183, 0, 0, 0, 0.006745386, 0.10988823, 0, -0.15140222, 0.004895823, 0.00012207031, 0.10445404, -0.16955939)
+transform = Transform3D(0.10666935, 0.0031084176, -8.4956904e-05, -0.00030898792, 0.027010195, 0.108235724, 0.002167947, -0.14909366, 0.019606493, -0.00048350543, 0.07824852, -0.17010412)
 mesh = SubResource("CylinderMesh_7r5ry")
 
 [node name="ShieldMesh" type="MeshInstance3D" parent="." unique_id=1542980402]

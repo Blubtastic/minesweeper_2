@@ -1,4 +1,4 @@
-extends Node3D
+extends Area3D
 
 class_name Pickup
 
@@ -24,3 +24,4 @@ func _physics_process(delta: float) -> void:
 
 func pick_up() -> void:
 	queue_free()
+	print("picked up", powerup)

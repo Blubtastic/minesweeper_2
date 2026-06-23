@@ -122,4 +122,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36.982, 0.677, -6)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36.982, 0.677, -6)
 
 [node name="PickupPowerup" parent="." unique_id=1806593528 instance=ExtResource("10_0i4oc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.059909582, 0.9644346, -5.295367)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.059909582, 0.9644346, -1.6945572)

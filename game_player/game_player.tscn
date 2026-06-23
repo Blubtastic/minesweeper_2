@@ -35,8 +35,12 @@ albedo_color = Color(0, 0, 1, 1)
 material = SubResource("StandardMaterial3D_xsxwk")
 size = Vector2(0.5, 0.5)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_cx7ix"]
+size = Vector3(0.30078125, 0.3328247, 0.57177734)
+
 [node name="GamePlayer" type="Node3D" unique_id=1696932808]
 script = ExtResource("1_ejsqx")
+player_id = null
 
 [node name="Jump" type="Control" parent="." unique_id=1308299038]
 layout_mode = 3
@@ -99,5 +103,13 @@ transform = Transform3D(0.45367882, 0, 0, 0, 1.1, 0, 0, 0, 0.77, 0, 0.16517645, 
 visible = false
 mesh = SubResource("PlaneMesh_b55po")
 
+[node name="PickupArea" type="Area3D" parent="Player" unique_id=574497741]
+collision_layer = 128
+collision_mask = 128
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player/PickupArea" unique_id=11587342]
+shape = SubResource("BoxShape3D_cx7ix")
+
 [connection signal="is_flying_changed" from="Player" to="." method="_on_player_is_flying_changed"]
 [connection signal="was_damaged" from="Player" to="." method="_on_player_was_damaged"]
+[connection signal="area_entered" from="Player/PickupArea" to="." method="_on_pickup_area_area_entered" flags=6]

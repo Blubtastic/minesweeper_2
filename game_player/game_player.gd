@@ -2,14 +2,13 @@ extends Node3D
 
 
 const SPARKS := preload("uid://dvabslbqfwp0v")
-const IMPACT_GRENADE := preload("uid://5s7j7ty55jtj")
-
 
 @export_range(1,2) var player_id := 1
 @onready var joystick: Control = $AnchorBottomLeft/Joystick
 @onready var player: Player = $Player
 @onready var colored_roof_1: MeshInstance3D = $Player/ColoredRoof1
 @onready var colored_roof_2: MeshInstance3D = $Player/ColoredRoof2
+var available_powerup: PackedScene
 
 
 func _ready() -> void:
@@ -67,15 +66,25 @@ func despawn(delay: int = 2) -> void:
 
 # Hardcoded to fire ImpactGrenade powerup
 func use_powerup() -> void:
-	var fire_position := Vector3(player.global_position.x, player.global_position.y-0.8, player.global_position.z-0.5)
-	var impact_grenade := IMPACT_GRENADE.instantiate()
-	impact_grenade.transform.origin = fire_position
-	impact_grenade.linear_velocity = Vector3(0, 7.5, -4.5)
-	impact_grenade.source = player
-	impact_grenade.exploded.connect(Globals.trigger_camera_shake)
-	add_child(impact_grenade)
+	if !available_powerup:
+		return
 
-	var sparks := SPARKS.instantiate()
-	sparks.transform.origin = fire_position
-	sparks.emitting = true
-	add_child(sparks)
+	var fire_position := Vector3(player.global_position.x, player.global_position.y-0.8, player.global_position.z-0.5)
+	var powerup_instance := available_powerup.instantiate()
+	powerup_instance.transform.origin = fire_position
+	powerup_instance.linear_velocity = Vector3(0, 7.5, -4.5)
+	powerup_instance.source = player
+	powerup_instance.exploded.connect(Globals.trigger_camera_shake)
+	add_child(powerup_instance)
+	available_powerup = null
+
+	var sparks_instance := SPARKS.instantiate()
+	sparks_instance.transform.origin = fire_position
+	sparks_instance.emitting = true
+	add_child(sparks_instance)
+
+func _on_pickup_area_area_entered(area: Area3D) -> void:
+	if area is Pickup:
+		available_powerup = area.powerup
+		print(area.powerup)
+		area.pick_up()
