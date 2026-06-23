@@ -1,8 +1,18 @@
 [gd_scene format=3 uid="uid://dyen06fs8v7j6"]
 
 [ext_resource type="Script" uid="uid://cahfvs4cexpdp" path="res://game_player/player/player.gd" id="1_fjkuh"]
+[ext_resource type="Script" uid="uid://qmla0pkdvews" path="res://game_player/player/visual_effects.gd" id="2_3f042"]
 [ext_resource type="PackedScene" uid="uid://dbi36hqar6db8" path="res://game_player/player/player_shadow.tscn" id="4_vrm5f"]
 [ext_resource type="PackedScene" uid="uid://b7wmb8jxswbil" path="res://game_player/player/particles/tire_debris_snow.tscn" id="5_5hepr"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7r5ry"]
+transparency = 1
+albedo_color = Color(1, 1, 1, 0.5882353)
+metallic = 1.0
+roughness = 0.6
+
+[sub_resource type="SphereMesh" id="SphereMesh_0gcbb"]
+material = SubResource("StandardMaterial3D_7r5ry")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4to0f"]
 size = Vector3(0.3, 0.258521, 0.5)
@@ -40,28 +50,27 @@ height = 0.05
 [sub_resource type="CylinderMesh" id="CylinderMesh_7r5ry"]
 material = SubResource("StandardMaterial3D_uxr23")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7r5ry"]
-transparency = 1
-albedo_color = Color(1, 1, 1, 0.5882353)
-metallic = 1.0
-roughness = 0.6
-
-[sub_resource type="SphereMesh" id="SphereMesh_0gcbb"]
-material = SubResource("StandardMaterial3D_7r5ry")
-
 [node name="Player" type="CharacterBody3D" unique_id=1383705294]
 collision_layer = 136
 collision_mask = 136
 script = ExtResource("1_fjkuh")
 
-[node name="PlayerShadow" parent="." unique_id=774143020 instance=ExtResource("4_vrm5f")]
-transform = Transform3D(1.3, 0, 0, 0, 1.3, 0, 0, 0, 1.3, 0, -0.175307, 0)
+[node name="VisualEffects" type="Node3D" parent="." unique_id=391993278 node_paths=PackedStringArray("p")]
+script = ExtResource("2_3f042")
+p = NodePath("..")
 
-[node name="TireDebrisSnowLeft" parent="." unique_id=34965598 instance=ExtResource("5_5hepr")]
+[node name="ShieldMesh" type="MeshInstance3D" parent="VisualEffects" unique_id=1542980402]
+mesh = SubResource("SphereMesh_0gcbb")
+skeleton = NodePath("../..")
+
+[node name="LeftDebris" parent="VisualEffects" unique_id=34965598 instance=ExtResource("5_5hepr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.166163, -0.18674009, 0.12635526)
 
-[node name="TireDebrisSnowRight" parent="." unique_id=649540690 instance=ExtResource("5_5hepr")]
+[node name="RightDebris" parent="VisualEffects" unique_id=649540690 instance=ExtResource("5_5hepr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.171288, -0.18674009, 0.12635526)
+
+[node name="PlayerShadow" parent="." unique_id=774143020 instance=ExtResource("4_vrm5f")]
+transform = Transform3D(1.3, 0, 0, 0, 1.3, 0, 0, 0, 1.3, 0, -0.175307, 0)
 
 [node name="Collision" type="CollisionShape3D" parent="." unique_id=655269563]
 shape = SubResource("BoxShape3D_4to0f")
@@ -143,9 +152,6 @@ mesh = SubResource("CylinderMesh_7r5ry")
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="PlayerModel" unique_id=654896178]
 transform = Transform3D(0.10666935, 0.0031084176, -8.4956904e-05, -0.00030898792, 0.027010195, 0.108235724, 0.002167947, -0.14909366, 0.019606493, -0.00048350543, 0.07824852, -0.17010412)
 mesh = SubResource("CylinderMesh_7r5ry")
-
-[node name="ShieldMesh" type="MeshInstance3D" parent="." unique_id=1542980402]
-mesh = SubResource("SphereMesh_0gcbb")
 
 [connection signal="area_entered" from="DamageHitbox" to="." method="_on_damage_hitbox_area_entered"]
 [connection signal="area_entered" from="CubeHitbox" to="." method="_on_cube_hitbox_area_entered"]
