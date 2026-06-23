@@ -116,4 +116,4 @@ visible = false
 
 [connection signal="is_flying_changed" from="Player" to="." method="_on_player_is_flying_changed"]
 [connection signal="was_damaged" from="Player" to="." method="_on_player_was_damaged"]
-[connection signal="area_entered" from="Player/PickupArea" to="." method="_on_pickup_area_area_entered" flags=6]
+[connection signal="area_entered" from="Player/PickupArea" to="." method="_on_pickup_area_area_entered"]

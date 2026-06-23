@@ -18,7 +18,7 @@ func _ready() -> void:
 	randomize()
 	spawn_grid()
 	set_mines()
-	spawn_powerups(0.9)
+	spawn_powerups(0.5)
 
 
 func _physics_process(delta: float) -> void:
@@ -99,7 +99,7 @@ func spawn_powerups(chance: float) -> void:
 		return
 
 	var instance := PICKUP.instantiate()
-	var rand_x := rng.randi_range(0, GRID_WIDTH)
-	var rand_z := rng.randi_range(0, GRID_HEIGHT)
+	var rand_x := rng.randi_range(0, GRID_WIDTH-1)
+	var rand_z := rng.randi_range(0, GRID_HEIGHT-1)
 	instance.transform.origin = Vector3(rand_x * CUBE_DISTANCE, 1.0, rand_z * CUBE_DISTANCE)
 	add_child(instance)
