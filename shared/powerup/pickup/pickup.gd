@@ -24,4 +24,3 @@ func _physics_process(delta: float) -> void:
 
 func pick_up() -> void:
 	queue_free()
-	print("picked up", powerup)

@@ -3,6 +3,7 @@ extends AnimatableBody3D
 const CUBE = preload("uid://cnor6jdbe28rj")
 const CUBE_CHUNK = preload("uid://dgxv52jn27v3c")
 const FOREST_CHUNK = preload("uid://dhlda46fqvnos")
+const PICKUP = preload("uid://cshkipadmqt3c")
 
 @export var NUMBER_OF_MINES: int = 10
 @export var has_spawned: bool = false
@@ -17,6 +18,7 @@ func _ready() -> void:
 	randomize()
 	spawn_grid()
 	set_mines()
+	spawn_powerups(0.9)
 
 
 func _physics_process(delta: float) -> void:
@@ -88,3 +90,16 @@ func spawn_forest() -> void:
 	var forest_position := Vector3(-9, 0.57, global_position.z - 4.49)
 	forest_instance.transform.origin = forest_position
 	add_sibling(forest_instance)
+
+
+func spawn_powerups(chance: float) -> void:
+	var rng := RandomNumberGenerator.new()
+	var random_number := rng.randf_range(0.0, 1.0)
+	if random_number > chance:
+		return
+
+	var instance := PICKUP.instantiate()
+	var rand_x := rng.randi_range(0, GRID_WIDTH)
+	var rand_z := rng.randi_range(0, GRID_HEIGHT)
+	instance.transform.origin = Vector3(rand_x * CUBE_DISTANCE, 1.0, rand_z * CUBE_DISTANCE)
+	add_child(instance)

@@ -88,6 +88,5 @@ func use_powerup() -> void:
 func _on_pickup_area_area_entered(area: Area3D) -> void:
 	if area is Pickup:
 		available_powerup = area.powerup
-		print(area.powerup)
 		area.pick_up()
 		bomb_powerup_mesh.visible = true
