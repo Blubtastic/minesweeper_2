@@ -5,8 +5,6 @@ class_name PlayerMovement
 # ==================== MOVEMENT PHYSICS ====================
 @export var base_speed: float = 5.0  # Base movement speed
 @export var forward_speed_bonus: float = 2.0  # Extra speed when moving forward
-@export var speed_multiplier: float = 1.0  # Current speed intensity (0-1 range)
-var joystick_direction: Vector2 = Vector2.ZERO  # Joystick input accumulator
 const ACCELERATION = 80
 const JUMP_VELOCITY = 6.0
 const ROTATION_DAMPING = 30.0  # Higher = less rotation tilt
@@ -37,23 +35,21 @@ func apply_gravity(delta: float) -> void:
 	p.velocity += p.get_gravity() * 2.0 * delta
 
 
-func update_horizontal_movement(direction: Vector3, delta: float) -> void:
-	var total_direction := Vector3(direction.x + joystick_direction.x, direction.y, direction.z + joystick_direction.y)
-
-	if total_direction:
-		apply_movement(total_direction, delta)
+func update_horizontal_movement(direction: Vector3, multiplier: float, delta: float) -> void:
+	if direction:
+		apply_movement(direction, multiplier, delta)
 	else:
 		decelerate(delta)
 
 
-func apply_movement(direction: Vector3, delta: float) -> void:
+func apply_movement(direction: Vector3, multiplier: float, delta: float) -> void:
 	# Lateral movement
-	var max_x_velocity := direction.x * base_speed * speed_multiplier
+	var max_x_velocity := direction.x * base_speed * multiplier
 	p.velocity.x = move_toward(p.velocity.x, max_x_velocity, ACCELERATION * delta)
 
 	# Forward/backward movement (with directional bonus)
 	var z_speed := base_speed if direction.z > 0 else base_speed + forward_speed_bonus
-	var max_z_velocity: float = direction.z * z_speed * speed_multiplier + Globals.world_speed
+	var max_z_velocity: float = direction.z * z_speed * multiplier + Globals.world_speed
 	p.velocity.z = move_toward(p.velocity.z, max_z_velocity, ACCELERATION * delta)
 
 

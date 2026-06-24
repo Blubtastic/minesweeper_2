@@ -5,34 +5,20 @@ class_name Player
 @export var hp: int = 3
 @onready var player_vfx := $PlayerVFX
 @onready var player_powerups: Node3D = $PlayerPowerups
-@onready var joystick: Control = $TouchControls/AnchorBottomLeft/Joystick
-var player_movement := PlayerMovement.new(self)
 @onready var player_inputs: PlayerInputs = $PlayerInputs
-
-
-func _on_joystick_moved(dir: Vector2, speed: float) -> void:
-	player_movement.joystick_direction = dir.normalized()
-	player_movement.speed_multiplier = speed
+var player_movement := PlayerMovement.new(self)
 
 
 func _ready() -> void:
 	Globals.shared_hp_changed.connect(func(new_hp: int) -> void: hp = new_hp)
-	if joystick.visible:
-		joystick.joystick_moved.connect(_on_joystick_moved)
 
 
 func _physics_process(delta: float) -> void:
 	Globals.set_player_position(id, position)
-	## Input setup could be moved to its own class.
-	var input_dir := Input.get_vector(
-		"move_left_player" + str(id),
-		"move_right_player" + str(id),
-		"move_up_player" + str(id),
-		"move_down_player" + str(id),
-	)
-	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+	var direction := player_inputs.get_direction()
+	var speed_multiplier := player_inputs.get_speed_multiplier()
 	player_movement.handle_base_movement(delta)
-	player_movement.update_horizontal_movement(direction, delta)
+	player_movement.update_horizontal_movement(direction,speed_multiplier, delta)
 	player_vfx.update_visuals(delta)
 	player_vfx.handle_tire_debris(direction, hp)
 

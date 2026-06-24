@@ -77,9 +77,13 @@ collision_layer = 136
 collision_mask = 136
 script = ExtResource("1_fjkuh")
 
-[node name="TouchControls" type="Node" parent="." unique_id=923221922]
+[node name="PlayerInputs" type="Node" parent="." unique_id=528199855 node_paths=PackedStringArray("p")]
+script = ExtResource("8_rgyib")
+p = NodePath("..")
 
-[node name="Jump" type="Control" parent="TouchControls" unique_id=1906549580]
+[node name="TouchControls" type="Node" parent="PlayerInputs" unique_id=923221922]
+
+[node name="Jump" type="Control" parent="PlayerInputs/TouchControls" unique_id=1906549580]
 layout_mode = 3
 anchors_preset = 3
 anchor_left = 1.0
@@ -90,7 +94,7 @@ grow_horizontal = 0
 grow_vertical = 0
 metadata/_edit_use_anchors_ = true
 
-[node name="Space" type="Control" parent="TouchControls/Jump" unique_id=1942267135]
+[node name="Space" type="Control" parent="PlayerInputs/TouchControls/Jump" unique_id=1942267135]
 layout_mode = 1
 anchor_left = 0.80500007
 anchor_top = 0.648
@@ -102,7 +106,7 @@ offset_right = -35.99994
 offset_bottom = -36.787994
 metadata/_edit_group_ = true
 
-[node name="Space" type="TouchScreenButton" parent="TouchControls/Jump/Space" unique_id=502662707]
+[node name="Space" type="TouchScreenButton" parent="PlayerInputs/TouchControls/Jump/Space" unique_id=502662707]
 scale = Vector2(1.2734376, 1.2734377)
 texture_normal = SubResource("GradientTexture2D_xfkku")
 shape = SubResource("RectangleShape2D_smwl4")
@@ -110,7 +114,7 @@ passby_press = true
 action = "ui_accept"
 visibility_mode = 1
 
-[node name="AnchorBottomLeft" type="Control" parent="TouchControls" unique_id=1426077961]
+[node name="AnchorBottomLeft" type="Control" parent="PlayerInputs/TouchControls" unique_id=1426077961]
 layout_mode = 3
 anchors_preset = 2
 anchor_top = 1.0
@@ -118,7 +122,7 @@ anchor_bottom = 1.0
 grow_vertical = 0
 metadata/_edit_use_anchors_ = true
 
-[node name="Joystick" parent="TouchControls/AnchorBottomLeft" unique_id=871642653 instance=ExtResource("7_1a7yo")]
+[node name="Joystick" parent="PlayerInputs/TouchControls/AnchorBottomLeft" unique_id=871642653 instance=ExtResource("7_1a7yo")]
 layout_mode = 0
 offset_left = 120.0
 offset_top = -120.0
@@ -239,11 +243,8 @@ collision_mask = 8
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.07370594, 0)
 shape = SubResource("CapsuleShape3D_qlff2")
 
-[node name="PlayerInputs" type="Node" parent="." unique_id=528199855]
-script = ExtResource("8_rgyib")
-
+[connection signal="on_jump_pressed" from="PlayerInputs" to="." method="_on_player_inputs_on_jump_pressed"]
+[connection signal="on_powerup_pressed" from="PlayerInputs" to="." method="_on_player_inputs_on_powerup_pressed"]
 [connection signal="area_entered" from="PlayerPowerups/PickupArea" to="PlayerPowerups" method="_on_pickup_area_area_entered"]
 [connection signal="area_entered" from="DamageHitbox" to="." method="_on_damage_hitbox_area_entered"]
 [connection signal="area_entered" from="CubeHitbox" to="." method="_on_cube_hitbox_area_entered"]
-[connection signal="on_jump_pressed" from="PlayerInputs" to="." method="_on_player_inputs_on_jump_pressed"]
-[connection signal="on_powerup_pressed" from="PlayerInputs" to="." method="_on_player_inputs_on_powerup_pressed"]
