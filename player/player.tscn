@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://wm4fhpxioees" path="res://player/player_powerups.gd" id="5_iku1u"]
 [ext_resource type="PackedScene" uid="uid://dwo5daidymqix" path="res://shared/powerup/bomb.blend" id="6_7i7sy"]
 [ext_resource type="PackedScene" uid="uid://bej6m82ih40n5" path="res://shared/ui/joystick/joystick.tscn" id="7_1a7yo"]
+[ext_resource type="Script" uid="uid://byhm3ahosfb45" path="res://player/player_inputs.gd" id="8_rgyib"]
 
 [sub_resource type="Gradient" id="Gradient_rkubv"]
 offsets = PackedFloat32Array(0, 0.6674009, 0.6696035)
@@ -238,6 +239,11 @@ collision_mask = 8
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.07370594, 0)
 shape = SubResource("CapsuleShape3D_qlff2")
 
+[node name="PlayerInputs" type="Node" parent="." unique_id=528199855]
+script = ExtResource("8_rgyib")
+
 [connection signal="area_entered" from="PlayerPowerups/PickupArea" to="PlayerPowerups" method="_on_pickup_area_area_entered"]
 [connection signal="area_entered" from="DamageHitbox" to="." method="_on_damage_hitbox_area_entered"]
 [connection signal="area_entered" from="CubeHitbox" to="." method="_on_cube_hitbox_area_entered"]
+[connection signal="on_jump_pressed" from="PlayerInputs" to="." method="_on_player_inputs_on_jump_pressed"]
+[connection signal="on_powerup_pressed" from="PlayerInputs" to="." method="_on_player_inputs_on_powerup_pressed"]

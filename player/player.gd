@@ -3,19 +3,11 @@ class_name Player
 
 @export_range(1,2) var id := 1
 @export var hp: int = 3
-var player_movement := PlayerMovement.new(self)
 @onready var player_vfx := $PlayerVFX
 @onready var player_powerups: Node3D = $PlayerPowerups
 @onready var joystick: Control = $TouchControls/AnchorBottomLeft/Joystick
-
-
-func _input(event: InputEvent) -> void:
-	if event is InputEventKey and event.pressed:
-		if event.is_action_pressed("jump_player" + str(id)) and is_on_floor():
-			player_movement.jump()
-			player_vfx.fire_poof_below_player()
-		if event.is_action_pressed("use_powerup_player" + str(id)):
-			player_powerups.use_powerup()
+var player_movement := PlayerMovement.new(self)
+@onready var player_inputs: PlayerInputs = $PlayerInputs
 
 
 func _on_joystick_moved(dir: Vector2, speed: float) -> void:
@@ -63,7 +55,7 @@ func damage() -> void:
 	Music.start_low_pass_filter()
 
 
-# ==================== COLLISION CALLBACKS ====================
+# ==================== COLLISION SIGNALS ====================
 func _on_damage_hitbox_area_entered(_area: Area3D) -> void:
 	damage()
 
@@ -71,3 +63,14 @@ func _on_damage_hitbox_area_entered(_area: Area3D) -> void:
 func _on_cube_hitbox_area_entered(area: Area3D) -> void:
 	if area.has_method("damage"):
 		area.damage(self)
+
+
+# ==================== INPUT SIGNALS ====================
+func _on_player_inputs_on_jump_pressed() -> void:
+	if is_on_floor():
+		player_movement.jump()
+		player_vfx.fire_poof_below_player()
+
+
+func _on_player_inputs_on_powerup_pressed() -> void:
+	player_powerups.use_powerup()
