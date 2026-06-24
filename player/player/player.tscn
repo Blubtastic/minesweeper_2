@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://dyen06fs8v7j6"]
 
-[ext_resource type="Script" uid="uid://cahfvs4cexpdp" path="res://game_player/player/player.gd" id="1_fjkuh"]
-[ext_resource type="Script" uid="uid://qmla0pkdvews" path="res://game_player/player/visual_effects.gd" id="2_3f042"]
-[ext_resource type="PackedScene" uid="uid://dbi36hqar6db8" path="res://game_player/player/player_shadow.tscn" id="4_vrm5f"]
-[ext_resource type="PackedScene" uid="uid://b7wmb8jxswbil" path="res://game_player/player/particles/tire_debris_snow.tscn" id="5_5hepr"]
-[ext_resource type="Script" uid="uid://wm4fhpxioees" path="res://game_player/player/powerups.gd" id="5_iku1u"]
+[ext_resource type="Script" uid="uid://cahfvs4cexpdp" path="res://player/player/player.gd" id="1_fjkuh"]
+[ext_resource type="Script" uid="uid://qmla0pkdvews" path="res://player/player/visual_effects.gd" id="2_3f042"]
+[ext_resource type="PackedScene" uid="uid://dbi36hqar6db8" path="res://player/player/player_shadow.tscn" id="4_vrm5f"]
+[ext_resource type="PackedScene" uid="uid://b7wmb8jxswbil" path="res://player/player/particles/tire_debris_snow.tscn" id="5_5hepr"]
+[ext_resource type="Script" uid="uid://wm4fhpxioees" path="res://player/player/powerups.gd" id="5_iku1u"]
 [ext_resource type="PackedScene" uid="uid://dwo5daidymqix" path="res://shared/powerup/bomb.blend" id="6_7i7sy"]
 [ext_resource type="PackedScene" uid="uid://bej6m82ih40n5" path="res://shared/ui/joystick/joystick.tscn" id="7_1a7yo"]
 
