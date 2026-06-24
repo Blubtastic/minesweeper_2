@@ -1,12 +1,34 @@
 [gd_scene format=3 uid="uid://ccotdq6huom6h"]
 
-[ext_resource type="PackedScene" uid="uid://b0boueut21rwe" path="res://game_player/game_player.tscn" id="1_778wx"]
+[ext_resource type="PackedScene" uid="uid://dyen06fs8v7j6" path="res://game_player/player/player.tscn" id="1_778wx"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_778wx"]
+albedo_color = Color(1, 0, 1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_778wx"]
+material = SubResource("StandardMaterial3D_778wx")
+size = Vector3(0.24, 0.01, 0.4)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_edioh"]
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_k7wbh"]
+material = SubResource("StandardMaterial3D_edioh")
+size = Vector3(0.24, 0.01, 0.4)
 
 [node name="2Player" type="Node3D" unique_id=1289688280]
 
-[node name="GamePlayer1" parent="." unique_id=1696932808 instance=ExtResource("1_778wx")]
+[node name="Player1" parent="." unique_id=1383705294 instance=ExtResource("1_778wx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0)
 
-[node name="GamePlayer2" parent="." unique_id=43179588 instance=ExtResource("1_778wx")]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Player1" unique_id=838221081]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.16717072, 0)
+mesh = SubResource("BoxMesh_778wx")
+
+[node name="Player2" parent="." unique_id=1690783852 instance=ExtResource("1_778wx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
-player_id = 2
+id = 2
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Player2" unique_id=85842316]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.16717072, 0)
+mesh = SubResource("BoxMesh_k7wbh")
