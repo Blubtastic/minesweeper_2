@@ -1,20 +1,16 @@
 extends Node3D
 
 
-const SPARKS := preload("uid://dvabslbqfwp0v")
-
 @export_range(1,2) var player_id := 1
-@onready var joystick: Control = $AnchorBottomLeft/Joystick
 @onready var player: Player = $Player
+@onready var joystick: Control = $AnchorBottomLeft/Joystick
+const SPARKS := preload("uid://dvabslbqfwp0v")
 var available_powerup: PackedScene
 @onready var bomb_powerup_mesh: Node3D = $Player/bomb
 
 
 func _ready() -> void:
-	Globals.shared_hp_changed.connect(_on_shared_hp_changed)
-	player.player_id = player_id
-
-	player.player_movement.base_speed = Globals.player_speed
+# ==================== JOYSTICK LOGIC ====================
 	if joystick.visible:
 		joystick.joystick_moved.connect(_on_joystick_moved)
 
@@ -24,17 +20,12 @@ func _on_joystick_moved(dir: Vector2, speed: float) -> void:
 	player.player_movement.speed_multiplier = speed
 
 
+# ==================== POWERUP LOGIC ====================
 func _physics_process(_delta: float) -> void:
-	Globals.set_player_position(player_id, player.position)
 	if Input.is_action_just_pressed("use_powerup_player" + str(player_id)):
 		use_powerup()
 
 
-func _on_shared_hp_changed(new_hp: int) -> void:
-	player.hp = new_hp
-
-
-# ==================== POWERUP LOGIC ====================
 # Hardcoded to fire ImpactGrenade powerup
 func use_powerup() -> void:
 	if !available_powerup:

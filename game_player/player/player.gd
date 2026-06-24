@@ -8,7 +8,12 @@ var player_movement := PlayerMovement.new(self)
 @onready var visual_effects := $VisualEffects
 
 
+func _ready() -> void:
+	Globals.shared_hp_changed.connect(func(new_hp: int) -> void: hp = new_hp)
+
+
 func _physics_process(delta: float) -> void:
+	Globals.set_player_position(player_id, position)
 	## Input setup could be moved to its own class.
 	var input_dir := Input.get_vector(
 		"move_left_player" + str(player_id),

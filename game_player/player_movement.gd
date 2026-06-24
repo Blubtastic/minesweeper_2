@@ -19,6 +19,10 @@ func _init(player: Player) -> void:
 	p = player
 
 
+func _ready() -> void:
+	base_speed = Globals.player_speed
+
+
 func handle_base_movement(delta: float) -> void:
 	apply_gravity(delta)
 	update_rotation_tilt()
