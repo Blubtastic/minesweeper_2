@@ -86,6 +86,5 @@ shape = SubResource("BoxShape3D_cx7ix")
 transform = Transform3D(-0.004354697, 0.0258836, -0.07192807, -0.015877394, 0.070167296, 0.026211247, 0.074776426, 0.01640609, 0.0013766557, 0.0075597167, 0.16230087, -0.6175736)
 visible = false
 
-[connection signal="is_flying_changed" from="Player" to="." method="_on_player_is_flying_changed"]
 [connection signal="was_damaged" from="Player" to="." method="_on_player_was_damaged"]
 [connection signal="area_entered" from="Player/PickupArea" to="." method="_on_pickup_area_area_entered"]

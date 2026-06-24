@@ -31,11 +31,6 @@ func _physics_process(_delta: float) -> void:
 		use_powerup()
 
 
-func _on_player_is_flying_changed(is_flying: bool) -> void:
-	if is_flying == true:
-		Music.start_low_pass_filter()
-
-
 ## Merge with damage (player.gd)
 func _on_player_was_damaged(current_hp: int) -> void:
 	Globals.trigger_camera_jump()

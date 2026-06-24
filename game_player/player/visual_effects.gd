@@ -75,7 +75,7 @@ func fire_poof_below_player() -> void:
 	poof_instance.global_position = Vector3(p.global_position.x, p.global_position.y -0.16, p.global_position.z)
 
 
-func update_horizontal_debris(direction: Vector3, hp: int) -> void:
+func handle_tire_debris(direction: Vector3, hp: int) -> void:
 	if direction and hp > 0:
 		update_debris(p.is_on_floor())
 	else:
