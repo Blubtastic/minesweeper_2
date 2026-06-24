@@ -3,13 +3,20 @@ class_name Player
 
 @export_range(1,2) var id := 1
 @export var hp: int = 3
-var joystick_direction: Vector2 = Vector2.ZERO  # Joystick input accumulator
 var player_movement := PlayerMovement.new(self)
 @onready var visual_effects := $VisualEffects
+@onready var joystick: Control = $TouchControls/AnchorBottomLeft/Joystick
+
+
+func _on_joystick_moved(dir: Vector2, speed: float) -> void:
+	player_movement.joystick_direction = dir.normalized()
+	player_movement.speed_multiplier = speed
 
 
 func _ready() -> void:
 	Globals.shared_hp_changed.connect(func(new_hp: int) -> void: hp = new_hp)
+	if joystick.visible:
+		joystick.joystick_moved.connect(_on_joystick_moved)
 
 
 func _physics_process(delta: float) -> void:

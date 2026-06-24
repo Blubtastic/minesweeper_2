@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://b7wmb8jxswbil" path="res://game_player/player/particles/tire_debris_snow.tscn" id="5_5hepr"]
 [ext_resource type="Script" uid="uid://wm4fhpxioees" path="res://game_player/player/powerups.gd" id="5_iku1u"]
 [ext_resource type="PackedScene" uid="uid://dwo5daidymqix" path="res://shared/powerup/bomb.blend" id="6_7i7sy"]
+[ext_resource type="PackedScene" uid="uid://bej6m82ih40n5" path="res://shared/ui/joystick/joystick.tscn" id="7_1a7yo"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7r5ry"]
 transparency = 1
@@ -54,6 +55,21 @@ height = 0.05
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_7r5ry"]
 material = SubResource("StandardMaterial3D_uxr23")
+
+[sub_resource type="Gradient" id="Gradient_rkubv"]
+offsets = PackedFloat32Array(0, 0.6674009, 0.6696035)
+colors = PackedColorArray(0, 0, 0, 0.3137255, 0, 0, 0, 0.3137255, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_xfkku"]
+gradient = SubResource("Gradient_rkubv")
+width = 128
+height = 128
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0, 0)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_smwl4"]
+size = Vector2(128, 128)
 
 [node name="Player" type="CharacterBody3D" unique_id=1383705294]
 collision_layer = 136
@@ -172,6 +188,55 @@ mesh = SubResource("CylinderMesh_7r5ry")
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="PlayerModel" unique_id=654896178]
 transform = Transform3D(0.10666935, 0.0031084176, -8.4956904e-05, -0.00030898792, 0.027010195, 0.108235724, 0.002167947, -0.14909366, 0.019606493, -0.00048350543, 0.07824852, -0.17010412)
 mesh = SubResource("CylinderMesh_7r5ry")
+
+[node name="TouchControls" type="Node" parent="." unique_id=923221922]
+
+[node name="Jump" type="Control" parent="TouchControls" unique_id=1906549580]
+layout_mode = 3
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="Space" type="Control" parent="TouchControls/Jump" unique_id=1942267135]
+layout_mode = 1
+anchor_left = 0.80500007
+anchor_top = 0.648
+anchor_right = 0.80500007
+anchor_bottom = 0.648
+offset_left = -200.0
+offset_top = -200.0
+offset_right = -35.99994
+offset_bottom = -36.787994
+metadata/_edit_group_ = true
+
+[node name="Space" type="TouchScreenButton" parent="TouchControls/Jump/Space" unique_id=502662707]
+scale = Vector2(1.2734376, 1.2734377)
+texture_normal = SubResource("GradientTexture2D_xfkku")
+shape = SubResource("RectangleShape2D_smwl4")
+passby_press = true
+action = "ui_accept"
+visibility_mode = 1
+
+[node name="AnchorBottomLeft" type="Control" parent="TouchControls" unique_id=1426077961]
+layout_mode = 3
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+grow_vertical = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="Joystick" parent="TouchControls/AnchorBottomLeft" unique_id=871642653 instance=ExtResource("7_1a7yo")]
+layout_mode = 0
+offset_left = 120.0
+offset_top = -120.0
+offset_right = 120.0
+offset_bottom = -120.0
+max_radius = 75
 
 [connection signal="area_entered" from="Powerups/PickupArea" to="Powerups" method="_on_pickup_area_area_entered"]
 [connection signal="area_entered" from="DamageHitbox" to="." method="_on_damage_hitbox_area_entered"]

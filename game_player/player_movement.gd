@@ -7,6 +7,7 @@ class_name PlayerMovement
 @export var base_speed: float = 5.0  # Base movement speed
 @export var forward_speed_bonus: float = 2.0  # Extra speed when moving forward
 @export var speed_multiplier: float = 1.0  # Current speed intensity (0-1 range)
+var joystick_direction: Vector2 = Vector2.ZERO  # Joystick input accumulator
 const ACCELERATION = 80
 const JUMP_VELOCITY = 6.0
 const ROTATION_DAMPING = 30.0  # Higher = less rotation tilt
@@ -38,8 +39,10 @@ func apply_gravity(delta: float) -> void:
 
 
 func update_horizontal_movement(direction: Vector3, delta: float) -> void:
-	if direction:
-		apply_movement(direction, delta)
+	var total_direction := Vector3(direction.x + joystick_direction.x, direction.y, direction.z + joystick_direction.y)
+
+	if total_direction:
+		apply_movement(total_direction, delta)
 	else:
 		decelerate(delta)
 
