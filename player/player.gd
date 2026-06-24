@@ -4,18 +4,18 @@ class_name Player
 @export_range(1,2) var id := 1
 @export var hp: int = 3
 var player_movement := PlayerMovement.new(self)
-@onready var visual_effects := $VisualEffects
+@onready var player_vfx := $PlayerVFX
+@onready var player_powerups: Node3D = $PlayerPowerups
 @onready var joystick: Control = $TouchControls/AnchorBottomLeft/Joystick
-@onready var powerups: Node3D = $Powerups
 
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventKey and event.pressed:
 		if event.is_action_pressed("jump_player" + str(id)) and is_on_floor():
 			player_movement.jump()
-			visual_effects.fire_poof_below_player()
+			player_vfx.fire_poof_below_player()
 		if event.is_action_pressed("use_powerup_player" + str(id)):
-			powerups.use_powerup()
+			player_powerups.use_powerup()
 
 
 func _on_joystick_moved(dir: Vector2, speed: float) -> void:
@@ -41,11 +41,8 @@ func _physics_process(delta: float) -> void:
 	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	player_movement.handle_base_movement(delta)
 	player_movement.update_horizontal_movement(direction, delta)
-	visual_effects.update_visuals(delta)
-	visual_effects.handle_tire_debris(direction, hp)
-	#if is_on_floor() and Input.is_action_just_pressed("jump_player" + str(id)):
-		#player_movement.jump()
-		#visual_effects.fire_poof_below_player()
+	player_vfx.update_visuals(delta)
+	player_vfx.handle_tire_debris(direction, hp)
 
 
 func damage() -> void:
@@ -62,7 +59,7 @@ func damage() -> void:
 	Globals.trigger_camera_jump()
 	TimerHelper.true_for_time(Globals, "players_invincible", 1.0)
 	player_movement.launch_self_upwards(hp <= 0)
-	visual_effects.handle_damage_trail_vfx(1.5)
+	player_vfx.handle_damage_trail_vfx(1.5)
 	Music.start_low_pass_filter()
 
 

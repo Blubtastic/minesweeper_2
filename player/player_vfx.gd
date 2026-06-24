@@ -10,7 +10,7 @@ const TRAIL_VFX_DURATION = 1.0
 const TRAIL_VFX_FADE_DURATION = 1.0
 var shield_opacity: float = 0.0  # Current shield visual opacity
 
-const POOF = preload("uid://ddwftyj3tif34")
+const POOF = preload("uid://bqxows5t0aoxo")
 const SPARKS = preload("uid://dvabslbqfwp0v")
 const TRAIL_VFX = preload("uid://drynt1383xlht")
 @onready var left_debris: Node3D = $LeftDebris

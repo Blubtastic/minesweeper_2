@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://dyen06fs8v7j6"]
 
-[ext_resource type="Script" uid="uid://cahfvs4cexpdp" path="res://player/player/player.gd" id="1_fjkuh"]
-[ext_resource type="Script" uid="uid://qmla0pkdvews" path="res://player/player/visual_effects.gd" id="2_3f042"]
-[ext_resource type="PackedScene" uid="uid://dbi36hqar6db8" path="res://player/player/player_shadow.tscn" id="4_vrm5f"]
-[ext_resource type="PackedScene" uid="uid://b7wmb8jxswbil" path="res://player/player/particles/tire_debris_snow.tscn" id="5_5hepr"]
-[ext_resource type="Script" uid="uid://wm4fhpxioees" path="res://player/player/powerups.gd" id="5_iku1u"]
+[ext_resource type="Script" uid="uid://cahfvs4cexpdp" path="res://player/player.gd" id="1_fjkuh"]
+[ext_resource type="Script" uid="uid://qmla0pkdvews" path="res://player/player_vfx.gd" id="2_3f042"]
+[ext_resource type="PackedScene" uid="uid://dbi36hqar6db8" path="res://player/player_shadow.tscn" id="4_vrm5f"]
+[ext_resource type="PackedScene" uid="uid://b7wmb8jxswbil" path="res://player/particles/tire_debris_snow.tscn" id="5_5hepr"]
+[ext_resource type="Script" uid="uid://wm4fhpxioees" path="res://player/player_powerups.gd" id="5_iku1u"]
 [ext_resource type="PackedScene" uid="uid://dwo5daidymqix" path="res://shared/powerup/bomb.blend" id="6_7i7sy"]
 [ext_resource type="PackedScene" uid="uid://bej6m82ih40n5" path="res://shared/ui/joystick/joystick.tscn" id="7_1a7yo"]
 
@@ -76,37 +76,37 @@ collision_layer = 136
 collision_mask = 136
 script = ExtResource("1_fjkuh")
 
-[node name="VisualEffects" type="Node3D" parent="." unique_id=391993278 node_paths=PackedStringArray("p")]
+[node name="PlayerVFX" type="Node3D" parent="." unique_id=391993278 node_paths=PackedStringArray("p")]
 script = ExtResource("2_3f042")
 p = NodePath("..")
 
-[node name="ShieldMesh" type="MeshInstance3D" parent="VisualEffects" unique_id=1542980402]
+[node name="ShieldMesh" type="MeshInstance3D" parent="PlayerVFX" unique_id=1542980402]
 mesh = SubResource("SphereMesh_0gcbb")
 skeleton = NodePath("../..")
 
-[node name="LeftDebris" parent="VisualEffects" unique_id=34965598 instance=ExtResource("5_5hepr")]
+[node name="LeftDebris" parent="PlayerVFX" unique_id=34965598 instance=ExtResource("5_5hepr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.166163, -0.18674009, 0.12635526)
 
-[node name="RightDebris" parent="VisualEffects" unique_id=649540690 instance=ExtResource("5_5hepr")]
+[node name="RightDebris" parent="PlayerVFX" unique_id=649540690 instance=ExtResource("5_5hepr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.171288, -0.18674009, 0.12635526)
 
-[node name="PlayerShadow" parent="." unique_id=774143020 instance=ExtResource("4_vrm5f")]
-transform = Transform3D(1.3, 0, 0, 0, 1.3, 0, 0, 0, 1.3, 0, -0.175307, 0)
-
-[node name="Powerups" type="Node3D" parent="." unique_id=311271548 node_paths=PackedStringArray("p")]
+[node name="PlayerPowerups" type="Node3D" parent="." unique_id=311271548 node_paths=PackedStringArray("p")]
 script = ExtResource("5_iku1u")
 p = NodePath("..")
 
-[node name="PickupArea" type="Area3D" parent="Powerups" unique_id=4443892]
+[node name="PickupArea" type="Area3D" parent="PlayerPowerups" unique_id=4443892]
 collision_layer = 128
 collision_mask = 128
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Powerups/PickupArea" unique_id=889862393]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerPowerups/PickupArea" unique_id=889862393]
 shape = SubResource("BoxShape3D_1a7yo")
 
-[node name="bomb" parent="Powerups" unique_id=296692532 instance=ExtResource("6_7i7sy")]
+[node name="bomb" parent="PlayerPowerups" unique_id=296692532 instance=ExtResource("6_7i7sy")]
 transform = Transform3D(-0.004354697, 0.0258836, -0.07192807, -0.015877394, 0.070167296, 0.026211247, 0.074776426, 0.01640609, 0.0013766557, 0.0075597167, 0.16230087, -0.6175736)
 visible = false
+
+[node name="PlayerShadow" parent="." unique_id=774143020 instance=ExtResource("4_vrm5f")]
+transform = Transform3D(1.3, 0, 0, 0, 1.3, 0, 0, 0, 1.3, 0, -0.175307, 0)
 
 [node name="Collision" type="CollisionShape3D" parent="." unique_id=655269563]
 shape = SubResource("BoxShape3D_4to0f")
@@ -238,6 +238,6 @@ offset_right = 120.0
 offset_bottom = -120.0
 max_radius = 75
 
-[connection signal="area_entered" from="Powerups/PickupArea" to="Powerups" method="_on_pickup_area_area_entered"]
+[connection signal="area_entered" from="PlayerPowerups/PickupArea" to="PlayerPowerups" method="_on_pickup_area_area_entered"]
 [connection signal="area_entered" from="DamageHitbox" to="." method="_on_damage_hitbox_area_entered"]
 [connection signal="area_entered" from="CubeHitbox" to="." method="_on_cube_hitbox_area_entered"]
