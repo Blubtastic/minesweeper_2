@@ -1,7 +1,7 @@
 extends CharacterBody3D
 class_name Player
 
-@export_range(1,2) var player_id := 1
+@export_range(1,2) var id := 1
 @export var hp: int = 3
 var joystick_direction: Vector2 = Vector2.ZERO  # Joystick input accumulator
 var player_movement := PlayerMovement.new(self)
@@ -13,13 +13,13 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
-	Globals.set_player_position(player_id, position)
+	Globals.set_player_position(id, position)
 	## Input setup could be moved to its own class.
 	var input_dir := Input.get_vector(
-		"move_left_player" + str(player_id),
-		"move_right_player" + str(player_id),
-		"move_up_player" + str(player_id),
-		"move_down_player" + str(player_id),
+		"move_left_player" + str(id),
+		"move_right_player" + str(id),
+		"move_up_player" + str(id),
+		"move_down_player" + str(id),
 	)
 	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	player_movement.handle_base_movement(delta)
@@ -27,7 +27,7 @@ func _physics_process(delta: float) -> void:
 	visual_effects.update_visuals(delta)
 	visual_effects.handle_tire_debris(direction, hp)
 
-	if is_on_floor() and Input.is_action_just_pressed("jump_player" + str(player_id)):
+	if is_on_floor() and Input.is_action_just_pressed("jump_player" + str(id)):
 		player_movement.jump()
 		visual_effects.fire_poof_below_player()
 

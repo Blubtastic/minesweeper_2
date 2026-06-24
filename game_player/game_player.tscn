@@ -3,7 +3,6 @@
 [ext_resource type="Script" uid="uid://k6whdc0a3ar0" path="res://game_player/game_player.gd" id="1_ejsqx"]
 [ext_resource type="PackedScene" uid="uid://bej6m82ih40n5" path="res://shared/ui/joystick/joystick.tscn" id="2_ejsqx"]
 [ext_resource type="PackedScene" uid="uid://dyen06fs8v7j6" path="res://game_player/player/player.tscn" id="3_ejsqx"]
-[ext_resource type="PackedScene" uid="uid://dwo5daidymqix" path="res://shared/powerup/bomb.blend" id="6_8jeuh"]
 
 [sub_resource type="Gradient" id="Gradient_rkubv"]
 offsets = PackedFloat32Array(0, 0.6674009, 0.6696035)
@@ -19,9 +18,6 @@ fill_to = Vector2(0, 0)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cx7ix"]
 size = Vector2(128, 128)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_cx7ix"]
-size = Vector3(0.30078125, 0.3328247, 0.57177734)
 
 [node name="GamePlayer" type="Node3D" unique_id=1696932808]
 script = ExtResource("1_ejsqx")
@@ -74,16 +70,3 @@ offset_bottom = -120.0
 max_radius = 75
 
 [node name="Player" parent="." unique_id=1383705294 instance=ExtResource("3_ejsqx")]
-
-[node name="PickupArea" type="Area3D" parent="Player" unique_id=574497741]
-collision_layer = 128
-collision_mask = 128
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Player/PickupArea" unique_id=11587342]
-shape = SubResource("BoxShape3D_cx7ix")
-
-[node name="bomb" parent="Player" unique_id=296692532 instance=ExtResource("6_8jeuh")]
-transform = Transform3D(-0.004354697, 0.0258836, -0.07192807, -0.015877394, 0.070167296, 0.026211247, 0.074776426, 0.01640609, 0.0013766557, 0.0075597167, 0.16230087, -0.6175736)
-visible = false
-
-[connection signal="area_entered" from="Player/PickupArea" to="." method="_on_pickup_area_area_entered"]
