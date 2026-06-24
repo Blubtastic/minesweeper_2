@@ -6,11 +6,6 @@ var available_powerup: PackedScene
 @onready var bomb_powerup_mesh: Node3D = $bomb
 
 
-func _physics_process(_delta: float) -> void:
-	if Input.is_action_just_pressed("use_powerup_player" + str(p.id)):
-		use_powerup()
-
-
 # Hardcoded to fire ImpactGrenade powerup
 func use_powerup() -> void:
 	if !available_powerup:

@@ -6,6 +6,16 @@ class_name Player
 var player_movement := PlayerMovement.new(self)
 @onready var visual_effects := $VisualEffects
 @onready var joystick: Control = $TouchControls/AnchorBottomLeft/Joystick
+@onready var powerups: Node3D = $Powerups
+
+
+func _input(event: InputEvent) -> void:
+	if event is InputEventKey and event.pressed:
+		if event.is_action_pressed("jump_player" + str(id)) and is_on_floor():
+			player_movement.jump()
+			visual_effects.fire_poof_below_player()
+		if event.is_action_pressed("use_powerup_player" + str(id)):
+			powerups.use_powerup()
 
 
 func _on_joystick_moved(dir: Vector2, speed: float) -> void:
@@ -33,10 +43,9 @@ func _physics_process(delta: float) -> void:
 	player_movement.update_horizontal_movement(direction, delta)
 	visual_effects.update_visuals(delta)
 	visual_effects.handle_tire_debris(direction, hp)
-
-	if is_on_floor() and Input.is_action_just_pressed("jump_player" + str(id)):
-		player_movement.jump()
-		visual_effects.fire_poof_below_player()
+	#if is_on_floor() and Input.is_action_just_pressed("jump_player" + str(id)):
+		#player_movement.jump()
+		#visual_effects.fire_poof_below_player()
 
 
 func damage() -> void:
