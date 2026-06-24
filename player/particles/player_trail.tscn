@@ -34,7 +34,7 @@ height = 0.2
 radial_segments = 16
 rings = 16
 
-[node name="TrailVFX" type="Node3D" unique_id=2029761306]
+[node name="Trail" type="Node3D" unique_id=2029761306]
 
 [node name="Smoke" type="CPUParticles3D" parent="." unique_id=1471716680]
 amount = 100

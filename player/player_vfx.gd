@@ -6,33 +6,33 @@ const DEBRIS_PARTICLE_OFFSET_Y = -0.16
 const SHIELD_OPACITY_GOAL_ACTIVE = 0.5
 const SHIELD_OPACITY_GOAL_INACTIVE = 0.0
 const SHIELD_OPACITY_LERP_SPEED = 15.0
-const TRAIL_VFX_DURATION = 1.0
-const TRAIL_VFX_FADE_DURATION = 1.0
+const TRAIL_DURATION = 1.0
+const TRAIL_FADE_DURATION = 1.0
 var shield_opacity: float = 0.0  # Current shield visual opacity
 
 const POOF = preload("uid://bqxows5t0aoxo")
 const SPARKS = preload("uid://dvabslbqfwp0v")
-const TRAIL_VFX = preload("uid://drynt1383xlht")
+const TRAIL = preload("uid://drynt1383xlht")
 @onready var left_debris: Node3D = $LeftDebris
 @onready var right_debris: Node3D = $RightDebris
 @onready var shield_mesh: MeshInstance3D = $ShieldMesh
-
 @export var p: Player
 
 
-func handle_damage_trail_vfx(duration: float = 1.0) -> void:
-	spawn_damage_trail_vfx()
+func start_damage_trail(duration: float = 1.0) -> void:
+	spawn_damage_trail()
 	await get_tree().create_timer(duration).timeout
-	cleanup_damage_trail_vfx()
+	cleanup_damage_trail()
 
-func spawn_damage_trail_vfx() -> void:
-	var trail_vfx := TRAIL_VFX.instantiate()
+
+func spawn_damage_trail() -> void:
+	var trail_vfx := TRAIL.instantiate()
 	add_child(trail_vfx)
 	trail_vfx.name = "DamageTrailVFX"
 
 
-func cleanup_damage_trail_vfx() -> void:
-	await get_tree().create_timer(TRAIL_VFX_DURATION).timeout
+func cleanup_damage_trail() -> void:
+	await get_tree().create_timer(TRAIL_DURATION).timeout
 	var trail_vfx := get_node_or_null("DamageTrailVFX")
 	if not trail_vfx:
 		return
@@ -40,7 +40,7 @@ func cleanup_damage_trail_vfx() -> void:
 	trail_vfx.get_node("Smoke").emitting = false
 	trail_vfx.get_node("Fire").emitting = false
 
-	await get_tree().create_timer(TRAIL_VFX_FADE_DURATION).timeout
+	await get_tree().create_timer(TRAIL_FADE_DURATION).timeout
 	trail_vfx.queue_free()
 
 

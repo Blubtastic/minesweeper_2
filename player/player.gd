@@ -59,7 +59,7 @@ func damage() -> void:
 	Globals.trigger_camera_jump()
 	TimerHelper.true_for_time(Globals, "players_invincible", 1.0)
 	player_movement.launch_self_upwards(hp <= 0)
-	player_vfx.handle_damage_trail_vfx(1.5)
+	player_vfx.start_damage_trail(1.5)
 	Music.start_low_pass_filter()
 
 
