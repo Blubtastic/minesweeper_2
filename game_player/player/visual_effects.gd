@@ -20,6 +20,11 @@ const TRAIL_VFX = preload("uid://drynt1383xlht")
 @export var p: Player
 
 
+func handle_damage_trail_vfx(duration: float = 1.0) -> void:
+	spawn_damage_trail_vfx()
+	await get_tree().create_timer(duration).timeout
+	cleanup_damage_trail_vfx()
+
 func spawn_damage_trail_vfx() -> void:
 	var trail_vfx := TRAIL_VFX.instantiate()
 	add_child(trail_vfx)

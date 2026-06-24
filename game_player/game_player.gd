@@ -6,21 +6,13 @@ const SPARKS := preload("uid://dvabslbqfwp0v")
 @export_range(1,2) var player_id := 1
 @onready var joystick: Control = $AnchorBottomLeft/Joystick
 @onready var player: Player = $Player
-@onready var colored_roof_1: MeshInstance3D = $Player/ColoredRoof1
-@onready var colored_roof_2: MeshInstance3D = $Player/ColoredRoof2
 var available_powerup: PackedScene
 @onready var bomb_powerup_mesh: Node3D = $Player/bomb
 
 
 func _ready() -> void:
-	if player_id == 1:
-		colored_roof_1.visible = true
-	else:
-		colored_roof_2.visible = true
-
 	Globals.shared_hp_changed.connect(_on_shared_hp_changed)
-	if player_id:
-		player.player_id = player_id
+	player.player_id = player_id
 
 	player.player_movement.base_speed = Globals.player_speed
 	if joystick.visible:
@@ -44,6 +36,7 @@ func _on_player_is_flying_changed(is_flying: bool) -> void:
 		Music.start_low_pass_filter()
 
 
+## Merge with damage (player.gd)
 func _on_player_was_damaged(current_hp: int) -> void:
 	Globals.trigger_camera_jump()
 	Globals.set_shared_hp(current_hp)
@@ -83,6 +76,7 @@ func use_powerup() -> void:
 	sparks_instance.transform.origin = fire_position
 	sparks_instance.emitting = true
 	add_child(sparks_instance)
+
 
 func _on_pickup_area_area_entered(area: Area3D) -> void:
 	if area is Pickup:
