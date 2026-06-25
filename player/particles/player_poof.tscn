@@ -4,5 +4,4 @@
 [ext_resource type="Script" uid="uid://q1qiajs5je7r" path="res://player/particles/move_particle.gd" id="2_o151e"]
 
 [node name="PlayerPoof" unique_id=534971907 instance=ExtResource("1_nu8fv")]
-local_coords = false
 script = ExtResource("2_o151e")

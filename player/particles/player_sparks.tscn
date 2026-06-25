@@ -4,4 +4,5 @@
 [ext_resource type="Script" uid="uid://q1qiajs5je7r" path="res://player/particles/move_particle.gd" id="2_31f55"]
 
 [node name="Sparks" unique_id=1464151162 instance=ExtResource("1_2db4a")]
+local_coords = false
 script = ExtResource("2_31f55")

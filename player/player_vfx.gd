@@ -63,14 +63,14 @@ func update_collision_particles() -> void:
 	var collision := p.get_last_slide_collision()
 	if collision and collision.get_angle() == 0.0:
 		var instance := SPARKS.instantiate()
-		add_sibling(instance)
+		get_tree().root.add_child(instance)
 		instance.emitting = true
 		instance.global_position = Vector3(p.global_position.x, p.global_position.y -0.16, p.global_position.z)
 
 
 func fire_poof_below_player() -> void:
 	var poof_instance := POOF.instantiate()
-	add_sibling(poof_instance)
+	get_tree().root.add_child(poof_instance)
 	poof_instance.emitting = true
 	poof_instance.global_position = Vector3(p.global_position.x, p.global_position.y -0.16, p.global_position.z)
 
