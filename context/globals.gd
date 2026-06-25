@@ -2,8 +2,8 @@ extends Node
 
 const SCORE_PARTICLES = preload("uid://cwejm25ywsm0s")
 
-var default_world_speed: float = 3.0
-var world_speed: float = 3.0
+var default_world_speed: float = 1.0
+var world_speed: float = 1.0
 var is_2p: bool = false
 var game_mode: float = 0 # 0 is Stress, 1 is Chill
 var game_over: bool = false

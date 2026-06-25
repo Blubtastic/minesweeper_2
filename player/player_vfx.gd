@@ -9,9 +9,10 @@ const SHIELD_OPACITY_LERP_SPEED = 15.0
 const TRAIL_DURATION = 1.0
 const TRAIL_FADE_DURATION = 1.0
 var shield_opacity: float = 0.0  # Current shield visual opacity
+var is_on_floor: bool = true
 
 const POOF = preload("uid://bqxows5t0aoxo")
-const SPARKS = preload("uid://dvabslbqfwp0v")
+const SPARKS = preload("uid://j55l10fhpgty")
 const TRAIL = preload("uid://drynt1383xlht")
 @onready var left_debris: Node3D = $LeftDebris
 @onready var right_debris: Node3D = $RightDebris
@@ -60,12 +61,11 @@ func update_shield_visual(delta: float) -> void:
 
 
 func update_collision_particles() -> void:
-	var collision := p.get_last_slide_collision()
-	if collision and collision.get_angle() == 0.0:
+	if !is_on_floor and p.is_on_floor():
 		var instance := SPARKS.instantiate()
 		get_tree().root.add_child(instance)
-		instance.emitting = true
 		instance.global_position = Vector3(p.global_position.x, p.global_position.y -0.16, p.global_position.z)
+	is_on_floor = p.is_on_floor()
 
 
 func fire_poof_below_player() -> void:

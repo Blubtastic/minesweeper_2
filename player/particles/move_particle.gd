@@ -5,5 +5,4 @@ func _ready() -> void:
 
 ## Moves the particle to match the world speed.
 func _physics_process(delta: float) -> void:
-	print(Globals.world_speed)
 	global_position.z += Globals.world_speed*delta
