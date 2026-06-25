@@ -17,14 +17,14 @@ func use_powerup() -> void:
 	powerup_instance.linear_velocity = Vector3(0, 7.5, -4.5)
 	powerup_instance.source = p
 	powerup_instance.exploded.connect(Globals.trigger_camera_shake)
-	add_child(powerup_instance)
+	get_tree().root.add_child(powerup_instance)
 	available_powerup = null
 	bomb_powerup_mesh.visible = false
 
 	var sparks_instance := SPARKS.instantiate()
 	sparks_instance.transform.origin = fire_position
 	sparks_instance.emitting = true
-	add_child(sparks_instance)
+	get_tree().root.add_child(sparks_instance)
 
 
 func _on_pickup_area_area_entered(area: Area3D) -> void:
