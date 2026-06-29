@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://dwo5daidymqix" path="res://shared/powerup/bomb.blend" id="6_7i7sy"]
 [ext_resource type="PackedScene" uid="uid://bej6m82ih40n5" path="res://shared/ui/joystick/joystick.tscn" id="7_1a7yo"]
 [ext_resource type="Script" uid="uid://byhm3ahosfb45" path="res://player/player_inputs.gd" id="8_rgyib"]
+[ext_resource type="PackedScene" uid="uid://dsw6shcyn8u0v" path="res://player/PlayerModel.blend" id="9_hg6s5"]
 
 [sub_resource type="Gradient" id="Gradient_rkubv"]
 offsets = PackedFloat32Array(0, 0.6674009, 0.6696035)
@@ -36,6 +37,16 @@ material = SubResource("StandardMaterial3D_7r5ry")
 [sub_resource type="BoxShape3D" id="BoxShape3D_1a7yo"]
 size = Vector3(0.30078125, 0.3328247, 0.57177734)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uxr23"]
+diffuse_mode = 3
+albedo_color = Color(0.252285, 0.261702, 4.81308e-08, 1)
+roughness = 0.0
+emission = Color(0, 1, 1, 1)
+emission_energy_multiplier = 5.0
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_7r5ry"]
+material = SubResource("StandardMaterial3D_uxr23")
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rgyib"]
 albedo_color = Color(0.26657522, 0.2665752, 0.2665752, 1)
 metallic = 1.0
@@ -49,13 +60,6 @@ height = 1.0
 [sub_resource type="BoxMesh" id="BoxMesh_8t03j"]
 material = SubResource("StandardMaterial3D_rgyib")
 size = Vector3(1, 0.78, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uxr23"]
-diffuse_mode = 3
-albedo_color = Color(0.252285, 0.261702, 4.81308e-08, 1)
-roughness = 0.0
-emission = Color(0, 1, 1, 1)
-emission_energy_multiplier = 5.0
 
 [sub_resource type="BoxMesh" id="BoxMesh_8nayr"]
 material = SubResource("StandardMaterial3D_uxr23")
@@ -72,9 +76,6 @@ material = SubResource("StandardMaterial3D_fxman")
 top_radius = 0.1
 bottom_radius = 0.1
 height = 0.05
-
-[sub_resource type="CylinderMesh" id="CylinderMesh_7r5ry"]
-material = SubResource("StandardMaterial3D_uxr23")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4to0f"]
 size = Vector3(0.3, 0.258521, 0.5)
@@ -170,9 +171,21 @@ collision_mask = 128
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerPowerups/PickupArea" unique_id=889862393]
 shape = SubResource("BoxShape3D_1a7yo")
 
-[node name="bomb" parent="PlayerPowerups" unique_id=296692532 instance=ExtResource("6_7i7sy")]
-transform = Transform3D(-0.004354697, 0.0258836, -0.07192807, -0.015877394, 0.070167296, 0.026211247, 0.074776426, 0.01640609, 0.0013766557, 0.0075597167, 0.16230087, -0.6175736)
+[node name="Cannon" type="Node3D" parent="PlayerPowerups" unique_id=153830820]
 visible = false
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="PlayerPowerups/Cannon" unique_id=217090443]
+transform = Transform3D(0.042156015, 0.0068032066, -3.303104e-05, -0.00012211285, 0.05911559, 0.042081784, 0.0008567783, -0.3263123, 0.0076229563, 0.00072764605, 0.09017388, -0.22799668)
+mesh = SubResource("CylinderMesh_7r5ry")
+skeleton = NodePath("../../../PlayerModel")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="PlayerPowerups/Cannon" unique_id=654896178]
+transform = Transform3D(0.10666935, 0.0031084176, -8.4956904e-05, -0.00030898792, 0.027010195, 0.108235724, 0.002167947, -0.14909366, 0.019606493, -0.00048350543, 0.07824852, -0.17010412)
+mesh = SubResource("CylinderMesh_7r5ry")
+skeleton = NodePath("../../../PlayerModel")
+
+[node name="bomb" parent="PlayerPowerups/Cannon" unique_id=296692532 instance=ExtResource("6_7i7sy")]
+transform = Transform3D(-0.004354697, 0.0258836, -0.07192807, -0.015877394, 0.070167296, 0.026211247, 0.074776426, 0.01640609, 0.0013766557, 0.0075597167, 0.16230087, -0.6175736)
 
 [node name="PlayerShadow" parent="." unique_id=774143020 instance=ExtResource("4_vrm5f")]
 transform = Transform3D(1.3, 0, 0, 0, 1.3, 0, 0, 0, 1.3, 0, -0.175307, 0)
@@ -181,6 +194,7 @@ transform = Transform3D(1.3, 0, 0, 0, 1.3, 0, 0, 0, 1.3, 0, -0.175307, 0)
 
 [node name="MineClearingDevice" type="Node3D" parent="PlayerModel" unique_id=1668232901]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.39715502)
+visible = false
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="PlayerModel/MineClearingDevice" unique_id=1257072432]
 transform = Transform3D(-2.4099279e-08, -0.8394592, 0, 0.5513272, -3.669393e-08, 0, 0, 0, 0.5688435, 0, -0.07592317, -0.27301624)
@@ -195,6 +209,7 @@ transform = Transform3D(0.04233623, 0, 0, 0, 0.08932814, 0.13142066, 0, -0.02399
 mesh = SubResource("BoxMesh_8t03j")
 
 [node name="PlayerBody" type="Node3D" parent="PlayerModel" unique_id=1962547343]
+visible = false
 
 [node name="Body" type="MeshInstance3D" parent="PlayerModel/PlayerBody" unique_id=1401574444]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.032356262, 0)
@@ -248,15 +263,8 @@ transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -0.175
 mesh = SubResource("CylinderMesh_6xd78")
 skeleton = NodePath("../../..")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="PlayerModel/PlayerBody" unique_id=217090443]
-transform = Transform3D(0.042156015, 0.0068032066, -3.303104e-05, -0.00012211285, 0.05911559, 0.042081784, 0.0008567783, -0.3263123, 0.0076229563, 0.00072764605, 0.09017388, -0.22799668)
-mesh = SubResource("CylinderMesh_7r5ry")
-skeleton = NodePath("../..")
-
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="PlayerModel/PlayerBody" unique_id=654896178]
-transform = Transform3D(0.10666935, 0.0031084176, -8.4956904e-05, -0.00030898792, 0.027010195, 0.108235724, 0.002167947, -0.14909366, 0.019606493, -0.00048350543, 0.07824852, -0.17010412)
-mesh = SubResource("CylinderMesh_7r5ry")
-skeleton = NodePath("../..")
+[node name="PlayerModel" parent="PlayerModel" unique_id=1639702249 instance=ExtResource("9_hg6s5")]
+transform = Transform3D(0.2395342, 0, 0, 0, 0.2395342, 0, 0, 0, 0.2395342, 0.011803687, -0.0025213063, 0.016602956)
 
 [node name="Collision" type="CollisionShape3D" parent="." unique_id=655269563]
 shape = SubResource("BoxShape3D_4to0f")

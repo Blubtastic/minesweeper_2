@@ -3,7 +3,7 @@ extends Node3D
 @export var p: Player
 const SPARKS := preload("uid://dvabslbqfwp0v")
 var available_powerup: PackedScene
-@onready var bomb_powerup_mesh: Node3D = $bomb
+@onready var bomb_powerup_mesh: Node3D = $Cannon
 
 
 # Hardcoded to fire ImpactGrenade powerup
