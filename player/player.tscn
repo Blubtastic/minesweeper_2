@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://dwo5daidymqix" path="res://shared/powerup/bomb.blend" id="6_7i7sy"]
 [ext_resource type="PackedScene" uid="uid://bej6m82ih40n5" path="res://shared/ui/joystick/joystick.tscn" id="7_1a7yo"]
 [ext_resource type="Script" uid="uid://byhm3ahosfb45" path="res://player/player_inputs.gd" id="8_rgyib"]
-[ext_resource type="PackedScene" uid="uid://dsw6shcyn8u0v" path="res://player/PlayerModel.blend" id="9_hg6s5"]
+[ext_resource type="PackedScene" uid="uid://cu27xnfdhiaui" path="res://player/assets/PlayerModel.blend" id="9_hg6s5"]
 
 [sub_resource type="Gradient" id="Gradient_rkubv"]
 offsets = PackedFloat32Array(0, 0.6674009, 0.6696035)
@@ -263,8 +263,8 @@ transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -0.175
 mesh = SubResource("CylinderMesh_6xd78")
 skeleton = NodePath("../../..")
 
-[node name="PlayerModel" parent="PlayerModel" unique_id=900116731 instance=ExtResource("9_hg6s5")]
-transform = Transform3D(0.2395342, 0, 0, 0, 0.2395342, 0, 0, 0, 0.2395342, 0.011803687, -0.0025213063, 0.016602956)
+[node name="PlayerModel" parent="PlayerModel" unique_id=546114602 instance=ExtResource("9_hg6s5")]
+transform = Transform3D(0.24, 0, 0, 0, 0.24, 0, 0, 0, 0.24, 0.011803687, -0.0025213063, 0.016602956)
 
 [node name="Collision" type="CollisionShape3D" parent="." unique_id=655269563]
 shape = SubResource("BoxShape3D_4to0f")
