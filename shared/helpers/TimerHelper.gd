@@ -16,6 +16,7 @@ static func true_for_time(node: Node, property: String, duration: float) -> void
 	await node.get_tree().create_timer(duration).timeout
 	node.set(property, false)
 
-static func call_after_time(function: Callable, duration: float) -> void:
-	await Engine.get_main_loop().create_timer(duration).timeout
-	function.call()
+static func call_after_time(node: Node, function: Callable, duration: float) -> void:
+	await node.get_tree().create_timer(duration).timeout
+	if node:
+		function.call()
