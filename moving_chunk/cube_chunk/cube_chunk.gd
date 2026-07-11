@@ -5,6 +5,7 @@ const CUBE_CHUNK = preload("uid://dgxv52jn27v3c")
 const FOREST_CHUNK = preload("uid://dhlda46fqvnos")
 const PICKUP = preload("uid://cshkipadmqt3c")
 
+@export var should_spawn_things: bool = true
 @export var NUMBER_OF_MINES: int = 10
 @export var has_spawned: bool = false
 const GRID_HEIGHT := 6
@@ -15,10 +16,11 @@ var buffer_cubes := []
 
 
 func _ready() -> void:
-	randomize()
-	spawn_grid()
-	set_mines()
-	spawn_powerups(0.5)
+	if should_spawn_things:
+		randomize()
+		spawn_grid()
+		set_mines()
+		spawn_powerups(0.5)
 
 
 func _physics_process(delta: float) -> void:

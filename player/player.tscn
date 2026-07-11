@@ -87,6 +87,22 @@ size = Vector3(0.3, 0.258521, 0.5)
 radius = 0.01
 height = 0.49506813
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_37tqn"]
+albedo_color = Color(0.20871013, 0.20871016, 0.20871013, 1)
+metallic = 0.6
+roughness = 0.21
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_w1hta"]
+material = SubResource("StandardMaterial3D_37tqn")
+top_radius = 0.3
+bottom_radius = 0.7
+height = 3.6591797
+
+[sub_resource type="SphereMesh" id="SphereMesh_w1hta"]
+material = SubResource("StandardMaterial3D_37tqn")
+radius = 0.7
+height = 1.4
+
 [node name="Player" type="CharacterBody3D" unique_id=1383705294]
 collision_layer = 136
 collision_mask = 136
@@ -284,6 +300,17 @@ collision_mask = 8
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CubeHitbox" unique_id=1851477878]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.07370594, 0)
 shape = SubResource("CapsuleShape3D_qlff2")
+
+[node name="Antenna" type="Node3D" parent="." unique_id=808458242]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.060933568, 0.27279538, 0.22977838)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Antenna" unique_id=111013256]
+transform = Transform3D(0.015557822, 0, 0, 0, 0.14296757, 0, 0, 0, 0.015557822, 0, 0.11860445, 0)
+mesh = SubResource("CylinderMesh_w1hta")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Antenna" unique_id=199965404]
+transform = Transform3D(0.031568784, 0, 0, 0, 0.031568784, 0, 0, 0, 0.031568784, 0.00082498044, 0.4001267, 9.596348e-06)
+mesh = SubResource("SphereMesh_w1hta")
 
 [connection signal="on_jump_pressed" from="PlayerInputs" to="." method="_on_player_inputs_on_jump_pressed"]
 [connection signal="on_powerup_pressed" from="PlayerInputs" to="." method="_on_player_inputs_on_powerup_pressed"]
