@@ -40,9 +40,10 @@ func cleanup_damage_trail() -> void:
 
 	trail_vfx.get_node("Smoke").emitting = false
 	trail_vfx.get_node("Fire").emitting = false
-
-	await get_tree().create_timer(TRAIL_FADE_DURATION).timeout
-	trail_vfx.queue_free()
+	
+	TimerHelper.call_after_time(trail_vfx.queue_free, TRAIL_FADE_DURATION)
+	#await get_tree().create_timer(TRAIL_FADE_DURATION).timeout
+	#trail_vfx.queue_free()
 
 
 func update_visuals(delta: float) -> void:

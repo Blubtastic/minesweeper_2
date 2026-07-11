@@ -32,7 +32,7 @@ func damage() -> void:
 			Music.mute_tambourine(false)
 		if hp <= 0:
 			Globals.end_game()
-			TimerHelper.call_after_time(self, queue_free, 2.0)
+			TimerHelper.call_after_time(self.queue_free, 2.0)
 
 	Globals.trigger_camera_jump()
 	TimerHelper.true_for_time(Globals, "players_invincible", 1.0)
