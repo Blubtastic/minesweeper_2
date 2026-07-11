@@ -228,6 +228,7 @@ use_powerup_player2={
 
 [layer_names]
 
+3d_render/layer_10="lit_up_sign"
 3d_render/layer_20="Layer 20"
 3d_physics/layer_1="world"
 3d_physics/layer_3="cube"

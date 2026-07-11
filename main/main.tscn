@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://62fr2rhqfdeo" path="res://shared/particles/snow.tscn" id="6_bv4rx"]
 [ext_resource type="PackedScene" uid="uid://dhlda46fqvnos" path="res://moving_chunk/forest_chunk.tscn" id="7_m1pw8"]
 [ext_resource type="PackedScene" uid="uid://dmvvw5465oh3q" path="res://main/pause_menu.tscn" id="9_grrlh"]
+[ext_resource type="PackedScene" uid="uid://5b6v751rvj80" path="res://main/assets/sign_minefield.blend" id="10_0i4oc"]
 [ext_resource type="PackedScene" uid="uid://bo56d0akw4s83" path="res://shared/screen_border.tscn" id="10_udtt8"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_6867n"]
@@ -120,3 +121,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36.982, 0.677, -6)
 
 [node name="WhiteBars3DRight" parent="." unique_id=315739988 instance=ExtResource("10_udtt8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36.982, 0.677, -6)
+
+[node name="SignMinefield" parent="." unique_id=1461017287 instance=ExtResource("10_0i4oc")]
+transform = Transform3D(-0.019098187, -0.06985853, -0.57299703, 0.10926336, 0.56250864, -0.07222159, 0.5668044, -0.11078915, -0.0053846175, -0.6251171, 2.2375808, -3.9912162)
+
+[node name="LightUpSignOnly" type="SpotLight3D" parent="SignMinefield" unique_id=1870207027]
+transform = Transform3D(-0.35724875, 0.058646798, 0.9321663, 0.9294505, -0.07616419, 0.36099976, 0.092169166, 0.9953691, -0.027299732, 6.8692145, 1.977715, -0.18263254)
+light_energy = 0.5
+light_bake_mode = 1
+light_cull_mask = 4293919232
+spot_range = 12.412383
+spot_attenuation = -1.35
+spot_angle = 57.146194
