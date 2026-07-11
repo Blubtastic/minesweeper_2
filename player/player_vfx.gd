@@ -21,26 +21,10 @@ const TRAIL = preload("uid://drynt1383xlht")
 
 
 func start_damage_trail(duration: float = 1.0) -> void:
-	spawn_damage_trail(duration)
-	TimerHelper.call_after_time(self, self.cleanup_damage_trail, duration)
-
-
-func spawn_damage_trail(duration: float) -> void:
 	var trail_vfx := TRAIL.instantiate()
 	trail_vfx.duration = duration
 	add_child(trail_vfx)
-	trail_vfx.name = "DamageTrailVFX"
-
-
-func cleanup_damage_trail() -> void:
-	var trail_vfx := get_node_or_null("DamageTrailVFX")
-	if not trail_vfx:
-		return
-
-	trail_vfx.get_node("Smoke").emitting = false
-	trail_vfx.get_node("Fire").emitting = false
-	
-	TimerHelper.call_after_time(trail_vfx, trail_vfx.queue_free, TRAIL_FADE_DURATION)
+	TimerHelper.call_after_time(self, trail_vfx.queue_free, duration)
 
 
 func update_visuals(delta: float) -> void:
