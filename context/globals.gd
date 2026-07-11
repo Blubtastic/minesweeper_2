@@ -24,10 +24,10 @@ signal shared_hp_changed(new_hp: int)
 
 func _physics_process(_delta: float) -> void:
 	if game_mode == 1 and !game_over:
-		move_world()
+		move_world_by_player_positions()
 
 
-func move_world() -> void:
+func move_world_by_player_positions() -> void:
 	var average_z_position: float = (player_positions[1].z + player_positions[2].z) / 2
 	var z_position: float = (average_z_position if is_2p else player_positions[1].z)  + top_offset
 	var ratio := 1 - (z_position / world_height)
