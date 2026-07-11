@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://5b6v751rvj80" path="res://main/assets/sign_minefield.blend" id="10_0i4oc"]
 [ext_resource type="PackedScene" uid="uid://bo56d0akw4s83" path="res://shared/screen_border.tscn" id="10_udtt8"]
 [ext_resource type="Script" uid="uid://cdvo4jdy5fco4" path="res://context/move_with_global.gd" id="11_bsumw"]
+[ext_resource type="PackedScene" uid="uid://6vgydb5dyp6p" path="res://main/assets/fence_post.blend" id="12_fwcvl"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_6867n"]
 
@@ -35,12 +36,33 @@ size = Vector3(20, 0.1, 20)
 [sub_resource type="BoxShape3D" id="BoxShape3D_k1xa4"]
 size = Vector3(3, 5, 20)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y46al"]
+albedo_color = Color(0.30945465, 0.6210448, 0.2550063, 1)
+
 [sub_resource type="SphereMesh" id="SphereMesh_w1hta"]
+material = SubResource("StandardMaterial3D_y46al")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fwcvl"]
+albedo_color = Color(0.30980393, 0.61960787, 0.25490198, 1)
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_w1hta"]
+material = SubResource("StandardMaterial3D_fwcvl")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_na0o7"]
+albedo_color = Color(0.17598054, 0.22682905, 0.07588019, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_w1hta"]
+material = SubResource("StandardMaterial3D_na0o7")
 size = Vector3(1, 0.20605469, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_w1hta"]
+material = SubResource("StandardMaterial3D_na0o7")
+top_radius = 0.05
+bottom_radius = 0.05
+height = 3.1052246
+
+[sub_resource type="SphereMesh" id="SphereMesh_37tqn"]
+material = SubResource("StandardMaterial3D_na0o7")
 
 [node name="Main" type="Node3D" unique_id=952190665]
 script = ExtResource("1_m0fyf")
@@ -131,11 +153,36 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36.982, 0.677, -6)
 [node name="WhiteBars3DRight" parent="." unique_id=315739988 instance=ExtResource("10_udtt8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36.982, 0.677, -6)
 
-[node name="SignMinefield" parent="." unique_id=1461017287 instance=ExtResource("10_0i4oc")]
-transform = Transform3D(-0.019098187, -0.06985853, -0.57299703, 0.10926336, 0.56250864, -0.07222159, 0.5668044, -0.11078915, -0.0053846175, -1.3426149, 2.2375808, -2.0024347)
+[node name="Decorations" type="Node3D" parent="." unique_id=1868805506]
 script = ExtResource("11_bsumw")
 
-[node name="LightUpSignOnly" type="SpotLight3D" parent="SignMinefield" unique_id=1870207027]
+[node name="Human" type="Node3D" parent="Decorations" unique_id=869728326]
+transform = Transform3D(0.9636384, 0, 0.26720962, 0, 1, 0, -0.26720962, 0, 0.9636384, 2.8082967, 0.5067231, 0.9194789)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Decorations/Human" unique_id=1952821713]
+transform = Transform3D(1.0993983, 0, 0, 0, 1.0993983, 0, 0, 0, 1.0993983, 0, 2.677877, 0)
+mesh = SubResource("SphereMesh_w1hta")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Decorations/Human" unique_id=1763068057]
+transform = Transform3D(1.0993983, 0, 0, 0, 1.0993983, 0, 0, 0, 1.0993983, 0, 0.97725385, 0)
+mesh = SubResource("CapsuleMesh_w1hta")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Decorations/Human" unique_id=100239115]
+transform = Transform3D(1, 0, 0, 0, 0.9438626, -0.33033833, 0, 0.33033833, 0.9438626, 0, 1.3842561, -0.9422344)
+mesh = SubResource("BoxMesh_w1hta")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Decorations/Human/MeshInstance3D3" unique_id=1390498244]
+transform = Transform3D(0.28919774, -0.01223819, 0.065360434, -0.063809715, 0.030995756, 0.28814, -0.018710509, -0.29486692, 0.027575903, -0.008182764, 0.035238266, -0.65374076)
+mesh = SubResource("CylinderMesh_w1hta")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Decorations/Human/MeshInstance3D3" unique_id=200512425]
+transform = Transform3D(0.15475199, 1.0244548e-08, -1.1175871e-08, 2.7939677e-09, 0.15475196, 3.3527613e-08, 3.7252903e-09, -3.3527613e-08, 0.15475199, -0.027353525, 0.093851805, -1.1423953)
+mesh = SubResource("SphereMesh_37tqn")
+
+[node name="SignMinefield" parent="Decorations" unique_id=1461017287 instance=ExtResource("10_0i4oc")]
+transform = Transform3D(-0.019098187, -0.06985853, -0.57299703, 0.10926336, 0.56250864, -0.07222159, 0.5668044, -0.11078915, -0.0053846175, -1.3426149, 2.2375808, -2.0024347)
+
+[node name="LightUpSignOnly" type="SpotLight3D" parent="Decorations/SignMinefield" unique_id=1870207027]
 transform = Transform3D(-0.61855316, 0.101543106, 1.6139855, 1.6092833, -0.13187334, 0.6250478, 0.15958494, 1.7234167, -0.047267716, 7.982, 6.389, -0.918)
 light_energy = 0.3
 light_bake_mode = 1
@@ -144,18 +191,11 @@ spot_range = 12.412383
 spot_attenuation = -1.35
 spot_angle = 37.115242
 
-[node name="Human" type="Node3D" parent="." unique_id=869728326]
-transform = Transform3D(0.9636384, 0, 0.26720962, 0, 1, 0, -0.26720962, 0, 0.9636384, 2.8082967, 0.5067231, 0.9194789)
-script = ExtResource("11_bsumw")
+[node name="Fences" type="Node3D" parent="Decorations" unique_id=1440606160]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.8337113)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Human" unique_id=1952821713]
-transform = Transform3D(1.0993983, 0, 0, 0, 1.0993983, 0, 0, 0, 1.0993983, 0, 2.677877, 0)
-mesh = SubResource("SphereMesh_w1hta")
+[node name="fence_post" parent="Decorations/Fences" unique_id=1018015688 instance=ExtResource("12_fwcvl")]
+transform = Transform3D(0.021560943, -0.0027868561, 0.47179845, 0.018434258, 0.4719352, 0.0019452386, -0.4714464, 0.018325916, 0.021653065, -4.734626, 0.40341783, 0)
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="Human" unique_id=1763068057]
-transform = Transform3D(1.0993983, 0, 0, 0, 1.0993983, 0, 0, 0, 1.0993983, 0, 0.97725385, 0)
-mesh = SubResource("CapsuleMesh_w1hta")
-
-[node name="MeshInstance3D3" type="MeshInstance3D" parent="Human" unique_id=100239115]
-transform = Transform3D(1, 0, 0, 0, 0.9438626, -0.33033833, 0, 0.33033833, 0.9438626, 0, 1.3842561, -0.9422344)
-mesh = SubResource("BoxMesh_w1hta")
+[node name="fence_post2" parent="Decorations/Fences" unique_id=66968555 instance=ExtResource("12_fwcvl")]
+transform = Transform3D(-0.004659636, -0.0017646091, 0.47227278, 0.01843426, 0.4719352, 0.0019452387, -0.4719161, 0.01845242, -0.004587209, 9.673559, 0.40341783, 0)
