@@ -4,11 +4,11 @@ const MAIN = preload("uid://cqmyxt5a3dxys")
 
 @export var version_number := '0.0.0'
 @onready var version_num: Label = $AnchorBottomRight/VersionNum
-@onready var play_button: Button = $AnchorCenter/Play
+@onready var play_1: Button = $AnchorCenter/Play1
 
 func _ready() -> void:
 	version_num.text = 'v' + version_number
-	play_button.grab_focus()
+	play_1.grab_focus()
 
 func _on_play_pressed() -> void:
 	Globals.game_mode = 0 # Chill mode
