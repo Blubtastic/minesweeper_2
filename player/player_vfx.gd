@@ -21,19 +21,18 @@ const TRAIL = preload("uid://drynt1383xlht")
 
 
 func start_damage_trail(duration: float = 1.0) -> void:
-	spawn_damage_trail()
-	await get_tree().create_timer(duration).timeout
-	cleanup_damage_trail()
+	spawn_damage_trail(duration)
+	TimerHelper.call_after_time(self, self.cleanup_damage_trail, duration)
 
 
-func spawn_damage_trail() -> void:
+func spawn_damage_trail(duration: float) -> void:
 	var trail_vfx := TRAIL.instantiate()
+	trail_vfx.duration = duration
 	add_child(trail_vfx)
 	trail_vfx.name = "DamageTrailVFX"
 
 
 func cleanup_damage_trail() -> void:
-	await get_tree().create_timer(TRAIL_DURATION).timeout
 	var trail_vfx := get_node_or_null("DamageTrailVFX")
 	if not trail_vfx:
 		return
