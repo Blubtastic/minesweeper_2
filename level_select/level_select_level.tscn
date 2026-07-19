@@ -16,7 +16,7 @@ radius = 0.50634766
 [node name="LevelSelectLevel" type="Area3D" unique_id=2082663743]
 script = ExtResource("1_rr6fh")
 
-[node name="Level" type="MeshInstance3D" parent="." unique_id=1484349992]
+[node name="Mesh" type="MeshInstance3D" parent="." unique_id=1484349992]
 transform = Transform3D(7.7116737, 0, 0, 0, 7.7116737, 0, 0, 0, 7.7116737, 0, 0, 0)
 mesh = SubResource("CylinderMesh_w1hta")
 skeleton = NodePath("../..")
