@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://dec4vccolfnnv"]
+
+[ext_resource type="PackedScene" uid="uid://b7a1idwhmjax1" path="res://level_select/world_map.blend" id="1_ur4yk"]
+[ext_resource type="PackedScene" uid="uid://cu27xnfdhiaui" path="res://player/assets/PlayerModel.blend" id="2_fchgy"]
+
+[sub_resource type="Environment" id="Environment_w1hta"]
+background_energy_multiplier = 2.0
+
+[node name="Node3D" type="Node3D" unique_id=1536934542]
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=484169812]
+transform = Transform3D(1, 0, 0, 0, 0.45881948, 0.88852954, 0, -0.88852954, 0.45881948, 13.468815, 69.37992, 59.566513)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1531466726]
+environment = SubResource("Environment_w1hta")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=970838691]
+transform = Transform3D(-0.6169582, 0.027015932, 0.78653216, 0.6624203, 0.5574425, 0.50045747, -0.42492604, 0.82977605, -0.36181453, 0, 35.314022, 0)
+light_color = Color(1, 1, 0.9529412, 1)
+light_energy = 0.75
+shadow_enabled = true
+
+[node name="world_map" parent="." unique_id=682296374 instance=ExtResource("1_ur4yk")]
+
+[node name="PlayerModel" parent="." unique_id=342861743 instance=ExtResource("2_fchgy")]
+transform = Transform3D(-0.3426827, 0, -1.6547486, 0, 1.6898593, 0, 1.6547486, 0, -0.3426827, -19.77, 1.199, 19.99)
