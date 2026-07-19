@@ -7,6 +7,7 @@ class_name Player
 @onready var player_powerups: Node3D = $PlayerPowerups
 @onready var player_inputs: PlayerInputs = $PlayerInputs
 var player_movement := PlayerMovement.new(self)
+@onready var player_model: Node3D = $PlayerModel
 
 
 func _ready() -> void:
@@ -30,9 +31,12 @@ func damage() -> void:
 		Music.mute_drums(false)
 		if hp < 2:
 			Music.mute_tambourine(false)
+			player_model.change_state(1)
 		if hp <= 0:
 			Globals.end_game()
 			TimerHelper.call_after_time(self, self.queue_free, 2.0)
+		if hp == 2:
+			player_model.change_state(2)
 
 	Globals.trigger_camera_jump()
 	TimerHelper.true_for_time(Globals, "players_invincible", 1.0)

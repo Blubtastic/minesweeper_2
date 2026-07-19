@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://lgmwo12sigcm"]
 
 [ext_resource type="PackedScene" uid="uid://kll47d13opx8" path="res://moving_chunk/forest_chunk_optimized.blend" id="1_68uyt"]
-[ext_resource type="PackedScene" uid="uid://cu27xnfdhiaui" path="res://player/assets/PlayerModel.blend" id="2_471vb"]
+[ext_resource type="PackedScene" uid="uid://cu27xnfdhiaui" path="res://player/assets/PlayerModel1.blend" id="2_471vb"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_frab7"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)

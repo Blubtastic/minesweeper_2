@@ -12,7 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://ddwftyj3tif34" path="res://player/particles/poof.tscn" id="8_k6vai"]
 [ext_resource type="PackedScene" uid="uid://cnor6jdbe28rj" path="res://shared/cube/cube.tscn" id="9_a4v77"]
 [ext_resource type="PackedScene" uid="uid://5b6v751rvj80" path="res://main/assets/sign_minefield.blend" id="11_jpsbi"]
-[ext_resource type="PackedScene" uid="uid://cu27xnfdhiaui" path="res://player/assets/PlayerModel.blend" id="13_ri56e"]
+[ext_resource type="PackedScene" uid="uid://cu27xnfdhiaui" path="res://player/assets/PlayerModel1.blend" id="13_ri56e"]
 [ext_resource type="PackedScene" uid="uid://8in36bjm8vos" path="res://player/assets/FrontMineClearer.blend" id="14_1xi1x"]
 [ext_resource type="PackedScene" uid="uid://dwo5daidymqix" path="res://shared/powerup/bomb.blend" id="15_nge46"]
 

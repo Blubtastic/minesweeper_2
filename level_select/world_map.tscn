@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dm4wm0xffidtx" path="res://level_select/world_map.gd" id="1_hbsyx"]
 [ext_resource type="PackedScene" uid="uid://b7a1idwhmjax1" path="res://level_select/world_map.blend" id="1_ur4yk"]
-[ext_resource type="PackedScene" uid="uid://cu27xnfdhiaui" path="res://player/assets/PlayerModel.blend" id="2_fchgy"]
+[ext_resource type="PackedScene" uid="uid://cu27xnfdhiaui" path="res://player/assets/PlayerModel1.blend" id="2_fchgy"]
 [ext_resource type="PackedScene" uid="uid://t6aer3lvpqql" path="res://level_select/level_select_level.tscn" id="4_iph2q"]
 
 [sub_resource type="Environment" id="Environment_w1hta"]
