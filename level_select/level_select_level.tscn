@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://t6aer3lvpqql"]
+
+[ext_resource type="Script" uid="uid://v4di8tixrewx" path="res://level_select/level_select_level.gd" id="1_rr6fh"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fchgy"]
+albedo_color = Color(0.99575, 0.90986794, 0.7674818, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_w1hta"]
+material = SubResource("StandardMaterial3D_fchgy")
+height = 0.11621094
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_w1hta"]
+height = 0.85961914
+radius = 0.50634766
+
+[node name="LevelSelectLevel" type="Area3D" unique_id=2082663743]
+script = ExtResource("1_rr6fh")
+
+[node name="Level" type="MeshInstance3D" parent="." unique_id=1484349992]
+transform = Transform3D(7.7116737, 0, 0, 0, 7.7116737, 0, 0, 0, 7.7116737, 0, 0, 0)
+mesh = SubResource("CylinderMesh_w1hta")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2093422499]
+transform = Transform3D(7.6222644, 0, 0, 0, 7.6222644, 0, 0, 0, 7.6222644, 0, 2.5950313, 0)
+shape = SubResource("CylinderShape3D_w1hta")
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]
