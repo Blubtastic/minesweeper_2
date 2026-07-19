@@ -38,7 +38,7 @@ offset_top = 21.0
 offset_right = 300.00012
 offset_bottom = 67.00004
 theme = ExtResource("3_lyey1")
-text = "Play"
+text = "1 player"
 alignment = 0
 
 [node name="Play2" parent="PlayButtons" unique_id=371751281 instance=ExtResource("2_lyey1")]
@@ -48,7 +48,7 @@ offset_top = 85.0
 offset_right = 300.0
 offset_bottom = 131.0
 theme = ExtResource("3_lyey1")
-text = "Co-op"
+text = "2 player"
 alignment = 0
 
 [node name="AnchorBottomRight" type="Control" parent="." unique_id=1702157166]
