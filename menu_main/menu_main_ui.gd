@@ -4,7 +4,7 @@ const MAIN = preload("uid://cqmyxt5a3dxys")
 
 @export var version_number := '0.0.0'
 @onready var version_num: Label = $AnchorBottomRight/VersionNum
-@onready var play_1: Button = $AnchorCenter/Play1
+@onready var play_1: Button = $PlayButtons/Play1
 
 func _ready() -> void:
 	version_num.text = 'v' + version_number

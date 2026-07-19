@@ -12,34 +12,37 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_22c1r")
 
-[node name="AnchorCenter" type="Control" parent="." unique_id=1486150250]
+[node name="PlayButtons" type="Control" parent="." unique_id=1486150250]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
+anchors_preset = 4
 anchor_top = 0.5
-anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -20.0
 offset_top = -20.0
-offset_right = 20.0
+offset_right = 40.0
 offset_bottom = 20.0
-grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Play1" parent="AnchorCenter" unique_id=114641764 instance=ExtResource("2_lyey1")]
+[node name="ColorRect" type="ColorRect" parent="PlayButtons" unique_id=242598260]
 layout_mode = 0
-offset_left = -87.0
-offset_top = 30.0
-offset_right = 120.0
-offset_bottom = 76.0
+offset_top = -20.0
+offset_right = 340.695
+offset_bottom = 166.375
+color = Color(1, 1, 1, 0.25882354)
+
+[node name="Play1" parent="PlayButtons" unique_id=114641764 instance=ExtResource("2_lyey1")]
+layout_mode = 0
+offset_left = 93.0
+offset_top = 21.0
+offset_right = 300.0
+offset_bottom = 67.0
 text = "Play"
 
-[node name="Play2" parent="AnchorCenter" unique_id=371751281 instance=ExtResource("2_lyey1")]
+[node name="Play2" parent="PlayButtons" unique_id=371751281 instance=ExtResource("2_lyey1")]
 layout_mode = 0
-offset_left = -87.0
-offset_top = 94.0
-offset_right = 120.0
-offset_bottom = 140.0
+offset_left = 93.0
+offset_top = 85.0
+offset_right = 300.0
+offset_bottom = 131.0
 text = "Co-op"
 
 [node name="AnchorBottomRight" type="Control" parent="." unique_id=1702157166]
@@ -71,5 +74,5 @@ text = "v0.0.2"
 horizontal_alignment = 2
 vertical_alignment = 2
 
-[connection signal="pressed" from="AnchorCenter/Play1" to="." method="_on_endless_mode_pressed"]
-[connection signal="pressed" from="AnchorCenter/Play2" to="." method="_on_endless_mode_2_pressed"]
+[connection signal="pressed" from="PlayButtons/Play1" to="." method="_on_endless_mode_pressed"]
+[connection signal="pressed" from="PlayButtons/Play2" to="." method="_on_endless_mode_2_pressed"]
