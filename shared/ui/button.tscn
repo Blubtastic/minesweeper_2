@@ -2,8 +2,56 @@
 
 [ext_resource type="Script" uid="uid://pdbgbuterof5" path="res://shared/ui/button.gd" id="1_t307v"]
 
+[sub_resource type="Animation" id="Animation_t307v"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_ytpee"]
+resource_name = "pop"
+length = 0.13333334
+step = 0.0333333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.06666667, 0.13333334),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.1, 1.1), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_y8510"]
+_data = {
+&"RESET": SubResource("Animation_t307v"),
+&"pop": SubResource("Animation_ytpee")
+}
+
 [node name="Button" type="Button" unique_id=725143166]
-offset_right = 32.0
-offset_bottom = 46.0
+anchors_preset = -1
+anchor_right = 0.061000004
+anchor_bottom = 0.254
+offset_right = -0.208004
+offset_bottom = -0.11000061
+pivot_offset_ratio = Vector2(0.5, 0.5)
 text = "..."
 script = ExtResource("1_t307v")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=495568558]
+libraries/ = SubResource("AnimationLibrary_y8510")
+
+[connection signal="focus_entered" from="." to="." method="_on_focus_entered"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
