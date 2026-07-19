@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://b7ft5a8elf3ba" path="res://menu_main/menu_main_ui.gd" id="1_22c1r"]
 [ext_resource type="PackedScene" uid="uid://dsohjmkv58eia" path="res://shared/ui/button.tscn" id="2_lyey1"]
+[ext_resource type="Theme" uid="uid://ce71ja8cggy5e" path="res://shared/default_theme.tres" id="3_lyey1"]
 
 [node name="Menu2D" type="Control" unique_id=772130292]
 layout_mode = 3
@@ -23,6 +24,7 @@ offset_bottom = 20.0
 grow_vertical = 2
 
 [node name="ColorRect" type="ColorRect" parent="PlayButtons" unique_id=242598260]
+visible = false
 layout_mode = 0
 offset_top = -20.0
 offset_right = 340.695
@@ -33,9 +35,11 @@ color = Color(1, 1, 1, 0.25882354)
 layout_mode = 0
 offset_left = 93.0
 offset_top = 21.0
-offset_right = 300.0
-offset_bottom = 67.0
+offset_right = 300.00012
+offset_bottom = 67.00004
+theme = ExtResource("3_lyey1")
 text = "Play"
+alignment = 0
 
 [node name="Play2" parent="PlayButtons" unique_id=371751281 instance=ExtResource("2_lyey1")]
 layout_mode = 0
@@ -43,7 +47,9 @@ offset_left = 93.0
 offset_top = 85.0
 offset_right = 300.0
 offset_bottom = 131.0
+theme = ExtResource("3_lyey1")
 text = "Co-op"
+alignment = 0
 
 [node name="AnchorBottomRight" type="Control" parent="." unique_id=1702157166]
 layout_mode = 1

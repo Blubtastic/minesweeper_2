@@ -1,0 +1,35 @@
+[gd_resource type="Theme" format=3 uid="uid://ce71ja8cggy5e"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lyey1"]
+content_margin_left = 12.0
+bg_color = Color(0.8488339, 0.8023229, 0.38332748, 1)
+skew = Vector2(0, 0.01)
+shadow_size = 1
+shadow_offset = Vector2(-1, 2)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_22c1r"]
+content_margin_left = 12.0
+bg_color = Color(0.79607844, 0.74509805, 0.32156864, 1)
+skew = Vector2(0, 0.01)
+shadow_color = Color(0, 0, 0, 1)
+shadow_size = 1
+shadow_offset = Vector2(-2, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cw3po"]
+content_margin_left = 12.0
+bg_color = Color(0.72236896, 0.6739358, 0.27042866, 1)
+skew = Vector2(0, 0.01)
+shadow_size = 1
+shadow_offset = Vector2(-1, 2)
+
+[resource]
+Button/colors/font_color = Color(0, 0, 0, 1)
+Button/colors/font_disabled_color = Color(0, 0, 0, 0.5019608)
+Button/colors/font_focus_color = Color(0, 0, 0, 1)
+Button/colors/font_hover_color = Color(0, 0, 0, 1)
+Button/colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+Button/colors/font_outline_color = Color(0, 0, 0, 1)
+Button/colors/font_pressed_color = Color(0, 0, 0, 1)
+Button/styles/hover = SubResource("StyleBoxFlat_lyey1")
+Button/styles/normal = SubResource("StyleBoxFlat_22c1r")
+Button/styles/pressed = SubResource("StyleBoxFlat_cw3po")
