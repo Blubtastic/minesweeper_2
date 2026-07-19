@@ -32,7 +32,7 @@ func start_shake(intensity: float, decay: float) -> void:
 	original_transform = global_transform
 
 func camera_shake() -> void:
-	if Globals.shared_hp <= 1:
-		start_shake(.9, 3)
-	else:
-		start_shake(.6, 6)
+	#if Globals.shared_hp <= 1:
+	#start_shake(.9, 3)
+	#else:
+	start_shake(.6, 6)

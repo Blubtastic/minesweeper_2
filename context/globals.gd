@@ -5,13 +5,13 @@ const SCORE_PARTICLES = preload("uid://cwejm25ywsm0s")
 var default_world_speed: float = 1.0
 var world_speed: float = 1.0
 var is_2p: bool = false
+var dead_player_count: int = 0
 var game_mode: float = 0 # 0 is Stress, 1 is Chill
 var game_over: bool = false
 var score: int = 0
 var top_offset: float = 9
 var world_height: float = 10
 
-var shared_hp: int = 3
 var players_invincible: bool = false
 var player_speed: float = 5 # in the future, should be local
 var player_positions := { 1: Vector3.ZERO, 2: Vector3.ZERO }
@@ -19,7 +19,6 @@ var player_positions := { 1: Vector3.ZERO, 2: Vector3.ZERO }
 signal game_ended()
 signal cube_exploded()
 signal player_was_damaged()
-signal shared_hp_changed(new_hp: int)
 
 
 func _physics_process(_delta: float) -> void:
@@ -34,11 +33,6 @@ func move_world_by_player_positions() -> void:
 	set_world_speed(clamp(ratio * player_speed, 0, player_speed))
 
 
-func set_shared_hp(new_hp: int) -> void:
-	shared_hp_changed.emit(new_hp)
-	shared_hp = new_hp
-
-
 func set_world_speed(speed: float) -> void:
 	world_speed = speed
 
@@ -48,7 +42,12 @@ func set_player_position(player_num: int, position: Vector3) -> void:
 
 
 func end_game() -> void:
-	if game_over == false:
+	if is_2p:
+		dead_player_count += 1
+		if dead_player_count > 1:
+			game_ended.emit()
+			game_over = true
+	elif game_over == false:
 		game_ended.emit()
 		game_over = true
 
@@ -58,7 +57,7 @@ func reset_game() -> void:
 	game_over = false
 	players_invincible = false
 	score = 0
-	shared_hp = 3
+	dead_player_count = 0
 
 
 func trigger_camera_shake() -> void:

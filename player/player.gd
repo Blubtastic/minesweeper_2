@@ -10,10 +10,6 @@ var player_movement := PlayerMovement.new(self)
 @onready var player_model: Node3D = $PlayerModel
 
 
-func _ready() -> void:
-	Globals.shared_hp_changed.connect(func(new_hp: int) -> void: hp = new_hp)
-
-
 func _physics_process(delta: float) -> void:
 	Globals.set_player_position(id, position)
 	var direction := player_inputs.get_direction()
@@ -27,7 +23,6 @@ func _physics_process(delta: float) -> void:
 func damage() -> void:
 	if not Globals.players_invincible:
 		hp -= 1
-		Globals.set_shared_hp(hp)
 		Music.mute_drums(false)
 		if hp < 2:
 			Music.mute_tambourine(false)
