@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://pb5upwfhqj54"]
+
+[ext_resource type="PackedScene" uid="uid://dhlda46fqvnos" path="res://moving_chunk/forest_chunk.tscn" id="2_0kdtl"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3mph2"]
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_e722s"]
+material = SubResource("StandardMaterial3D_3mph2")
+
+[node name="EndChunk" type="Node3D" unique_id=413038228]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=967882750]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.118057, 0.8144397, 0)
+mesh = SubResource("BoxMesh_e722s")
+
+[node name="Root" parent="." unique_id=1726180872 instance=ExtResource("2_0kdtl")]
+
+[node name="Root2" parent="." unique_id=771461748 instance=ExtResource("2_0kdtl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8)

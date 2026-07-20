@@ -3,6 +3,7 @@ extends AnimatableBody3D
 const CUBE = preload("uid://cnor6jdbe28rj")
 const CUBE_CHUNK = preload("uid://dgxv52jn27v3c")
 const FOREST_CHUNK = preload("uid://dhlda46fqvnos")
+const END_AREA = preload("uid://pb5upwfhqj54")
 const PICKUP = preload("uid://cshkipadmqt3c")
 
 @export var remaining_chunks: int = 5
@@ -24,7 +25,6 @@ func _ready() -> void:
 		spawn_powerups(0.5)
 	else:
 		has_spawned_next = true
-		spawn_end_chunk()
 
 
 func _physics_process(delta: float) -> void:
@@ -84,12 +84,16 @@ func _on_visible_on_screen_notifier_3d_screen_exited() -> void:
 
 
 func spawn_next_chunk() -> void:
-	var chunk_instance := CUBE_CHUNK.instantiate()
-	var chunk_position := Vector3(-4.5, 0, global_position.z - 7.99)
-	chunk_instance.transform.origin = chunk_position
-	chunk_instance.remaining_chunks = remaining_chunks - 1
-	add_sibling(chunk_instance)
-	spawn_forest()
+	var next_remaining_chunks: int = remaining_chunks - 1
+	if next_remaining_chunks > 0:
+		var chunk_instance := CUBE_CHUNK.instantiate()
+		var chunk_position := Vector3(-4.5, 0, global_position.z - 7.99)
+		chunk_instance.transform.origin = chunk_position
+		chunk_instance.remaining_chunks = next_remaining_chunks
+		add_sibling(chunk_instance)
+		spawn_forest()
+	else:
+		spawn_end_chunk()
 
 
 func spawn_forest() -> void:
@@ -113,4 +117,8 @@ func spawn_powerups(chance: float) -> void:
 
 
 func spawn_end_chunk() -> void:
-	spawn_forest() # for two forests in end
+	spawn_forest()
+	var end_instance := END_AREA.instantiate()
+	var end_position := Vector3(-9, 0.57, global_position.z - 4.49)
+	end_instance.transform.origin = end_position
+	add_sibling(end_instance)
