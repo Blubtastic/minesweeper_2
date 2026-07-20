@@ -5,9 +5,12 @@ const CUBE_CHUNK = preload("uid://dgxv52jn27v3c")
 const FOREST_CHUNK = preload("uid://dhlda46fqvnos")
 const PICKUP = preload("uid://cshkipadmqt3c")
 
-@export var should_spawn_things: bool = true
+# Recursion logic
+@export var remaining_chunks: int = 5
+@export var has_spawned_next: bool = false
+@export var will_add_cubes: bool = true
+
 @export var NUMBER_OF_MINES: int = 10
-@export var has_spawned: bool = false
 const GRID_HEIGHT := 6
 const GRID_WIDTH := 10
 const CUBE_DISTANCE := 1.0
@@ -16,7 +19,7 @@ var buffer_cubes := []
 
 
 func _ready() -> void:
-	if should_spawn_things:
+	if will_add_cubes:
 		randomize()
 		spawn_grid()
 		set_mines()
@@ -26,9 +29,9 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	move_and_collide(Vector3(0, 0, Globals.world_speed*delta))
 	if global_position.z > -15:
-		if not has_spawned:
+		if not has_spawned_next:
 			spawn_next_chunk()
-			has_spawned = true
+			has_spawned_next = true
 
 
 func spawn_grid() -> void:
@@ -75,13 +78,14 @@ func set_mines() -> void:
 
 
 func _on_visible_on_screen_notifier_3d_screen_exited() -> void:
-	if has_spawned == true:
+	if has_spawned_next == true:
 		queue_free()
 
 
 func spawn_next_chunk() -> void:
 	var chunk_instance := CUBE_CHUNK.instantiate()
 	var chunk_position := Vector3(-4.5, 0, global_position.z - 7.99)
+	# TODO set remaining_chunks for spawned chunk
 	chunk_instance.transform.origin = chunk_position
 	add_sibling(chunk_instance)
 	spawn_forest()
