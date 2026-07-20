@@ -8,31 +8,15 @@
 [node name="Level1" type="Node3D" unique_id=790738478]
 script = ExtResource("1_i5boj")
 
-[node name="InitialChunks" type="Node3D" parent="." unique_id=1735927583]
+[node name="StartChunks" type="Node3D" parent="." unique_id=1735927583]
 
-[node name="CubeChunk1" parent="InitialChunks" unique_id=2134313920 instance=ExtResource("2_471vb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 0, -17.35)
-remaining_chunks = 2
-
-[node name="CubeChunk" parent="InitialChunks" unique_id=1113538222 instance=ExtResource("2_471vb")]
+[node name="CubeChunk" parent="StartChunks" unique_id=1113538222 instance=ExtResource("2_471vb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 0, -9.35)
-remaining_chunks = 1
-has_spawned_next = true
 
-[node name="CubeChunk2" parent="InitialChunks" unique_id=661674871 instance=ExtResource("2_471vb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 0, -1.35)
-remaining_chunks = 0
-will_add_cubes = false
-has_spawned_next = true
-NUMBER_OF_MINES = 0
-
-[node name="ForestChunkLeft1" parent="InitialChunks" unique_id=1726180872 instance=ExtResource("3_i5boj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0.57, -13.85)
-
-[node name="ForestChunkLeft" parent="InitialChunks" unique_id=222010042 instance=ExtResource("3_i5boj")]
+[node name="ForestChunk2" parent="StartChunks" unique_id=222010042 instance=ExtResource("3_i5boj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0.57, -5.87)
 
-[node name="ForestChunkLeft3" parent="InitialChunks" unique_id=578716859 instance=ExtResource("3_i5boj")]
+[node name="ForestChunk1" parent="StartChunks" unique_id=578716859 instance=ExtResource("3_i5boj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0.57, 2.11)
 
 [node name="LevelBasics" parent="." unique_id=1868503360 instance=ExtResource("1_gp3yc")]

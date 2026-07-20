@@ -8,7 +8,6 @@ const PICKUP = preload("uid://cshkipadmqt3c")
 # Recursion logic
 @export var remaining_chunks: int = 5
 @export var will_add_cubes: bool = true
-# TODO: merge has_spawned_next and remaining_chunks
 @export var has_spawned_next: bool = false
 
 @export var NUMBER_OF_MINES: int = 10
