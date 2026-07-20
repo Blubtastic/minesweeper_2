@@ -5,10 +5,8 @@ const CUBE_CHUNK = preload("uid://dgxv52jn27v3c")
 const FOREST_CHUNK = preload("uid://dhlda46fqvnos")
 const PICKUP = preload("uid://cshkipadmqt3c")
 
-# Recursion logic
 @export var remaining_chunks: int = 5
-@export var will_add_cubes: bool = true
-@export var has_spawned_next: bool = false
+var has_spawned_next: bool = false
 
 @export var NUMBER_OF_MINES: int = 10
 const GRID_HEIGHT := 6
@@ -19,23 +17,22 @@ var buffer_cubes := []
 
 
 func _ready() -> void:
-	if remaining_chunks < 1:
-		will_add_cubes = false
-		has_spawned_next = true
-		spawn_end_chunk()
-	if will_add_cubes:
+	if remaining_chunks > 0:
 		randomize()
 		spawn_grid()
 		set_mines()
 		spawn_powerups(0.5)
+	else:
+		has_spawned_next = true
+		spawn_end_chunk()
 
 
 func _physics_process(delta: float) -> void:
 	move_and_collide(Vector3(0, 0, Globals.world_speed*delta))
 	if global_position.z > -15:
 		if not has_spawned_next:
-			spawn_next_chunk()
 			has_spawned_next = true
+			spawn_next_chunk()
 
 
 func spawn_grid() -> void:
