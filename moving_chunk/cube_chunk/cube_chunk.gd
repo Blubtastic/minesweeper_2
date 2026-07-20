@@ -7,8 +7,9 @@ const PICKUP = preload("uid://cshkipadmqt3c")
 
 # Recursion logic
 @export var remaining_chunks: int = 5
-@export var has_spawned_next: bool = false
 @export var will_add_cubes: bool = true
+# TODO: merge has_spawned_next and remaining_chunks
+@export var has_spawned_next: bool = false
 
 @export var NUMBER_OF_MINES: int = 10
 const GRID_HEIGHT := 6
@@ -19,6 +20,10 @@ var buffer_cubes := []
 
 
 func _ready() -> void:
+	if remaining_chunks < 1:
+		will_add_cubes = false
+		has_spawned_next = true
+		spawn_end_chunk()
 	if will_add_cubes:
 		randomize()
 		spawn_grid()
@@ -85,8 +90,8 @@ func _on_visible_on_screen_notifier_3d_screen_exited() -> void:
 func spawn_next_chunk() -> void:
 	var chunk_instance := CUBE_CHUNK.instantiate()
 	var chunk_position := Vector3(-4.5, 0, global_position.z - 7.99)
-	# TODO set remaining_chunks for spawned chunk
 	chunk_instance.transform.origin = chunk_position
+	chunk_instance.remaining_chunks = remaining_chunks - 1
 	add_sibling(chunk_instance)
 	spawn_forest()
 
@@ -109,3 +114,7 @@ func spawn_powerups(chance: float) -> void:
 	var rand_z := rng.randi_range(0, GRID_HEIGHT-1)
 	instance.transform.origin = Vector3(rand_x * CUBE_DISTANCE, 1.0, rand_z * CUBE_DISTANCE)
 	add_child(instance)
+
+
+func spawn_end_chunk() -> void:
+	spawn_forest() # for two forests in end

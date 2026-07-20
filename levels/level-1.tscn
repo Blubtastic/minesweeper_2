@@ -12,15 +12,18 @@ script = ExtResource("1_i5boj")
 
 [node name="CubeChunk1" parent="InitialChunks" unique_id=2134313920 instance=ExtResource("2_471vb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 0, -17.35)
+remaining_chunks = 2
 
 [node name="CubeChunk" parent="InitialChunks" unique_id=1113538222 instance=ExtResource("2_471vb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 0, -9.35)
+remaining_chunks = 1
 has_spawned_next = true
 
 [node name="CubeChunk2" parent="InitialChunks" unique_id=661674871 instance=ExtResource("2_471vb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 0, -1.35)
-has_spawned_next = true
+remaining_chunks = 0
 will_add_cubes = false
+has_spawned_next = true
 NUMBER_OF_MINES = 0
 
 [node name="ForestChunkLeft1" parent="InitialChunks" unique_id=1726180872 instance=ExtResource("3_i5boj")]
