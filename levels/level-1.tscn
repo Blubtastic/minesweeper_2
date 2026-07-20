@@ -1,37 +1,35 @@
 [gd_scene format=3 uid="uid://lgmwo12sigcm"]
 
-[ext_resource type="PackedScene" uid="uid://kll47d13opx8" path="res://moving_chunk/forest_chunk_optimized.blend" id="1_68uyt"]
-[ext_resource type="PackedScene" uid="uid://cu27xnfdhiaui" path="res://player/assets/PlayerModel1.blend" id="2_471vb"]
+[ext_resource type="PackedScene" uid="uid://bk53qkkxr6wr8" path="res://app/level_basics.tscn" id="1_gp3yc"]
+[ext_resource type="Script" uid="uid://b3ynraryv822m" path="res://app/basic_level.gd" id="1_i5boj"]
+[ext_resource type="PackedScene" uid="uid://dgxv52jn27v3c" path="res://moving_chunk/cube_chunk/cube_chunk.tscn" id="2_471vb"]
+[ext_resource type="PackedScene" uid="uid://dhlda46fqvnos" path="res://moving_chunk/forest_chunk.tscn" id="3_i5boj"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_frab7"]
-sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
-ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+[node name="Level1" type="Node3D" unique_id=790738478]
+script = ExtResource("1_i5boj")
 
-[sub_resource type="Sky" id="Sky_itw0v"]
-sky_material = SubResource("ProceduralSkyMaterial_frab7")
+[node name="InitialChunks" type="Node3D" parent="." unique_id=1735927583]
 
-[sub_resource type="Environment" id="Environment_a1scl"]
-background_mode = 2
-sky = SubResource("Sky_itw0v")
-tonemap_mode = 2
-glow_enabled = true
+[node name="CubeChunk1" parent="InitialChunks" unique_id=2134313920 instance=ExtResource("2_471vb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 0, -17.35)
 
-[node name="Node3D" type="Node3D" unique_id=790738478]
+[node name="CubeChunk" parent="InitialChunks" unique_id=1113538222 instance=ExtResource("2_471vb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 0, -9.35)
+has_spawned = true
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=68892394]
-transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
-light_energy = 0.1
-shadow_enabled = true
-directional_shadow_max_distance = 1.0
+[node name="CubeChunk2" parent="InitialChunks" unique_id=661674871 instance=ExtResource("2_471vb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 0, -1.35)
+should_spawn_things = false
+NUMBER_OF_MINES = 0
+has_spawned = true
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1276474823]
-environment = SubResource("Environment_a1scl")
+[node name="ForestChunkLeft1" parent="InitialChunks" unique_id=1726180872 instance=ExtResource("3_i5boj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0.57, -13.85)
 
-[node name="forest_chunk_optimized" parent="." unique_id=1351074870 instance=ExtResource("1_68uyt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.179604, -3.820509, 0)
+[node name="ForestChunkLeft" parent="InitialChunks" unique_id=222010042 instance=ExtResource("3_i5boj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0.57, -5.87)
 
-[node name="PlayerModel" parent="." unique_id=342861743 instance=ExtResource("2_471vb")]
-transform = Transform3D(-0.59976333, 0, -0.80017745, 0, 1, 0, 0.80017745, 0, -0.59976333, 0.114640474, 0.7423234, 0.79254675)
+[node name="ForestChunkLeft3" parent="InitialChunks" unique_id=578716859 instance=ExtResource("3_i5boj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0.57, 2.11)
 
-[node name="Camera3D" type="Camera3D" parent="." unique_id=1741203681]
-transform = Transform3D(1, 0, 0, 0, 0.8158226, 0.5783023, 0, -0.5783023, 0.8158226, 0, 2.9429982, 4.3592553)
+[node name="LevelBasics" parent="." unique_id=1868503360 instance=ExtResource("1_gp3yc")]

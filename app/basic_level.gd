@@ -4,8 +4,6 @@ const GAME_OVER = preload("uid://ck8cc332mqpua")
 const _1_PLAYER = preload("uid://do0hnve2ge0ub")
 const _2_PLAYERS = preload("uid://ccotdq6huom6h")
 
-@onready var hud: Control = $HUD
-
 
 func _ready() -> void:
 	Globals.reset_game()
@@ -32,7 +30,6 @@ func _input(event: InputEvent) -> void:
 
 
 func _on_game_ended() -> void:
-	hud.visible = false
 	var game_over_instance := GAME_OVER.instantiate()
 	add_child(game_over_instance)
 	Music.kill_music()

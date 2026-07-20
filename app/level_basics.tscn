@@ -1,0 +1,98 @@
+[gd_scene format=3 uid="uid://bk53qkkxr6wr8"]
+
+[ext_resource type="PackedScene" uid="uid://cawyfit4gq2rg" path="res://app/start_area.tscn" id="1_s2lfc"]
+[ext_resource type="PackedScene" uid="uid://bo56d0akw4s83" path="res://shared/screen_border.tscn" id="2_rnn3o"]
+[ext_resource type="PackedScene" uid="uid://62fr2rhqfdeo" path="res://shared/particles/snow.tscn" id="3_cnmlx"]
+[ext_resource type="Script" uid="uid://b4371wjm8ut08" path="res://context/camera/camera_jump.gd" id="4_mrgbo"]
+[ext_resource type="Script" uid="uid://bb7i38v6r8s76" path="res://shared/camera_shake.gd" id="5_doay3"]
+[ext_resource type="PackedScene" uid="uid://csi0364mca8xy" path="res://hud/hud.tscn" id="6_y7hej"]
+[ext_resource type="PackedScene" uid="uid://dmvvw5465oh3q" path="res://main/pause_menu.tscn" id="7_0j81p"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ldolv"]
+size = Vector3(20, 0.1, 20)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_k1xa4"]
+size = Vector3(3, 5, 20)
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_6867n"]
+
+[sub_resource type="Sky" id="Sky_03owx"]
+sky_material = SubResource("ProceduralSkyMaterial_6867n")
+
+[sub_resource type="Environment" id="Environment_qwbq1"]
+background_mode = 2
+background_energy_multiplier = 1.2
+sky = SubResource("Sky_03owx")
+glow_enabled = true
+glow_intensity = 1.0
+fog_mode = 1
+fog_density = 1.0
+fog_depth_begin = 35.0
+fog_depth_end = 40.0
+adjustment_contrast = 1.1
+
+[node name="LevelBasics" type="Node3D" unique_id=1868503360]
+
+[node name="Decorations" parent="." unique_id=1627554460 instance=ExtResource("1_s2lfc")]
+
+[node name="WhiteBars3DLeft" parent="." unique_id=1274816826 instance=ExtResource("2_rnn3o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36.982, 0.677, -6)
+
+[node name="WhiteBars3DRight" parent="." unique_id=792555980 instance=ExtResource("2_rnn3o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36.982, 0.677, -6)
+
+[node name="InvisibleWalls" type="StaticBody3D" parent="." unique_id=310683752]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.07282, -6)
+collision_layer = 8
+collision_mask = 0
+metadata/_edit_group_ = true
+
+[node name="Floor" type="CollisionShape3D" parent="InvisibleWalls" unique_id=1002768206]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.5886023, 0)
+shape = SubResource("BoxShape3D_ldolv")
+
+[node name="Left" type="CollisionShape3D" parent="InvisibleWalls" unique_id=1453964951]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.5, -2, 2.3)
+shape = SubResource("BoxShape3D_k1xa4")
+
+[node name="Right" type="CollisionShape3D" parent="InvisibleWalls" unique_id=1074621926]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.5, -2, 2.3)
+shape = SubResource("BoxShape3D_k1xa4")
+
+[node name="Behind" type="CollisionShape3D" parent="InvisibleWalls" unique_id=265957761]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, -2, 9.871861)
+shape = SubResource("BoxShape3D_k1xa4")
+
+[node name="Front" type="CollisionShape3D" parent="InvisibleWalls" unique_id=846592270]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, -2, -4.6018705)
+shape = SubResource("BoxShape3D_k1xa4")
+
+[node name="Snow" parent="." unique_id=546563478 instance=ExtResource("3_cnmlx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8316574, -11.2124, -11.3809)
+
+[node name="CameraParent" type="Node3D" parent="." unique_id=1460239329]
+script = ExtResource("4_mrgbo")
+
+[node name="Camera" type="Camera3D" parent="CameraParent" unique_id=691774203]
+transform = Transform3D(1, 0, 0, 0, 0.55919284, 0.82903767, 0, -0.82903767, 0.55919284, 0, 26.866, 14.936037)
+current = true
+fov = 17.0
+script = ExtResource("5_doay3")
+
+[node name="HUD" parent="." unique_id=1789147469 instance=ExtResource("6_y7hej")]
+
+[node name="PauseMenu" parent="." unique_id=2014856477 instance=ExtResource("7_0j81p")]
+
+[node name="Sun" type="DirectionalLight3D" parent="." unique_id=2000100314]
+transform = Transform3D(-0.087129794, -0.9632843, 0.25395232, -0.8118439, 0.21639752, 0.542293, -0.57733697, -0.15891975, -0.8008911, 0, 0, 0)
+light_color = Color(0.999999, 0.997401, 0.807223, 1)
+light_energy = 0.1
+light_bake_mode = 0
+shadow_enabled = true
+shadow_normal_bias = 1.0
+directional_shadow_split_1 = 0.2
+directional_shadow_split_2 = 0.32
+directional_shadow_split_3 = 0.4
+
+[node name="Environment" type="WorldEnvironment" parent="." unique_id=29964787]
+environment = SubResource("Environment_qwbq1")
