@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://deyfek4ud2iwd" path="res://app/end_area.gd" id="1_0kdtl"]
 [ext_resource type="PackedScene" uid="uid://kll47d13opx8" path="res://moving_chunk/forest_chunk_optimized.blend" id="2_0kdtl"]
+[ext_resource type="PackedScene" uid="uid://btae8cu2mhc4o" path="res://app/end_area_ui.tscn" id="3_wsh13"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3mph2"]
 albedo_color = Color(1, 0, 0, 1)
@@ -33,5 +34,8 @@ collision_mask = 8
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=369195548]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -4)
 shape = SubResource("BoxShape3D_e722s")
+
+[node name="EndAreaUI" parent="." unique_id=193963151 instance=ExtResource("3_wsh13")]
+visible = false
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
