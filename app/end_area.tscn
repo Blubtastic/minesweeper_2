@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://pb5upwfhqj54"]
 
-[ext_resource type="PackedScene" uid="uid://dhlda46fqvnos" path="res://moving_chunk/forest_chunk.tscn" id="2_0kdtl"]
+[ext_resource type="Script" uid="uid://deyfek4ud2iwd" path="res://app/end_area.gd" id="1_0kdtl"]
+[ext_resource type="PackedScene" uid="uid://kll47d13opx8" path="res://moving_chunk/forest_chunk_optimized.blend" id="2_0kdtl"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3mph2"]
 albedo_color = Color(1, 0, 0, 1)
@@ -8,13 +9,29 @@ albedo_color = Color(1, 0, 0, 1)
 [sub_resource type="BoxMesh" id="BoxMesh_e722s"]
 material = SubResource("StandardMaterial3D_3mph2")
 
-[node name="EndChunk" type="Node3D" unique_id=413038228]
+[sub_resource type="BoxShape3D" id="BoxShape3D_e722s"]
+size = Vector3(24, 20, 15)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=967882750]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.118057, 0.8144397, 0)
+[node name="EndArea" type="Node3D" unique_id=413038228]
+script = ExtResource("1_0kdtl")
+
+[node name="TestCube" type="MeshInstance3D" parent="." unique_id=967882750]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.118057, 1.0599785, 2.9981399)
 mesh = SubResource("BoxMesh_e722s")
 
-[node name="Root" parent="." unique_id=1726180872 instance=ExtResource("2_0kdtl")]
+[node name="forest_chunk_optimized" parent="." unique_id=1771345441 instance=ExtResource("2_0kdtl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.9061277, 0)
 
-[node name="Root2" parent="." unique_id=771461748 instance=ExtResource("2_0kdtl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8)
+[node name="forest_chunk_optimized2" parent="." unique_id=318190323 instance=ExtResource("2_0kdtl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.9061277, -8)
+
+[node name="Area3D" type="Area3D" parent="." unique_id=65812735]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 0)
+collision_layer = 8
+collision_mask = 8
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=369195548]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -4)
+shape = SubResource("BoxShape3D_e722s")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
