@@ -22,6 +22,13 @@ skew = Vector2(0, 0.01)
 shadow_size = 1
 shadow_offset = Vector2(-1, 2)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e722s"]
+bg_color = Color(0.26666668, 0.14117648, 0.26666668, 1)
+border_color = Color(0.24194142, 0.12742776, 0.24192464, 1)
+border_blend = true
+shadow_size = 1
+shadow_offset = Vector2(0, 1)
+
 [resource]
 Button/colors/font_color = Color(0, 0, 0, 1)
 Button/colors/font_disabled_color = Color(0, 0, 0, 0.5019608)
@@ -33,3 +40,4 @@ Button/colors/font_pressed_color = Color(0, 0, 0, 1)
 Button/styles/hover = SubResource("StyleBoxFlat_lyey1")
 Button/styles/normal = SubResource("StyleBoxFlat_22c1r")
 Button/styles/pressed = SubResource("StyleBoxFlat_cw3po")
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_e722s")

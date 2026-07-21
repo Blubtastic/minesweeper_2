@@ -1,0 +1,90 @@
+[gd_scene format=3 uid="uid://btae8cu2mhc4o"]
+
+[ext_resource type="Theme" uid="uid://ce71ja8cggy5e" path="res://shared/default_theme.tres" id="1_ob02p"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ob02p"]
+bg_color = Color(0.33333334, 0.2, 0.33333334, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+expand_margin_left = 16.0
+expand_margin_top = 10.0
+expand_margin_right = 16.0
+expand_margin_bottom = 10.0
+
+[node name="EndAreaUI" type="Control" unique_id=193963151]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1055636168]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HeaderPanel" type="PanelContainer" parent="VBoxContainer" unique_id=961728515]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+theme = ExtResource("1_ob02p")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HeaderPanel" unique_id=417501313]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/HeaderPanel/HBoxContainer" unique_id=1673274451]
+layout_mode = 2
+size_flags_horizontal = 6
+text = "Level complete!"
+horizontal_alignment = 1
+
+[node name="CenterChildren" type="CenterContainer" parent="VBoxContainer" unique_id=672449789]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="CenterPanel" type="PanelContainer" parent="VBoxContainer/CenterChildren" unique_id=2140990537]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ob02p")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/CenterChildren/CenterPanel" unique_id=2145110973]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/CenterChildren/CenterPanel/VBoxContainer" unique_id=899913331]
+layout_mode = 2
+text = "Level 1"
+horizontal_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer/CenterChildren/CenterPanel/VBoxContainer" unique_id=2101458765]
+custom_minimum_size = Vector2(80, 30)
+custom_maximum_size = Vector2(80, 30)
+layout_mode = 2
+size_flags_horizontal = 4
+color = Color(1, 1, 0, 1)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/CenterChildren/CenterPanel/VBoxContainer" unique_id=1935092982]
+layout_mode = 2
+
+[node name="Restart" type="Button" parent="VBoxContainer/CenterChildren/CenterPanel/VBoxContainer/HBoxContainer" unique_id=1776618755]
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "Restart"
+
+[node name="Menu" type="Button" parent="VBoxContainer/CenterChildren/CenterPanel/VBoxContainer/HBoxContainer" unique_id=681704821]
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "Menu"
+
+[node name="Next level" type="Button" parent="VBoxContainer/CenterChildren/CenterPanel/VBoxContainer" unique_id=1497099872]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Next level"
+
+[node name="FooterPanel" type="PanelContainer" parent="VBoxContainer" unique_id=2019214797]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+theme = ExtResource("1_ob02p")
