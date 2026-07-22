@@ -1,3 +1,23 @@
 [gd_scene format=3 uid="uid://cwtco8fgj4c8d"]
 
+[ext_resource type="Script" uid="uid://b3ynraryv822m" path="res://app/basic_level.gd" id="1_v5uil"]
+[ext_resource type="PackedScene" uid="uid://dgxv52jn27v3c" path="res://moving_chunk/cube_chunk/cube_chunk.tscn" id="2_5722l"]
+[ext_resource type="PackedScene" uid="uid://dhlda46fqvnos" path="res://moving_chunk/forest_chunk.tscn" id="3_ilhis"]
+[ext_resource type="PackedScene" uid="uid://bk53qkkxr6wr8" path="res://app/level_basics.tscn" id="4_ep78u"]
+
 [node name="Level2" type="Node3D" unique_id=2037388313]
+script = ExtResource("1_v5uil")
+
+[node name="StartChunks" type="Node3D" parent="." unique_id=270044200]
+
+[node name="CubeChunk" parent="StartChunks" unique_id=2134313920 instance=ExtResource("2_5722l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 0, -9.35)
+remaining_chunks = 3
+
+[node name="ForestChunk2" parent="StartChunks" unique_id=1726180872 instance=ExtResource("3_ilhis")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0.57, -5.87)
+
+[node name="ForestChunk1" parent="StartChunks" unique_id=1460450149 instance=ExtResource("3_ilhis")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0.57, 2.11)
+
+[node name="LevelBasics" parent="." unique_id=1868503360 instance=ExtResource("4_ep78u")]
