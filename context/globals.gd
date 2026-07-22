@@ -23,8 +23,9 @@ signal cube_exploded()
 signal player_was_damaged()
 
 
+# ==================== WORLD MOVEMENT ====================
 func _physics_process(_delta: float) -> void:
-	if game_mode == 1 and !game_over:
+	if not game_over:
 		move_world_by_player_positions()
 
 
@@ -43,6 +44,7 @@ func set_player_position(player_num: int, position: Vector3) -> void:
 	player_positions[player_num] = position
 
 
+# ==================== END, RESET ====================
 func end_game() -> void:
 	if is_2p:
 		dead_player_count += 1
@@ -63,13 +65,16 @@ func reset_game() -> void:
 	dead_player_count = 0
 
 
+# ==================== CAMERA ====================
 func trigger_camera_shake() -> void:
 	cube_exploded.emit()
 
 func trigger_camera_jump() -> void:
 	player_was_damaged.emit()
 
-## Handles global consequences of the cube being cleared, like score.
+
+# ==================== CUBE CLEAR ====================
+## Global consequences of the cube being cleared, like score.
 func handle_cube_was_cleared(ref: Cube) -> void:
 	var score_granted := 1
 	if ref.cleared_by is Player:

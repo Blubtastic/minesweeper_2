@@ -11,11 +11,5 @@ func _ready() -> void:
 	play_1.grab_focus()
 
 func _on_endless_mode_pressed() -> void:
-	Globals.game_mode = 1 # Stress mode
 	Globals.is_2p = false
-	get_tree().change_scene_to_packed(WORLD_MAP)
-
-func _on_endless_mode_2_pressed() -> void:
-	Globals.game_mode = 1 # Stress mode
-	Globals.is_2p = true
 	get_tree().change_scene_to_packed(WORLD_MAP)

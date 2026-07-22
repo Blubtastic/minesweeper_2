@@ -25,7 +25,6 @@ func _input(event: InputEvent) -> void:
 
 func _on_main_menu_pressed() -> void:
 	toggle_menu(false)
-	Globals.reset_game()
 	get_tree().change_scene_to_file("res://menu_main/menu_main.tscn")
 
 
