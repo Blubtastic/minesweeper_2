@@ -9,7 +9,8 @@ extends Node3D
 func _physics_process(delta: float) -> void:
 	global_position.z += Globals.world_speed*delta
 
+
 func _on_area_3d_body_entered(body: Node3D) -> void:
 	if body is Player:
-		#Globals.end_game()
 		end_area_ui.visible = true
+		Globals.level_over = true

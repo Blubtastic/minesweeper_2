@@ -12,7 +12,7 @@ var player_movement := PlayerMovement.new(self)
 
 func _physics_process(delta: float) -> void:
 	Globals.set_player_position(id, position)
-	var direction := player_inputs.get_direction()
+	var direction := Vector3.ZERO if Globals.level_over else player_inputs.get_direction()
 	var speed_multiplier := player_inputs.get_speed_multiplier()
 	player_movement.handle_base_movement(delta)
 	player_movement.update_horizontal_movement(direction,speed_multiplier, delta)

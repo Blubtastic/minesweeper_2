@@ -9,6 +9,7 @@ var is_2p: bool = false
 var dead_player_count: int = 0
 var game_mode: float = 0 # 0 is Stress, 1 is Chill
 var game_over: bool = false
+var level_over: bool = false
 var score: int = 0
 var top_offset: float = 9
 var world_height: float = 10
@@ -56,6 +57,7 @@ func end_game() -> void:
 func reset_game() -> void:
 	set_world_speed(default_world_speed)
 	game_over = false
+	level_over = false
 	players_invincible = false
 	score = 0
 	dead_player_count = 0
