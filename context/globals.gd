@@ -2,6 +2,7 @@ extends Node
 
 const SCORE_PARTICLES = preload("uid://cwejm25ywsm0s")
 
+var current_level: int = 0
 var default_world_speed: float = 1.0
 var world_speed: float = 1.0
 var is_2p: bool = false
