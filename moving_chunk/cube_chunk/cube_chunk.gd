@@ -6,7 +6,7 @@ const FOREST_CHUNK = preload("uid://dhlda46fqvnos")
 const END_AREA = preload("uid://pb5upwfhqj54")
 const PICKUP = preload("uid://cshkipadmqt3c")
 
-@export var remaining_chunks: int = 5
+@export var chunks_to_spawn: int = 5
 var has_spawned_next: bool = false
 
 @export var NUMBER_OF_MINES: int = 10
@@ -18,7 +18,7 @@ var buffer_cubes := []
 
 
 func _ready() -> void:
-	if remaining_chunks > 0:
+	if chunks_to_spawn > 0:
 		randomize()
 		spawn_grid()
 		set_mines()
@@ -84,12 +84,12 @@ func _on_visible_on_screen_notifier_3d_screen_exited() -> void:
 
 
 func spawn_next_chunk() -> void:
-	var next_remaining_chunks: int = remaining_chunks - 1
+	var next_remaining_chunks: int = chunks_to_spawn - 1
 	if next_remaining_chunks > 0:
 		var chunk_instance := CUBE_CHUNK.instantiate()
 		var chunk_position := Vector3(-4.5, 0, global_position.z - 7.99)
 		chunk_instance.transform.origin = chunk_position
-		chunk_instance.remaining_chunks = next_remaining_chunks
+		chunk_instance.chunks_to_spawn = next_remaining_chunks
 		add_sibling(chunk_instance)
 		spawn_forest()
 	else:
