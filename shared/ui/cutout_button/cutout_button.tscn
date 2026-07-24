@@ -12,6 +12,7 @@ shader = ExtResource("1_upu38")
 custom_minimum_size = Vector2(350, 60)
 offset_right = 350.0
 offset_bottom = 60.0
+mouse_default_cursor_shape = 2
 theme_override_styles/normal = SubResource("StyleBoxEmpty_3gu7a")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_3gu7a")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_3gu7a")
