@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://b7ft5a8elf3ba" path="res://menu_main/menu_main_ui.gd" id="1_22c1r"]
 [ext_resource type="PackedScene" uid="uid://dsohjmkv58eia" path="res://shared/ui/button.tscn" id="2_lyey1"]
-[ext_resource type="Theme" uid="uid://ce71ja8cggy5e" path="res://shared/theme/default_theme.tres" id="3_lyey1"]
 
 [node name="Menu2D" type="Control" unique_id=772130292]
 layout_mode = 3
@@ -38,13 +37,11 @@ theme_override_constants/separation = 32
 
 [node name="Play1" parent="PlayButtons/MarginContainer/VBoxContainer" unique_id=114641764 instance=ExtResource("2_lyey1")]
 layout_mode = 2
-theme = ExtResource("3_lyey1")
 text = "1 player"
 alignment = 0
 
 [node name="Play2" parent="PlayButtons/MarginContainer/VBoxContainer" unique_id=371751281 instance=ExtResource("2_lyey1")]
 layout_mode = 2
-theme = ExtResource("3_lyey1")
 text = "2 player"
 alignment = 0
 
