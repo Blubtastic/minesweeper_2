@@ -5,10 +5,12 @@ const WORLD_MAP = preload("uid://dec4vccolfnnv")
 @export var version_number := '0.0.0'
 @onready var version_num: Label = $AnchorBottomRight/VersionNum
 @onready var play_1: Button = $PlayButtons/MarginContainer/VBoxContainer/Play1
+@onready var play_new_1: Button = $MarginContainer2/VBoxContainer2/Play1
 
 func _ready() -> void:
 	version_num.text = 'v' + version_number
-	play_1.grab_focus()
+	#play_1.grab_focus()
+	play_new_1.grab_focus()
 
 func _on_endless_mode_pressed() -> void:
 	Globals.is_2p = false
