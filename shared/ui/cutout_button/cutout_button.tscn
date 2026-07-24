@@ -39,6 +39,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="." unique_id=504729876]
+visible = false
 material = SubResource("ShaderMaterial_yo3fe")
 layout_mode = 1
 anchors_preset = 15
@@ -46,12 +47,13 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
 [node name="SubViewport" type="SubViewport" parent="SubViewportContainer" unique_id=405685549]
 transparent_bg = true
 handle_input_locally = false
 size = Vector2i(350, 60)
-render_target_update_mode = 4
+render_target_update_mode = 0
 
 [node name="ColorRect" type="ColorRect" parent="SubViewportContainer/SubViewport" unique_id=878488570]
 anchors_preset = 15
@@ -59,7 +61,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_filter = 1
+mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
 [node name="Label" type="Label" parent="SubViewportContainer/SubViewport/ColorRect" unique_id=914166351]
@@ -75,7 +77,6 @@ offset_right = 0.5
 offset_bottom = 27.5
 grow_horizontal = 2
 grow_vertical = 2
-mouse_filter = 1
 theme_override_font_sizes/font_size = 40
 text = "TEST"
 horizontal_alignment = 1
@@ -85,4 +86,3 @@ vertical_alignment = 1
 [connection signal="focus_exited" from="." to="." method="_on_focus_exited"]
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
-[connection signal="pressed" from="." to="." method="_on_pressed"]

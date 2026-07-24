@@ -8,7 +8,7 @@ const WORLD_MAP = preload("uid://dec4vccolfnnv")
 
 func _ready() -> void:
 	version_num.text = 'v' + version_number
-	#single_player.grab_focus() # messes up button clicking somehow..
+	single_player.grab_focus()
 
 
 func _on_single_player_pressed() -> void:

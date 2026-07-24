@@ -5,22 +5,25 @@ extends Button
 @export var new_text: String = ''
 @onready var sub_viewport_container: SubViewportContainer = $SubViewportContainer
 
+var state: int = 1
 
 func _ready() -> void:
-	sub_viewport_container.visible = false
 	if new_text:
 		active_label.text = new_text
 		normal_label.text = new_text
 
 
 func set_normal() -> void:
-	normal_label.visible = true
-	sub_viewport_container.visible = false
-
+	if state != 1:
+		state = 1
+		normal_label.visible = true
+		sub_viewport_container.visible = false
 
 func set_active() -> void:
-	normal_label.visible = false
-	sub_viewport_container.visible = true
+	if state != 2:
+		state = 2
+		normal_label.visible = false
+		sub_viewport_container.visible = true
 
 
 func _on_focus_entered() -> void:
