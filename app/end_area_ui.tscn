@@ -2,6 +2,7 @@
 
 [ext_resource type="Theme" uid="uid://ce71ja8cggy5e" path="res://shared/default_theme.tres" id="1_ob02p"]
 [ext_resource type="Script" uid="uid://bvsw04pwwgpf3" path="res://app/end_area_ui.gd" id="1_ue8e4"]
+[ext_resource type="Texture2D" uid="uid://bbmrqpy0a6rwh" path="res://app/assets/checkmark.png" id="3_frkr4"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ob02p"]
 bg_color = Color(0.33333334, 0.2, 0.33333334, 1)
@@ -13,6 +14,28 @@ expand_margin_left = 16.0
 expand_margin_top = 10.0
 expand_margin_right = 16.0
 expand_margin_bottom = 10.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e722s"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+corner_radius_top_left = 999
+corner_radius_top_right = 999
+corner_radius_bottom_right = 999
+corner_radius_bottom_left = 999
+shadow_color = Color(0, 0, 0, 1)
+shadow_size = 1
+shadow_offset = Vector2(1, 1)
+
+[sub_resource type="Gradient" id="Gradient_mo2ek"]
+offsets = PackedFloat32Array(0.9983108, 1)
+colors = PackedColorArray(0, 1, 0, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_e722s"]
+gradient = SubResource("Gradient_mo2ek")
+width = 100
+height = 100
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 1)
 
 [node name="EndAreaUI" type="Control" unique_id=193963151]
 layout_mode = 3
@@ -61,12 +84,37 @@ layout_mode = 2
 text = "Level 1"
 horizontal_alignment = 1
 
-[node name="ColorRect" type="ColorRect" parent="VBoxContainer/CenterChildren/CenterPanel/VBoxContainer" unique_id=2101458765]
-custom_minimum_size = Vector2(80, 30)
-custom_maximum_size = Vector2(80, 30)
+[node name="Icons" type="HBoxContainer" parent="VBoxContainer/CenterChildren/CenterPanel/VBoxContainer" unique_id=1111753569]
+custom_minimum_size = Vector2(0, 25)
+custom_maximum_size = Vector2(-1, 25)
+layout_mode = 2
+alignment = 1
+
+[node name="IconPanel" type="PanelContainer" parent="VBoxContainer/CenterChildren/CenterPanel/VBoxContainer/Icons" unique_id=1607981732]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_e722s")
+
+[node name="Circle" type="TextureRect" parent="VBoxContainer/CenterChildren/CenterPanel/VBoxContainer/Icons/IconPanel" unique_id=1990175961]
+layout_mode = 2
+texture = SubResource("GradientTexture2D_e722s")
+expand_mode = 2
+
+[node name="Checkmark" type="TextureRect" parent="VBoxContainer/CenterChildren/CenterPanel/VBoxContainer/Icons/IconPanel" unique_id=1460233663]
+custom_maximum_size = Vector2(15, 15)
 layout_mode = 2
 size_flags_horizontal = 4
-color = Color(1, 1, 0, 1)
+size_flags_vertical = 4
+texture = ExtResource("3_frkr4")
+
+[node name="Ace" type="TextureRect" parent="VBoxContainer/CenterChildren/CenterPanel/VBoxContainer/Icons" unique_id=154656212]
+layout_mode = 2
+texture = ExtResource("3_frkr4")
+expand_mode = 2
+
+[node name="100" type="TextureRect" parent="VBoxContainer/CenterChildren/CenterPanel/VBoxContainer/Icons" unique_id=1095365309]
+layout_mode = 2
+texture = ExtResource("3_frkr4")
+expand_mode = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/CenterChildren/CenterPanel/VBoxContainer" unique_id=1935092982]
 layout_mode = 2
