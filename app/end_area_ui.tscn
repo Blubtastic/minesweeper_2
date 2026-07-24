@@ -3,6 +3,7 @@
 [ext_resource type="Theme" uid="uid://ce71ja8cggy5e" path="res://shared/default_theme.tres" id="1_ob02p"]
 [ext_resource type="Script" uid="uid://bvsw04pwwgpf3" path="res://app/end_area_ui.gd" id="1_ue8e4"]
 [ext_resource type="Texture2D" uid="uid://bbmrqpy0a6rwh" path="res://app/assets/checkmark.png" id="3_frkr4"]
+[ext_resource type="Texture2D" uid="uid://bqrpeihkp4oan" path="res://app/assets/ace.png" id="4_mo2ek"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ob02p"]
 bg_color = Color(0.33333334, 0.2, 0.33333334, 1)
@@ -16,7 +17,7 @@ expand_margin_right = 16.0
 expand_margin_bottom = 10.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e722s"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
+bg_color = Color(0, 0, 0, 1)
 corner_radius_top_left = 999
 corner_radius_top_right = 999
 corner_radius_bottom_right = 999
@@ -27,7 +28,7 @@ shadow_offset = Vector2(1, 1)
 
 [sub_resource type="Gradient" id="Gradient_mo2ek"]
 offsets = PackedFloat32Array(0.9983108, 1)
-colors = PackedColorArray(0, 1, 0, 1, 1, 1, 1, 0)
+colors = PackedColorArray(2.2140146e-06, 0.99213976, 0.36688584, 1, 1, 1, 1, 0)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_e722s"]
 gradient = SubResource("Gradient_mo2ek")
@@ -90,31 +91,57 @@ custom_maximum_size = Vector2(-1, 25)
 layout_mode = 2
 alignment = 1
 
-[node name="IconPanel" type="PanelContainer" parent="VBoxContainer/CenterChildren/CenterPanel/VBoxContainer/Icons" unique_id=1607981732]
+[node name="CheckIconPanel" type="PanelContainer" parent="VBoxContainer/CenterChildren/CenterPanel/VBoxContainer/Icons" unique_id=1607981732]
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_e722s")
 
-[node name="Circle" type="TextureRect" parent="VBoxContainer/CenterChildren/CenterPanel/VBoxContainer/Icons/IconPanel" unique_id=1990175961]
+[node name="Circle" type="TextureRect" parent="VBoxContainer/CenterChildren/CenterPanel/VBoxContainer/Icons/CheckIconPanel" unique_id=1990175961]
 layout_mode = 2
 texture = SubResource("GradientTexture2D_e722s")
 expand_mode = 2
 
-[node name="Checkmark" type="TextureRect" parent="VBoxContainer/CenterChildren/CenterPanel/VBoxContainer/Icons/IconPanel" unique_id=1460233663]
+[node name="Checkmark" type="TextureRect" parent="VBoxContainer/CenterChildren/CenterPanel/VBoxContainer/Icons/CheckIconPanel" unique_id=1460233663]
 custom_maximum_size = Vector2(15, 15)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 texture = ExtResource("3_frkr4")
 
-[node name="Ace" type="TextureRect" parent="VBoxContainer/CenterChildren/CenterPanel/VBoxContainer/Icons" unique_id=154656212]
+[node name="AceIconPanel" type="PanelContainer" parent="VBoxContainer/CenterChildren/CenterPanel/VBoxContainer/Icons" unique_id=1115524740]
 layout_mode = 2
-texture = ExtResource("3_frkr4")
+theme_override_styles/panel = SubResource("StyleBoxFlat_e722s")
+
+[node name="Circle" type="TextureRect" parent="VBoxContainer/CenterChildren/CenterPanel/VBoxContainer/Icons/AceIconPanel" unique_id=650580455]
+layout_mode = 2
+texture = SubResource("GradientTexture2D_e722s")
 expand_mode = 2
 
-[node name="100" type="TextureRect" parent="VBoxContainer/CenterChildren/CenterPanel/VBoxContainer/Icons" unique_id=1095365309]
+[node name="Checkmark2" type="TextureRect" parent="VBoxContainer/CenterChildren/CenterPanel/VBoxContainer/Icons/AceIconPanel" unique_id=1325654210]
+custom_maximum_size = Vector2(15, 15)
 layout_mode = 2
-texture = ExtResource("3_frkr4")
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("4_mo2ek")
+
+[node name="100IconPanel" type="PanelContainer" parent="VBoxContainer/CenterChildren/CenterPanel/VBoxContainer/Icons" unique_id=784936623]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_e722s")
+
+[node name="Circle" type="TextureRect" parent="VBoxContainer/CenterChildren/CenterPanel/VBoxContainer/Icons/100IconPanel" unique_id=913604550]
+layout_mode = 2
+texture = SubResource("GradientTexture2D_e722s")
 expand_mode = 2
+
+[node name="Label" type="RichTextLabel" parent="VBoxContainer/CenterChildren/CenterPanel/VBoxContainer/Icons/100IconPanel" unique_id=1958478094]
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 7
+text = "100%"
+scroll_active = false
+autowrap_mode = 0
+shortcut_keys_enabled = false
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/CenterChildren/CenterPanel/VBoxContainer" unique_id=1935092982]
 layout_mode = 2
