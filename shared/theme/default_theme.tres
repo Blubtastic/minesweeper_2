@@ -1,0 +1,7 @@
+[gd_resource type="Theme" format=3 uid="uid://tbn55sdbk6cq"]
+
+[ext_resource type="StyleBox" uid="uid://oyhhpk0k5cdx" path="res://shared/theme/normal.tres" id="1_1kn02"]
+
+[resource]
+Button/colors/font_color = Color(0, 0, 0, 1)
+Button/styles/normal = ExtResource("1_1kn02")
