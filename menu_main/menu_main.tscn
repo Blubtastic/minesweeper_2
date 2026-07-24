@@ -165,7 +165,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 2)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 2)
 
 [node name="SignMinefield" parent="." unique_id=1252363812 instance=ExtResource("11_jpsbi")]
-transform = Transform3D(-0.36730656, 0.08084897, -0.46551448, 0.13881929, 0.5820762, -0.00844048, 0.45162967, -0.11316145, -0.37600458, 3.6089225, -0.907779, -6.885887)
+transform = Transform3D(0.3424176, -0.028688554, -0.36045963, 0.02518285, 0.4971168, -0.01564256, 0.36072144, -0.007472114, 0.34326106, -8.546, -0.008, -3.676)
 
 [node name="LightUpSignOnly" type="SpotLight3D" parent="SignMinefield" unique_id=1645907296]
 transform = Transform3D(-0.35724878, 0.058646798, 0.9321662, 0.92945045, -0.07616419, 0.3609998, 0.092169166, 0.9953691, -0.02729973, 7.982, 6.389, -0.918)
@@ -446,13 +446,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.0245447, -0.5767026, -0.001
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.086, 0, 0)
 
 [node name="PlayerModel" parent="Players" unique_id=342861743 instance=ExtResource("13_ri56e")]
-transform = Transform3D(-0.29235563, 0, 0.03402192, 0, 0.2943286, 0, -0.03402192, 0, -0.29235563, 2.431881, -0.9565658, -1.635963)
-
-[node name="FrontMineClearer" parent="Players/PlayerModel" unique_id=2052771200 instance=ExtResource("14_1xi1x")]
-transform = Transform3D(0.7879084, -0.36390132, -0.54096866, 0.011451984, 0.8561526, -0.55923945, 0.65187484, 0.4248001, 0.6636838, 1.5338883, -1.4512022, 0.87926483)
-
-[node name="bomb" parent="Players/PlayerModel" unique_id=2058762321 instance=ExtResource("15_nge46")]
-transform = Transform3D(-0.054296173, -0.5229243, 0.58474123, -0.09270549, 0.58631116, 0.51571953, -0.7789589, -0.033328176, -0.10213489, 2.4240346, -0.17053342, 1.334764)
+transform = Transform3D(-0.19963294, -0.017332971, 0.21558195, -0.018038506, 0.29369408, 0.0069092456, -0.21552405, -0.0085260635, -0.20026483, 2.6723578, -0.98092484, -1.7603598)
 
 [node name="PlayerModel2" parent="Players" unique_id=821829841 instance=ExtResource("13_ri56e")]
-transform = Transform3D(-0.26718485, 0, -0.12345674, 0, 0.29432857, 0, 0.12345674, 0, -0.26718485, 3.33, -0.957, -2.132)
+transform = Transform3D(-0.15204643, 0, -0.25201425, 0, 0.29432848, 0, 0.25201425, 0, -0.15204643, 0.20019057, -0.957, -1.3289161)
+
+[node name="FrontMineClearer" parent="Players" unique_id=2052771200 instance=ExtResource("14_1xi1x")]
+transform = Transform3D(-0.28728783, -0.03197113, -0.08394504, 0.0232355, 0.24527113, -0.1729332, 0.08676972, -0.17153299, -0.23162594, 3.3303354, -1.4033921, -2.3169167)
+
+[node name="bomb" parent="Players" unique_id=2058762321 instance=ExtResource("15_nge46")]
+transform = Transform3D(0.09906055, 0.04414361, -0.094035305, 0.0005235051, 0.12972331, 0.061448507, 0.10387978, -0.042749487, 0.08936298, -1.152647, -1.0403725, -1.5409801)

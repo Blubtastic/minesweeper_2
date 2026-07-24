@@ -10,8 +10,8 @@ shader = ExtResource("1_upu38")
 
 [node name="CutoutButton" type="Button" unique_id=423042115]
 custom_minimum_size = Vector2(350, 60)
-offset_right = 300.0
-offset_bottom = 50.0
+offset_right = 350.0
+offset_bottom = 60.0
 theme_override_styles/normal = SubResource("StyleBoxEmpty_3gu7a")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_3gu7a")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_3gu7a")
@@ -20,14 +20,21 @@ script = ExtResource("1_oei8v")
 
 [node name="Label" type="Label" parent="." unique_id=1768704601]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -27.5
+offset_right = 0.5
+offset_bottom = 27.5
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 40
-text = "PLACEHOLDER"
+text = "TEST"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -52,17 +59,25 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
 color = Color(0, 0, 0, 1)
 
 [node name="Label" type="Label" parent="SubViewportContainer/SubViewport/ColorRect" unique_id=914166351]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -27.5
+offset_right = 0.5
+offset_bottom = 27.5
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
 theme_override_font_sizes/font_size = 40
-text = "PLACEHOLDER"
+text = "TEST"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -70,3 +85,4 @@ vertical_alignment = 1
 [connection signal="focus_exited" from="." to="." method="_on_focus_exited"]
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="pressed" from="." to="." method="_on_pressed"]

@@ -1,14 +1,15 @@
 extends Button
 
 @onready var normal_label: Label = $Label
-@onready var label: Label = $SubViewportContainer/SubViewport/ColorRect/Label
+@onready var active_label: Label = $SubViewportContainer/SubViewport/ColorRect/Label
 @export var new_text: String = ''
 @onready var sub_viewport_container: SubViewportContainer = $SubViewportContainer
+
 
 func _ready() -> void:
 	sub_viewport_container.visible = false
 	if new_text:
-		label.text = new_text
+		active_label.text = new_text
 		normal_label.text = new_text
 
 
@@ -30,10 +31,8 @@ func _on_focus_exited() -> void:
 	set_normal()
 
 
-
 func _on_mouse_entered() -> void:
 	set_active()
-
 
 
 func _on_mouse_exited() -> void:

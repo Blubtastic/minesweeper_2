@@ -1,8 +1,6 @@
 [gd_scene format=3 uid="uid://bnxqp40rt11bk"]
 
 [ext_resource type="Script" uid="uid://b7ft5a8elf3ba" path="res://menu_main/menu_main_ui.gd" id="1_22c1r"]
-[ext_resource type="PackedScene" uid="uid://dsohjmkv58eia" path="res://shared/ui/button.tscn" id="2_lyey1"]
-[ext_resource type="Theme" uid="uid://tbn55sdbk6cq" path="res://shared/theme/default_theme.tres" id="3_lyey1"]
 [ext_resource type="PackedScene" uid="uid://bmqrf2wci1n7g" path="res://shared/ui/cutout_button/cutout_button.tscn" id="4_cw3po"]
 
 [node name="Menu2D" type="Control" unique_id=772130292]
@@ -13,41 +11,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_22c1r")
-
-[node name="PlayButtons" type="Control" parent="." unique_id=1486150250]
-layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-grow_vertical = 2
-
-[node name="MarginContainer" type="MarginContainer" parent="PlayButtons" unique_id=2093661182]
-visible = false
-layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_top = -20.0
-offset_right = 40.0
-offset_bottom = 20.0
-grow_vertical = 2
-theme_override_constants/margin_left = 250
-theme_override_constants/margin_top = 150
-
-[node name="VBoxContainer" type="VBoxContainer" parent="PlayButtons/MarginContainer" unique_id=133913012]
-layout_mode = 2
-theme_override_constants/separation = 32
-
-[node name="Play1" parent="PlayButtons/MarginContainer/VBoxContainer" unique_id=114641764 instance=ExtResource("2_lyey1")]
-layout_mode = 2
-theme = ExtResource("3_lyey1")
-text = "1 player"
-alignment = 0
-
-[node name="Play2" parent="PlayButtons/MarginContainer/VBoxContainer" unique_id=371751281 instance=ExtResource("2_lyey1")]
-layout_mode = 2
-text = "2 player"
-alignment = 0
 
 [node name="AnchorBottomRight" type="Control" parent="." unique_id=1702157166]
 layout_mode = 1
@@ -78,7 +41,7 @@ text = "v0.0.2"
 horizontal_alignment = 2
 vertical_alignment = 2
 
-[node name="MarginContainer2" type="MarginContainer" parent="." unique_id=372619528]
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=372619528]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -91,18 +54,19 @@ offset_right = 150.0
 offset_bottom = 50.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/margin_bottom = 120
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer2" unique_id=1822996806]
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer" unique_id=1822996806]
 layout_mode = 2
 theme_override_constants/separation = 0
 
-[node name="Play1" parent="MarginContainer2/VBoxContainer2" unique_id=423042115 instance=ExtResource("4_cw3po")]
+[node name="SinglePlayer" parent="MarginContainer/VBoxContainer2" unique_id=423042115 instance=ExtResource("4_cw3po")]
 layout_mode = 2
 new_text = "SINGLE PLAYER"
 
-[node name="Play2" parent="MarginContainer2/VBoxContainer2" unique_id=1250489245 instance=ExtResource("4_cw3po")]
+[node name="CoOp" parent="MarginContainer/VBoxContainer2" unique_id=1250489245 instance=ExtResource("4_cw3po")]
 layout_mode = 2
 new_text = "CO-OP"
 
-[connection signal="pressed" from="PlayButtons/MarginContainer/VBoxContainer/Play1" to="." method="_on_endless_mode_pressed"]
-[connection signal="pressed" from="PlayButtons/MarginContainer/VBoxContainer/Play2" to="." method="_on_endless_mode_2_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer2/SinglePlayer" to="." method="_on_single_player_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer2/CoOp" to="." method="_on_co_op_pressed"]
