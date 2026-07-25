@@ -26,20 +26,17 @@ func set_active() -> void:
 		sub_viewport_container.visible = true
 
 
+## Update visual state based on focus
 func _on_focus_entered() -> void:
 	set_active()
-
 
 func _on_focus_exited() -> void:
 	set_normal()
 
 
+## Programatically set focus
 func _on_mouse_entered() -> void:
 	grab_focus()
-	#set_active()
-
 
 func _on_mouse_exited() -> void:
 	release_focus()
-	#set_normal()
-	#pass
