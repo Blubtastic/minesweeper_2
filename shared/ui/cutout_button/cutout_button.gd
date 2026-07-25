@@ -35,8 +35,11 @@ func _on_focus_exited() -> void:
 
 
 func _on_mouse_entered() -> void:
-	set_active()
+	grab_focus()
+	#set_active()
 
 
 func _on_mouse_exited() -> void:
-	set_normal()
+	release_focus()
+	#set_normal()
+	#pass
