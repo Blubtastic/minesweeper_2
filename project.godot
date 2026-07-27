@@ -52,7 +52,7 @@ move_with_world="objects in this group is moved with world_speed every _physics_
 [gui]
 
 theme/default_theme_scale=1.5
-theme/custom_font="uid://2cse4p6gorwk"
+theme/custom_font="uid://pvn8ecdjt21n"
 
 [input]
 
