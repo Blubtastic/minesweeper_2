@@ -38,8 +38,11 @@ gdscript/warnings/untyped_declaration=1
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
+window/size/window_width_override=1584
+window/size/window_height_override=810
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
+window/stretch/scale=0.5
 window/vsync/vsync_mode=0
 
 [global_group]
@@ -49,6 +52,7 @@ move_with_world="objects in this group is moved with world_speed every _physics_
 [gui]
 
 theme/default_theme_scale=1.5
+theme/custom_font="uid://bxax5vilt2yg7"
 
 [input]
 
