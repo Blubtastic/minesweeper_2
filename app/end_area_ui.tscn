@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://btae8cu2mhc4o"]
 
 [ext_resource type="Script" uid="uid://bvsw04pwwgpf3" path="res://app/end_area_ui.gd" id="1_ue8e4"]
-[ext_resource type="FontFile" uid="uid://2cse4p6gorwk" path="res://assets/Filepile.otf" id="2_kdx7p"]
+[ext_resource type="FontFile" uid="uid://bqn2wenckulyi" path="res://assets/Refuel Eb Cond.otf" id="2_kdx7p"]
 [ext_resource type="Texture2D" uid="uid://bbmrqpy0a6rwh" path="res://app/assets/checkmark.png" id="3_frkr4"]
 [ext_resource type="FontFile" uid="uid://bxax5vilt2yg7" path="res://assets/Roboto-VariableFont_wdth,wght.ttf" id="4_kdx7p"]
 [ext_resource type="Texture2D" uid="uid://bqrpeihkp4oan" path="res://app/assets/ace.png" id="4_mo2ek"]
