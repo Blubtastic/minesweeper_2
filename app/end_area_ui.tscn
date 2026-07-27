@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bvsw04pwwgpf3" path="res://app/end_area_ui.gd" id="1_ue8e4"]
 [ext_resource type="Texture2D" uid="uid://bbmrqpy0a6rwh" path="res://app/assets/checkmark.png" id="3_frkr4"]
+[ext_resource type="FontFile" uid="uid://bxax5vilt2yg7" path="res://assets/Roboto-VariableFont_wdth,wght.ttf" id="4_kdx7p"]
 [ext_resource type="Texture2D" uid="uid://bqrpeihkp4oan" path="res://app/assets/ace.png" id="4_mo2ek"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ob02p"]
@@ -14,6 +15,8 @@ expand_margin_left = 32.0
 expand_margin_top = 32.0
 expand_margin_right = 32.0
 expand_margin_bottom = 32.0
+
+[sub_resource type="SystemFont" id="SystemFont_n4ir6"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e722s"]
 bg_color = Color(0, 0, 0, 1)
@@ -82,6 +85,7 @@ theme_override_constants/separation = 6
 
 [node name="Label" type="Label" parent="VBoxContainer/CenterChildren/CenterPanel/VBoxContainer" unique_id=899913331]
 layout_mode = 2
+theme_override_fonts/font = SubResource("SystemFont_n4ir6")
 theme_override_font_sizes/font_size = 64
 text = "Level 1"
 horizontal_alignment = 1
@@ -156,6 +160,7 @@ alignment = 1
 
 [node name="Restart" type="Button" parent="VBoxContainer/CenterChildren/CenterPanel/VBoxContainer/HBoxContainer" unique_id=1776618755]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("4_kdx7p")
 theme_override_font_sizes/font_size = 32
 text = "Restart"
 
