@@ -2,7 +2,7 @@ extends Control
 
 
 var is_menu_open: bool = false
-@onready var menu_button: Button = $VBoxContainer/VBoxContainer/MainMenu
+@onready var resume: Button = $VBoxContainer/VBoxContainer/Resume
 
 
 func _ready() -> void:
@@ -14,7 +14,7 @@ func toggle_menu(is_open: bool) -> void:
 	visible = is_open
 	get_tree().paused = is_open
 	if is_open:
-		menu_button.grab_focus()
+		resume.grab_focus()
 
 
 func _input(event: InputEvent) -> void:
@@ -34,5 +34,5 @@ func _on_restart_pressed() -> void:
 	get_tree().reload_current_scene()
 
 
-func _on_cancel_pressed() -> void:
+func _on_resume_pressed() -> void:
 	toggle_menu(false)

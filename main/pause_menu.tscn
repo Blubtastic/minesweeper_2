@@ -40,22 +40,22 @@ theme_override_constants/separation = 24
 layout_mode = 2
 theme_override_constants/separation = 12
 
-[node name="MainMenu" parent="VBoxContainer/VBoxContainer" unique_id=423042115 instance=ExtResource("2_57ghe")]
+[node name="Resume" parent="VBoxContainer/VBoxContainer" unique_id=268735320 instance=ExtResource("2_57ghe")]
 layout_mode = 2
-new_text = "Main menu"
+new_text = "RESUME"
 
 [node name="Restart" parent="VBoxContainer/VBoxContainer" unique_id=1000945883 instance=ExtResource("2_57ghe")]
 layout_mode = 2
-new_text = "Restart"
+new_text = "RESTART"
 
-[node name="Cancel" parent="VBoxContainer/VBoxContainer" unique_id=268735320 instance=ExtResource("2_57ghe")]
+[node name="MainMenu" parent="VBoxContainer/VBoxContainer" unique_id=423042115 instance=ExtResource("2_57ghe")]
 layout_mode = 2
-new_text = "Cancel"
+new_text = "MAIN MENU"
 
 [node name="Margin" type="MarginContainer" parent="VBoxContainer" unique_id=1464261875]
 layout_mode = 2
 theme_override_constants/margin_top = 120
 
-[connection signal="pressed" from="VBoxContainer/VBoxContainer/MainMenu" to="." method="_on_main_menu_pressed"]
+[connection signal="pressed" from="VBoxContainer/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
 [connection signal="pressed" from="VBoxContainer/VBoxContainer/Restart" to="." method="_on_restart_pressed"]
-[connection signal="pressed" from="VBoxContainer/VBoxContainer/Cancel" to="." method="_on_cancel_pressed"]
+[connection signal="pressed" from="VBoxContainer/VBoxContainer/MainMenu" to="." method="_on_main_menu_pressed"]
