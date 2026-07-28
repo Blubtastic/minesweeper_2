@@ -1,7 +1,31 @@
 [gd_resource type="Theme" format=3 uid="uid://tbn55sdbk6cq"]
 
 [ext_resource type="StyleBox" uid="uid://oyhhpk0k5cdx" path="res://shared/theme/normal.tres" id="1_1kn02"]
+[ext_resource type="StyleBox" uid="uid://dpvpjesrdihro" path="res://shared/theme/normal_outline.tres" id="2_qhnr5"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0g4py"]
+draw_center = false
+skew = Vector2(0, 0.13)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.87058824, 0.7490196, 0.8666667, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+expand_margin_left = 3.0
+expand_margin_top = 3.0
+expand_margin_right = 3.0
+expand_margin_bottom = 3.0
 
 [resource]
 Button/colors/font_color = Color(0, 0, 0, 1)
+Button/styles/focus = null
 Button/styles/normal = ExtResource("1_1kn02")
+OutlineButton/base_type = &"Button"
+OutlineButton/colors/font_color = Color(0.8698771, 0.7501291, 0.8666064, 1)
+OutlineButton/styles/focus = SubResource("StyleBoxFlat_0g4py")
+OutlineButton/styles/hover = SubResource("StyleBoxFlat_0g4py")
+OutlineButton/styles/normal = ExtResource("2_qhnr5")

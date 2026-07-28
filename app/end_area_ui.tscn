@@ -17,8 +17,6 @@ expand_margin_top = 32.0
 expand_margin_right = 32.0
 expand_margin_bottom = 32.0
 
-[sub_resource type="SystemFont" id="SystemFont_n4ir6"]
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e722s"]
 bg_color = Color(0, 0, 0, 1)
 corner_radius_top_left = 999
@@ -83,19 +81,19 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_ob02p")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/CenterChildren/CenterPanel" unique_id=2145110973]
 layout_mode = 2
-theme_override_constants/separation = 6
+theme_override_constants/separation = 8
 
 [node name="Label" type="Label" parent="VBoxContainer/CenterChildren/CenterPanel/VBoxContainer" unique_id=899913331]
 layout_mode = 2
-theme_override_fonts/font = SubResource("SystemFont_n4ir6")
+theme_override_fonts/font = ExtResource("2_kdx7p")
 theme_override_font_sizes/font_size = 64
 text = "Level 1"
 horizontal_alignment = 1
 
 [node name="IconMargin" type="MarginContainer" parent="VBoxContainer/CenterChildren/CenterPanel/VBoxContainer" unique_id=500448105]
 layout_mode = 2
-theme_override_constants/margin_top = 4
-theme_override_constants/margin_bottom = 16
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_bottom = 32
 
 [node name="Icons" type="HBoxContainer" parent="VBoxContainer/CenterChildren/CenterPanel/VBoxContainer/IconMargin" unique_id=1111753569]
 custom_minimum_size = Vector2(0, 50)
@@ -158,21 +156,25 @@ vertical_alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/CenterChildren/CenterPanel/VBoxContainer" unique_id=1935092982]
 layout_mode = 2
+theme_override_constants/separation = 8
 alignment = 1
 
 [node name="Restart" type="Button" parent="VBoxContainer/CenterChildren/CenterPanel/VBoxContainer/HBoxContainer" unique_id=1776618755]
 layout_mode = 2
 theme = ExtResource("5_kdx7p")
+theme_type_variation = &"OutlineButton"
 theme_override_font_sizes/font_size = 32
 text = "Restart"
 
 [node name="Menu" type="Button" parent="VBoxContainer/CenterChildren/CenterPanel/VBoxContainer/HBoxContainer" unique_id=681704821]
 layout_mode = 2
 theme = ExtResource("5_kdx7p")
+theme_type_variation = &"OutlineButton"
 theme_override_font_sizes/font_size = 32
 text = "Map"
 
 [node name="Next level" type="Button" parent="VBoxContainer/CenterChildren/CenterPanel/VBoxContainer" unique_id=1497099872]
+custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 theme = ExtResource("5_kdx7p")
 theme_override_font_sizes/font_size = 32
