@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dmvvw5465oh3q"]
 
 [ext_resource type="Script" uid="uid://dtu3p8kxcwq5x" path="res://main/pause_menu.gd" id="1_hhokr"]
+[ext_resource type="PackedScene" uid="uid://bmqrf2wci1n7g" path="res://shared/ui/cutout_button/cutout_button.tscn" id="2_57ghe"]
 
 [node name="PauseMenu" type="Control" unique_id=2014856477]
 layout_mode = 3
@@ -35,29 +36,21 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 24
 
-[node name="Label" type="Label" parent="VBoxContainer" unique_id=1949174876]
-layout_mode = 2
-text = "Pause"
-horizontal_alignment = 1
-
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer" unique_id=55439231]
 layout_mode = 2
 theme_override_constants/separation = 12
 
-[node name="MainMenu" type="Button" parent="VBoxContainer/VBoxContainer" unique_id=1083641020]
+[node name="MainMenu" parent="VBoxContainer/VBoxContainer" unique_id=423042115 instance=ExtResource("2_57ghe")]
 layout_mode = 2
-theme_override_font_sizes/font_size = 20
-text = "Main menu"
+new_text = "Main menu"
 
-[node name="Restart" type="Button" parent="VBoxContainer/VBoxContainer" unique_id=1199248169]
+[node name="Restart" parent="VBoxContainer/VBoxContainer" unique_id=1000945883 instance=ExtResource("2_57ghe")]
 layout_mode = 2
-theme_override_font_sizes/font_size = 20
-text = "Restart"
+new_text = "Restart"
 
-[node name="Cancel" type="Button" parent="VBoxContainer/VBoxContainer" unique_id=574907130]
+[node name="Cancel" parent="VBoxContainer/VBoxContainer" unique_id=268735320 instance=ExtResource("2_57ghe")]
 layout_mode = 2
-theme_override_font_sizes/font_size = 20
-text = "Cancel"
+new_text = "Cancel"
 
 [node name="Margin" type="MarginContainer" parent="VBoxContainer" unique_id=1464261875]
 layout_mode = 2
