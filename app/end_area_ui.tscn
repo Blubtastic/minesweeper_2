@@ -3,8 +3,8 @@
 [ext_resource type="Script" uid="uid://bvsw04pwwgpf3" path="res://app/end_area_ui.gd" id="1_ue8e4"]
 [ext_resource type="FontFile" uid="uid://bqn2wenckulyi" path="res://assets/Refuel Eb Cond.otf" id="2_kdx7p"]
 [ext_resource type="Texture2D" uid="uid://bbmrqpy0a6rwh" path="res://app/assets/checkmark.png" id="3_frkr4"]
-[ext_resource type="FontFile" uid="uid://bxax5vilt2yg7" path="res://assets/Roboto-VariableFont_wdth,wght.ttf" id="4_kdx7p"]
 [ext_resource type="Texture2D" uid="uid://bqrpeihkp4oan" path="res://app/assets/ace.png" id="4_mo2ek"]
+[ext_resource type="Theme" uid="uid://tbn55sdbk6cq" path="res://shared/theme/default_theme.tres" id="5_kdx7p"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ob02p"]
 bg_color = Color(0.33333334, 0.2, 0.33333334, 1)
@@ -162,17 +162,19 @@ alignment = 1
 
 [node name="Restart" type="Button" parent="VBoxContainer/CenterChildren/CenterPanel/VBoxContainer/HBoxContainer" unique_id=1776618755]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("4_kdx7p")
+theme = ExtResource("5_kdx7p")
 theme_override_font_sizes/font_size = 32
 text = "Restart"
 
 [node name="Menu" type="Button" parent="VBoxContainer/CenterChildren/CenterPanel/VBoxContainer/HBoxContainer" unique_id=681704821]
 layout_mode = 2
+theme = ExtResource("5_kdx7p")
 theme_override_font_sizes/font_size = 32
 text = "Map"
 
 [node name="Next level" type="Button" parent="VBoxContainer/CenterChildren/CenterPanel/VBoxContainer" unique_id=1497099872]
 layout_mode = 2
+theme = ExtResource("5_kdx7p")
 theme_override_font_sizes/font_size = 32
 text = "Next level"
 
