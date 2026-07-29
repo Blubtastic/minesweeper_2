@@ -26,6 +26,8 @@ func _input(event: InputEvent) -> void:
 		if event.is_action_pressed("ui_down") and selected_level.down:
 			selected_level = selected_level.down
 	handle_focus_change(selected_level)
+	if event.is_action_pressed("ui_accept"):
+		selected_level.change_to_level()
 
 
 func handle_focus_change(new_level: LevelSelectLevel) -> void:

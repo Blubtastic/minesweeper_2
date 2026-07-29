@@ -20,11 +20,14 @@ func _ready() -> void:
 # HANDLE LEFT CLICK
 func _on_input_event(_camera: Node, event: InputEvent, _event_position: Vector3, _normal: Vector3, _shape_idx: int) -> void:
 	was_hovered.emit(self)
-
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
-		Globals.current_level = level
-		get_tree().change_scene_to_file('res://levels/level_' + str(int(level)) + '.tscn')
+		change_to_level()
 
+
+
+func change_to_level() -> void:
+	Globals.current_level = level
+	get_tree().change_scene_to_file('res://levels/level_' + str(int(level)) + '.tscn')
 
 # HANDLE VISUAL FOCUS
 func grab_focus() -> void:
