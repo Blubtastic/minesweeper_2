@@ -48,7 +48,11 @@ new_text = "RESUME"
 layout_mode = 2
 new_text = "RESTART"
 
-[node name="MainMenu" parent="VBoxContainer/VBoxContainer" unique_id=423042115 instance=ExtResource("2_57ghe")]
+[node name="WorldMap" parent="VBoxContainer/VBoxContainer" unique_id=423042115 instance=ExtResource("2_57ghe")]
+layout_mode = 2
+new_text = "WORLD MAP"
+
+[node name="MainMenu" parent="VBoxContainer/VBoxContainer" unique_id=12796100 instance=ExtResource("2_57ghe")]
 layout_mode = 2
 new_text = "MAIN MENU"
 
@@ -58,4 +62,6 @@ theme_override_constants/margin_top = 120
 
 [connection signal="pressed" from="VBoxContainer/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
 [connection signal="pressed" from="VBoxContainer/VBoxContainer/Restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="VBoxContainer/VBoxContainer/WorldMap" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="VBoxContainer/VBoxContainer/WorldMap" to="." method="_on_world_map_pressed"]
 [connection signal="pressed" from="VBoxContainer/VBoxContainer/MainMenu" to="." method="_on_main_menu_pressed"]

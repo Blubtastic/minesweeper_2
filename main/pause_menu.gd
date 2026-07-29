@@ -36,3 +36,7 @@ func _on_restart_pressed() -> void:
 
 func _on_resume_pressed() -> void:
 	toggle_menu(false)
+
+
+func _on_world_map_pressed() -> void:
+	get_tree().change_scene_to_file("res://level_select/world_map.tscn")
