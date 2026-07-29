@@ -10,7 +10,7 @@ class_name LevelSelectLevel
 @export var up: Area3D
 @export var down: Area3D
 
-signal was_hovered(position: Vector3, level: int)
+signal was_hovered(body: LevelSelectLevel)
 
 
 func _ready() -> void:
@@ -19,7 +19,7 @@ func _ready() -> void:
 
 # HANDLE LEFT CLICK
 func _on_input_event(_camera: Node, event: InputEvent, _event_position: Vector3, _normal: Vector3, _shape_idx: int) -> void:
-	was_hovered.emit(position, level)
+	was_hovered.emit(self)
 
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 		Globals.current_level = level
