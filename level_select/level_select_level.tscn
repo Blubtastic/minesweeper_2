@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://t6aer3lvpqql"]
 
 [ext_resource type="Script" uid="uid://v4di8tixrewx" path="res://level_select/level_select_level.gd" id="1_rr6fh"]
+[ext_resource type="FontFile" uid="uid://bxax5vilt2yg7" path="res://assets/Roboto-VariableFont_wdth,wght.ttf" id="2_21d2b"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fchgy"]
 albedo_color = Color(0.99575, 0.90986794, 0.7674818, 1)
@@ -13,7 +14,7 @@ height = 0.11621094
 height = 0.85961914
 radius = 0.50634766
 
-[node name="LevelSelectLevel" type="Area3D" unique_id=2082663743]
+[node name="SelectLevel" type="Area3D" unique_id=2082663743]
 script = ExtResource("1_rr6fh")
 
 [node name="Mesh" type="MeshInstance3D" parent="." unique_id=1484349992]
@@ -24,5 +25,10 @@ skeleton = NodePath("../..")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2093422499]
 transform = Transform3D(7.6222644, 0, 0, 0, 7.6222644, 0, 0, 0, 7.6222644, 0, 2.5950313, 0)
 shape = SubResource("CylinderShape3D_w1hta")
+
+[node name="LevelName" type="Label3D" parent="." unique_id=438931464]
+transform = Transform3D(15, 0, 0, 0, 7.4999995, 12.990381, 0, -12.990381, 7.4999995, 0, 0.57360077, -6.052228)
+text = "1-1"
+font = ExtResource("2_21d2b")
 
 [connection signal="input_event" from="." to="." method="_on_input_event"]

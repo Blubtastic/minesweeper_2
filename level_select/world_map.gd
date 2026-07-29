@@ -1,7 +1,7 @@
 extends Node3D
 
 @onready var player_model: Node3D = $PlayerModel
-@onready var levels: Array[Area3D] = [$Levels/LevelSelectLevel1, $Levels/LevelSelectLevel2, $Levels/LevelSelectLevel3, $Levels/LevelSelectLevel4]
+@onready var levels: Array[Area3D] = [$Levels/SelectLevel1_1, $Levels/SelectLevel1_2, $Levels/SelectLevel1_3, $Levels/SelectLevel1_4, $Levels/SelectLevel2_1, $Levels/SelectLevel2_2, $Levels/SelectLevel2_3, $Levels/SelectLevel3_1, $Levels/SelectLevel3_2, $Levels/SelectLevel3_3, $Levels/SelectLevel3_4]
 
 
 func _ready() -> void:
