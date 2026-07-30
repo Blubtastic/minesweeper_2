@@ -12,7 +12,7 @@ background_energy_multiplier = 2.0
 script = ExtResource("1_hbsyx")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=484169812]
-transform = Transform3D(1, 0, 0, 0, 0.45881948, 0.88852954, 0, -0.88852954, 0.45881948, 13.468815, 69.37992, 59.566513)
+transform = Transform3D(1, 0, 0, 0, 0.40233463, 0.9154927, 0, -0.9154927, 0.40233463, -29.292553, 80.103874, 65.7885)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1531466726]
 environment = SubResource("Environment_w1hta")
@@ -26,74 +26,81 @@ shadow_enabled = true
 [node name="world_map" parent="." unique_id=682296374 instance=ExtResource("1_ur4yk")]
 
 [node name="PlayerModel" parent="." unique_id=342861743 instance=ExtResource("2_fchgy")]
-transform = Transform3D(-0.34267542, 0, -1.6547134, 0, 1.6898593, 0, 1.6547134, 0, -0.34267542, -17.601505, 1.199, 18.829607)
+transform = Transform3D(-0.34267542, 0, -1.6547134, 0, 1.6898593, 0, 1.6547134, 0, -0.34267542, -3.9107008, 1.199, 15.843941)
 
 [node name="Levels" type="Node3D" parent="." unique_id=49850306]
 
-[node name="SelectLevel1_1" parent="Levels" unique_id=2082663743 node_paths=PackedStringArray("left", "right") instance=ExtResource("4_iph2q")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.470749, 0, 18.941385)
+[node name="SelectLevel1_1" parent="Levels" unique_id=2082663743 node_paths=PackedStringArray("left", "up", "down") instance=ExtResource("4_iph2q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.6242142, 0, 16.205843)
 left = NodePath("../SelectLevel3_1")
-right = NodePath("../SelectLevel1_2")
-
-[node name="SelectLevel1_2" parent="Levels" unique_id=1778341452 node_paths=PackedStringArray("left", "up", "down") instance=ExtResource("4_iph2q")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4630432, 0, 19.67927)
-level = 2
-left = NodePath("../SelectLevel1_1")
-up = NodePath("../SelectLevel1_3")
+up = NodePath("../SelectLevel1_2")
 down = NodePath("../SelectLevel2_1")
 
-[node name="SelectLevel1_3" parent="Levels" unique_id=1169195652 node_paths=PackedStringArray("up", "down") instance=ExtResource("4_iph2q")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.8200912, 0, 2.3152142)
+[node name="SelectLevel1_2" parent="Levels" unique_id=1778341452 node_paths=PackedStringArray("up", "down") instance=ExtResource("4_iph2q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7393866, 0, -6.2446585)
+level = 2
+up = NodePath("../SelectLevel1_3")
+down = NodePath("../SelectLevel1_1")
+
+[node name="SelectLevel1_3" parent="Levels" unique_id=1169195652 node_paths=PackedStringArray("right", "down") instance=ExtResource("4_iph2q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.058042, 0, -26.700611)
 level = 3
-up = NodePath("../SelectLevel1_4")
+right = NodePath("../SelectLevel1_4")
 down = NodePath("../SelectLevel1_2")
 
-[node name="SelectLevel1_4" parent="Levels" unique_id=2139963169 node_paths=PackedStringArray("down") instance=ExtResource("4_iph2q")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.157608, 0, -24.656956)
+[node name="SelectLevel1_4" parent="Levels" unique_id=2139963169 node_paths=PackedStringArray("left") instance=ExtResource("4_iph2q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 57.145798, 0, -19.297039)
 level = 4
-down = NodePath("../SelectLevel1_3")
+left = NodePath("../SelectLevel1_3")
 
 [node name="SelectLevel2_1" parent="Levels" unique_id=122338204 node_paths=PackedStringArray("up", "down") instance=ExtResource("4_iph2q")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7552757, 0, 38.841965)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.028986, 0, 38.13654)
 group = 2
-up = NodePath("../SelectLevel1_2")
+up = NodePath("../SelectLevel1_1")
 down = NodePath("../SelectLevel2_2")
 
 [node name="SelectLevel2_2" parent="Levels" unique_id=1926034771 node_paths=PackedStringArray("left", "up") instance=ExtResource("4_iph2q")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.194354, -2.4919705, 55.642258)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.7774668, -2.4919705, 73.25607)
 group = 2
 level = 2
 left = NodePath("../SelectLevel2_3")
 up = NodePath("../SelectLevel2_1")
 
-[node name="SelectLevel2_3" parent="Levels" unique_id=494398221 node_paths=PackedStringArray("right") instance=ExtResource("4_iph2q")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -51.183132, -2.4919705, 53.270424)
+[node name="SelectLevel2_3" parent="Levels" unique_id=494398221 node_paths=PackedStringArray("left", "right") instance=ExtResource("4_iph2q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -37.10749, -2.4919705, 68.90986)
 group = 2
 level = 3
+left = NodePath("../SelectLevel2_4")
 right = NodePath("../SelectLevel2_2")
 
+[node name="SelectLevel2_4" parent="Levels" unique_id=1713144779 node_paths=PackedStringArray("right") instance=ExtResource("4_iph2q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -82.322296, -2.4919705, 28.44793)
+group = 2
+level = 3
+right = NodePath("../SelectLevel2_3")
+
 [node name="SelectLevel3_1" parent="Levels" unique_id=1416008702 node_paths=PackedStringArray("left", "right") instance=ExtResource("4_iph2q")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34.916794, 0, 26.039612)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34.663788, 0, 10.597818)
 group = 3
 left = NodePath("../SelectLevel3_2")
 right = NodePath("../SelectLevel1_1")
 
-[node name="SelectLevel3_2" parent="Levels" unique_id=2124378752 node_paths=PackedStringArray("right", "up") instance=ExtResource("4_iph2q")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -56.894867, 0, 27.696873)
+[node name="SelectLevel3_2" parent="Levels" unique_id=2124378752 node_paths=PackedStringArray("left", "right") instance=ExtResource("4_iph2q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -69.00308, 0, 2.0386534)
 group = 3
 level = 2
+left = NodePath("../SelectLevel3_3")
 right = NodePath("../SelectLevel3_1")
-up = NodePath("../SelectLevel3_3")
 
-[node name="SelectLevel3_3" parent="Levels" unique_id=47310147 node_paths=PackedStringArray("up", "down") instance=ExtResource("4_iph2q")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -51.0203, 0, 13.317017)
+[node name="SelectLevel3_3" parent="Levels" unique_id=47310147 node_paths=PackedStringArray("left", "right") instance=ExtResource("4_iph2q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -106.19082, 0, 8.398481)
 group = 3
 level = 3
-up = NodePath("../SelectLevel3_4")
-down = NodePath("../SelectLevel3_2")
+left = NodePath("../SelectLevel3_4")
+right = NodePath("../SelectLevel3_2")
 
-[node name="SelectLevel3_4" parent="Levels" unique_id=899716352 node_paths=PackedStringArray("down") instance=ExtResource("4_iph2q")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -57.069046, 0, -2.3688984)
+[node name="SelectLevel3_4" parent="Levels" unique_id=899716352 node_paths=PackedStringArray("right") instance=ExtResource("4_iph2q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -134.07748, 0, 3.0454764)
 group = 3
 level = 4
-down = NodePath("../SelectLevel3_3")
+right = NodePath("../SelectLevel3_3")
