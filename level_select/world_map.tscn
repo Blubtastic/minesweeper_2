@@ -73,10 +73,8 @@ level = 3
 left = NodePath("../SelectLevel2_4")
 right = NodePath("../SelectLevel2_2")
 
-[node name="SelectLevel2_4" parent="Levels" unique_id=1713144779 node_paths=PackedStringArray("right") instance=ExtResource("4_iph2q")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -82.322296, -2.4919705, 28.44793)
-group = 2
-level = 3
+[node name="SelectLevel2_4" parent="Levels" unique_id=42818395 node_paths=PackedStringArray("right") instance=ExtResource("4_iph2q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -83.806984, -2.402588, 27.923376)
 right = NodePath("../SelectLevel2_3")
 
 [node name="SelectLevel3_1" parent="Levels" unique_id=1416008702 node_paths=PackedStringArray("left", "right") instance=ExtResource("4_iph2q")]

@@ -2,7 +2,7 @@ extends Node3D
 
 #level_selects = get_tree().get_nodes_in_group("level_select_buttons")
 @onready var player_model: Node3D = $PlayerModel
-@onready var levels: Array[LevelSelectLevel] = [$Levels/SelectLevel1_1, $Levels/SelectLevel1_2, $Levels/SelectLevel1_3, $Levels/SelectLevel1_4, $Levels/SelectLevel2_1, $Levels/SelectLevel2_2, $Levels/SelectLevel2_3, $Levels/SelectLevel3_1, $Levels/SelectLevel3_2, $Levels/SelectLevel3_3, $Levels/SelectLevel3_4]
+@onready var levels: Array[LevelSelectLevel] = [$Levels/SelectLevel1_1, $Levels/SelectLevel1_2, $Levels/SelectLevel1_3, $Levels/SelectLevel1_4, $Levels/SelectLevel2_1, $Levels/SelectLevel2_2, $Levels/SelectLevel2_3, $Levels/SelectLevel2_4, $Levels/SelectLevel3_1, $Levels/SelectLevel3_2, $Levels/SelectLevel3_3, $Levels/SelectLevel3_4]
 @onready var initially_selected_level: LevelSelectLevel = $Levels/SelectLevel1_1
 var selected_level: LevelSelectLevel
 
