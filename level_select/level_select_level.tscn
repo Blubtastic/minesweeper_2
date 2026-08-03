@@ -43,5 +43,6 @@ shape = SubResource("CylinderShape3D_w1hta")
 transform = Transform3D(20, 0, 0, 0, 9.999999, 17.320509, 0, -17.320509, 9.999999, 0, 0.9046352, -5.7981133)
 text = "1-1"
 font = ExtResource("2_21d2b")
+outline_size = 6
 
 [connection signal="input_event" from="." to="." method="_on_input_event"]
