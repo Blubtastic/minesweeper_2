@@ -24,8 +24,8 @@ corner_radius_top_right = 999
 corner_radius_bottom_right = 999
 corner_radius_bottom_left = 999
 shadow_color = Color(0, 0, 0, 1)
-shadow_size = 1
-shadow_offset = Vector2(1, 1)
+shadow_size = 2
+shadow_offset = Vector2(3, 3)
 
 [sub_resource type="Gradient" id="Gradient_mo2ek"]
 offsets = PackedFloat32Array(0.9983108, 1)
@@ -33,6 +33,18 @@ colors = PackedColorArray(2.2140146e-06, 0.99213976, 0.36688584, 1, 1, 1, 1, 0)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_e722s"]
 gradient = SubResource("Gradient_mo2ek")
+width = 100
+height = 100
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 1)
+
+[sub_resource type="Gradient" id="Gradient_kdx7p"]
+offsets = PackedFloat32Array(0.9983108, 1)
+colors = PackedColorArray(0, 0, 0, 0.68235296, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_gja32"]
+gradient = SubResource("Gradient_kdx7p")
 width = 100
 height = 100
 fill = 1
@@ -66,8 +78,12 @@ layout_mode = 2
 [node name="Label" type="Label" parent="VBoxContainer/HeaderPanel/HBoxContainer" unique_id=1673274451]
 layout_mode = 2
 size_flags_horizontal = 6
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
+theme_override_constants/shadow_outline_size = 2
 theme_override_fonts/font = ExtResource("2_kdx7p")
-theme_override_font_sizes/font_size = 64
+theme_override_font_sizes/font_size = 80
 text = "Level complete!"
 horizontal_alignment = 1
 
@@ -85,8 +101,12 @@ theme_override_constants/separation = 8
 
 [node name="Label" type="Label" parent="VBoxContainer/CenterChildren/CenterPanel/VBoxContainer" unique_id=899913331]
 layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
+theme_override_constants/shadow_outline_size = 2
 theme_override_fonts/font = ExtResource("2_kdx7p")
-theme_override_font_sizes/font_size = 64
+theme_override_font_sizes/font_size = 80
 text = "Level 1"
 horizontal_alignment = 1
 
@@ -96,8 +116,8 @@ theme_override_constants/margin_top = 32
 theme_override_constants/margin_bottom = 32
 
 [node name="Icons" type="HBoxContainer" parent="VBoxContainer/CenterChildren/CenterPanel/VBoxContainer/IconMargin" unique_id=1111753569]
-custom_minimum_size = Vector2(0, 50)
-custom_maximum_size = Vector2(-1, 50)
+custom_minimum_size = Vector2(0, 74)
+custom_maximum_size = Vector2(-1, 74)
 layout_mode = 2
 theme_override_constants/separation = 12
 alignment = 1
@@ -134,6 +154,11 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 texture = ExtResource("4_mo2ek")
 
+[node name="Disabled" type="TextureRect" parent="VBoxContainer/CenterChildren/CenterPanel/VBoxContainer/IconMargin/Icons/AceIconPanel" unique_id=1411668155]
+layout_mode = 2
+texture = SubResource("GradientTexture2D_gja32")
+expand_mode = 2
+
 [node name="100IconPanel" type="PanelContainer" parent="VBoxContainer/CenterChildren/CenterPanel/VBoxContainer/IconMargin/Icons" unique_id=784936623]
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_e722s")
@@ -154,6 +179,11 @@ shortcut_keys_enabled = false
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Disabled" type="TextureRect" parent="VBoxContainer/CenterChildren/CenterPanel/VBoxContainer/IconMargin/Icons/100IconPanel" unique_id=1453572470]
+layout_mode = 2
+texture = SubResource("GradientTexture2D_gja32")
+expand_mode = 2
+
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/CenterChildren/CenterPanel/VBoxContainer" unique_id=1935092982]
 layout_mode = 2
 theme_override_constants/separation = 8
@@ -163,21 +193,21 @@ alignment = 1
 layout_mode = 2
 theme = ExtResource("5_kdx7p")
 theme_type_variation = &"OutlineButton"
-theme_override_font_sizes/font_size = 32
+theme_override_font_sizes/font_size = 48
 text = "Restart"
 
 [node name="Menu" type="Button" parent="VBoxContainer/CenterChildren/CenterPanel/VBoxContainer/HBoxContainer" unique_id=681704821]
 layout_mode = 2
 theme = ExtResource("5_kdx7p")
 theme_type_variation = &"OutlineButton"
-theme_override_font_sizes/font_size = 32
+theme_override_font_sizes/font_size = 48
 text = "Map"
 
 [node name="Next level" type="Button" parent="VBoxContainer/CenterChildren/CenterPanel/VBoxContainer" unique_id=1497099872]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 theme = ExtResource("5_kdx7p")
-theme_override_font_sizes/font_size = 32
+theme_override_font_sizes/font_size = 48
 text = "Next level"
 
 [node name="FooterPanel" type="PanelContainer" parent="VBoxContainer" unique_id=2019214797]
