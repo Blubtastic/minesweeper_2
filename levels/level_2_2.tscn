@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://e6mbanjugyi"]
+
+[ext_resource type="Script" uid="uid://b3ynraryv822m" path="res://app/basic_level.gd" id="1_j34gf"]
+[ext_resource type="PackedScene" uid="uid://dgxv52jn27v3c" path="res://moving_chunk/cube_chunk/cube_chunk.tscn" id="2_tvty5"]
+[ext_resource type="PackedScene" uid="uid://dhlda46fqvnos" path="res://moving_chunk/forest_chunk.tscn" id="3_i6ade"]
+[ext_resource type="PackedScene" uid="uid://bk53qkkxr6wr8" path="res://app/level_basics.tscn" id="4_8ol7r"]
+
+[node name="Level2_2" type="Node3D" unique_id=790738478]
+script = ExtResource("1_j34gf")
+
+[node name="StartChunks" type="Node3D" parent="." unique_id=1735927583]
+
+[node name="CubeChunk" parent="StartChunks" unique_id=1113538222 instance=ExtResource("2_tvty5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 0, -9.35)
+NUMBER_OF_MINES = 7
+
+[node name="ForestChunk2" parent="StartChunks" unique_id=222010042 instance=ExtResource("3_i6ade")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0.57, -5.87)
+
+[node name="ForestChunk1" parent="StartChunks" unique_id=578716859 instance=ExtResource("3_i6ade")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0.57, 2.11)
+
+[node name="LevelBasics" parent="." unique_id=1868503360 instance=ExtResource("4_8ol7r")]

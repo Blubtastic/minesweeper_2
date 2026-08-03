@@ -2,9 +2,10 @@ extends Node3D
 
 #level_selects = get_tree().get_nodes_in_group("level_select_buttons")
 @onready var player_model: Node3D = $PlayerModel
-@onready var levels: Array[LevelSelectLevel] = [$Levels/SelectLevel1_1, $Levels/SelectLevel1_2, $Levels/SelectLevel1_3, $Levels/SelectLevel1_4, $Levels/SelectLevel2_1, $Levels/SelectLevel2_2, $Levels/SelectLevel2_3, $Levels/SelectLevel2_4, $Levels/SelectLevel3_1, $Levels/SelectLevel3_2, $Levels/SelectLevel3_3, $Levels/SelectLevel3_4]
+@onready var levels: Array[LevelSelectLevel] = [$Levels/SelectLevel1_1, $Levels/SelectLevel1_2, $Levels/SelectLevel1_3, $Levels/SelectLevel1_4, $Levels/SelectLevel2_1, $Levels/SelectLevel2_2, $Levels/SelectLevel2_3, $Levels/SelectLevel2_4, $Levels/SelectLevel3_1, $Levels/SelectLevel3_2, $Levels/SelectLevel3_3]
 @onready var initially_selected_level: LevelSelectLevel = $Levels/SelectLevel1_1
 var selected_level: LevelSelectLevel
+@onready var selected_level_title: Label = $Control/SelectedLevelTitle
 
 func _ready() -> void:
 	selected_level = initially_selected_level
@@ -18,13 +19,13 @@ func move_to_position(new_position: Vector3) -> void:
 func _input(event: InputEvent) -> void:
 	if event is InputEventKey and event.pressed:
 		if event.is_action_pressed("ui_left") and selected_level.left:
-			selected_level = selected_level.left
+			handle_focus_change(selected_level.left)
 		if event.is_action_pressed("ui_right") and selected_level.right:
-			selected_level = selected_level.right
+			handle_focus_change(selected_level.right)
 		if event.is_action_pressed("ui_up") and selected_level.up:
-			selected_level = selected_level.up
+			handle_focus_change(selected_level.up)
 		if event.is_action_pressed("ui_down") and selected_level.down:
-			selected_level = selected_level.down
+			handle_focus_change(selected_level.down)
 	handle_focus_change(selected_level)
 	if event.is_action_pressed("ui_accept"):
 		selected_level.change_to_level()
@@ -36,7 +37,16 @@ func handle_focus_change(new_level: LevelSelectLevel) -> void:
 		level.release_focus()
 	selected_level.grab_focus()
 	move_to_position(selected_level.position)
-
+	set_selected_level_title()
 
 func handle_was_hovered(body: LevelSelectLevel) -> void:
 	handle_focus_change(body)
+
+
+func set_selected_level_title() -> void:
+	var group_texts: Dictionary[int, String] = {
+		1: "Easy",
+		2: "Medium",
+		3: "Hard",
+	}
+	selected_level_title.text = group_texts[selected_level.group] + " " + str(selected_level.level)

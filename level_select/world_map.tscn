@@ -32,83 +32,97 @@ shadow_enabled = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0010108948, -0.529541, -0.00491333)
 
 [node name="PlayerModel" parent="." unique_id=342861743 instance=ExtResource("2_fchgy")]
-transform = Transform3D(-0.34267542, 0, -1.6547134, 0, 1.6898593, 0, 1.6547134, 0, -0.34267542, -7.61086, 7.433279, 16.621841)
+transform = Transform3D(-0.34267542, 0, -1.6547134, 0, 1.6898593, 0, 1.6547134, 0, -0.34267542, -12.642956, 7.433279, 18.298227)
 
 [node name="Levels" type="Node3D" parent="." unique_id=49850306]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.7782135, 0)
 
 [node name="SelectLevel1_1" parent="Levels" unique_id=2082663743 node_paths=PackedStringArray("left", "up", "down") instance=ExtResource("4_iph2q")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.759819, 0, 16.657001)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.54689, 0, 18.356857)
 left = NodePath("../SelectLevel3_1")
 up = NodePath("../SelectLevel1_2")
 down = NodePath("../SelectLevel2_1")
 
 [node name="SelectLevel1_2" parent="Levels" unique_id=1778341452 node_paths=PackedStringArray("up", "down") instance=ExtResource("4_iph2q")]
-transform = Transform3D(0.99788886, 0, -0.064944364, 0, 1, 0, 0.064944364, 0, 0.99788886, -1.7393866, 0, -6.2446585)
-level = 2
+transform = Transform3D(0.99788886, 0, -0.064944364, 0, 1, 0, 0.064944364, 0, 0.99788886, -2.4832106, 0, -8.138796)
+group = 2
 up = NodePath("../SelectLevel1_3")
 down = NodePath("../SelectLevel1_1")
 
 [node name="SelectLevel1_3" parent="Levels" unique_id=1169195652 node_paths=PackedStringArray("right", "down") instance=ExtResource("4_iph2q")]
-transform = Transform3D(0.9949691, 0, -0.1001822, 0, 1, 0, 0.1001822, 0, 0.9949691, 11.058042, 0, -26.700611)
-level = 3
+transform = Transform3D(0.9949691, 0, -0.1001822, 0, 1, 0, 0.1001822, 0, 0.9949691, 15.875713, 0, -27.60267)
+group = 2
+level = 2
 right = NodePath("../SelectLevel1_4")
 down = NodePath("../SelectLevel1_2")
 
 [node name="SelectLevel1_4" parent="Levels" unique_id=2139963169 node_paths=PackedStringArray("left") instance=ExtResource("4_iph2q")]
-transform = Transform3D(0.96471983, 0, -0.26327857, 0, 1, 0, 0.26327857, 0, 0.96471983, 46.30093, 0.5439911, -17.302225)
-level = 4
+transform = Transform3D(0.96471983, 0, -0.26327857, 0, 1, 0, 0.26327857, 0, 0.96471983, 53.33726, 0.5439911, -16.28082)
+group = 2
+level = 3
 left = NodePath("../SelectLevel1_3")
 
 [node name="SelectLevel2_1" parent="Levels" unique_id=122338204 node_paths=PackedStringArray("up", "down") instance=ExtResource("4_iph2q")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.90079, 0, 40.89184)
-group = 2
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.907069, 0, 41.23573)
+level = 2
 up = NodePath("../SelectLevel1_1")
 down = NodePath("../SelectLevel2_2")
 
 [node name="SelectLevel2_2" parent="Levels" unique_id=1926034771 node_paths=PackedStringArray("left", "up") instance=ExtResource("4_iph2q")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.662946, -0.21854973, 74.74126)
-group = 2
-level = 2
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.138234, -0.21854973, 74.20274)
+level = 3
 left = NodePath("../SelectLevel2_3")
 up = NodePath("../SelectLevel2_1")
 
 [node name="SelectLevel2_3" parent="Levels" unique_id=494398221 node_paths=PackedStringArray("left", "right", "up") instance=ExtResource("4_iph2q")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -49.076794, -0.46144295, 63.620262)
-group = 2
-level = 3
+level = 4
 left = NodePath("../SelectLevel2_4")
 right = NodePath("../SelectLevel2_2")
 up = NodePath("../SelectLevel2_4")
 
 [node name="SelectLevel2_4" parent="Levels" unique_id=42818395 node_paths=PackedStringArray("right") instance=ExtResource("4_iph2q")]
-transform = Transform3D(0.9778415, 0, 0.20934671, 0, 1, 0, -0.20934671, 0, 0.9778415, -84.40283, -0.2845192, 29.842531)
-group = 2
-level = 4
+transform = Transform3D(0.9778415, 0, 0.20934671, 0, 1, 0, -0.20934671, 0, 0.9778415, -82.47352, -0.2845192, 30.750437)
+level = 5
 right = NodePath("../SelectLevel2_3")
 
 [node name="SelectLevel3_1" parent="Levels" unique_id=1416008702 node_paths=PackedStringArray("left", "right") instance=ExtResource("4_iph2q")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34.663788, 0, 10.597818)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -43.070446, 0, 6.1624823)
 group = 3
 left = NodePath("../SelectLevel3_2")
 right = NodePath("../SelectLevel1_1")
 
 [node name="SelectLevel3_2" parent="Levels" unique_id=2124378752 node_paths=PackedStringArray("left", "right") instance=ExtResource("4_iph2q")]
-transform = Transform3D(0.9959933, 0, 0.08942742, 0, 1, 0, -0.08942742, 0, 0.9959933, -69.00308, -0.8744869, 2.0386534)
+transform = Transform3D(0.9959933, 0, 0.08942742, 0, 1, 0, -0.08942742, 0, 0.9959933, -84.82623, -0.8744869, 0.46256828)
 group = 3
 level = 2
 left = NodePath("../SelectLevel3_3")
 right = NodePath("../SelectLevel3_1")
 
 [node name="SelectLevel3_3" parent="Levels" unique_id=47310147 node_paths=PackedStringArray("left", "right") instance=ExtResource("4_iph2q")]
-transform = Transform3D(0.98810804, 0, 0.15376082, 0, 1, 0, -0.15376082, 0, 0.98810804, -102.06181, -0.8732605, 5.1410904)
+transform = Transform3D(0.98810804, 0, 0.15376082, 0, 1, 0, -0.15376082, 0, 0.98810804, -127.6213, -0.8732605, 3.4387817)
 group = 3
 level = 3
-left = NodePath("../SelectLevel3_4")
+left = NodePath("")
 right = NodePath("../SelectLevel3_2")
 
-[node name="SelectLevel3_4" parent="Levels" unique_id=899716352 node_paths=PackedStringArray("right") instance=ExtResource("4_iph2q")]
-transform = Transform3D(0.9324403, 0, 0.36132413, 0, 1, 0, -0.36132413, 0, 0.9324403, -130.59265, -0.63761425, -0.49303007)
-group = 3
-level = 4
-right = NodePath("../SelectLevel3_3")
+[node name="Control" type="Control" parent="." unique_id=720521162]
+layout_mode = 3
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+grow_vertical = 0
+
+[node name="SelectedLevelTitle" type="Label" parent="Control" unique_id=1932218667]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 103.0
+offset_top = -169.0
+offset_right = 374.0
+offset_bottom = -71.0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 80
+text = "Hard 1"
+vertical_alignment = 2
