@@ -2,7 +2,8 @@ extends CharacterBody3D
 class_name Player
 
 @export_range(1,2) var id := 1
-@export var hp: int = 3
+const START_HP: int = 3
+@export var hp: int = START_HP
 @onready var player_vfx := $PlayerVFX
 @onready var player_powerups: Node3D = $PlayerPowerups
 @onready var player_inputs: PlayerInputs = $PlayerInputs

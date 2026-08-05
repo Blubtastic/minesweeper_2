@@ -76,7 +76,7 @@ material = SubResource("StandardMaterial3D_37tqn")
 radius = 0.7
 height = 1.4
 
-[node name="Player" type="CharacterBody3D" unique_id=1383705294]
+[node name="Player" type="CharacterBody3D" unique_id=1383705294 groups=["players"]]
 collision_layer = 136
 collision_mask = 136
 script = ExtResource("1_fjkuh")

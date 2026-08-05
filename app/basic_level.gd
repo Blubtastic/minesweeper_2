@@ -21,6 +21,7 @@ func _ready() -> void:
 		var player_1 := _1_PLAYER.instantiate()
 		player_1.position = Vector3(0,1,0)
 		add_child(player_1)
+	Globals.get_players()
 
 
 func _input(event: InputEvent) -> void:

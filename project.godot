@@ -46,6 +46,7 @@ window/vsync/vsync_mode=0
 
 move_with_world="objects in this group is moved with world_speed every _physics_process"
 level_select_buttons="Buttons used for selecting a level"
+players="player characters"
 
 [gui]
 

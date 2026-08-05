@@ -18,6 +18,10 @@ var players_invincible: bool = false
 var player_speed: float = 5 # in the future, should be local
 var player_positions := { 1: Vector3.ZERO, 2: Vector3.ZERO }
 
+var level_aced: bool = false
+var level_full_cleared: bool = false
+var players: Array[Player] = []
+
 signal game_ended()
 signal cube_exploded()
 signal player_was_damaged()
@@ -63,6 +67,9 @@ func reset_game() -> void:
 	players_invincible = false
 	score = 0
 	dead_player_count = 0
+	level_aced = false
+	level_full_cleared = false
+	players = []
 
 
 # ==================== CAMERA ====================
@@ -97,3 +104,22 @@ func spawn_score_granted_particle(amount: int, pos: Vector3) -> void:
 	score_instance.global_position.y += 1
 	score_instance.mesh.text = str(amount)
 	score_instance.emitting = true
+
+
+func set_reward_vars() -> void:
+	level_aced = is_level_aced()
+	#level_full_cleared: CLEARED = CUBES - MINES
+
+
+func is_level_aced() -> bool:
+	for player in players:
+		if player.hp != player.START_HP:
+			return false
+	return true
+
+
+func get_players() -> void:
+	var players_from_group := get_tree().get_nodes_in_group("players")
+	for player in players_from_group:
+		if player is Player:
+			players.append(player)

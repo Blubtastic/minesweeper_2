@@ -7,7 +7,6 @@ const WORLD_MAP = preload("uid://dec4vccolfnnv")
 @onready var icon_full_clear: PanelContainer = $VBoxContainer/CenterChildren/CenterPanel/VBoxContainer/IconMargin/Icons/IconFullClear
 
 
-
 func _on_restart_pressed() -> void:
 	get_tree().reload_current_scene()
 
@@ -22,8 +21,9 @@ func _on_next_level_pressed() -> void:
 
 
 func handle_game_over() -> void:
+	Globals.set_reward_vars() # TODO: MOVE TO GLOBALS IN LEVEL_COMPLETED FUNC
 	await get_tree().create_timer(0.25).timeout
 	animation_player.play("show_rewards")
 	icon_clear.visible = true
-	icon_ace.visible = false
-	icon_full_clear.visible = true
+	icon_ace.visible = Globals.level_aced
+	icon_full_clear.visible = Globals.level_full_cleared
