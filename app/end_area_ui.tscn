@@ -6,6 +6,91 @@
 [ext_resource type="Texture2D" uid="uid://bqrpeihkp4oan" path="res://app/assets/ace.png" id="4_mo2ek"]
 [ext_resource type="Theme" uid="uid://tbn55sdbk6cq" path="res://shared/theme/default_theme.tres" id="5_kdx7p"]
 
+[sub_resource type="Animation" id="Animation_kdx7p"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("VBoxContainer/CenterChildren/CenterPanel/VBoxContainer/IconMargin/Icons/CheckIconPanel:offset_transform_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("VBoxContainer/CenterChildren/CenterPanel/VBoxContainer/IconMargin/Icons/AceIconPanel:offset_transform_scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("VBoxContainer/CenterChildren/CenterPanel/VBoxContainer/IconMargin/Icons/100IconPanel:offset_transform_scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_gja32"]
+resource_name = "show_rewards"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("VBoxContainer/CenterChildren/CenterPanel/VBoxContainer/IconMargin/Icons/CheckIconPanel:offset_transform_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.16666667, 0.26666668),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(1.3, 1.3), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("VBoxContainer/CenterChildren/CenterPanel/VBoxContainer/IconMargin/Icons/AceIconPanel:offset_transform_scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.49999997, 0.6654958, 0.76666665, 1.9597372),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(1.3, 1.3), Vector2(1, 1), Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("VBoxContainer/CenterChildren/CenterPanel/VBoxContainer/IconMargin/Icons/100IconPanel:offset_transform_scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1.0666667, 1.2309366, 1.3333334, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(1.3, 1.3), Vector2(1, 1), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7vjnu"]
+_data = {
+&"RESET": SubResource("Animation_kdx7p"),
+&"show_rewards": SubResource("Animation_gja32")
+}
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ob02p"]
 bg_color = Color(0.33333334, 0.2, 0.33333334, 1)
 corner_radius_top_left = 8
@@ -59,6 +144,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ue8e4")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=9532698]
+libraries/ = SubResource("AnimationLibrary_7vjnu")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1055636168]
 layout_mode = 1
@@ -124,6 +212,8 @@ alignment = 1
 
 [node name="CheckIconPanel" type="PanelContainer" parent="VBoxContainer/CenterChildren/CenterPanel/VBoxContainer/IconMargin/Icons" unique_id=1607981732]
 layout_mode = 2
+offset_transform_enabled = true
+offset_transform_scale = Vector2(0, 0)
 theme_override_styles/panel = SubResource("StyleBoxFlat_e722s")
 
 [node name="Circle" type="TextureRect" parent="VBoxContainer/CenterChildren/CenterPanel/VBoxContainer/IconMargin/Icons/CheckIconPanel" unique_id=1990175961]
@@ -140,6 +230,8 @@ texture = ExtResource("3_frkr4")
 
 [node name="AceIconPanel" type="PanelContainer" parent="VBoxContainer/CenterChildren/CenterPanel/VBoxContainer/IconMargin/Icons" unique_id=1115524740]
 layout_mode = 2
+offset_transform_enabled = true
+offset_transform_scale = Vector2(0, 0)
 theme_override_styles/panel = SubResource("StyleBoxFlat_e722s")
 
 [node name="Circle" type="TextureRect" parent="VBoxContainer/CenterChildren/CenterPanel/VBoxContainer/IconMargin/Icons/AceIconPanel" unique_id=650580455]
@@ -161,6 +253,8 @@ expand_mode = 2
 
 [node name="100IconPanel" type="PanelContainer" parent="VBoxContainer/CenterChildren/CenterPanel/VBoxContainer/IconMargin/Icons" unique_id=784936623]
 layout_mode = 2
+offset_transform_enabled = true
+offset_transform_scale = Vector2(0, 0)
 theme_override_styles/panel = SubResource("StyleBoxFlat_e722s")
 
 [node name="Circle" type="TextureRect" parent="VBoxContainer/CenterChildren/CenterPanel/VBoxContainer/IconMargin/Icons/100IconPanel" unique_id=913604550]
