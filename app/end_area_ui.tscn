@@ -11,7 +11,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("VBoxContainer/CenterChildren/CenterPanel/VBoxContainer/IconMargin/Icons/CheckIconPanel:offset_transform_scale")
+tracks/0/path = NodePath("VBoxContainer/CenterChildren/CenterPanel/VBoxContainer/IconMargin/Icons/IconClear:offset_transform_scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -23,7 +23,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("VBoxContainer/CenterChildren/CenterPanel/VBoxContainer/IconMargin/Icons/AceIconPanel:offset_transform_scale")
+tracks/1/path = NodePath("VBoxContainer/CenterChildren/CenterPanel/VBoxContainer/IconMargin/Icons/IconAce:offset_transform_scale")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -35,7 +35,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("VBoxContainer/CenterChildren/CenterPanel/VBoxContainer/IconMargin/Icons/100IconPanel:offset_transform_scale")
+tracks/2/path = NodePath("VBoxContainer/CenterChildren/CenterPanel/VBoxContainer/IconMargin/Icons/IconFullClear:offset_transform_scale")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -51,7 +51,7 @@ length = 2.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("VBoxContainer/CenterChildren/CenterPanel/VBoxContainer/IconMargin/Icons/CheckIconPanel:offset_transform_scale")
+tracks/0/path = NodePath("VBoxContainer/CenterChildren/CenterPanel/VBoxContainer/IconMargin/Icons/IconClear:offset_transform_scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -63,26 +63,26 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("VBoxContainer/CenterChildren/CenterPanel/VBoxContainer/IconMargin/Icons/AceIconPanel:offset_transform_scale")
+tracks/1/path = NodePath("VBoxContainer/CenterChildren/CenterPanel/VBoxContainer/IconMargin/Icons/IconAce:offset_transform_scale")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0.49999997, 0.6654958, 0.76666665, 1.9597372),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0.49999997, 0.6654958, 0.76666665),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(0, 0), Vector2(1.3, 1.3), Vector2(1, 1), Vector2(1, 1)]
+"values": [Vector2(0, 0), Vector2(1.3, 1.3), Vector2(1, 1)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("VBoxContainer/CenterChildren/CenterPanel/VBoxContainer/IconMargin/Icons/100IconPanel:offset_transform_scale")
+tracks/2/path = NodePath("VBoxContainer/CenterChildren/CenterPanel/VBoxContainer/IconMargin/Icons/IconFullClear:offset_transform_scale")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(1.0666667, 1.2309366, 1.3333334, 2),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(1.0666667, 1.2309366, 1.3333334),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(0, 0), Vector2(1.3, 1.3), Vector2(1, 1), Vector2(1, 1)]
+"values": [Vector2(0, 0), Vector2(1.3, 1.3), Vector2(1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_7vjnu"]
@@ -102,15 +102,16 @@ expand_margin_top = 32.0
 expand_margin_right = 32.0
 expand_margin_bottom = 32.0
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_e722s"]
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e722s"]
-bg_color = Color(0, 0, 0, 1)
+bg_color = Color(5.4147094e-08, 0.16003817, 0.03146844, 1)
 corner_radius_top_left = 999
 corner_radius_top_right = 999
 corner_radius_bottom_right = 999
 corner_radius_bottom_left = 999
-shadow_color = Color(0, 0, 0, 1)
-shadow_size = 2
-shadow_offset = Vector2(3, 3)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3mph2"]
 
 [sub_resource type="Gradient" id="Gradient_mo2ek"]
 offsets = PackedFloat32Array(0.9983108, 1)
@@ -118,18 +119,6 @@ colors = PackedColorArray(2.2140146e-06, 0.99213976, 0.36688584, 1, 1, 1, 1, 0)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_e722s"]
 gradient = SubResource("Gradient_mo2ek")
-width = 100
-height = 100
-fill = 1
-fill_from = Vector2(0.5, 0.5)
-fill_to = Vector2(0.5, 1)
-
-[sub_resource type="Gradient" id="Gradient_kdx7p"]
-offsets = PackedFloat32Array(0.9983108, 1)
-colors = PackedColorArray(0, 0, 0, 0.68235296, 1, 1, 1, 0)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_gja32"]
-gradient = SubResource("Gradient_kdx7p")
 width = 100
 height = 100
 fill = 1
@@ -203,66 +192,52 @@ layout_mode = 2
 theme_override_constants/margin_top = 32
 theme_override_constants/margin_bottom = 32
 
-[node name="Icons" type="HBoxContainer" parent="VBoxContainer/CenterChildren/CenterPanel/VBoxContainer/IconMargin" unique_id=1111753569]
-custom_minimum_size = Vector2(0, 74)
-custom_maximum_size = Vector2(-1, 74)
+[node name="Backgrounds" type="PanelContainer" parent="VBoxContainer/CenterChildren/CenterPanel/VBoxContainer/IconMargin" unique_id=1850555728]
+custom_minimum_size = Vector2(250, -1)
+custom_maximum_size = Vector2(250, -1)
 layout_mode = 2
-theme_override_constants/separation = 12
-alignment = 1
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxEmpty_e722s")
 
-[node name="CheckIconPanel" type="PanelContainer" parent="VBoxContainer/CenterChildren/CenterPanel/VBoxContainer/IconMargin/Icons" unique_id=1607981732]
+[node name="1" type="PanelContainer" parent="VBoxContainer/CenterChildren/CenterPanel/VBoxContainer/IconMargin/Backgrounds" unique_id=306311790]
+custom_minimum_size = Vector2(74, 74)
+custom_maximum_size = Vector2(74, 74)
 layout_mode = 2
 offset_transform_enabled = true
-offset_transform_scale = Vector2(0, 0)
 theme_override_styles/panel = SubResource("StyleBoxFlat_e722s")
 
-[node name="Circle" type="TextureRect" parent="VBoxContainer/CenterChildren/CenterPanel/VBoxContainer/IconMargin/Icons/CheckIconPanel" unique_id=1990175961]
-layout_mode = 2
-texture = SubResource("GradientTexture2D_e722s")
-expand_mode = 2
-
-[node name="Checkmark" type="TextureRect" parent="VBoxContainer/CenterChildren/CenterPanel/VBoxContainer/IconMargin/Icons/CheckIconPanel" unique_id=1460233663]
+[node name="Checkmark" type="TextureRect" parent="VBoxContainer/CenterChildren/CenterPanel/VBoxContainer/IconMargin/Backgrounds/1" unique_id=897295834]
 custom_maximum_size = Vector2(30, 30)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 texture = ExtResource("3_frkr4")
 
-[node name="AceIconPanel" type="PanelContainer" parent="VBoxContainer/CenterChildren/CenterPanel/VBoxContainer/IconMargin/Icons" unique_id=1115524740]
+[node name="2" type="PanelContainer" parent="VBoxContainer/CenterChildren/CenterPanel/VBoxContainer/IconMargin/Backgrounds" unique_id=495006572]
+custom_minimum_size = Vector2(74, 74)
+custom_maximum_size = Vector2(74, 74)
 layout_mode = 2
+size_flags_horizontal = 4
 offset_transform_enabled = true
-offset_transform_scale = Vector2(0, 0)
 theme_override_styles/panel = SubResource("StyleBoxFlat_e722s")
 
-[node name="Circle" type="TextureRect" parent="VBoxContainer/CenterChildren/CenterPanel/VBoxContainer/IconMargin/Icons/AceIconPanel" unique_id=650580455]
-layout_mode = 2
-texture = SubResource("GradientTexture2D_e722s")
-expand_mode = 2
-
-[node name="Checkmark2" type="TextureRect" parent="VBoxContainer/CenterChildren/CenterPanel/VBoxContainer/IconMargin/Icons/AceIconPanel" unique_id=1325654210]
+[node name="Ace" type="TextureRect" parent="VBoxContainer/CenterChildren/CenterPanel/VBoxContainer/IconMargin/Backgrounds/2" unique_id=1590088930]
 custom_maximum_size = Vector2(30, 30)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 texture = ExtResource("4_mo2ek")
 
-[node name="Disabled" type="TextureRect" parent="VBoxContainer/CenterChildren/CenterPanel/VBoxContainer/IconMargin/Icons/AceIconPanel" unique_id=1411668155]
+[node name="3" type="PanelContainer" parent="VBoxContainer/CenterChildren/CenterPanel/VBoxContainer/IconMargin/Backgrounds" unique_id=1889138572]
+custom_minimum_size = Vector2(74, 74)
+custom_maximum_size = Vector2(74, 74)
 layout_mode = 2
-texture = SubResource("GradientTexture2D_gja32")
-expand_mode = 2
-
-[node name="100IconPanel" type="PanelContainer" parent="VBoxContainer/CenterChildren/CenterPanel/VBoxContainer/IconMargin/Icons" unique_id=784936623]
-layout_mode = 2
+size_flags_horizontal = 8
 offset_transform_enabled = true
-offset_transform_scale = Vector2(0, 0)
 theme_override_styles/panel = SubResource("StyleBoxFlat_e722s")
 
-[node name="Circle" type="TextureRect" parent="VBoxContainer/CenterChildren/CenterPanel/VBoxContainer/IconMargin/Icons/100IconPanel" unique_id=913604550]
-layout_mode = 2
-texture = SubResource("GradientTexture2D_e722s")
-expand_mode = 2
-
-[node name="Label" type="RichTextLabel" parent="VBoxContainer/CenterChildren/CenterPanel/VBoxContainer/IconMargin/Icons/100IconPanel" unique_id=1958478094]
+[node name="Label" type="RichTextLabel" parent="VBoxContainer/CenterChildren/CenterPanel/VBoxContainer/IconMargin/Backgrounds/3" unique_id=171807334]
 layout_mode = 2
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/normal_font_size = 14
@@ -273,10 +248,74 @@ shortcut_keys_enabled = false
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Disabled" type="TextureRect" parent="VBoxContainer/CenterChildren/CenterPanel/VBoxContainer/IconMargin/Icons/100IconPanel" unique_id=1453572470]
+[node name="Icons" type="PanelContainer" parent="VBoxContainer/CenterChildren/CenterPanel/VBoxContainer/IconMargin" unique_id=421486041]
+custom_minimum_size = Vector2(250, 74)
+custom_maximum_size = Vector2(250, 74)
 layout_mode = 2
-texture = SubResource("GradientTexture2D_gja32")
+size_flags_horizontal = 4
+theme_override_styles/panel = SubResource("StyleBoxEmpty_3mph2")
+
+[node name="IconClear" type="PanelContainer" parent="VBoxContainer/CenterChildren/CenterPanel/VBoxContainer/IconMargin/Icons" unique_id=1607981732]
+layout_mode = 2
+size_flags_horizontal = 0
+offset_transform_enabled = true
+offset_transform_scale = Vector2(0, 0)
+theme_override_styles/panel = SubResource("StyleBoxFlat_e722s")
+
+[node name="Circle" type="TextureRect" parent="VBoxContainer/CenterChildren/CenterPanel/VBoxContainer/IconMargin/Icons/IconClear" unique_id=1990175961]
+layout_mode = 2
+offset_transform_enabled = true
+texture = SubResource("GradientTexture2D_e722s")
 expand_mode = 2
+
+[node name="Checkmark" type="TextureRect" parent="VBoxContainer/CenterChildren/CenterPanel/VBoxContainer/IconMargin/Icons/IconClear" unique_id=1460233663]
+custom_maximum_size = Vector2(30, 30)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("3_frkr4")
+
+[node name="IconAce" type="PanelContainer" parent="VBoxContainer/CenterChildren/CenterPanel/VBoxContainer/IconMargin/Icons" unique_id=1115524740]
+layout_mode = 2
+size_flags_horizontal = 4
+offset_transform_enabled = true
+offset_transform_scale = Vector2(0, 0)
+theme_override_styles/panel = SubResource("StyleBoxFlat_e722s")
+
+[node name="Circle" type="TextureRect" parent="VBoxContainer/CenterChildren/CenterPanel/VBoxContainer/IconMargin/Icons/IconAce" unique_id=650580455]
+layout_mode = 2
+texture = SubResource("GradientTexture2D_e722s")
+expand_mode = 2
+
+[node name="Ace" type="TextureRect" parent="VBoxContainer/CenterChildren/CenterPanel/VBoxContainer/IconMargin/Icons/IconAce" unique_id=1325654210]
+custom_maximum_size = Vector2(30, 30)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("4_mo2ek")
+
+[node name="IconFullClear" type="PanelContainer" parent="VBoxContainer/CenterChildren/CenterPanel/VBoxContainer/IconMargin/Icons" unique_id=784936623]
+layout_mode = 2
+size_flags_horizontal = 8
+offset_transform_enabled = true
+offset_transform_scale = Vector2(0, 0)
+theme_override_styles/panel = SubResource("StyleBoxFlat_e722s")
+
+[node name="Circle" type="TextureRect" parent="VBoxContainer/CenterChildren/CenterPanel/VBoxContainer/IconMargin/Icons/IconFullClear" unique_id=913604550]
+layout_mode = 2
+texture = SubResource("GradientTexture2D_e722s")
+expand_mode = 2
+
+[node name="Label" type="RichTextLabel" parent="VBoxContainer/CenterChildren/CenterPanel/VBoxContainer/IconMargin/Icons/IconFullClear" unique_id=1958478094]
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 14
+text = "100%"
+scroll_active = false
+autowrap_mode = 0
+shortcut_keys_enabled = false
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/CenterChildren/CenterPanel/VBoxContainer" unique_id=1935092982]
 layout_mode = 2
