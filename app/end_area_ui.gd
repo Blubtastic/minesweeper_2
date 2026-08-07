@@ -18,7 +18,7 @@ func _on_menu_pressed() -> void:
 
 func _on_next_level_pressed() -> void:
 	Globals.current_level += 1
-	#Globals.current_group
+	# FIX: DEAL WIHTH LAST LEVEL IN EACH GROUP
 	var path := 'res://levels/level_' + str(int(Globals.current_group)) + '_' + str(int(Globals.current_level)) + '.tscn'
 	get_tree().change_scene_to_file(path)
 

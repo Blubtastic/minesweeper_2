@@ -7,10 +7,10 @@ const _2_PLAYERS = preload("uid://ccotdq6huom6h")
 
 func _ready() -> void:
 	if scene_file_path != "":
-		var current_level: = scene_file_path.split("_", false, 2)[1]
-		var current_group: = scene_file_path.split("_", false, 2)[2]
-		Globals.current_level = int(current_level)
+		var current_group: = scene_file_path.split("_", false, 2)[1]
+		var current_level: = scene_file_path.split("_", false, 2)[2]
 		Globals.current_group = int(current_group)
+		Globals.current_level = int(current_level)
 	else:
 		print("ERROR: scene_file_path not found!")
 

@@ -60,6 +60,19 @@ new_text = "MAIN MENU"
 layout_mode = 2
 theme_override_constants/margin_top = 120
 
+[node name="CurrentLevelLabel" type="Label" parent="." unique_id=2042903170]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -143.5
+offset_top = 121.0
+offset_right = 143.5
+offset_bottom = 219.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 80
+text = "Level 1"
+
 [connection signal="pressed" from="VBoxContainer/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
 [connection signal="pressed" from="VBoxContainer/VBoxContainer/Restart" to="." method="_on_restart_pressed"]
 [connection signal="pressed" from="VBoxContainer/VBoxContainer/WorldMap" to="." method="_on_resume_pressed"]

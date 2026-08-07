@@ -3,11 +3,13 @@ extends Control
 
 var is_menu_open: bool = false
 @onready var resume: Button = $VBoxContainer/VBoxContainer/Resume
+@onready var current_level_label: Label = $CurrentLevelLabel
 
 
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	toggle_menu(is_menu_open)
+
 
 func toggle_menu(is_open: bool) -> void:
 	is_menu_open = is_open
@@ -15,6 +17,7 @@ func toggle_menu(is_open: bool) -> void:
 	get_tree().paused = is_open
 	if is_open:
 		resume.grab_focus()
+		current_level_label.text = "Level " + str(Globals.current_group) + " - " + str(Globals.current_level)
 
 
 func _input(event: InputEvent) -> void:
