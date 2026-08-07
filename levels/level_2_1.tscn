@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://dhlda46fqvnos" path="res://moving_chunk/forest_chunk.tscn" id="3_2bayb"]
 [ext_resource type="PackedScene" uid="uid://bk53qkkxr6wr8" path="res://app/level_basics.tscn" id="4_hjq0s"]
 
-[node name="Level2_1" type="Node3D" unique_id=790738478]
+[node name="Level_2_1" type="Node3D" unique_id=790738478]
 script = ExtResource("1_n8fv4")
 
 [node name="StartChunks" type="Node3D" parent="." unique_id=1735927583]

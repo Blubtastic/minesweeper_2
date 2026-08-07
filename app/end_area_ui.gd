@@ -17,7 +17,9 @@ func _on_menu_pressed() -> void:
 
 func _on_next_level_pressed() -> void:
 	Globals.current_level += 1
-	get_tree().change_scene_to_file('res://levels/level_' + str(int(Globals.current_level)) + '.tscn')
+	#Globals.current_group
+	var path := 'res://levels/level_' + str(int(Globals.current_group)) + '_' + str(int(Globals.current_level)) + '.tscn'
+	get_tree().change_scene_to_file(path)
 
 
 func handle_game_over() -> void:
