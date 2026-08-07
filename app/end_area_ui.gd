@@ -5,6 +5,7 @@ const WORLD_MAP = preload("uid://dec4vccolfnnv")
 @onready var icon_clear: PanelContainer = $VBoxContainer/CenterChildren/CenterPanel/VBoxContainer/IconMargin/Icons/IconClear
 @onready var icon_ace: PanelContainer = $VBoxContainer/CenterChildren/CenterPanel/VBoxContainer/IconMargin/Icons/IconAce
 @onready var icon_full_clear: PanelContainer = $VBoxContainer/CenterChildren/CenterPanel/VBoxContainer/IconMargin/Icons/IconFullClear
+@onready var level_label: Label = $VBoxContainer/CenterChildren/CenterPanel/VBoxContainer/Label
 
 
 func _on_restart_pressed() -> void:
@@ -29,3 +30,4 @@ func handle_game_over() -> void:
 	icon_clear.visible = true
 	icon_ace.visible = Globals.level_aced
 	icon_full_clear.visible = Globals.level_full_cleared
+	level_label.text = "Level " + str(Globals.current_group) + " - " + str(Globals.current_level)
