@@ -24,6 +24,7 @@ var level_full_cleared: bool = false
 var players: Array[Player] = []
 
 signal game_ended()
+signal level_completed()
 signal cube_exploded()
 signal player_was_damaged()
 
@@ -80,6 +81,9 @@ func trigger_camera_shake() -> void:
 func trigger_camera_jump() -> void:
 	player_was_damaged.emit()
 
+
+func trigger_level_completed() -> void:
+	level_completed.emit()
 
 # ==================== CUBE CLEAR ====================
 ## Global consequences of the cube being cleared, like score.

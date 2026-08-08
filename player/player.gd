@@ -9,6 +9,11 @@ const START_HP: int = 3
 @onready var player_inputs: PlayerInputs = $PlayerInputs
 var player_movement := PlayerMovement.new(self)
 @onready var player_model: Node3D = $PlayerModel
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
+
+
+func _ready() -> void:
+	Globals.level_completed.connect(handle_level_completed)
 
 
 func _physics_process(delta: float) -> void:
@@ -19,7 +24,7 @@ func _physics_process(delta: float) -> void:
 	player_movement.update_horizontal_movement(direction,speed_multiplier, delta)
 	player_vfx.update_visuals(delta)
 	player_vfx.handle_tire_debris(direction, hp)
-
+	
 
 func damage() -> void:
 	if not Globals.players_invincible:
@@ -60,3 +65,7 @@ func _on_player_inputs_on_jump_pressed() -> void:
 
 func _on_player_inputs_on_powerup_pressed() -> void:
 	player_powerups.use_powerup()
+
+
+func handle_level_completed() -> void:
+	animation_player.play("jump_and_spin")
