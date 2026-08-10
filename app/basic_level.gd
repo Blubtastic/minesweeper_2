@@ -7,10 +7,18 @@ const _2_PLAYERS = preload("uid://ccotdq6huom6h")
 
 func _ready() -> void:
 	if scene_file_path != "":
-		var current_group: = scene_file_path.split("_", false, 2)[1]
-		var current_level: = scene_file_path.split("_", false, 2)[2]
+		var path := scene_file_path.split(".")[0]
+		var current_group: = path.split("_", false, 2)[1]
+		var current_level: = path.split("_", false, 2)[2]
+		var group_level_string := str(current_group) + "_" + str(current_level)
+		#print(group_level_string, " - ", current_group, "  ", current_level)
 		Globals.current_group = int(current_group)
 		Globals.current_level = int(current_level)
+		var rewards: Dictionary = Globals.rewards_state[group_level_string]
+		var reward1: bool = rewards[1]
+		var reward2: bool = rewards[2]
+		var reward3: bool = rewards[3]
+		print(reward1, reward2, reward3)
 	else:
 		print("ERROR: scene_file_path not found!")
 
