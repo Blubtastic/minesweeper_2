@@ -91,6 +91,8 @@ func trigger_level_completed() -> void:
 ## Global consequences of the cube being cleared, like score.
 func handle_cube_was_cleared(ref: Cube) -> void:
 	var score_granted := 1
+	if !ref.is_bomb:
+		increase_cleared_cubes_by_one()
 	if ref.cleared_by is Player:
 		if ref.is_bomb:
 			score_granted = 0
@@ -134,8 +136,8 @@ func get_players() -> void:
 
 func increase_clearable_cubes(amount: int) -> void:
 	clearable_cubes += amount
-	print(clearable_cubes, " - ", amount)
-
+	print("Clearable cubes: ", clearable_cubes, " - Amount: ", amount)
 
 func increase_cleared_cubes_by_one() -> void:
-	pass
+	cleared_cubes += 1
+	print("Cleared cubes: ", cleared_cubes)
