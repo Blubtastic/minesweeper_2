@@ -9,7 +9,7 @@ const PICKUP = preload("uid://cshkipadmqt3c")
 @export var chunks_to_spawn: int = 5
 var has_spawned_next: bool = false
 
-@export var NUMBER_OF_MINES: int = 10
+@export var number_of_mines: int = 10
 const GRID_HEIGHT := 6
 const GRID_WIDTH := 10
 const CUBE_DISTANCE := 1.0
@@ -20,7 +20,7 @@ var buffer_cubes := []
 func increase_global_clearable_cubes() -> void:
 	const MAIN_GRID_COUNT: int = GRID_HEIGHT * GRID_WIDTH
 	const BUFFER_COUNT: int = GRID_WIDTH * 2
-	var clearable: int = MAIN_GRID_COUNT + BUFFER_COUNT - NUMBER_OF_MINES
+	var clearable: int = MAIN_GRID_COUNT + BUFFER_COUNT - number_of_mines
 	Globals.increase_clearable_cubes(clearable)
 
 
@@ -28,9 +28,9 @@ func _ready() -> void:
 	if chunks_to_spawn > 0:
 		randomize()
 		spawn_grid()
-		increase_global_clearable_cubes()
 		set_mines()
-		spawn_powerups(0.5)
+		spawn_powerups(0.2)
+		TimerHelper.call_after_time(self, increase_global_clearable_cubes, 0.2)
 	else:
 		has_spawned_next = true
 
@@ -70,10 +70,10 @@ func spawn_buffer_row(row: int) -> void:
 
 func randomized_mines() -> Array:
 	var mine_list := []
-	for i in range(NUMBER_OF_MINES):
+	for i in range(number_of_mines):
 		mine_list.append(true)
 	var not_mine_list := []
-	for i in range(GRID_WIDTH * GRID_HEIGHT - NUMBER_OF_MINES):
+	for i in range(GRID_WIDTH * GRID_HEIGHT - number_of_mines):
 		not_mine_list.append(false)
 	var fullList := mine_list + not_mine_list
 	fullList.shuffle()

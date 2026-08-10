@@ -74,6 +74,8 @@ func reset_game() -> void:
 	level_aced = false
 	level_full_cleared = false
 	players = []
+	clearable_cubes = 0
+	cleared_cubes = 0
 
 
 # ==================== CAMERA ====================

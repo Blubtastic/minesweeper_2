@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://bk53qkkxr6wr8"]
 
+[ext_resource type="Script" uid="uid://dly2yj3ab7pcs" path="res://app/level_basics.gd" id="1_rnn3o"]
 [ext_resource type="PackedScene" uid="uid://cawyfit4gq2rg" path="res://app/start_area.tscn" id="1_s2lfc"]
 [ext_resource type="PackedScene" uid="uid://bo56d0akw4s83" path="res://shared/screen_border.tscn" id="2_rnn3o"]
 [ext_resource type="PackedScene" uid="uid://62fr2rhqfdeo" path="res://shared/particles/snow.tscn" id="3_cnmlx"]
@@ -32,6 +33,7 @@ fog_depth_end = 40.0
 adjustment_contrast = 1.1
 
 [node name="LevelBasics" type="Node3D" unique_id=1868503360]
+script = ExtResource("1_rnn3o")
 
 [node name="Decorations" parent="." unique_id=1627554460 instance=ExtResource("1_s2lfc")]
 
@@ -96,3 +98,57 @@ directional_shadow_split_3 = 0.4
 
 [node name="Environment" type="WorldEnvironment" parent="." unique_id=29964787]
 environment = SubResource("Environment_qwbq1")
+
+[node name="Debug" type="Control" parent="." unique_id=1793428985]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Total" type="Label" parent="Debug" unique_id=2014263399]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 30.0
+offset_right = 65.0
+offset_bottom = 61.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 0
+text = "0"
+
+[node name="Mines" type="Label" parent="Debug" unique_id=342849923]
+layout_mode = 0
+offset_left = 52.0
+offset_top = 69.0
+offset_right = 92.0
+offset_bottom = 100.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 0
+text = "0"
+
+[node name="Clearable" type="Label" parent="Debug" unique_id=1280281105]
+layout_mode = 0
+offset_left = 52.0
+offset_top = 112.0
+offset_right = 92.0
+offset_bottom = 143.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 0
+text = "0"
+
+[node name="Cleared" type="Label" parent="Debug" unique_id=1899548596]
+layout_mode = 0
+offset_left = 23.0
+offset_top = 158.0
+offset_right = 63.0
+offset_bottom = 189.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 0
+text = "0"
