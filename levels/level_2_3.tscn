@@ -13,7 +13,7 @@ script = ExtResource("1_fdc5u")
 [node name="CubeChunk" parent="StartChunks" unique_id=1113538222 instance=ExtResource("2_xgc8f")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 0, -9.35)
 chunks_to_spawn = 10
-NUMBER_OF_MINES = 12
+number_of_mines = 9
 
 [node name="ForestChunk2" parent="StartChunks" unique_id=222010042 instance=ExtResource("3_gfycx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0.57, -5.87)
