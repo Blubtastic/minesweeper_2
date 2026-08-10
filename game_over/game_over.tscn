@@ -58,6 +58,7 @@ text = "Game Over"
 horizontal_alignment = 1
 
 [node name="ScoreAndText" type="Label" parent="Elements/Control" unique_id=180617542]
+visible = false
 layout_mode = 0
 offset_left = -192.0
 offset_top = -54.0
@@ -70,6 +71,9 @@ script = ExtResource("1_5eixk")
 
 [node name="MainMenu" parent="Elements/Control" unique_id=725143166 instance=ExtResource("6_fut5c")]
 layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
 offset_left = -170.0
 offset_top = 65.0
 offset_right = -27.0
@@ -78,6 +82,9 @@ text = "Main menu"
 
 [node name="TryAgain" parent="Elements/Control" unique_id=616473934 instance=ExtResource("6_fut5c")]
 layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
 offset_left = 38.0
 offset_top = 65.0
 offset_right = 175.0

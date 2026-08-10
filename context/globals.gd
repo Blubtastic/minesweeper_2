@@ -100,11 +100,11 @@ func handle_cube_was_cleared(ref: Cube) -> void:
 			score_granted = 0
 		else:
 			score_granted = 100
-			spawn_score_granted_particle(score_granted, ref.global_position)
+			#spawn_score_granted_particle(score_granted, ref.global_position)
 	if ref.cleared_by is ImpactGrenade:
 		if ref.cleared_by.direct_hit == true:
 			score_granted = 100
-			spawn_score_granted_particle(score_granted, ref.global_position)
+			#spawn_score_granted_particle(score_granted, ref.global_position)
 	Globals.score += score_granted
 
 
