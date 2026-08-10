@@ -119,7 +119,7 @@ func spawn_score_granted_particle(amount: int, pos: Vector3) -> void:
 
 func set_reward_vars() -> void:
 	level_aced = is_level_aced()
-	#level_full_cleared: CLEARED = CUBES - MINES
+	level_full_cleared = clearable_cubes == cleared_cubes
 
 
 func is_level_aced() -> bool:
