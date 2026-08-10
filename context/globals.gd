@@ -21,6 +21,8 @@ var player_positions := { 1: Vector3.ZERO, 2: Vector3.ZERO }
 
 var level_aced: bool = false
 var level_full_cleared: bool = false
+var clearable_cubes: int = 0
+var cleared_cubes: int = 0
 var players: Array[Player] = []
 
 signal game_ended()
@@ -128,3 +130,11 @@ func get_players() -> void:
 	for player in players_from_group:
 		if player is Player:
 			players.append(player)
+
+
+func set_clearable_cubes(amount: int) -> void:
+	print(amount)
+
+
+func increase_clearable_cubes() -> void:
+	pass
