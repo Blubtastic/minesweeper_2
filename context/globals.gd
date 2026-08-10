@@ -132,9 +132,10 @@ func get_players() -> void:
 			players.append(player)
 
 
-func set_clearable_cubes(amount: int) -> void:
-	print(amount)
+func increase_clearable_cubes(amount: int) -> void:
+	clearable_cubes += amount
+	print(clearable_cubes, " - ", amount)
 
 
-func increase_clearable_cubes() -> void:
+func increase_cleared_cubes_by_one() -> void:
 	pass

@@ -17,10 +17,18 @@ var cubes := []
 var buffer_cubes := []
 
 
+func increase_global_clearable_cubes() -> void:
+	const MAIN_GRID_COUNT: int = GRID_HEIGHT * GRID_WIDTH
+	const BUFFER_COUNT: int = GRID_WIDTH * 2
+	var clearable: int = MAIN_GRID_COUNT + BUFFER_COUNT - NUMBER_OF_MINES
+	Globals.increase_clearable_cubes(clearable)
+
+
 func _ready() -> void:
 	if chunks_to_spawn > 0:
 		randomize()
 		spawn_grid()
+		increase_global_clearable_cubes()
 		set_mines()
 		spawn_powerups(0.5)
 	else:
