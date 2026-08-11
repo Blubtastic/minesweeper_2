@@ -26,17 +26,23 @@ var cleared_cubes: int = 0
 var players: Array[Player] = []
 
 var rewards_state: Dictionary = {
-	"1_1": { 1: false, 2: false, 3: false },
-	"1_2": { 1: false, 2: false, 3: false },
-	"1_3": { 1: false, 2: false, 3: false },
-	"1_4": { 1: false, 2: false, 3: false },
-	"1_5": { 1: false, 2: false, 3: false },
-	"2_1": { 1: false, 2: false, 3: false },
-	"2_2": { 1: false, 2: false, 3: false },
-	"2_3": { 1: false, 2: false, 3: false },
-	"3_1": { 1: false, 2: false, 3: false },
-	"3_2": { 1: false, 2: false, 3: false },
-	"3_3": { 1: false, 2: false, 3: false },
+	1: {
+		1: {1: false, 2: false, 3: false},
+		2: {1: false, 2: false, 3: false},
+		3: {1: false, 2: false, 3: false},
+		4: {1: false, 2: false, 3: false},
+		5: {1: false, 2: false, 3: false},
+	},
+	2: {
+		1: {1: false, 2: false, 3: false},
+		2: {1: false, 2: false, 3: false},
+		3: {1: false, 2: false, 3: false},
+	},
+	3: {
+		1: {1: false, 2: false, 3: false},
+		2: {1: false, 2: false, 3: false},
+		3: {1: false, 2: false, 3: false},
+	},
 }
 
 signal game_ended()
@@ -152,7 +158,7 @@ func get_players() -> void:
 
 func increase_clearable_cubes(amount: int) -> void:
 	clearable_cubes += amount
-	print("Clearable cubes: ", clearable_cubes, " - Amount: ", amount)
+
 
 func increase_cleared_cubes_by_one() -> void:
 	cleared_cubes += 1
