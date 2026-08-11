@@ -27,7 +27,12 @@ func handle_game_over() -> void:
 	Globals.set_reward_vars() # TODO: MOVE TO GLOBALS IN LEVEL_COMPLETED FUNC
 	await get_tree().create_timer(0.25).timeout
 	animation_player.play("show_rewards")
-	icon_clear.visible = true
-	icon_ace.visible = Globals.level_aced
-	icon_full_clear.visible = Globals.level_full_cleared
+	handle_rewards()
 	level_label.text = "Level " + str(Globals.current_group) + " - " + str(Globals.current_level)
+
+func handle_rewards() -> void:
+	var rewards: Dictionary = Globals.rewards_state[Globals.current_group][Globals.current_level]
+	icon_clear.visible = rewards[1]
+	icon_ace.visible = rewards[2]
+	icon_full_clear.visible = rewards[3]
+	# TODO: ensure they are set before assigning.

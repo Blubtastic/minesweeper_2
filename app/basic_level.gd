@@ -13,11 +13,11 @@ func filename_stuff() -> void:
 		Globals.current_group = int(current_group)
 		Globals.current_level = int(current_level)
 
-		var rewards: Dictionary = Globals.rewards_state[Globals.current_group][Globals.current_level]
-		var reward1: bool = rewards[1]
-		var reward2: bool = rewards[2]
-		var reward3: bool = rewards[3]
-		print(reward1, reward2, reward3)
+		#var rewards: Dictionary = Globals.rewards_state[Globals.current_group][Globals.current_level]
+		#var reward1: bool = rewards[1]
+		#var reward2: bool = rewards[2]
+		#var reward3: bool = rewards[3]
+		#print(reward1, reward2, reward3)
 	else:
 		print("ERROR: scene_file_path not found!")
 

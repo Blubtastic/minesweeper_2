@@ -27,7 +27,7 @@ var players: Array[Player] = []
 
 var rewards_state: Dictionary = {
 	1: {
-		1: {1: false, 2: false, 3: false},
+		1: {1: true, 2: false, 3: true},
 		2: {1: false, 2: false, 3: false},
 		3: {1: false, 2: false, 3: false},
 		4: {1: false, 2: false, 3: false},
