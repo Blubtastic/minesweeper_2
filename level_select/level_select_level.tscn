@@ -23,12 +23,17 @@ height = 0.11621094
 height = 0.85961914
 radius = 1.0205078
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v32lr"]
-bg_color = Color(5.4147094e-08, 0.16003817, 0.03146844, 1)
-corner_radius_top_left = 999
-corner_radius_top_right = 999
-corner_radius_bottom_right = 999
-corner_radius_bottom_left = 999
+[sub_resource type="Gradient" id="Gradient_ahdlk"]
+offsets = PackedFloat32Array(0.9983108, 1)
+colors = PackedColorArray(1, 1, 0.6156863, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_m6yq8"]
+gradient = SubResource("Gradient_ahdlk")
+width = 100
+height = 100
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 1)
 
 [node name="SelectLevel" type="Area3D" unique_id=2082663743]
 script = ExtResource("1_rr6fh")
@@ -54,30 +59,38 @@ text = "1-1"
 font = ExtResource("2_21d2b")
 outline_size = 6
 
-[node name="3" type="PanelContainer" parent="." unique_id=1709253567]
-custom_minimum_size = Vector2(74, 74)
-custom_maximum_size = Vector2(74, 74)
-size_flags_horizontal = 8
-offset_transform_enabled = true
-theme_override_styles/panel = SubResource("StyleBoxFlat_v32lr")
-
 [node name="RewardIcons" type="Node3D" parent="." unique_id=2117213464]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9915395, 6.5635777)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.46428013, 7.4165163)
 
 [node name="Check" type="Sprite3D" parent="RewardIcons" unique_id=34034786]
-transform = Transform3D(3.6536415, 0, 0, 0, -1.5970573e-07, 3.6536415, 0, -3.6536415, -1.5970573e-07, -5.5, 0, -1.6)
+transform = Transform3D(2.2373927, 0, 0, 0, -9.7799536e-08, 2.2373927, 0, -2.2373927, -9.7799536e-08, -3.9055216, 0, -2.1463141)
 texture = ExtResource("3_ahdlk")
+metadata/_edit_group_ = true
+
+[node name="Circle" type="Sprite3D" parent="RewardIcons/Check" unique_id=1994225589]
+transform = Transform3D(1.7479516, 0, 0, 0, 1.7479516, 4.2632564e-14, 0, -4.2632564e-14, 1.7479516, 0, 0, -0.01)
+texture = SubResource("GradientTexture2D_m6yq8")
 
 [node name="Ace" type="Sprite3D" parent="RewardIcons" unique_id=861217895]
-transform = Transform3D(3.6536415, 0, 0, 0, -1.5970573e-07, 3.6536415, 0, -3.6536415, -1.5970573e-07, 0, 0, 0)
+transform = Transform3D(2.2373927, 0, 0, 0, -9.7799536e-08, 2.2373927, 0, -2.2373927, -9.7799536e-08, 0, 0, -0.975194)
 texture = ExtResource("4_m6yq8")
+metadata/_edit_group_ = true
+
+[node name="Circle" type="Sprite3D" parent="RewardIcons/Ace" unique_id=1771023828]
+transform = Transform3D(1.7479516, 0, 0, 0, 1.7479516, 4.2632564e-14, 0, -4.2632564e-14, 1.7479516, 0, 0, -0.01)
+texture = SubResource("GradientTexture2D_m6yq8")
 
 [node name="FullClear" type="Label3D" parent="RewardIcons" unique_id=675200577]
-transform = Transform3D(5, 0, 0, 0, -2.1855695e-07, 5, 0, -5, -2.1855695e-07, 5.5, 0, -1.5999999)
+transform = Transform3D(2.2373927, 0, 0, 0, -9.7799536e-08, 2.2373927, 0, -2.2373927, -9.7799536e-08, 3.9055216, 0, -2.1463141)
 double_sided = false
 modulate = Color(0, 0, 0, 1)
 text = "100%"
-font_size = 48
+font_size = 64
 outline_size = 0
+metadata/_edit_group_ = true
+
+[node name="Circle" type="Sprite3D" parent="RewardIcons/FullClear" unique_id=1890919187]
+transform = Transform3D(1.7479516, 0, 0, 0, 1.7479516, 4.2632564e-14, 0, -4.2632564e-14, 1.7479516, 0, 0, -0.01)
+texture = SubResource("GradientTexture2D_m6yq8")
 
 [connection signal="input_event" from="." to="." method="_on_input_event"]

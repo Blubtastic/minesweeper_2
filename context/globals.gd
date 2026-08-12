@@ -94,25 +94,25 @@ func reset_game() -> void:
 	cleared_cubes = 0
 	a_player_has_been_damaged = false
 	# TODO: REMOVE THIS ONCE IT's STORED IN FILE
-	rewards_state = {
-	1: {
-		1: {1: false, 2: false, 3: false},
-		2: {1: false, 2: false, 3: false},
-		3: {1: false, 2: false, 3: false},
-		4: {1: false, 2: false, 3: false},
-		5: {1: false, 2: false, 3: false},
-	},
-	2: {
-		1: {1: false, 2: false, 3: false},
-		2: {1: false, 2: false, 3: false},
-		3: {1: false, 2: false, 3: false},
-	},
-	3: {
-		1: {1: false, 2: false, 3: false},
-		2: {1: false, 2: false, 3: false},
-		3: {1: false, 2: false, 3: false},
-	},
-}
+	#rewards_state = {
+		#1: {
+			#1: {1: false, 2: false, 3: false},
+			#2: {1: false, 2: false, 3: false},
+			#3: {1: false, 2: false, 3: false},
+			#4: {1: false, 2: false, 3: false},
+			#5: {1: false, 2: false, 3: false},
+		#},
+		#2: {
+			#1: {1: false, 2: false, 3: false},
+			#2: {1: false, 2: false, 3: false},
+			#3: {1: false, 2: false, 3: false},
+		#},
+		#3: {
+			#1: {1: false, 2: false, 3: false},
+			#2: {1: false, 2: false, 3: false},
+			#3: {1: false, 2: false, 3: false},
+		#},
+	#}
 
 # ==================== CAMERA ====================
 func trigger_camera_shake() -> void:
