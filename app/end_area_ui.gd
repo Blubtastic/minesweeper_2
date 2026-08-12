@@ -18,13 +18,13 @@ func _on_menu_pressed() -> void:
 
 func _on_next_level_pressed() -> void:
 	Globals.current_level += 1
-	# FIX: DEAL WIHTH LAST LEVEL IN EACH GROUP
+	# TODO: DEAL WIHTH LAST LEVEL IN EACH GROUP
 	var path := 'res://levels/level_' + str(int(Globals.current_group)) + '_' + str(int(Globals.current_level)) + '.tscn'
 	get_tree().change_scene_to_file(path)
 
 
 func handle_game_over() -> void:
-	Globals.set_reward_vars() # TODO: MOVE TO GLOBALS IN LEVEL_COMPLETED FUNC
+	Globals.set_reward_vars()
 	await get_tree().create_timer(0.25).timeout
 	animation_player.play("show_rewards")
 	handle_rewards()
@@ -35,4 +35,3 @@ func handle_rewards() -> void:
 	icon_clear.visible = rewards[1]
 	icon_ace.visible = rewards[2]
 	icon_full_clear.visible = rewards[3]
-	# TODO: ensure they are set before assigning.

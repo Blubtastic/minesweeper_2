@@ -12,12 +12,6 @@ func filename_stuff() -> void:
 		var current_level: = path.split("_", false, 2)[2]
 		Globals.current_group = int(current_group)
 		Globals.current_level = int(current_level)
-
-		#var rewards: Dictionary = Globals.rewards_state[Globals.current_group][Globals.current_level]
-		#var reward1: bool = rewards[1]
-		#var reward2: bool = rewards[2]
-		#var reward3: bool = rewards[3]
-		#print(reward1, reward2, reward3)
 	else:
 		print("ERROR: scene_file_path not found!")
 
@@ -39,7 +33,6 @@ func _ready() -> void:
 		var player_1 := _1_PLAYER.instantiate()
 		player_1.position = Vector3(0,1,0)
 		add_child(player_1)
-	Globals.get_players()
 
 
 func _input(event: InputEvent) -> void:

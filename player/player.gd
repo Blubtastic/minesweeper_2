@@ -24,10 +24,11 @@ func _physics_process(delta: float) -> void:
 	player_movement.update_horizontal_movement(direction,speed_multiplier, delta)
 	player_vfx.update_visuals(delta)
 	player_vfx.handle_tire_debris(direction, hp)
-	
+
 
 func damage() -> void:
 	if not Globals.players_invincible:
+		Globals.a_player_has_been_damaged = true
 		hp -= 1
 		Music.mute_drums(false)
 		if hp < 2:
