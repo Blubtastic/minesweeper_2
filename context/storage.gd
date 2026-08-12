@@ -22,7 +22,7 @@ const REWARDS_INITIAL_STATE: Dictionary = {
 		3: {1: false, 2: false, 3: false},
 	},
 }
-var rewards_state := REWARDS_INITIAL_STATE
+var rewards_state := REWARDS_INITIAL_STATE.duplicate(true)
 
 
 func reset_level() -> void:
@@ -32,7 +32,7 @@ func reset_level() -> void:
 
 
 func reset_stored_state() -> void:
-	rewards_state = REWARDS_INITIAL_STATE
+	rewards_state = REWARDS_INITIAL_STATE.duplicate(true)
 
 
 func set_reward_vars() -> void:

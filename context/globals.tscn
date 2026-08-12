@@ -2,5 +2,5 @@
 
 [ext_resource type="Script" uid="uid://bctag4eqv4ga4" path="res://context/globals.gd" id="1_k8w0t"]
 
-[node name="Root" type="Node" unique_id=169117607]
+[node name="Globals" type="Node" unique_id=169117607]
 script = ExtResource("1_k8w0t")
