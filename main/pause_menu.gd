@@ -4,6 +4,9 @@ extends Control
 var is_menu_open: bool = false
 @onready var resume: Button = $VBoxContainer/VBoxContainer/Resume
 @onready var current_level_label: Label = $CurrentLevelLabel
+@onready var icon_clear: PanelContainer = $VBoxContainer/IconMargin/Icons/IconClear
+@onready var icon_ace: PanelContainer = $VBoxContainer/IconMargin/Icons/IconAce
+@onready var icon_full_clear: PanelContainer = $VBoxContainer/IconMargin/Icons/IconFullClear
 
 
 func _ready() -> void:
@@ -18,6 +21,10 @@ func toggle_menu(is_open: bool) -> void:
 	if is_open:
 		resume.grab_focus()
 		current_level_label.text = "Level " + str(Globals.current_group) + " - " + str(Globals.current_level)
+		var rewards_for_this_level: Dictionary = Globals.rewards_state[Globals.current_group][Globals.current_level]
+		icon_clear.visible = rewards_for_this_level[1]
+		icon_ace.visible = rewards_for_this_level[2]
+		icon_full_clear.visible = rewards_for_this_level[3]
 
 
 func _input(event: InputEvent) -> void:

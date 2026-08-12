@@ -113,12 +113,12 @@ corner_radius_bottom_left = 999
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3mph2"]
 
-[sub_resource type="Gradient" id="Gradient_mo2ek"]
+[sub_resource type="Gradient" id="Gradient_kdx7p"]
 offsets = PackedFloat32Array(0.9983108, 1)
 colors = PackedColorArray(2.2140146e-06, 0.99213976, 0.36688584, 1, 1, 1, 1, 0)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_e722s"]
-gradient = SubResource("Gradient_mo2ek")
+gradient = SubResource("Gradient_kdx7p")
 width = 100
 height = 100
 fill = 1

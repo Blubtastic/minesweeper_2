@@ -2,6 +2,31 @@
 
 [ext_resource type="Script" uid="uid://dtu3p8kxcwq5x" path="res://main/pause_menu.gd" id="1_hhokr"]
 [ext_resource type="PackedScene" uid="uid://bmqrf2wci1n7g" path="res://shared/ui/cutout_button/cutout_button.tscn" id="2_57ghe"]
+[ext_resource type="Texture2D" uid="uid://bbmrqpy0a6rwh" path="res://app/assets/checkmark.png" id="3_eiebi"]
+[ext_resource type="Texture2D" uid="uid://bqrpeihkp4oan" path="res://app/assets/ace.png" id="4_pbfvu"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_eiebi"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pbfvu"]
+bg_color = Color(5.4147094e-08, 0.16003817, 0.03146844, 1)
+corner_radius_top_left = 999
+corner_radius_top_right = 999
+corner_radius_bottom_right = 999
+corner_radius_bottom_left = 999
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bme8k"]
+
+[sub_resource type="Gradient" id="Gradient_v7a3x"]
+offsets = PackedFloat32Array(0.9983108, 1)
+colors = PackedColorArray(2.2140146e-06, 0.99213976, 0.36688584, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_l5kb5"]
+gradient = SubResource("Gradient_v7a3x")
+width = 100
+height = 100
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 1)
 
 [node name="PauseMenu" type="Control" unique_id=2014856477]
 layout_mode = 3
@@ -56,9 +81,132 @@ new_text = "WORLD MAP"
 layout_mode = 2
 new_text = "MAIN MENU"
 
-[node name="Margin" type="MarginContainer" parent="VBoxContainer" unique_id=1464261875]
+[node name="IconMargin" type="MarginContainer" parent="VBoxContainer" unique_id=130139581]
 layout_mode = 2
-theme_override_constants/margin_top = 120
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="Backgrounds" type="PanelContainer" parent="VBoxContainer/IconMargin" unique_id=1955548709]
+custom_minimum_size = Vector2(250, -1)
+custom_maximum_size = Vector2(250, -1)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxEmpty_eiebi")
+
+[node name="1" type="PanelContainer" parent="VBoxContainer/IconMargin/Backgrounds" unique_id=1812665149]
+custom_minimum_size = Vector2(74, 74)
+custom_maximum_size = Vector2(74, 74)
+layout_mode = 2
+offset_transform_enabled = true
+theme_override_styles/panel = SubResource("StyleBoxFlat_pbfvu")
+
+[node name="Checkmark" type="TextureRect" parent="VBoxContainer/IconMargin/Backgrounds/1" unique_id=1277755985]
+custom_maximum_size = Vector2(30, 30)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("3_eiebi")
+
+[node name="2" type="PanelContainer" parent="VBoxContainer/IconMargin/Backgrounds" unique_id=1212191310]
+custom_minimum_size = Vector2(74, 74)
+custom_maximum_size = Vector2(74, 74)
+layout_mode = 2
+size_flags_horizontal = 4
+offset_transform_enabled = true
+theme_override_styles/panel = SubResource("StyleBoxFlat_pbfvu")
+
+[node name="Ace" type="TextureRect" parent="VBoxContainer/IconMargin/Backgrounds/2" unique_id=375495935]
+custom_maximum_size = Vector2(30, 30)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("4_pbfvu")
+
+[node name="3" type="PanelContainer" parent="VBoxContainer/IconMargin/Backgrounds" unique_id=493772718]
+custom_minimum_size = Vector2(74, 74)
+custom_maximum_size = Vector2(74, 74)
+layout_mode = 2
+size_flags_horizontal = 8
+offset_transform_enabled = true
+theme_override_styles/panel = SubResource("StyleBoxFlat_pbfvu")
+
+[node name="Label" type="RichTextLabel" parent="VBoxContainer/IconMargin/Backgrounds/3" unique_id=1608292415]
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 14
+text = "100%"
+scroll_active = false
+autowrap_mode = 0
+shortcut_keys_enabled = false
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Icons" type="PanelContainer" parent="VBoxContainer/IconMargin" unique_id=16218678]
+custom_minimum_size = Vector2(250, 74)
+custom_maximum_size = Vector2(250, 74)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_styles/panel = SubResource("StyleBoxEmpty_bme8k")
+
+[node name="IconClear" type="PanelContainer" parent="VBoxContainer/IconMargin/Icons" unique_id=618513542]
+layout_mode = 2
+size_flags_horizontal = 0
+offset_transform_enabled = true
+theme_override_styles/panel = SubResource("StyleBoxFlat_pbfvu")
+
+[node name="Circle" type="TextureRect" parent="VBoxContainer/IconMargin/Icons/IconClear" unique_id=38897740]
+layout_mode = 2
+offset_transform_enabled = true
+texture = SubResource("GradientTexture2D_l5kb5")
+expand_mode = 2
+
+[node name="Checkmark" type="TextureRect" parent="VBoxContainer/IconMargin/Icons/IconClear" unique_id=1322357039]
+custom_maximum_size = Vector2(30, 30)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("3_eiebi")
+
+[node name="IconAce" type="PanelContainer" parent="VBoxContainer/IconMargin/Icons" unique_id=1169096360]
+layout_mode = 2
+size_flags_horizontal = 4
+offset_transform_enabled = true
+theme_override_styles/panel = SubResource("StyleBoxFlat_pbfvu")
+
+[node name="Circle" type="TextureRect" parent="VBoxContainer/IconMargin/Icons/IconAce" unique_id=1752386282]
+layout_mode = 2
+texture = SubResource("GradientTexture2D_l5kb5")
+expand_mode = 2
+
+[node name="Ace" type="TextureRect" parent="VBoxContainer/IconMargin/Icons/IconAce" unique_id=876113115]
+custom_maximum_size = Vector2(30, 30)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("4_pbfvu")
+
+[node name="IconFullClear" type="PanelContainer" parent="VBoxContainer/IconMargin/Icons" unique_id=171162376]
+layout_mode = 2
+size_flags_horizontal = 8
+offset_transform_enabled = true
+theme_override_styles/panel = SubResource("StyleBoxFlat_pbfvu")
+
+[node name="Circle" type="TextureRect" parent="VBoxContainer/IconMargin/Icons/IconFullClear" unique_id=1660730445]
+layout_mode = 2
+texture = SubResource("GradientTexture2D_l5kb5")
+expand_mode = 2
+
+[node name="Label" type="RichTextLabel" parent="VBoxContainer/IconMargin/Icons/IconFullClear" unique_id=727128416]
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 14
+text = "100%"
+scroll_active = false
+autowrap_mode = 0
+shortcut_keys_enabled = false
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="CurrentLevelLabel" type="Label" parent="." unique_id=2042903170]
 layout_mode = 1
@@ -75,6 +223,6 @@ text = "Level 1"
 
 [connection signal="pressed" from="VBoxContainer/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
 [connection signal="pressed" from="VBoxContainer/VBoxContainer/Restart" to="." method="_on_restart_pressed"]
-[connection signal="pressed" from="VBoxContainer/VBoxContainer/WorldMap" to="." method="_on_resume_pressed"]
 [connection signal="pressed" from="VBoxContainer/VBoxContainer/WorldMap" to="." method="_on_world_map_pressed"]
+[connection signal="pressed" from="VBoxContainer/VBoxContainer/WorldMap" to="." method="_on_resume_pressed"]
 [connection signal="pressed" from="VBoxContainer/VBoxContainer/MainMenu" to="." method="_on_main_menu_pressed"]
