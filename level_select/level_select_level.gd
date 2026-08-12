@@ -10,11 +10,21 @@ class_name LevelSelectLevel
 @export var up: Area3D
 @export var down: Area3D
 
+
+@onready var check: Sprite3D = $RewardIcons/Check
+@onready var ace: Sprite3D = $RewardIcons/Ace
+@onready var full_clear: Label3D = $RewardIcons/FullClear
+
+
 signal was_hovered(body: LevelSelectLevel)
 
 
 func _ready() -> void:
 	level_name.text = str(group) + "-" + str(level)
+	var rewards_for_this_level: Dictionary = Globals.rewards_state[group][level]
+	check.visible = rewards_for_this_level[1]
+	ace.visible = rewards_for_this_level[2]
+	full_clear.visible = rewards_for_this_level[3]
 
 
 # HANDLE LEFT CLICK
