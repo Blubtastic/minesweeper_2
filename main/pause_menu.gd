@@ -20,10 +20,9 @@ func toggle_menu(is_open: bool) -> void:
 	if is_open:
 		resume.grab_focus()
 		current_level_label.text = "Level " + str(Globals.current_group) + " - " + str(Globals.current_level)
-		var rewards_for_this_level: Dictionary = Storage.rewards_state[Globals.current_group][Globals.current_level]
-		icon_clear.visible = rewards_for_this_level[1]
-		icon_ace.visible = rewards_for_this_level[2]
-		icon_full_clear.visible = rewards_for_this_level[3]
+		icon_clear.visible = Storage.get_current_level_reward(1)
+		icon_ace.visible = Storage.get_current_level_reward(2)
+		icon_full_clear.visible = Storage.get_current_level_reward(3)
 
 
 func _input(event: InputEvent) -> void:

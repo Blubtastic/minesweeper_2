@@ -26,6 +26,10 @@ signal cube_exploded()
 signal player_was_damaged()
 
 
+func _ready() -> void:
+	Storage.load_game()
+
+
 # ==================== WORLD MOVEMENT ====================
 func _physics_process(_delta: float) -> void:
 	if not game_over:
@@ -78,6 +82,7 @@ func trigger_camera_jump() -> void:
 
 func trigger_level_completed() -> void:
 	level_completed.emit()
+	Storage.save_game()
 
 
 # ==================== CUBE CLEAR ====================

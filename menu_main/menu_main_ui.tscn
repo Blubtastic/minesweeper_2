@@ -41,6 +41,21 @@ text = "v0.0.2"
 horizontal_alignment = 2
 vertical_alignment = 2
 
+[node name="AnchorBottomLeft" type="Control" parent="." unique_id=1914278966]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+grow_vertical = 0
+
+[node name="ResetSavedData" type="Button" parent="AnchorBottomLeft" unique_id=116196678]
+layout_mode = 0
+offset_left = 7.0
+offset_top = -50.0
+offset_right = 221.0
+offset_bottom = -7.0
+text = "Delete save data"
+
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=372619528]
 layout_mode = 1
 anchors_preset = 8
@@ -68,5 +83,6 @@ new_text = "SINGLE PLAYER"
 layout_mode = 2
 new_text = "CO-OP"
 
+[connection signal="pressed" from="AnchorBottomLeft/ResetSavedData" to="." method="_on_reset_saved_data_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer2/SinglePlayer" to="." method="_on_single_player_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer2/CoOp" to="." method="_on_co_op_pressed"]

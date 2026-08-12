@@ -19,3 +19,7 @@ func _on_single_player_pressed() -> void:
 func _on_co_op_pressed() -> void:
 	Globals.is_2p = true
 	get_tree().change_scene_to_packed(WORLD_MAP)
+
+
+func _on_reset_saved_data_pressed() -> void:
+	Storage.reset_saved_data()

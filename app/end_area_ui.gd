@@ -31,7 +31,6 @@ func handle_game_over() -> void:
 	level_label.text = "Level " + str(Globals.current_group) + " - " + str(Globals.current_level)
 
 func handle_rewards() -> void:
-	var rewards: Dictionary = Storage.rewards_state[Globals.current_group][Globals.current_level]
-	icon_clear.visible = rewards[1]
-	icon_ace.visible = rewards[2]
-	icon_full_clear.visible = rewards[3]
+	icon_clear.visible = Storage.get_current_level_reward(1)
+	icon_ace.visible = Storage.get_current_level_reward(2)
+	icon_full_clear.visible = Storage.get_current_level_reward(3)
