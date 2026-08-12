@@ -28,7 +28,7 @@ func _physics_process(delta: float) -> void:
 
 func damage() -> void:
 	if not Globals.players_invincible:
-		Globals.a_player_has_been_damaged = true
+		Storage.a_player_has_been_damaged = true
 		hp -= 1
 		Music.mute_drums(false)
 		if hp < 2:

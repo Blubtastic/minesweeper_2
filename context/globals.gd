@@ -18,31 +18,7 @@ var world_height: float = 10
 var players_invincible: bool = false
 var player_speed: float = 5 # in the future, should be local
 var player_positions := { 1: Vector3.ZERO, 2: Vector3.ZERO }
-var a_player_has_been_damaged := false
 
-var clearable_cubes: int = 0
-var cleared_cubes: int = 0
-
-
-var rewards_state: Dictionary = {
-	1: {
-		1: {1: false, 2: false, 3: false},
-		2: {1: false, 2: false, 3: false},
-		3: {1: false, 2: false, 3: false},
-		4: {1: false, 2: false, 3: false},
-		5: {1: false, 2: false, 3: false},
-	},
-	2: {
-		1: {1: false, 2: false, 3: false},
-		2: {1: false, 2: false, 3: false},
-		3: {1: false, 2: false, 3: false},
-	},
-	3: {
-		1: {1: false, 2: false, 3: false},
-		2: {1: false, 2: false, 3: false},
-		3: {1: false, 2: false, 3: false},
-	},
-}
 
 signal game_ended()
 signal level_completed()
@@ -90,29 +66,8 @@ func reset_game() -> void:
 	players_invincible = false
 	score = 0
 	dead_player_count = 0
-	clearable_cubes = 0
-	cleared_cubes = 0
-	a_player_has_been_damaged = false
-	# TODO: REMOVE THIS ONCE IT's STORED IN FILE
-	#rewards_state = {
-		#1: {
-			#1: {1: false, 2: false, 3: false},
-			#2: {1: false, 2: false, 3: false},
-			#3: {1: false, 2: false, 3: false},
-			#4: {1: false, 2: false, 3: false},
-			#5: {1: false, 2: false, 3: false},
-		#},
-		#2: {
-			#1: {1: false, 2: false, 3: false},
-			#2: {1: false, 2: false, 3: false},
-			#3: {1: false, 2: false, 3: false},
-		#},
-		#3: {
-			#1: {1: false, 2: false, 3: false},
-			#2: {1: false, 2: false, 3: false},
-			#3: {1: false, 2: false, 3: false},
-		#},
-	#}
+	Storage.reset_level()
+
 
 # ==================== CAMERA ====================
 func trigger_camera_shake() -> void:
@@ -121,16 +76,16 @@ func trigger_camera_shake() -> void:
 func trigger_camera_jump() -> void:
 	player_was_damaged.emit()
 
-
 func trigger_level_completed() -> void:
 	level_completed.emit()
+
 
 # ==================== CUBE CLEAR ====================
 ## Global consequences of the cube being cleared, like score.
 func handle_cube_was_cleared(ref: Cube) -> void:
 	var score_granted := 1
 	if !ref.is_bomb:
-		increase_cleared_cubes_by_one()
+		Storage.increase_cleared_cubes_by_one()
 	if ref.cleared_by is Player:
 		if ref.is_bomb:
 			score_granted = 0
@@ -151,19 +106,3 @@ func spawn_score_granted_particle(amount: int, pos: Vector3) -> void:
 	score_instance.global_position.y += 1
 	score_instance.mesh.text = str(amount)
 	score_instance.emitting = true
-
-
-## ------------------------ REWARDS ------------------------
-func set_reward_vars() -> void:
-	rewards_state[current_group][current_level][1] = true
-	if !a_player_has_been_damaged:
-		rewards_state[current_group][current_level][2] = true
-	if clearable_cubes == cleared_cubes:
-		rewards_state[current_group][current_level][3] = true
-
-
-func increase_clearable_cubes(amount: int) -> void:
-	clearable_cubes += amount
-
-func increase_cleared_cubes_by_one() -> void:
-	cleared_cubes += 1

@@ -21,7 +21,7 @@ signal was_hovered(body: LevelSelectLevel)
 
 func _ready() -> void:
 	level_name.text = str(group) + "-" + str(level)
-	var rewards_for_this_level: Dictionary = Globals.rewards_state[group][level]
+	var rewards_for_this_level: Dictionary = Storage.rewards_state[group][level]
 	check.visible = rewards_for_this_level[1]
 	ace.visible = rewards_for_this_level[2]
 	full_clear.visible = rewards_for_this_level[3]

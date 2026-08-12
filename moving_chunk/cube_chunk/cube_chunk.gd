@@ -21,7 +21,7 @@ func increase_global_clearable_cubes() -> void:
 	const MAIN_GRID_COUNT: int = GRID_HEIGHT * GRID_WIDTH
 	const BUFFER_COUNT: int = GRID_WIDTH * 2
 	var clearable: int = MAIN_GRID_COUNT + BUFFER_COUNT - number_of_mines
-	Globals.increase_clearable_cubes(clearable)
+	Storage.increase_clearable_cubes(clearable)
 
 
 func _ready() -> void:

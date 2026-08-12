@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://deok4rrofc66b"]
+
+[ext_resource type="Script" uid="uid://cyexdytykstbr" path="res://context/storage.gd" id="1_gjqwr"]
+
+[node name="LocalStorage" type="Node" unique_id=1122499838]
+script = ExtResource("1_gjqwr")
