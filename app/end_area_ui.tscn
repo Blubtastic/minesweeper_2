@@ -336,7 +336,7 @@ theme_type_variation = &"OutlineButton"
 theme_override_font_sizes/font_size = 48
 text = "Map"
 
-[node name="Next level" type="Button" parent="VBoxContainer/CenterChildren/CenterPanel/VBoxContainer" unique_id=1497099872]
+[node name="NextLevel" type="Button" parent="VBoxContainer/CenterChildren/CenterPanel/VBoxContainer" unique_id=1497099872]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 theme = ExtResource("5_kdx7p")
@@ -349,4 +349,4 @@ layout_mode = 2
 
 [connection signal="pressed" from="VBoxContainer/CenterChildren/CenterPanel/VBoxContainer/HBoxContainer/Restart" to="." method="_on_restart_pressed"]
 [connection signal="pressed" from="VBoxContainer/CenterChildren/CenterPanel/VBoxContainer/HBoxContainer/Menu" to="." method="_on_menu_pressed"]
-[connection signal="pressed" from="VBoxContainer/CenterChildren/CenterPanel/VBoxContainer/Next level" to="." method="_on_next_level_pressed"]
+[connection signal="pressed" from="VBoxContainer/CenterChildren/CenterPanel/VBoxContainer/NextLevel" to="." method="_on_next_level_pressed"]

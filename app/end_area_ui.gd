@@ -6,6 +6,7 @@ const WORLD_MAP = preload("uid://dec4vccolfnnv")
 @onready var icon_ace: PanelContainer = $VBoxContainer/CenterChildren/CenterPanel/VBoxContainer/IconMargin/Icons/IconAce
 @onready var icon_full_clear: PanelContainer = $VBoxContainer/CenterChildren/CenterPanel/VBoxContainer/IconMargin/Icons/IconFullClear
 @onready var level_label: Label = $VBoxContainer/CenterChildren/CenterPanel/VBoxContainer/Label
+@onready var next_level: Button = $VBoxContainer/CenterChildren/CenterPanel/VBoxContainer/NextLevel
 
 
 func _on_restart_pressed() -> void:
@@ -24,6 +25,7 @@ func _on_next_level_pressed() -> void:
 
 
 func handle_game_over() -> void:
+	next_level.grab_focus()
 	Storage.set_reward_vars()
 	await get_tree().create_timer(0.25).timeout
 	animation_player.play("show_rewards")
