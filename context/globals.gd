@@ -45,7 +45,7 @@ func move_world_by_player_positions() -> void:
 	var average_z_position: float = (player_positions[1].z + player_positions[2].z) / 2
 	var z_position: float = (average_z_position if is_2p else player_positions[1].z)  + top_offset
 	var ratio := 1 - (z_position / world_height)
-	set_world_speed(clamp(ratio*world_speed_strength * player_speed, 0, player_speed))
+	set_world_speed(clamp(ratio*world_speed_strength * player_speed, -player_speed, player_speed))
 
 
 func set_world_speed(speed: float) -> void:

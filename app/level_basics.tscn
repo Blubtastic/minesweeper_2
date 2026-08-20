@@ -4,10 +4,14 @@
 [ext_resource type="PackedScene" uid="uid://cawyfit4gq2rg" path="res://app/start_area.tscn" id="1_s2lfc"]
 [ext_resource type="PackedScene" uid="uid://bo56d0akw4s83" path="res://shared/screen_border.tscn" id="2_rnn3o"]
 [ext_resource type="PackedScene" uid="uid://62fr2rhqfdeo" path="res://shared/particles/snow.tscn" id="3_cnmlx"]
+[ext_resource type="Script" uid="uid://cdvo4jdy5fco4" path="res://context/move_with_global.gd" id="3_mrgbo"]
 [ext_resource type="Script" uid="uid://b4371wjm8ut08" path="res://context/camera/camera_jump.gd" id="4_mrgbo"]
 [ext_resource type="Script" uid="uid://bb7i38v6r8s76" path="res://shared/camera_shake.gd" id="5_doay3"]
 [ext_resource type="PackedScene" uid="uid://csi0364mca8xy" path="res://hud/hud.tscn" id="6_y7hej"]
 [ext_resource type="PackedScene" uid="uid://dmvvw5465oh3q" path="res://main/pause_menu.tscn" id="7_0j81p"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_e722s"]
+size = Vector3(30, 20, 5)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ldolv"]
 size = Vector3(20, 0.1, 20)
@@ -36,6 +40,16 @@ adjustment_contrast = 1.1
 script = ExtResource("1_rnn3o")
 
 [node name="Decorations" parent="." unique_id=1627554460 instance=ExtResource("1_s2lfc")]
+
+[node name="StartWall" type="StaticBody3D" parent="." unique_id=932213041]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4.128472)
+collision_layer = 8
+collision_mask = 0
+script = ExtResource("3_mrgbo")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StartWall" unique_id=1102004]
+shape = SubResource("BoxShape3D_e722s")
 
 [node name="WhiteBars3DLeft" parent="." unique_id=1274816826 instance=ExtResource("2_rnn3o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36.982, 0.677, -6)
