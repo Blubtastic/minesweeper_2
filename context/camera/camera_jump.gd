@@ -9,7 +9,7 @@ func _ready() -> void:
 
 func handle_camera_jump() -> void:
 	var tween := get_tree().create_tween()
-	if Globals.game_over:
+	if Globals.level_failed:
 		tween.tween_method(camera_jump, 0.0, 0.4, .2)
 	else:
 		tween.tween_method(camera_jump, 0.0, 1.0, 1.2)

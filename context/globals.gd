@@ -2,24 +2,30 @@ extends Node
 
 const SCORE_PARTICLES = preload("uid://cwejm25ywsm0s")
 
+## SELECTED LEVEL
 var current_level: int = 0
 var current_group: int = 1
+var level_over: bool = false
+var level_failed: bool = false
+
+## WORLD MOVEMENT
 var default_world_speed: float = 1.0
 var world_speed: float = 1.0
-var is_2p: bool = false
-var dead_player_count: int = 0
-var game_mode: float = 0 # 0 is Stress, 1 is Chill
-var game_over: bool = false
-var level_over: bool = false
-var score: int = 0
 var top_offset: float = 9
 var world_height: float = 10
 
+## PLAYERS
+var game_mode: float = 0 # 0 is Stress, 1 is Chill
+var is_2p: bool = false
+var dead_player_count: int = 0
 var players_invincible: bool = false
 var player_speed: float = 5 # in the future, should be local
 var player_positions := { 1: Vector3.ZERO, 2: Vector3.ZERO }
 
+## NOT USED ACTIVELY
+var score: int = 0
 
+## SIGNALS
 signal game_ended()
 signal level_completed()
 signal cube_exploded()
@@ -32,7 +38,7 @@ func _ready() -> void:
 
 # ==================== WORLD MOVEMENT ====================
 func _physics_process(_delta: float) -> void:
-	if not game_over:
+	if not level_failed:
 		move_world_by_player_positions()
 
 
@@ -57,15 +63,15 @@ func end_game() -> void:
 		dead_player_count += 1
 		if dead_player_count > 1:
 			game_ended.emit()
-			game_over = true
-	elif game_over == false:
+			level_failed = true
+	elif level_failed == false:
 		game_ended.emit()
-		game_over = true
+		level_failed = true
 
 
 func reset_game() -> void:
 	set_world_speed(default_world_speed)
-	game_over = false
+	level_failed = false
 	level_over = false
 	players_invincible = false
 	score = 0
@@ -91,7 +97,7 @@ func handle_cube_was_cleared(ref: Cube) -> void:
 	var score_granted := 1
 	if !ref.is_bomb:
 		Storage.increase_cleared_cubes_by_one()
-	if ref.cleared_by is Player:
+	if ref.cleared_by is Player: # Move to player.gd? context shouldn't know about features
 		if ref.is_bomb:
 			score_granted = 0
 		else:
