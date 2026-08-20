@@ -14,5 +14,5 @@ func _on_area_3d_body_entered(body: Node3D) -> void:
 	if body is Player:
 		end_area_ui.visible = true
 		end_area_ui.handle_game_over()
-		Globals.level_over = true
+		Globals.is_level_over = true
 		Globals.trigger_level_completed()

@@ -18,7 +18,7 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	Globals.set_player_position(id, position)
-	var direction := Vector3.ZERO if Globals.level_over else player_inputs.get_direction()
+	var direction := Vector3.ZERO if Globals.is_level_over else player_inputs.get_direction()
 	var speed_multiplier := player_inputs.get_speed_multiplier()
 	player_movement.handle_base_movement(delta)
 	player_movement.update_horizontal_movement(direction,speed_multiplier, delta)
@@ -35,7 +35,7 @@ func damage() -> void:
 			Music.mute_tambourine(false)
 			player_model.change_state(1)
 		if hp <= 0:
-			Globals.end_game()
+			Globals.handle_player_died()
 			TimerHelper.call_after_time(self, self.queue_free, 2.0)
 		if hp == 2:
 			player_model.change_state(2)

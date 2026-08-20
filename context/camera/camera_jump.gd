@@ -5,11 +5,11 @@ var initial_y: float = 0
 
 func _ready() -> void:
 	initial_y = position.y
-	Globals.player_was_damaged.connect(handle_camera_jump)
+	Globals.a_player_was_damaged.connect(handle_camera_jump)
 
 func handle_camera_jump() -> void:
 	var tween := get_tree().create_tween()
-	if Globals.level_failed:
+	if Globals.is_level_failed:
 		tween.tween_method(camera_jump, 0.0, 0.4, .2)
 	else:
 		tween.tween_method(camera_jump, 0.0, 1.0, 1.2)

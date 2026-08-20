@@ -38,7 +38,7 @@ func _on_main_menu_pressed() -> void:
 
 func _on_restart_pressed() -> void:
 	toggle_menu(false)
-	Globals.reset_game()
+	Globals.reset_level()
 	get_tree().reload_current_scene()
 
 

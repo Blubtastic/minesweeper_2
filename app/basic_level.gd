@@ -18,8 +18,8 @@ func filename_stuff() -> void:
 
 func _ready() -> void:
 	filename_stuff()
-	Globals.reset_game()
-	Globals.game_ended.connect(_on_game_ended)
+	Globals.reset_level()
+	Globals.level_failed.connect(_on_level_failed)
 	Music.restart_music()
 	Music.stop_cozy()
 	Music.mute_drums(true)
@@ -41,7 +41,7 @@ func _input(event: InputEvent) -> void:
 			get_tree().reload_current_scene()
 
 
-func _on_game_ended() -> void:
+func _on_level_failed() -> void:
 	var game_over_instance := GAME_OVER.instantiate()
 	add_child(game_over_instance)
 	Music.kill_music()

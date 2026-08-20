@@ -2,11 +2,14 @@ extends Node
 
 const SCORE_PARTICLES = preload("uid://cwejm25ywsm0s")
 
+## NOT USED ACTIVELY
+var score: int = 0
+
 ## SELECTED LEVEL
 var current_level: int = 0
 var current_group: int = 1
-var level_over: bool = false
-var level_failed: bool = false
+var is_level_over: bool = false
+var is_level_failed: bool = false
 
 ## WORLD MOVEMENT
 var default_world_speed: float = 1.0
@@ -15,21 +18,17 @@ var top_offset: float = 9
 var world_height: float = 10
 
 ## PLAYERS
-var game_mode: float = 0 # 0 is Stress, 1 is Chill
 var is_2p: bool = false
 var dead_player_count: int = 0
 var players_invincible: bool = false
 var player_speed: float = 5 # in the future, should be local
 var player_positions := { 1: Vector3.ZERO, 2: Vector3.ZERO }
 
-## NOT USED ACTIVELY
-var score: int = 0
-
-## SIGNALS
-signal game_ended()
+## EVENTS
+signal level_failed()
 signal level_completed()
 signal cube_exploded()
-signal player_was_damaged()
+signal a_player_was_damaged()
 
 
 func _ready() -> void:
@@ -38,9 +37,8 @@ func _ready() -> void:
 
 # ==================== WORLD MOVEMENT ====================
 func _physics_process(_delta: float) -> void:
-	if not level_failed:
+	if not is_level_failed:
 		move_world_by_player_positions()
-
 
 func move_world_by_player_positions() -> void:
 	var average_z_position: float = (player_positions[1].z + player_positions[2].z) / 2
@@ -52,27 +50,29 @@ func move_world_by_player_positions() -> void:
 func set_world_speed(speed: float) -> void:
 	world_speed = speed
 
-
 func set_player_position(player_num: int, position: Vector3) -> void:
 	player_positions[player_num] = position
 
 
-# ==================== END, RESET ====================
-func end_game() -> void:
-	if is_2p:
-		dead_player_count += 1
-		if dead_player_count > 1:
-			game_ended.emit()
-			level_failed = true
-	elif level_failed == false:
-		game_ended.emit()
-		level_failed = true
+# ==================== FAIL AND RESET LEVEL ====================
+func handle_player_died() -> void:
+	if is_level_failed == true:
+		return
+	if !is_2p:
+		level_failed.emit()
+		is_level_failed = true
+		return
+
+	dead_player_count += 1
+	if dead_player_count > 1:
+		level_failed.emit()
+		is_level_failed = true
 
 
-func reset_game() -> void:
+func reset_level() -> void:
 	set_world_speed(default_world_speed)
-	level_failed = false
-	level_over = false
+	is_level_failed = false
+	is_level_over = false
 	players_invincible = false
 	score = 0
 	dead_player_count = 0
@@ -84,14 +84,14 @@ func trigger_camera_shake() -> void:
 	cube_exploded.emit()
 
 func trigger_camera_jump() -> void:
-	player_was_damaged.emit()
+	a_player_was_damaged.emit()
 
 func trigger_level_completed() -> void:
 	level_completed.emit()
 	Storage.save_game()
 
 
-# ==================== CUBE CLEAR ====================
+# ==================== EFFECTS OF CUBE CLEARED ====================
 ## Global consequences of the cube being cleared, like score.
 func handle_cube_was_cleared(ref: Cube) -> void:
 	var score_granted := 1
@@ -110,10 +110,10 @@ func handle_cube_was_cleared(ref: Cube) -> void:
 	Globals.score += score_granted
 
 
-func spawn_score_granted_particle(amount: int, pos: Vector3) -> void:
-	var score_instance := SCORE_PARTICLES.instantiate()
-	add_child(score_instance)
-	score_instance.global_position = pos
-	score_instance.global_position.y += 1
-	score_instance.mesh.text = str(amount)
-	score_instance.emitting = true
+#func spawn_score_granted_particle(amount: int, pos: Vector3) -> void:
+	#var score_instance := SCORE_PARTICLES.instantiate()
+	#add_child(score_instance)
+	#score_instance.global_position = pos
+	#score_instance.global_position.y += 1
+	#score_instance.mesh.text = str(amount)
+	#score_instance.emitting = true
