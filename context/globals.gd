@@ -14,7 +14,8 @@ var is_level_failed: bool = false
 ## WORLD MOVEMENT
 var default_world_speed: float = 1.0
 var world_speed: float = 1.0
-var top_offset: float = 9
+var world_speed_strength: float = 2.0
+var top_offset: float = 12
 var world_height: float = 10
 
 ## PLAYERS
@@ -44,7 +45,7 @@ func move_world_by_player_positions() -> void:
 	var average_z_position: float = (player_positions[1].z + player_positions[2].z) / 2
 	var z_position: float = (average_z_position if is_2p else player_positions[1].z)  + top_offset
 	var ratio := 1 - (z_position / world_height)
-	set_world_speed(clamp(ratio * player_speed, 0, player_speed))
+	set_world_speed(clamp(ratio*world_speed_strength * player_speed, 0, player_speed))
 
 
 func set_world_speed(speed: float) -> void:
