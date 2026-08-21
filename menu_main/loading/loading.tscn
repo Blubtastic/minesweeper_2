@@ -9,22 +9,9 @@
 [ext_resource type="Script" uid="uid://bb7i38v6r8s76" path="res://shared/camera_shake.gd" id="7_iqxcn"]
 [ext_resource type="PackedScene" uid="uid://dyen06fs8v7j6" path="res://player/player.tscn" id="8_chek2"]
 [ext_resource type="PackedScene" uid="uid://cnor6jdbe28rj" path="res://shared/cube/cube.tscn" id="9_l8oy8"]
-
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_u524s"]
-
-[sub_resource type="Sky" id="Sky_03owx"]
-sky_material = SubResource("ProceduralSkyMaterial_u524s")
-
-[sub_resource type="Environment" id="Environment_ho7hh"]
-background_mode = 2
-background_energy_multiplier = 1.2
-sky = SubResource("Sky_03owx")
-glow_enabled = true
-fog_mode = 1
-fog_density = 1.0
-fog_depth_begin = 35.0
-fog_depth_end = 40.0
-adjustment_contrast = 1.1
+[ext_resource type="PackedScene" uid="uid://cshkipadmqt3c" path="res://shared/powerup/pickup/pickup.tscn" id="10_8tcy5"]
+[ext_resource type="PackedScene" uid="uid://5s7j7ty55jtj" path="res://shared/powerup/use/impact_grenade.tscn" id="11_0ijpb"]
+[ext_resource type="PackedScene" uid="uid://cvqolhjvehgl" path="res://app/level_environment.tscn" id="12_0ijpb"]
 
 [node name="Loading" type="Node3D" unique_id=652334179]
 script = ExtResource("1_l8oy8")
@@ -70,30 +57,26 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.70835, -4.74771)
 [node name="Poof" parent="Particles" unique_id=1731833898 instance=ExtResource("3_8tcy5")]
 
 [node name="Sparks" parent="Particles" unique_id=564390901 instance=ExtResource("4_0ijpb")]
+fire_instantly = true
 
 [node name="TireDebrisSnow" parent="Particles" unique_id=288904735 instance=ExtResource("5_kuxwp")]
 
 [node name="CubeDestroyed" parent="Particles" unique_id=70777883 instance=ExtResource("6_4ypgr")]
 
-[node name="Sun" type="DirectionalLight3D" parent="." unique_id=347866307]
-transform = Transform3D(-0.0871298, -0.963284, 0.253952, -0.811844, 0.216397, 0.542293, -0.577337, -0.15892, -0.800891, 0, 0, 0)
-light_color = Color(0.999999, 0.997401, 0.807223, 1)
-light_energy = 0.1
-shadow_enabled = true
-shadow_normal_bias = 1.0
-directional_shadow_split_1 = 0.2
-directional_shadow_split_2 = 0.32
-directional_shadow_split_3 = 0.4
+[node name="Player" parent="." unique_id=1383705294 instance=ExtResource("8_chek2")]
 
-[node name="Environment" type="WorldEnvironment" parent="." unique_id=752723022]
-environment = SubResource("Environment_ho7hh")
+[node name="Cube" parent="." unique_id=1407906594 instance=ExtResource("9_l8oy8")]
+
+[node name="PickupPowerup" parent="." unique_id=2113424195 instance=ExtResource("10_8tcy5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.733329, -0.0712111, -4.89727)
+
+[node name="ImpactGrenade" parent="." unique_id=762002745 instance=ExtResource("11_0ijpb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6979542, 0, -4.798991)
 
 [node name="Camera" type="Camera3D" parent="." unique_id=714763093]
-transform = Transform3D(1, 0, 0, 0, 0.559193, 0.829038, 0, -0.829038, 0.559193, 0, 26.866, 14.368)
+transform = Transform3D(1, 0, 0, 0, 0.55919284, 0.82903767, 0, -0.82903767, 0.55919284, 0, 31.512438, 17.770412)
 current = true
 fov = 20.0
 script = ExtResource("7_iqxcn")
 
-[node name="Player" parent="." unique_id=1383705294 instance=ExtResource("8_chek2")]
-
-[node name="Cube" parent="." unique_id=1407906594 instance=ExtResource("9_l8oy8")]
+[node name="LevelEnvironment" parent="." unique_id=1374783436 instance=ExtResource("12_0ijpb")]
