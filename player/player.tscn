@@ -203,7 +203,7 @@ scale = Vector2(1.2734376, 1.2734377)
 texture_normal = SubResource("GradientTexture2D_xfkku")
 shape = SubResource("RectangleShape2D_smwl4")
 passby_press = true
-action = "ui_accept"
+action = "jump_player1"
 visibility_mode = 1
 
 [node name="AnchorBottomLeft" type="Control" parent="PlayerInputs/TouchControls" unique_id=1426077961]

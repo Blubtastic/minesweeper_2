@@ -16,11 +16,10 @@ func _ready() -> void:
 
 
 func _input(event: InputEvent) -> void:
-	if event is InputEventKey and event.pressed:
-		if event.is_action_pressed("jump_player" + str(p.id)):
-			on_jump_pressed.emit()
-		if event.is_action_pressed("use_powerup_player" + str(p.id)):
-			on_powerup_pressed.emit()
+	if event.is_action_pressed("jump_player" + str(p.id)):
+		on_jump_pressed.emit()
+	if event.is_action_pressed("use_powerup_player" + str(p.id)):
+		on_powerup_pressed.emit()
 
 
 func get_direction() -> Vector3:
