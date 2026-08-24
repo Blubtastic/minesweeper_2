@@ -26,9 +26,9 @@ func toggle_menu(is_open: bool) -> void:
 
 
 func _input(event: InputEvent) -> void:
-	if event is InputEventKey and event.pressed:
-		if event.is_action_pressed("pause"):
-			toggle_menu(true)
+	#if event is InputEventKey and event.pressed:
+	if event.is_action_pressed("pause"):
+		toggle_menu(true)
 
 
 func _on_main_menu_pressed() -> void:

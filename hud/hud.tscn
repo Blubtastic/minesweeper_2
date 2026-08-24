@@ -3,6 +3,18 @@
 [ext_resource type="Script" uid="uid://di6bxnrakydkd" path="res://hud/score_label.gd" id="3_vm7kk"]
 [ext_resource type="Script" uid="uid://dni0a8to6alsr" path="res://hud/fps_counter.gd" id="4_3rdee"]
 
+[sub_resource type="Gradient" id="Gradient_2gk58"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0, 0, 0, 0.3137255)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_318vg"]
+gradient = SubResource("Gradient_2gk58")
+width = 150
+height = 100
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2gk58"]
+size = Vector2(150, 100)
+
 [node name="HUD" type="Control" unique_id=1789147469]
 layout_mode = 3
 anchors_preset = 15
@@ -11,6 +23,41 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+
+[node name="TopRightAnchor" type="Control" parent="." unique_id=841606417]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+grow_horizontal = 0
+
+[node name="PauseMenuButton" type="Control" parent="TopRightAnchor" unique_id=1813133756]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -200.0
+offset_top = 50.0
+offset_right = -200.0
+offset_bottom = 50.0
+grow_horizontal = 0
+metadata/_edit_group_ = true
+
+[node name="Button" type="Button" parent="TopRightAnchor/PauseMenuButton" unique_id=1646715652]
+visible = false
+custom_minimum_size = Vector2(200, 120)
+layout_mode = 1
+offset_right = 200.0
+offset_bottom = 120.0
+text = "Pause"
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="TopRightAnchor/PauseMenuButton" unique_id=1898969102]
+texture_normal = SubResource("GradientTexture2D_318vg")
+shape = SubResource("RectangleShape2D_2gk58")
+shape_visible = false
+passby_press = true
+action = "pause"
+visibility_mode = 1
 
 [node name="Score" type="Control" parent="." unique_id=186425533]
 visible = false
