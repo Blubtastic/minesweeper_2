@@ -15,6 +15,7 @@ const GRID_WIDTH := 10
 const CUBE_DISTANCE := 1.0
 var cubes := []
 var buffer_cubes := []
+var powerup_spawn_rate := 1
 
 
 func increase_global_clearable_cubes() -> void:
@@ -29,7 +30,7 @@ func _ready() -> void:
 		randomize()
 		spawn_grid()
 		set_mines()
-		spawn_powerups(0.2)
+		spawn_powerups(powerup_spawn_rate)
 		TimerHelper.call_after_time(self, increase_global_clearable_cubes, 0.2)
 	else:
 		has_spawned_next = true

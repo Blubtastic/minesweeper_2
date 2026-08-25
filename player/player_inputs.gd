@@ -5,6 +5,7 @@ class_name PlayerInputs
 @onready var joystick: Control = $TouchControls/AnchorBottomLeft/Joystick
 var joystick_direction: Vector2 = Vector2.ZERO  # Joystick input accumulator
 var speed_multiplier: float = 1.0  # Current speed intensity (0-1 range)
+@onready var powerup_button: Control = $TouchControls/Powerup
 
 signal on_jump_pressed
 signal on_powerup_pressed
@@ -41,3 +42,7 @@ func get_speed_multiplier() -> float:
 func _on_joystick_moved(dir: Vector2, speed: float) -> void:
 	joystick_direction = dir.normalized()
 	speed_multiplier = speed
+
+
+func set_powerup_button_visibility(is_visible: bool) -> void:
+	powerup_button.visible = is_visible

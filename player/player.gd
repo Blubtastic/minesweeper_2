@@ -10,6 +10,7 @@ const START_HP: int = 3
 var player_movement := PlayerMovement.new(self)
 @onready var player_model: Node3D = $PlayerModel
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+var available_powerup: PackedScene
 
 
 func _ready() -> void:
@@ -70,3 +71,8 @@ func _on_player_inputs_on_powerup_pressed() -> void:
 
 func handle_level_completed() -> void:
 	animation_player.play("jump_and_spin")
+
+
+func set_available_powerup(powerup: PackedScene) -> void:
+	player_inputs.set_powerup_button_visibility(!!powerup)
+	available_powerup = powerup

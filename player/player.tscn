@@ -223,6 +223,41 @@ offset_right = 120.0
 offset_bottom = -120.0
 max_radius = 75
 
+[node name="Powerup" type="Control" parent="PlayerInputs/TouchControls" unique_id=1701410095]
+visible = false
+layout_mode = 3
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="Powerup" type="Control" parent="PlayerInputs/TouchControls/Powerup" unique_id=1174363048]
+custom_minimum_size = Vector2(160, 160)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -200.0
+offset_top = -395.0
+offset_right = -40.0
+offset_bottom = -235.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="Powerup" type="TouchScreenButton" parent="PlayerInputs/TouchControls/Powerup/Powerup" unique_id=368227178]
+scale = Vector2(1.2734376, 1.2734377)
+texture_normal = SubResource("GradientTexture2D_xfkku")
+shape = SubResource("RectangleShape2D_smwl4")
+shape_visible = false
+passby_press = true
+action = "use_powerup_player1"
+visibility_mode = 1
+
 [node name="PlayerVFX" type="Node3D" parent="." unique_id=391993278 node_paths=PackedStringArray("p")]
 script = ExtResource("2_3f042")
 p = NodePath("..")
