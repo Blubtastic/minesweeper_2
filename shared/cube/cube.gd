@@ -30,6 +30,9 @@ var has_exploded: bool = false
 var is_cleared: bool = false
 var cleared_by: Node3D
 
+@onready var flag: Sprite3D = $Flag
+var is_flagged: bool = false
+
 signal cube_was_cleared
 signal cube_exploded
 
@@ -102,3 +105,16 @@ func trigger_explosion() -> void:
 		var destroyed_cube := DESTROYED_CUBE.instantiate()
 		add_child(destroyed_cube)
 		destroyed_cube.global_position = Vector3(global_position.x, global_position.y + 0.7, global_position.z)
+
+
+func _on_input_event(_camera: Node, event: InputEvent, _event_position: Vector3, _normal: Vector3, _shape_idx: int) -> void:
+		if event is InputEventMouseButton:
+			var mouse_event := event as InputEventMouseButton
+			var is_left_click := mouse_event.pressed and mouse_event.button_index == MOUSE_BUTTON_LEFT
+			var is_right_click := mouse_event.pressed and mouse_event.button_index == MOUSE_BUTTON_RIGHT
+			if !is_cleared:
+				if is_right_click or is_left_click:
+					toggle_flag(!is_flagged)
+
+func toggle_flag(is_flag_visible: bool) -> void:
+	flag.visible = is_flag_visible
