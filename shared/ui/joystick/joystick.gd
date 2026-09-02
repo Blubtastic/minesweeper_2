@@ -20,6 +20,7 @@ func _draw() -> void:
 
 # Scoops up inputs not consumed by other things. Note that Control nodes covering an area will consume input before it reaches here.
 func _unhandled_input(event: InputEvent) -> void:
+	print("unhandled_input")
 	if event is InputEventScreenDrag:
 		move_joystick(event)
 	# Could be safer by doing this check for all event.index
