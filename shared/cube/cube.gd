@@ -82,6 +82,7 @@ func reveal_self() -> void:
 		pop.play()
 		nearby_mines_label.visible = true
 		cube_was_cleared.emit(self)
+		toggle_flag(false)
 
 
 func set_cube_label(nearby_mines: int) -> void:
@@ -110,16 +111,13 @@ func trigger_explosion() -> void:
 func toggle_flag(is_flag_visible: bool) -> void:
 	flag.visible = is_flag_visible
 	is_flagged = is_flag_visible
-	print("flag is ,", is_flagged, is_flag_visible)
 
 
 func _on_input_event(_camera: Node, event: InputEvent, _event_position: Vector3, _normal: Vector3, _shape_idx: int) -> void:
-	print("mouse clickeed")
 	if event is InputEventMouseButton:
-		print("mouse clickeed")
 		var mouse_event := event as InputEventMouseButton
 		var is_left_click := mouse_event.pressed and mouse_event.button_index == MOUSE_BUTTON_LEFT
 		var is_right_click := mouse_event.pressed and mouse_event.button_index == MOUSE_BUTTON_RIGHT
-		if !is_cleared:
-			if is_right_click or is_left_click:
+		if is_right_click or is_left_click:
+			if !is_cleared:
 				toggle_flag(!is_flagged)
