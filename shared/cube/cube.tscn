@@ -8,6 +8,7 @@
 [ext_resource type="AudioStream" uid="uid://dya4t4p2oap3d" path="res://shared/cube/audio/remove_flag.wav" id="8_pc8bq"]
 [ext_resource type="AudioStream" uid="uid://blr22e80lqmjd" path="res://shared/cube/audio/hover_cube.wav" id="9_fg1ko"]
 [ext_resource type="Texture2D" uid="uid://b7dnrxsk881y2" path="res://assets/flag.png" id="9_qfshj"]
+[ext_resource type="Texture2D" uid="uid://csi0gh60nl3x8" path="res://assets/mine.png" id="10_cmsoi"]
 [ext_resource type="AudioStream" uid="uid://cl6qd5gf6x7j3" path="res://shared/cube/audio/explosion.wav" id="10_llvf4"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_aokb8"]
@@ -54,6 +55,22 @@ outline_render_priority = 127
 modulate = Color(0, 0, 0, 1)
 font_size = 100
 
+[node name="Sparks" parent="." unique_id=1464151162 instance=ExtResource("8_fsqdy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6397953, 0)
+
+[node name="Flag" type="Sprite3D" parent="." unique_id=1700745852]
+transform = Transform3D(0.321, 0, 0, 0, -1.4031356e-08, 0.321, 0, -0.321, -1.4031356e-08, 0.031149238, 0.6646106, 0)
+visible = false
+cast_shadow = 0
+texture = ExtResource("9_qfshj")
+
+[node name="Mine" type="Sprite3D" parent="." unique_id=1287870048]
+transform = Transform3D(0.27340358, 0, 0, 0, -1.195085e-08, 0.27340358, 0, -0.27340358, -1.195085e-08, 0, 0.5407498, 0)
+visible = false
+cast_shadow = 0
+double_sided = false
+texture = ExtResource("10_cmsoi")
+
 [node name="RevealCube" type="AudioStreamPlayer" parent="." unique_id=1586621699]
 stream = SubResource("AudioStreamRandomizer_8afpo")
 volume_db = -8.901
@@ -76,13 +93,5 @@ bus = &"Sound Effects"
 [node name="Explosion" type="AudioStreamPlayer" parent="." unique_id=1825092273]
 stream = ExtResource("10_llvf4")
 bus = &"Sound Effects"
-
-[node name="Sparks" parent="." unique_id=1464151162 instance=ExtResource("8_fsqdy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6397953, 0)
-
-[node name="Flag" type="Sprite3D" parent="." unique_id=1700745852]
-transform = Transform3D(0.321, 0, 0, 0, -1.4031356e-08, 0.321, 0, -0.321, -1.4031356e-08, 0.031149238, 0.6646106, 0)
-visible = false
-texture = ExtResource("9_qfshj")
 
 [connection signal="input_event" from="." to="." method="_on_input_event"]

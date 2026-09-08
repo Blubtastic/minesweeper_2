@@ -32,6 +32,7 @@ var cleared_by: Node3D
 
 @onready var flag: Sprite3D = $Flag
 var is_flagged: bool = false
+@onready var mine: Sprite3D = $Mine
 
 signal cube_was_cleared
 signal cube_exploded
@@ -83,12 +84,13 @@ func reveal_self() -> void:
 		nearby_mines_label.visible = true
 		cube_was_cleared.emit(self)
 		toggle_flag(false)
+		mine.visible = is_bomb
 
 
 func set_cube_label(nearby_mines: int) -> void:
 	var nearby_mines_text := str(nearby_mines) if nearby_mines else ''
 	var nearby_mines_color := COLORS[clamp(nearby_mines, 1, COLORS.size()) - 1]
-	var text := 'X' if is_bomb else nearby_mines_text
+	var text := '' if is_bomb else nearby_mines_text
 	var color := Color(0,0,0) if is_bomb else nearby_mines_color
 	update_label(text, color)
 
