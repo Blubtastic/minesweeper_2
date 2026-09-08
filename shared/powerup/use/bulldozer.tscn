@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://ct351pbej5lhe"]
+
+[ext_resource type="Script" uid="uid://ds4dqbuhf6drp" path="res://shared/powerup/use/bulldozer.gd" id="1_rogdw"]
+
+[node name="Bulldozer" type="Node" unique_id=88151653]
+script = ExtResource("1_rogdw")

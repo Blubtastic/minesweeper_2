@@ -1,7 +1,6 @@
 extends RigidBody3D
 class_name ImpactGrenade
 
-
 @onready var animate_bomb: AnimationPlayer = $AnimateBomb
 @onready var indicator: Node3D = $ClearHitbox/indicator
 @onready var damage_area: Area3D = $ClearHitbox

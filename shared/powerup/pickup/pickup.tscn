@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bedgjnrje0fvx" path="res://shared/powerup/pickup/pickup.gd" id="1_l6bf2"]
 [ext_resource type="PackedScene" uid="uid://dwo5daidymqix" path="res://shared/powerup/bomb.blend" id="2_parmv"]
+[ext_resource type="PackedScene" uid="uid://8in36bjm8vos" path="res://shared/FrontMineClearer.blend" id="3_wtlgg"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_l6bf2"]
 
@@ -15,3 +16,10 @@ shape = SubResource("SphereShape3D_l6bf2")
 
 [node name="bomb" parent="." unique_id=296692532 instance=ExtResource("2_parmv")]
 transform = Transform3D(-1.7253122e-08, 0.253338, -0.39470544, 1.1073757e-08, 0.39470544, 0.253338, 0.4690123, 0, -2.050118e-08, 0, 0, 0)
+visible = false
+
+[node name="MineClearer" type="Node3D" parent="." unique_id=78726110]
+visible = false
+
+[node name="FrontMineClearer" parent="MineClearer" unique_id=504318519 instance=ExtResource("3_wtlgg")]
+transform = Transform3D(0.6417931, -0.0012979117, -0.011235622, 0.0038393333, 0.6247906, 0.1471333, 0.010638764, -0.14717767, 0.6247014, -0.032153606, 0.46904784, 1.1882434)
