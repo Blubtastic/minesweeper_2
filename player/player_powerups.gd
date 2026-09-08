@@ -10,7 +10,7 @@ func use_powerup() -> void:
 	if !p.available_powerup:
 		return
 
-	var fire_position := Vector3(p.global_position.x, p.global_position.y+0, p.global_position.z-0.5)
+	var fire_position := Vector3(p.global_position.x, p.global_position.y+0.25, p.global_position.z-0.5)
 	var powerup_instance: Node = p.available_powerup.instantiate()
 	powerup_instance.transform.origin = fire_position
 	powerup_instance.linear_velocity = Vector3(0, 7.5, -4.5)
