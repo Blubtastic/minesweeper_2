@@ -4,7 +4,9 @@ extends Node3D
 const SPARKS := preload("uid://dvabslbqfwp0v")
 @onready var bomb_powerup_mesh: Node3D = $Cannon
 @onready var bulldozer_mesh: Node3D = $Bulldozer
+var bulldozer_duration := 4.0
 
+signal bulldozer_started(duration: float)
 
 # Hardcoded to fire ImpactGrenade powerup
 func use_powerup() -> void:
@@ -12,7 +14,7 @@ func use_powerup() -> void:
 		return
 
 	if p.available_powerup is Bulldozer:
-		start_bulldozer(5)
+		start_bulldozer(bulldozer_duration)
 	if p.available_powerup is ImpactGrenade:
 		var fire_position := Vector3(p.global_position.x, p.global_position.y+0.25, p.global_position.z-0.5)
 		p.available_powerup.transform.origin = fire_position
@@ -29,9 +31,11 @@ func use_powerup() -> void:
 		p.set_available_powerup(null)
 
 
-func start_bulldozer(_duration: float) -> void:
+func start_bulldozer(duration: float) -> void:
+	bulldozer_started.emit(bulldozer_duration)
 	p.set_available_powerup(null)
-	await TimerHelper.true_for_time(bulldozer_mesh, "visible", 3)
+	var non_blink_duration := duration - 1.0
+	await TimerHelper.true_for_time(bulldozer_mesh, "visible", non_blink_duration)
 	blink_bulldozer_mesh(10, 0.1)
 
 

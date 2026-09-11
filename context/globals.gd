@@ -21,7 +21,6 @@ var world_height: float = 10
 ## PLAYERS
 var is_2p: bool = false
 var dead_player_count: int = 0
-var players_invincible: bool = false
 var player_speed: float = 5 # in the future, should be local
 var player_positions := { 1: Vector3.ZERO, 2: Vector3.ZERO }
 
@@ -74,7 +73,6 @@ func reset_level() -> void:
 	set_world_speed(default_world_speed)
 	is_level_failed = false
 	is_level_over = false
-	players_invincible = false
 	score = 0
 	dead_player_count = 0
 	Storage.reset_level()

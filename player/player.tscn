@@ -345,6 +345,7 @@ shape = SubResource("CapsuleShape3D_qlff2")
 
 [connection signal="on_jump_pressed" from="PlayerInputs" to="." method="_on_player_inputs_on_jump_pressed"]
 [connection signal="on_powerup_pressed" from="PlayerInputs" to="." method="_on_player_inputs_on_powerup_pressed"]
+[connection signal="bulldozer_started" from="PlayerPowerups" to="." method="_on_player_powerups_bulldozer_started"]
 [connection signal="area_entered" from="PlayerPowerups/PickupArea" to="PlayerPowerups" method="_on_pickup_area_area_entered"]
 [connection signal="area_entered" from="DamageHitbox" to="." method="_on_damage_hitbox_area_entered"]
 [connection signal="area_entered" from="CubeHitbox" to="." method="_on_cube_hitbox_area_entered"]

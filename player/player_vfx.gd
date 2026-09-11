@@ -37,7 +37,8 @@ func update_shield_visual(delta: float) -> void:
 	if not mat or not mat is StandardMaterial3D:
 		return
 
-	var goal_opacity := SHIELD_OPACITY_GOAL_ACTIVE if Globals.players_invincible else SHIELD_OPACITY_GOAL_INACTIVE
+	var goal_opacity := SHIELD_OPACITY_GOAL_INACTIVE
+	#var goal_opacity := SHIELD_OPACITY_GOAL_ACTIVE if Globals.players_invincible else SHIELD_OPACITY_GOAL_INACTIVE
 	shield_opacity = lerpf(shield_opacity, goal_opacity, delta * SHIELD_OPACITY_LERP_SPEED)
 	mat.albedo_color.a = shield_opacity
 

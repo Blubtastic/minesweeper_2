@@ -11,7 +11,8 @@ var player_movement := PlayerMovement.new(self)
 @onready var player_model: Node3D = $PlayerModel
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 var available_powerup: Node
-
+var is_invincible := false
+var is_grounded := false
 
 func _ready() -> void:
 	Globals.level_completed.connect(handle_level_completed)
@@ -28,7 +29,7 @@ func _physics_process(delta: float) -> void:
 
 
 func damage() -> void:
-	if not Globals.players_invincible:
+	if not is_invincible:
 		Storage.a_player_has_been_damaged = true
 		hp -= 1
 		Music.mute_drums(false)
@@ -41,11 +42,11 @@ func damage() -> void:
 		if hp == 2:
 			player_model.change_state(2)
 
-	Globals.trigger_camera_jump()
-	TimerHelper.true_for_time(Globals, "players_invincible", 1.0)
-	player_movement.launch_self_upwards(hp <= 0)
-	player_vfx.start_damage_trail(1.5)
-	Music.start_low_pass_filter()
+	if not is_grounded:
+		Globals.trigger_camera_jump()
+		player_movement.launch_self_upwards(hp <= 0)
+		player_vfx.start_damage_trail(1.5)
+		Music.start_low_pass_filter()
 
 
 # ==================== COLLISION SIGNALS ====================
@@ -69,6 +70,9 @@ func _on_player_inputs_on_powerup_pressed() -> void:
 	player_powerups.use_powerup()
 
 
+
+
+# ==================== MISC ====================
 func handle_level_completed() -> void:
 	animation_player.play("jump_and_spin")
 
@@ -76,3 +80,15 @@ func handle_level_completed() -> void:
 func set_available_powerup(powerup: Node) -> void:
 	player_inputs.set_powerup_button_visibility(!!powerup)
 	available_powerup = powerup
+
+
+func _on_player_powerups_bulldozer_started(duration: float) -> void:
+	make_player_invincible(duration)
+	make_player_grounded(duration)
+
+
+func make_player_invincible(duration: float) -> void:
+	TimerHelper.true_for_time(self, "is_invincible", duration)
+
+func make_player_grounded(duration: float) -> void:
+	TimerHelper.true_for_time(self, "is_grounded", duration)
