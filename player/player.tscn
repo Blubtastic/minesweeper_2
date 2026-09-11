@@ -129,6 +129,15 @@ emission_energy_multiplier = 5.0
 [sub_resource type="CylinderMesh" id="CylinderMesh_7r5ry"]
 material = SubResource("StandardMaterial3D_uxr23")
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yllr7"]
+transparency = 1
+albedo_color = Color(1, 1, 1, 0.29411766)
+metallic = 1.0
+roughness = 0.6
+
+[sub_resource type="SphereMesh" id="SphereMesh_kb6p2"]
+material = SubResource("StandardMaterial3D_yllr7")
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_4to0f"]
 size = Vector3(0.3, 0.258521, 0.5)
 
@@ -301,9 +310,16 @@ skeleton = NodePath("../../../PlayerModel")
 [node name="bomb" parent="PlayerPowerups/Cannon" unique_id=296692532 instance=ExtResource("11_kb6p2")]
 transform = Transform3D(-0.014396695, 0.017598558, 0.058271777, 0.010185372, 0.05973162, -0.015523037, -0.060013056, 0.005915839, -0.016613534, 0.009539239, 0.15836637, -0.5917743)
 
-[node name="Bulldozer" parent="PlayerPowerups" unique_id=2052771200 instance=ExtResource("11_yllr7")]
-transform = Transform3D(0.24099681, 0, 0, 0, 0.24099681, 0, 0, 0, 0.24099681, 0.0114604235, -0.0028792247, 0.017825663)
+[node name="Bulldozer" type="Node3D" parent="PlayerPowerups" unique_id=973567106]
 visible = false
+
+[node name="Bulldozer" parent="PlayerPowerups/Bulldozer" unique_id=2052771200 instance=ExtResource("11_yllr7")]
+transform = Transform3D(0.24099681, 0, 0, 0, 0.24099681, 0, 0, 0, 0.24099681, 0.0114604235, -0.0028792247, 0.017825663)
+
+[node name="ShieldMesh" type="MeshInstance3D" parent="PlayerPowerups/Bulldozer" unique_id=1449685479]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0114604235, -0.0028792247, 0.017825663)
+mesh = SubResource("SphereMesh_kb6p2")
+skeleton = NodePath("../..")
 
 [node name="PlayerShadow" parent="." unique_id=774143020 instance=ExtResource("4_vrm5f")]
 transform = Transform3D(1.3, 0, 0, 0, 1.3, 0, 0, 0, 1.3, 0, -0.175307, 0)
