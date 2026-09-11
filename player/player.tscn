@@ -321,6 +321,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0114604235, -0.0028792247, 
 mesh = SubResource("SphereMesh_kb6p2")
 skeleton = NodePath("../..")
 
+[node name="BulldozerTimer" type="Timer" parent="PlayerPowerups" unique_id=522851218]
+one_shot = true
+
+[node name="BlinkTimer" type="Timer" parent="PlayerPowerups" unique_id=1243217696]
+
 [node name="PlayerShadow" parent="." unique_id=774143020 instance=ExtResource("4_vrm5f")]
 transform = Transform3D(1.3, 0, 0, 0, 1.3, 0, 0, 0, 1.3, 0, -0.175307, 0)
 
@@ -345,7 +350,8 @@ shape = SubResource("CapsuleShape3D_qlff2")
 
 [connection signal="on_jump_pressed" from="PlayerInputs" to="." method="_on_player_inputs_on_jump_pressed"]
 [connection signal="on_powerup_pressed" from="PlayerInputs" to="." method="_on_player_inputs_on_powerup_pressed"]
-[connection signal="bulldozer_started" from="PlayerPowerups" to="." method="_on_player_powerups_bulldozer_started"]
+[connection signal="toggle_bulldozer_state" from="PlayerPowerups" to="." method="_on_player_powerups_toggle_bulldozer_state"]
 [connection signal="area_entered" from="PlayerPowerups/PickupArea" to="PlayerPowerups" method="_on_pickup_area_area_entered"]
+[connection signal="timeout" from="PlayerPowerups/BulldozerTimer" to="PlayerPowerups" method="_on_bulldozer_timer_timeout"]
 [connection signal="area_entered" from="DamageHitbox" to="." method="_on_damage_hitbox_area_entered"]
 [connection signal="area_entered" from="CubeHitbox" to="." method="_on_cube_hitbox_area_entered"]

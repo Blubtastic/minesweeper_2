@@ -5,10 +5,19 @@ const SPARKS := preload("uid://dvabslbqfwp0v")
 @onready var bomb_powerup_mesh: Node3D = $Cannon
 @onready var bulldozer_mesh: Node3D = $Bulldozer
 var bulldozer_duration := 4.0
+@onready var bulldozer_timer: Timer = $BulldozerTimer
+@onready var blink_timer: Timer = $BlinkTimer
+var blink_interval := 0.2
 
-signal bulldozer_started(duration: float)
+signal toggle_bulldozer_state(state: bool)
 
-# Hardcoded to fire ImpactGrenade powerup
+func _process(_delta: float) -> void:
+	var time_left := bulldozer_timer.get_time_left()
+	if time_left <= 1.0 and !bulldozer_timer.is_stopped():
+		var blink_state: bool = fmod(time_left, blink_interval) < (blink_interval / 2.0)
+		bulldozer_mesh.visible = blink_state
+
+
 func use_powerup() -> void:
 	if !p.available_powerup:
 		return
@@ -32,19 +41,10 @@ func use_powerup() -> void:
 
 
 func start_bulldozer(duration: float) -> void:
-	bulldozer_started.emit(bulldozer_duration)
+	toggle_bulldozer_state.emit(true)
 	p.set_available_powerup(null)
-	var non_blink_duration := duration - 1.0
-	await TimerHelper.true_for_time(bulldozer_mesh, "visible", non_blink_duration)
-	blink_bulldozer_mesh(10, 0.1)
-
-
-func blink_bulldozer_mesh(amount: int, duration: float) -> void:
-	var blink_state := true
-	for i in amount:
-		await get_tree().create_timer(duration).timeout
-		bulldozer_mesh.visible = blink_state
-		blink_state = !blink_state
+	bulldozer_mesh.visible = true
+	bulldozer_timer.start(duration)
 
 
 func _on_pickup_area_area_entered(area: Area3D) -> void:
@@ -55,3 +55,8 @@ func _on_pickup_area_area_entered(area: Area3D) -> void:
 			bomb_powerup_mesh.visible = true
 		if p.available_powerup is Bulldozer:
 			use_powerup()
+
+
+func _on_bulldozer_timer_timeout() -> void:
+	toggle_bulldozer_state.emit(false)
+	bulldozer_mesh.visible = false

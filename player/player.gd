@@ -82,13 +82,6 @@ func set_available_powerup(powerup: Node) -> void:
 	available_powerup = powerup
 
 
-func _on_player_powerups_bulldozer_started(duration: float) -> void:
-	make_player_invincible(duration)
-	make_player_grounded(duration)
-
-
-func make_player_invincible(duration: float) -> void:
-	TimerHelper.true_for_time(self, "is_invincible", duration)
-
-func make_player_grounded(duration: float) -> void:
-	TimerHelper.true_for_time(self, "is_grounded", duration)
+func _on_player_powerups_toggle_bulldozer_state(state: bool) -> void:
+	is_invincible = state
+	is_grounded = state
