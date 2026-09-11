@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://dam7k501fwtky"]
+
+[ext_resource type="PackedScene" uid="uid://dyen06fs8v7j6" path="res://player/player.tscn" id="1_wt17y"]
+[ext_resource type="PackedScene" uid="uid://cshkipadmqt3c" path="res://shared/powerup/pickup/pickup.tscn" id="2_m8u5f"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_wt17y"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_m8u5f"]
+sky_material = SubResource("ProceduralSkyMaterial_wt17y")
+
+[sub_resource type="Environment" id="Environment_is3ju"]
+background_mode = 2
+sky = SubResource("Sky_m8u5f")
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_e722s"]
+
+[node name="Node3D" type="Node3D" unique_id=240487506]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1160549290]
+environment = SubResource("Environment_is3ju")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1555063805]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0.72967434)
+shadow_enabled = true
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1911327459]
+transform = Transform3D(0.99904823, -0.039691906, 0.018088656, 0, 0.4146935, 0.90996116, -0.04361934, -0.9090951, 0.4142988, 0, 4.253, -0.61299145)
+
+[node name="Player" parent="." unique_id=1383705294 instance=ExtResource("1_wt17y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.9847951)
+
+[node name="PickupPowerup" parent="." unique_id=2113424195 instance=ExtResource("2_m8u5f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9646306, 0, -3.1439657)
+
+[node name="PickupPowerup2" parent="." unique_id=1082855054 instance=ExtResource("2_m8u5f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3402969, 0, -2.947824)
+
+[node name="PickupPowerup3" parent="." unique_id=1226395178 instance=ExtResource("2_m8u5f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6136094, 0, -1.4821706)
+
+[node name="PickupPowerup4" parent="." unique_id=1018236023 instance=ExtResource("2_m8u5f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.017861009, 0, -1.1381191)
+
+[node name="PickupPowerup5" parent="." unique_id=1652838121 instance=ExtResource("2_m8u5f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3912653, 0, -1.4403701)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=608700935]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.9847951)
+collision_layer = 9
+collision_mask = 9
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=879399694]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.35139534, 0)
+shape = SubResource("WorldBoundaryShape3D_e722s")

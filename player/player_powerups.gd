@@ -56,7 +56,7 @@ func _on_pickup_area_area_entered(area: Area3D) -> void:
 		if p.available_powerup is Bulldozer:
 			use_powerup()
 
-
+# Note: SHOULD'VE used AnimationPlayer, would've been MUCH easier.
 func _on_bulldozer_timer_timeout() -> void:
 	toggle_bulldozer_state.emit(false)
 	bulldozer_mesh.visible = false
