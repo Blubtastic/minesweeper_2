@@ -31,24 +31,17 @@ func use_powerup() -> void:
 
 func start_bulldozer(_duration: float) -> void:
 	p.set_available_powerup(null)
-	await TimerHelper.true_for_time(bulldozer_mesh, "visible", 2)
-	print("timer finished")
-	await get_tree().create_timer(0.15).timeout
-	bulldozer_mesh.visible = true
-	await get_tree().create_timer(0.15).timeout
-	bulldozer_mesh.visible = false
-	await get_tree().create_timer(0.15).timeout
-	bulldozer_mesh.visible = true
-	await get_tree().create_timer(0.15).timeout
-	bulldozer_mesh.visible = false
-	await get_tree().create_timer(0.15).timeout
-	bulldozer_mesh.visible = true
-	await get_tree().create_timer(0.15).timeout
-	bulldozer_mesh.visible = false
-	print("timer finished")
+	await TimerHelper.true_for_time(bulldozer_mesh, "visible", 3)
+	blink_bulldozer_mesh(10, 0.1)
 
 
-	# blink for last 2s
+func blink_bulldozer_mesh(amount: int, duration: float) -> void:
+	var blink_state := true
+	for i in amount:
+		await get_tree().create_timer(duration).timeout
+		bulldozer_mesh.visible = blink_state
+		blink_state = !blink_state
+
 
 func _on_pickup_area_area_entered(area: Area3D) -> void:
 	if area is Pickup:
