@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://cu27xnfdhiaui" path="res://player/assets/PlayerModel1.blend" id="9_hg6s5"]
 [ext_resource type="PackedScene" uid="uid://bbkkxrqiplafg" path="res://player/assets/PlayerModel2.blend" id="10_2ieo8"]
 [ext_resource type="PackedScene" uid="uid://cuw8niak47tyu" path="res://player/assets/PlayerModel3.blend" id="11_ebec5"]
+[ext_resource type="PackedScene" uid="uid://dwo5daidymqix" path="res://shared/powerup/bomb.blend" id="11_kb6p2"]
 [ext_resource type="PackedScene" uid="uid://8in36bjm8vos" path="res://shared/FrontMineClearer.blend" id="11_yllr7"]
 
 [sub_resource type="Animation" id="Animation_ebec5"]
@@ -296,6 +297,9 @@ skeleton = NodePath("../../../PlayerModel")
 transform = Transform3D(0.10666935, 0.0031084176, -8.4956904e-05, -0.00030898792, 0.027010195, 0.108235724, 0.002167947, -0.14909366, 0.019606493, -0.00048350543, 0.07824852, -0.17010412)
 mesh = SubResource("CylinderMesh_7r5ry")
 skeleton = NodePath("../../../PlayerModel")
+
+[node name="bomb" parent="PlayerPowerups/Cannon" unique_id=296692532 instance=ExtResource("11_kb6p2")]
+transform = Transform3D(-0.014396695, 0.017598558, 0.058271777, 0.010185372, 0.05973162, -0.015523037, -0.060013056, 0.005915839, -0.016613534, 0.009539239, 0.15836637, -0.5917743)
 
 [node name="Bulldozer" parent="PlayerPowerups" unique_id=2052771200 instance=ExtResource("11_yllr7")]
 transform = Transform3D(0.24099681, 0, 0, 0, 0.24099681, 0, 0, 0, 0.24099681, 0.0114604235, -0.0028792247, 0.017825663)

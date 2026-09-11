@@ -10,32 +10,35 @@ const SPARKS := preload("uid://dvabslbqfwp0v")
 func use_powerup() -> void:
 	if !p.available_powerup:
 		return
-	
-	var powerup_instance: Node = p.available_powerup.instantiate()
-	if powerup_instance is Bulldozer:
+
+	if p.available_powerup is Bulldozer:
 		start_bulldozer(5)
-	else:
+	if p.available_powerup is ImpactGrenade:
 		var fire_position := Vector3(p.global_position.x, p.global_position.y+0.25, p.global_position.z-0.5)
-		powerup_instance.transform.origin = fire_position
-		powerup_instance.linear_velocity = Vector3(0, 7.5, -4.5)
-		powerup_instance.source = p
-		powerup_instance.exploded.connect(Globals.trigger_camera_shake)
-		get_tree().root.add_child(powerup_instance)
+		p.available_powerup.transform.origin = fire_position
+		p.available_powerup.linear_velocity = Vector3(0, 7.5, -4.5)
+		p.available_powerup.source = p
+		p.available_powerup.exploded.connect(Globals.trigger_camera_shake)
+		get_tree().root.add_child(p.available_powerup)
 		bomb_powerup_mesh.visible = false
 
 		var sparks_instance := SPARKS.instantiate()
 		sparks_instance.transform.origin = fire_position
 		sparks_instance.emitting = true
 		get_tree().root.add_child(sparks_instance)
-	p.set_available_powerup(null)
+		p.set_available_powerup(null)
 
 
 func start_bulldozer(_duration: float) -> void:
-	print("Bulldozer enabled!!")
+	p.set_available_powerup(null)
+	TimerHelper.true_for_time(bulldozer_mesh, "visible", 2)
 
 
 func _on_pickup_area_area_entered(area: Area3D) -> void:
 	if area is Pickup:
-		p.set_available_powerup(area.powerup)
 		area.pick_up()
-		bomb_powerup_mesh.visible = true
+		p.set_available_powerup(area.powerup.instantiate())
+		if p.available_powerup is ImpactGrenade:
+			bomb_powerup_mesh.visible = true
+		if p.available_powerup is Bulldozer:
+			use_powerup()
