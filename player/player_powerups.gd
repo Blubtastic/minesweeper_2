@@ -22,8 +22,6 @@ func use_powerup() -> void:
 	if !p.available_powerup:
 		return
 
-	if p.available_powerup is Bulldozer:
-		start_bulldozer(bulldozer_duration)
 	if p.available_powerup is ImpactGrenade:
 		var fire_position := Vector3(p.global_position.x, p.global_position.y+0.25, p.global_position.z-0.5)
 		p.available_powerup.transform.origin = fire_position
@@ -42,7 +40,6 @@ func use_powerup() -> void:
 
 func start_bulldozer(duration: float) -> void:
 	toggle_bulldozer_state.emit(true)
-	p.set_available_powerup(null)
 	bulldozer_mesh.visible = true
 	bulldozer_timer.start(duration)
 
@@ -50,11 +47,12 @@ func start_bulldozer(duration: float) -> void:
 func _on_pickup_area_area_entered(area: Area3D) -> void:
 	if area is Pickup:
 		area.pick_up()
-		p.set_available_powerup(area.powerup.instantiate())
-		if p.available_powerup is ImpactGrenade:
+		var powerup_instance: Node = area.powerup.instantiate()
+		if powerup_instance is ImpactGrenade:
+			p.set_available_powerup(powerup_instance)
 			bomb_powerup_mesh.visible = true
-		if p.available_powerup is Bulldozer:
-			use_powerup()
+		if powerup_instance is Bulldozer:
+			start_bulldozer(bulldozer_duration)
 
 # Note: SHOULD'VE used AnimationPlayer, would've been MUCH easier.
 func _on_bulldozer_timer_timeout() -> void:
