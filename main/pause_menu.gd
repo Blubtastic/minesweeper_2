@@ -14,15 +14,20 @@ func _ready() -> void:
 
 
 func toggle_menu(is_open: bool) -> void:
-	visible = is_open
-	if is_inside_tree():
-		get_tree().paused = is_open
-	if is_open:
-		resume.grab_focus()
-		current_level_label.text = "Level " + str(Globals.current_group) + " - " + str(Globals.current_level)
-		icon_clear.visible = Storage.get_current_level_reward(1)
-		icon_ace.visible = Storage.get_current_level_reward(2)
-		icon_full_clear.visible = Storage.get_current_level_reward(3)
+	# Force close if game over or level complete
+	if Globals.is_level_over or Globals.is_level_failed:
+		get_tree().paused = false
+		visible = false
+	else:
+		visible = is_open
+		if is_inside_tree():
+			get_tree().paused = is_open
+		if is_open:
+			resume.grab_focus()
+			current_level_label.text = "Level " + str(Globals.current_group) + " - " + str(Globals.current_level)
+			icon_clear.visible = Storage.get_current_level_reward(1)
+			icon_ace.visible = Storage.get_current_level_reward(2)
+			icon_full_clear.visible = Storage.get_current_level_reward(3)
 
 
 func _input(event: InputEvent) -> void:
