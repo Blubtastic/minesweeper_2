@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://dgxv52jn27v3c" path="res://moving_chunk/cube_chunk/cube_chunk.tscn" id="2_n46q3"]
 [ext_resource type="PackedScene" uid="uid://dhlda46fqvnos" path="res://moving_chunk/forest_chunk.tscn" id="3_btoec"]
 [ext_resource type="PackedScene" uid="uid://bk53qkkxr6wr8" path="res://app/level_basics.tscn" id="4_gwceb"]
+[ext_resource type="PackedScene" uid="uid://dvtagttc1tugb" path="res://shared/cube/flag.tscn" id="5_t4ob2"]
 
 [node name="Level_1_1" type="Node3D" unique_id=790738478]
 script = ExtResource("1_kx6l7")
@@ -22,3 +23,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0.57, -5.87)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0.57, 2.11)
 
 [node name="LevelBasics" parent="." unique_id=1868503360 instance=ExtResource("4_gwceb")]
+
+[node name="Flag" parent="." unique_id=729797972 instance=ExtResource("5_t4ob2")]
+transform = Transform3D(0.6084959, 0, 0, 0, 0.6084959, 0, 0, 0, 0.6084959, 1.2181196, 0.96565604, -2.8560557)
