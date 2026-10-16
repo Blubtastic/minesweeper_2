@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://dyen06fs8v7j6" path="res://player/player.tscn" id="1_wt17y"]
 [ext_resource type="PackedScene" uid="uid://cshkipadmqt3c" path="res://shared/powerup/pickup/pickup.tscn" id="2_m8u5f"]
 [ext_resource type="PackedScene" uid="uid://dvtagttc1tugb" path="res://shared/cube/flag.tscn" id="3_m8u5f"]
+[ext_resource type="PackedScene" uid="uid://cepp6yh5xptsm" path="res://shared/cube/wind_for_flags.tscn" id="4_is3ju"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_wt17y"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -19,9 +20,6 @@ sky = SubResource("Sky_m8u5f")
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_e722s"]
 size = Vector2(100, 100)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_e722s"]
-size = Vector3(20, 20, 20)
 
 [node name="Playground" type="Node3D" unique_id=240487506]
 
@@ -72,14 +70,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3912653, 0, -1.4403701)
 [node name="Flag" parent="." unique_id=729797972 instance=ExtResource("3_m8u5f")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0.49617505, -0.42180252, -3.1503348)
 
-[node name="WindArea" type="Area3D" parent="." unique_id=422268995]
-collision_layer = 8
-collision_mask = 8
-wind_force_magnitude = 100.0
-wind_source_path = NodePath("../Marker3D")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="WindArea" unique_id=576002433]
-shape = SubResource("BoxShape3D_e722s")
-
-[node name="Marker3D" type="Marker3D" parent="." unique_id=523671252]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 2)
+[node name="WindArea" parent="." unique_id=1609998412 instance=ExtResource("4_is3ju")]

@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://csi0364mca8xy" path="res://hud/hud.tscn" id="6_y7hej"]
 [ext_resource type="PackedScene" uid="uid://dmvvw5465oh3q" path="res://main/pause_menu.tscn" id="7_0j81p"]
 [ext_resource type="PackedScene" uid="uid://cvqolhjvehgl" path="res://app/level_environment.tscn" id="10_mrgbo"]
+[ext_resource type="PackedScene" uid="uid://cepp6yh5xptsm" path="res://shared/cube/wind_for_flags.tscn" id="11_doay3"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_e722s"]
 size = Vector3(30, 20, 5)
@@ -142,3 +143,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36.982, 0.677, -6)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8316574, -11.2124, -11.3809)
 
 [node name="LevelEnvironment" parent="." unique_id=1374783436 instance=ExtResource("10_mrgbo")]
+
+[node name="WindArea" parent="." unique_id=1609998412 instance=ExtResource("11_doay3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.3854303)

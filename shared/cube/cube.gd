@@ -14,6 +14,7 @@ const COLORS: Array[Color] = [
 ]
 
 const DESTROYED_CUBE := preload("uid://bp6e0aywkls4b")
+const FLAG = preload("uid://dvtagttc1tugb")
 
 @onready var sparks: GPUParticles3D = $Sparks
 @onready var reveal_cube_audio: AudioStreamPlayer = $RevealCube
@@ -30,7 +31,7 @@ var has_exploded: bool = false
 var is_cleared: bool = false
 var cleared_by: Node3D
 
-@onready var flag: Sprite3D = $Flag
+var flag_instance: Node = null
 var is_flagged: bool = false
 @onready var mine: Sprite3D = $Mine
 
@@ -111,8 +112,14 @@ func trigger_explosion() -> void:
 
 
 func toggle_flag(is_flag_visible: bool) -> void:
-	flag.visible = is_flag_visible
 	is_flagged = is_flag_visible
+	if is_flagged:
+		flag_instance = FLAG.instantiate()
+		add_child(flag_instance)
+		flag_instance.position = Vector3(0,0.645,0)
+	elif flag_instance:
+		flag_instance.queue_free()
+
 
 
 func _on_input_event(_camera: Node, event: InputEvent, _event_position: Vector3, _normal: Vector3, _shape_idx: int) -> void:
