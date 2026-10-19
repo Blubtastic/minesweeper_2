@@ -15,6 +15,8 @@
 [ext_resource type="PackedScene" uid="uid://cu27xnfdhiaui" path="res://player/assets/PlayerModel1.blend" id="13_ri56e"]
 [ext_resource type="PackedScene" uid="uid://8in36bjm8vos" path="res://shared/FrontMineClearer.blend" id="14_1xi1x"]
 [ext_resource type="PackedScene" uid="uid://dwo5daidymqix" path="res://shared/powerup/bomb.blend" id="15_nge46"]
+[ext_resource type="PackedScene" uid="uid://dvtagttc1tugb" path="res://shared/cube/flag.tscn" id="16_nge46"]
+[ext_resource type="PackedScene" uid="uid://cepp6yh5xptsm" path="res://shared/cube/wind_for_flags.tscn" id="17_8pftn"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_wk0pr"]
 
@@ -456,3 +458,17 @@ transform = Transform3D(-0.28728783, -0.03197113, -0.08394504, 0.0232355, 0.2452
 
 [node name="bomb" parent="Players" unique_id=2058762321 instance=ExtResource("15_nge46")]
 transform = Transform3D(0.09906055, 0.04414361, -0.094035305, 0.0005235051, 0.12972331, 0.061448507, 0.10387978, -0.042749487, 0.08936298, -1.152647, -1.0403725, -1.5409801)
+
+[node name="Flags" type="Node3D" parent="." unique_id=2138679601]
+
+[node name="Flag" parent="Flags" unique_id=1792562444 instance=ExtResource("16_nge46")]
+transform = Transform3D(-2.1855693e-07, 0, -1, 0, 1, 0, 1, 0, -2.1855693e-07, -2.9995725, -1.0346432, -10.746637)
+
+[node name="Flag2" parent="Flags" unique_id=1251969350 instance=ExtResource("16_nge46")]
+transform = Transform3D(-2.1855693e-07, 0, -1, 0, 1, 0, 1, 0, -2.1855693e-07, -3.9699638, -1.0346432, -6.7742863)
+
+[node name="Flag3" parent="Flags" unique_id=829179840 instance=ExtResource("16_nge46")]
+transform = Transform3D(-2.1855693e-07, 0, -1, 0, 1, 0, 1, 0, -2.1855693e-07, 3.988155, -1.0346432, -4.7688465)
+
+[node name="WindArea" parent="Flags" unique_id=1609998412 instance=ExtResource("17_8pftn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5.852795)
