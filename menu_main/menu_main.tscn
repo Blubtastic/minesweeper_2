@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://dwo5daidymqix" path="res://shared/powerup/bomb.blend" id="15_nge46"]
 [ext_resource type="PackedScene" uid="uid://dvtagttc1tugb" path="res://shared/cube/flag.tscn" id="16_nge46"]
 [ext_resource type="PackedScene" uid="uid://cepp6yh5xptsm" path="res://shared/cube/wind_for_flags.tscn" id="17_8pftn"]
+[ext_resource type="PackedScene" uid="uid://dea5i6ctdoka7" path="res://shared/MousePointer.blend" id="18_3py1y"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_wk0pr"]
 
@@ -31,13 +32,13 @@ glow_enabled = true
 fog_enabled = true
 fog_mode = 1
 fog_light_color = Color(0.53408974, 0.7327673, 0.83177286, 1)
-fog_sun_scatter = 0.01
-fog_density = 1.0
+fog_sun_scatter = 0.25
+fog_density = 2.0
 fog_height = -1.0
 fog_height_density = 3.014
-fog_depth_curve = 0.045752745
-fog_depth_begin = 0.0
-fog_depth_end = 5.0
+fog_depth_curve = 0.29730248
+fog_depth_begin = 6.0
+fog_depth_end = 55.0
 adjustment_contrast = 1.1
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_rmr83"]
@@ -469,7 +470,10 @@ transform = Transform3D(-2.1855693e-07, 0, -1, 0, 1, 0, 1, 0, -2.1855693e-07, -2
 transform = Transform3D(-2.1855693e-07, 0, -1, 0, 1, 0, 1, 0, -2.1855693e-07, -3.9699638, -1.0346432, -6.7742863)
 
 [node name="Flag3" parent="Flags" unique_id=829179840 instance=ExtResource("16_nge46")]
-transform = Transform3D(-2.1855693e-07, 0, -1, 0, 1, 0, 1, 0, -2.1855693e-07, 3.988155, -1.0346432, -4.7688465)
+transform = Transform3D(-2.1855693e-07, 0, -1, 0, 1, 0, 1, 0, -2.1855693e-07, 5.014379, -1.0346432, -5.7859054)
 
 [node name="WindArea" parent="Flags" unique_id=1609998412 instance=ExtResource("17_8pftn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5.852795)
+
+[node name="MousePointer" parent="." unique_id=51948778 instance=ExtResource("18_3py1y")]
+transform = Transform3D(0.18744, -0.12338912, -0.15225782, -0.17145991, -0.0012111071, -0.2100977, 0.094914615, 0.24148442, -0.0788514, 1.6467729, -0.7611563, -2.1040409)
