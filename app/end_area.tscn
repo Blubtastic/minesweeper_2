@@ -4,21 +4,11 @@
 [ext_resource type="PackedScene" uid="uid://kll47d13opx8" path="res://moving_chunk/forest_chunk_optimized.blend" id="2_0kdtl"]
 [ext_resource type="PackedScene" uid="uid://btae8cu2mhc4o" path="res://app/end_area_ui.tscn" id="3_wsh13"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3mph2"]
-albedo_color = Color(1, 0, 0, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_e722s"]
-material = SubResource("StandardMaterial3D_3mph2")
-
 [sub_resource type="BoxShape3D" id="BoxShape3D_e722s"]
 size = Vector3(24, 20, 15)
 
 [node name="EndArea" type="Node3D" unique_id=413038228]
 script = ExtResource("1_0kdtl")
-
-[node name="TestCube" type="MeshInstance3D" parent="." unique_id=967882750]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.118057, 1.0599785, 2.9981399)
-mesh = SubResource("BoxMesh_e722s")
 
 [node name="forest_chunk_optimized" parent="." unique_id=1771345441 instance=ExtResource("2_0kdtl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.9061277, 0)
