@@ -116,7 +116,7 @@ func toggle_flag(is_flag_visible: bool) -> void:
 	if is_flagged:
 		flag_instance = FLAG.instantiate()
 		add_child(flag_instance)
-		flag_instance.position = Vector3(0,0.645,0)
+		flag_instance.position = Vector3(0.0,0.645,0.0)
 	elif flag_instance:
 		flag_instance.queue_free()
 
