@@ -125,6 +125,43 @@ fill = 1
 fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(0.5, 1)
 
+[sub_resource type="Animation" id="Animation_7vjnu"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CenterPanel:offset_transform_position_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_ir04m"]
+resource_name = "slide_in_node"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CenterPanel:offset_transform_position_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(0.4, 1),
+"update": 0,
+"values": [Vector2(0, 2), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_q7wth"]
+_data = {
+&"RESET": SubResource("Animation_7vjnu"),
+&"slide_in_node": SubResource("Animation_ir04m")
+}
+
 [node name="EndAreaUI" type="Control" unique_id=193963151]
 layout_mode = 3
 anchors_preset = 15
@@ -167,9 +204,12 @@ horizontal_alignment = 1
 [node name="CenterChildren" type="CenterContainer" parent="VBoxContainer" unique_id=672449789]
 layout_mode = 2
 size_flags_vertical = 3
+offset_transform_enabled = true
+offset_transform_position_ratio = Vector2(0, -0.03)
 
 [node name="CenterPanel" type="PanelContainer" parent="VBoxContainer/CenterChildren" unique_id=2140990537]
 layout_mode = 2
+offset_transform_enabled = true
 theme_override_styles/panel = SubResource("StyleBoxFlat_ob02p")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/CenterChildren/CenterPanel" unique_id=2145110973]
@@ -342,6 +382,9 @@ layout_mode = 2
 theme = ExtResource("5_kdx7p")
 theme_override_font_sizes/font_size = 48
 text = "Next level"
+
+[node name="SlideInMenu" type="AnimationPlayer" parent="VBoxContainer/CenterChildren" unique_id=1827313996]
+libraries/ = SubResource("AnimationLibrary_q7wth")
 
 [node name="FooterPanel" type="PanelContainer" parent="VBoxContainer" unique_id=2019214797]
 custom_minimum_size = Vector2(0, 120)
