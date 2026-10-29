@@ -1,6 +1,7 @@
 extends Node3D
 
 @onready var env: WorldEnvironment = $Environment/Environment
+@onready var animate_sun: AnimationPlayer = $Environment/AnimateSun
 
 func _ready() -> void:
 	Music.stop_music()
@@ -10,6 +11,7 @@ func _ready() -> void:
 	fade_in_fog()
 
 func fade_in_fog() -> void:
+	animate_sun.play("animate_sun")
 	var tween_start := create_tween()
 	var tween_end := create_tween()
 	tween_start.set_ease(Tween.EASE_IN_OUT)
