@@ -23,7 +23,8 @@ rings = 1
 cap_bottom = false
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e722s"]
-albedo_color = Color(1, 0, 0, 1)
+albedo_color = Color(0.81960785, 0.101960786, 0.16470589, 1)
+roughness = 0.5
 
 [sub_resource type="PrismMesh" id="PrismMesh_t685d"]
 material = SubResource("StandardMaterial3D_e722s")
@@ -34,7 +35,7 @@ subdivide_height = 3
 [node name="Flag" type="Node3D" unique_id=717928724]
 
 [node name="Flag" type="StaticBody3D" parent="." unique_id=1792562444]
-transform = Transform3D(1, 0, 0, 0, 0.9945218, -0.10452844, 0, 0.10452845, 0.99452174, 0, 0, 0.059203863)
+transform = Transform3D(0.9480824, 0, 0.31802475, 0.033242643, 0.9945218, -0.09910158, -0.31628263, 0.10452845, 0.94288856, 0, 0, 0.059203863)
 input_ray_pickable = false
 
 [node name="FlagPoleHitbox" type="CollisionShape3D" parent="Flag" unique_id=1618542916]
@@ -46,7 +47,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.1896593e-10, 0.49865723, -
 mesh = SubResource("CylinderMesh_e722s")
 
 [node name="BaseMesh" type="MeshInstance3D" parent="Flag" unique_id=669644881]
-transform = Transform3D(1, 0, 0, 0, 0.9848077, 0.17364818, 0, -0.17364818, 0.9848077, 0, 0.0131715825, -0.012830622)
+transform = Transform3D(0.99963105, 0.026845569, -0.0040674806, -0.026342187, 0.99518776, 0.09437991, 0.006581813, -0.09423794, 0.99552804, 0.00018234737, 0.018626861, -0.013374228)
 mesh = SubResource("CylinderMesh_3mph2")
 
 [node name="Flag" type="SoftBody3D" parent="Flag" unique_id=580879681]
@@ -54,17 +55,19 @@ transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, -0.2
 mesh = SubResource("PrismMesh_t685d")
 collision_layer = 8
 collision_mask = 8
+total_mass = 0.1
+pressure_coefficient = 0.04
 ray_pickable = false
 pinned_points = [25, 27, 29]
 attachments/0/point_index = 25
 attachments/0/spatial_attachment_path = NodePath("../Top")
-attachments/0/offset = Vector3(-0.020162597, -0.005523145, -0.002499983)
+attachments/0/offset = Vector3(-0.020162597, -0.0055230856, -0.0024999906)
 attachments/1/point_index = 27
 attachments/1/spatial_attachment_path = NodePath("../Middle")
-attachments/1/offset = Vector3(-0.020162582, -0.007869709, -0.0024999848)
+attachments/1/offset = Vector3(-0.020162582, -0.00786965, -0.0024999925)
 attachments/2/point_index = 29
 attachments/2/spatial_attachment_path = NodePath("../Bottom")
-attachments/2/offset = Vector3(-0.020162582, -0.012604743, -0.0024999904)
+attachments/2/offset = Vector3(-0.020162582, -0.012604684, -0.0024999944)
 
 [node name="Top" type="Marker3D" parent="Flag" unique_id=1661117893]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9905231, 0)
