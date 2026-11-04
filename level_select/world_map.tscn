@@ -14,8 +14,8 @@ background_energy_multiplier = 2.0
 script = ExtResource("1_hbsyx")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=484169812]
-transform = Transform3D(0.9988294, -0.04364219, 0.020858934, -0.0018545233, 0.39636147, 0.91809267, -0.048335254, -0.9170567, 0.39581653, -27.240854, 189.2081, 105.14193)
-fov = 40.0
+transform = Transform3D(0.9988294, -0.03726454, 0.03083975, -0.0018545231, 0.6075984, 0.79424214, -0.048335254, -0.79336977, 0.6068181, -19.588356, 147.66606, 147.75864)
+fov = 42.0
 
 [node name="Snow" parent="Camera3D" unique_id=546563478 instance=ExtResource("2_iph2q")]
 transform = Transform3D(0.9988295, -0.0018545385, -0.048335254, -0.043642193, 0.3963609, -0.9170567, 0.020858936, 0.91809237, 0.39581656, 0.45130157, -6.204067, -34.591568)
@@ -24,7 +24,7 @@ transform = Transform3D(0.9988295, -0.0018545385, -0.048335254, -0.043642193, 0.
 environment = SubResource("Environment_w1hta")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=970838691]
-transform = Transform3D(-0.6169582, 0.027015932, 0.78653216, 0.6624203, 0.5574425, 0.50045747, -0.42492604, 0.82977605, -0.36181453, 0, 35.314022, 0)
+transform = Transform3D(0.5704546, 0.057664804, -0.8193022, 0.66242015, 0.5574423, 0.5004572, 0.48557243, -0.8282107, 0.27979726, 0, 35.314022, 0)
 light_color = Color(1, 0.99215686, 0.9411765, 1)
 light_energy = 0.75
 shadow_enabled = true
@@ -73,7 +73,7 @@ up = NodePath("../SelectLevel1_1")
 down = NodePath("../SelectLevel2_2")
 
 [node name="SelectLevel2_2" parent="Levels" unique_id=1926034771 node_paths=PackedStringArray("left", "up") instance=ExtResource("4_iph2q")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.851201, -1.1524391, 71.30234)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.400633, -1.1524391, 77.21344)
 level = 3
 left = NodePath("../SelectLevel2_3")
 up = NodePath("../SelectLevel2_1")
