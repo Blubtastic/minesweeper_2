@@ -73,7 +73,7 @@ up = NodePath("../SelectLevel1_1")
 down = NodePath("../SelectLevel2_2")
 
 [node name="SelectLevel2_2" parent="Levels" unique_id=1926034771 node_paths=PackedStringArray("left", "up") instance=ExtResource("4_iph2q")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.138234, -1.1524391, 74.20274)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.851201, -1.1524391, 71.30234)
 level = 3
 left = NodePath("../SelectLevel2_3")
 up = NodePath("../SelectLevel2_1")
