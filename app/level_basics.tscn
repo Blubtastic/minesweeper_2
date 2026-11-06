@@ -140,7 +140,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36.982, 0.677, -6)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36.982, 0.677, -6)
 
 [node name="Snow" parent="." unique_id=546563478 instance=ExtResource("3_cnmlx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8316574, -11.2124, -11.3809)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8316574, -11.2124, -1.8832302)
 
 [node name="LevelEnvironment" parent="." unique_id=1374783436 instance=ExtResource("10_mrgbo")]
 
