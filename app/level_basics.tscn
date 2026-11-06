@@ -109,6 +109,7 @@ shape = SubResource("BoxShape3D_e722s")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.07282, -6)
 collision_layer = 8
 collision_mask = 0
+input_ray_pickable = false
 metadata/_edit_group_ = true
 
 [node name="Floor" type="CollisionShape3D" parent="InvisibleWalls" unique_id=1002768206]

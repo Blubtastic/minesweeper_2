@@ -20,6 +20,7 @@ volume_db = -20.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7, 0)
 collision_layer = 16
 collision_mask = 16
+input_ray_pickable = false
 monitoring = false
 
 [node name="Hitbox" type="CollisionShape3D" parent="DamagePlayer" unique_id=1271088236]
