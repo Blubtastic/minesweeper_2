@@ -90,9 +90,8 @@ func set_mines() -> void:
 
 
 func _on_visible_on_screen_notifier_3d_screen_exited() -> void:
-	pass
-	#if has_spawned_next == true:
-		#queue_free()
+	if has_spawned_next == true:
+		queue_free()
 
 
 func spawn_next_chunk() -> void:
