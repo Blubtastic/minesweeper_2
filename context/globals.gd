@@ -47,9 +47,7 @@ func move_world_by_player_positions() -> void:
 	var z_position: float = (average_z_position if is_2p else player_positions[1].z)  + top_offset
 	var ratio := 1 - (z_position / world_height)
 
-	print(despawn_border_z, ' --- ', average_z_position + 4.0)
-	#var bottom_limit_offset := 4.0
-	var max_negative_speed: float = 0.0 if (despawn_border_z < 3.0) else -player_speed
+	var max_negative_speed: float = 0.0 if despawn_border_z < 3.0 else -player_speed
 	set_world_speed(clamp(ratio*world_speed_strength * player_speed, max_negative_speed, player_speed))
 
 
