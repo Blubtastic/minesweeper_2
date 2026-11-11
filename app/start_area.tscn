@@ -32,7 +32,7 @@ height = 3.1052246
 [sub_resource type="SphereMesh" id="SphereMesh_37tqn"]
 material = SubResource("StandardMaterial3D_na0o7")
 
-[node name="Decorations" type="Node3D" unique_id=1627554460]
+[node name="StartArea" type="Node3D" unique_id=1627554460]
 script = ExtResource("1_3f0le")
 
 [node name="Human" type="Node3D" parent="." unique_id=2109079900]

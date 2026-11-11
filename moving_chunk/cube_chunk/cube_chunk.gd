@@ -91,7 +91,7 @@ func set_mines() -> void:
 
 func _on_visible_on_screen_notifier_3d_screen_exited() -> void:
 	if has_spawned_next == true:
-		Globals.set_despawned_level_z(global_position.z)
+		Globals.set_despawn_border_z(global_position.z)
 		queue_free()
 
 

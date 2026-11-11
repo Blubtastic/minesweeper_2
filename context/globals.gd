@@ -17,7 +17,7 @@ var world_speed: float = 1.0
 var world_speed_strength: float = 2.0
 var top_offset: float = 12
 var world_height: float = 10
-var despawned_level_z := 3.0
+var despawn_border_z := -2.0
 
 ## PLAYERS
 var is_2p: bool = false
@@ -37,7 +37,8 @@ func _ready() -> void:
 
 
 # ==================== WORLD MOVEMENT ====================
-func _physics_process(_delta: float) -> void:
+func _physics_process(delta: float) -> void:
+	despawn_border_z += world_speed*delta
 	if not is_level_failed:
 		move_world_by_player_positions()
 
@@ -46,9 +47,9 @@ func move_world_by_player_positions() -> void:
 	var z_position: float = (average_z_position if is_2p else player_positions[1].z)  + top_offset
 	var ratio := 1 - (z_position / world_height)
 
-	print(despawned_level_z, ' --- ', average_z_position + 4.0)
+	print(despawn_border_z, ' --- ', average_z_position + 4.0)
 	#var bottom_limit_offset := 4.0
-	var max_negative_speed: float = 0.0 if (average_z_position + 4.0 > despawned_level_z) else -player_speed
+	var max_negative_speed: float = 0.0 if (average_z_position + 4.0 > despawn_border_z) else -player_speed
 	set_world_speed(clamp(ratio*world_speed_strength * player_speed, max_negative_speed, player_speed))
 
 
@@ -81,7 +82,7 @@ func reset_level() -> void:
 	score = 0
 	dead_player_count = 0
 	Storage.reset_level()
-	despawned_level_z = 3.0
+	despawn_border_z = -2.0
 
 
 # ==================== CAMERA ====================
@@ -115,8 +116,8 @@ func handle_cube_was_cleared(ref: Cube) -> void:
 	Globals.score += score_granted
 
 
-func set_despawned_level_z(position: float) -> void:
-	despawned_level_z = position
+func set_despawn_border_z(position: float) -> void:
+	despawn_border_z = position
 
 
 #func spawn_score_granted_particle(amount: int, pos: Vector3) -> void:
