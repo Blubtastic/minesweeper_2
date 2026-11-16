@@ -36,7 +36,7 @@ material = SubResource("StandardMaterial3D_na0o7")
 script = ExtResource("1_3f0le")
 
 [node name="Human" type="Node3D" parent="." unique_id=2109079900]
-transform = Transform3D(0.9636384, 0, 0.26720962, 0, 1, 0, -0.26720962, 0, 0.9636384, 2.8082967, 0.5067231, 0.9194789)
+transform = Transform3D(0.9636384, 0, 0.26720962, 0, 1, 0, -0.26720962, 0, 0.9636384, 4.0323186, 0.26656884, 1.7702966)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Human" unique_id=2069231290]
 transform = Transform3D(1.0993983, 0, 0, 0, 1.0993983, 0, 0, 0, 1.0993983, 0, 2.677877, 0)
@@ -59,7 +59,7 @@ transform = Transform3D(0.15475199, 1.0244548e-08, -1.1175871e-08, 2.7939677e-09
 mesh = SubResource("SphereMesh_37tqn")
 
 [node name="SignMinefield" parent="." unique_id=1246958570 instance=ExtResource("2_gbu7c")]
-transform = Transform3D(-0.019098187, -0.06985853, -0.57299703, 0.10926336, 0.56250864, -0.07222159, 0.5668044, -0.11078915, -0.0053846175, -1.3426149, 2.2375808, -2.0024347)
+transform = Transform3D(0.1924858, 0.0039033517, -0.5445223, -0.0018253155, 0.5775423, 0.003494752, 0.5445331, 0.0005562678, 0.19249372, -4.9537106, 2.2379205, -0.052212358)
 
 [node name="LightUpSignOnly" type="SpotLight3D" parent="SignMinefield" unique_id=386791308]
 transform = Transform3D(-0.61855316, 0.101543106, 1.6139855, 1.6092833, -0.13187334, 0.6250478, 0.15958494, 1.7234167, -0.047267716, 7.982, 6.389, -0.918)
