@@ -80,11 +80,11 @@ func clear_siblings(nearby_cubes: Array[Area3D], nearby_mines: int, clear_radius
 func reveal_self() -> void:
 	if !is_cleared:
 		is_cleared = true;
-		cube_top.visible = false
 		pop.play()
 		nearby_mines_label.visible = true
 		cube_was_cleared.emit(self)
-		toggle_flag(false)
+		toggle_flag(is_bomb)
+		cube_top.visible = is_bomb
 		mine.visible = is_bomb
 
 

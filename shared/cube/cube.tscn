@@ -58,7 +58,7 @@ font_size = 100
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6397953, 0)
 
 [node name="Mine" type="Sprite3D" parent="." unique_id=1287870048]
-transform = Transform3D(0.27340358, 0, 0, 0, -1.195085e-08, 0.27340358, 0, -0.27340358, -1.195085e-08, 0, 0.5407498, 0)
+transform = Transform3D(0.21490416, 0, 0, 0, -9.393759e-09, 0.21490416, 0, -0.21490416, -9.393759e-09, 0.023908138, 0.6631, 0)
 visible = false
 cast_shadow = 0
 double_sided = false
