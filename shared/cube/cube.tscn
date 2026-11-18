@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cnor6jdbe28rj"]
 
 [ext_resource type="Script" uid="uid://cvaybiurchtbm" path="res://shared/cube/cube.gd" id="1_q4yb4"]
+[ext_resource type="PackedScene" uid="uid://8ghju4ifdriy" path="res://shared/cube/cube_top_exploded.blend" id="4_cmsoi"]
 [ext_resource type="PackedScene" uid="uid://m40ygfonv80c" path="res://shared/cube/cube_top.blend" id="5_terun"]
 [ext_resource type="AudioStream" uid="uid://bjpkhrcmt7lw" path="res://shared/cube/audio/open_tile.wav" id="6_o0a8b"]
 [ext_resource type="AudioStream" uid="uid://bbvy78gqnhud1" path="res://shared/cube/audio/place_flag.wav" id="7_eeb88"]
@@ -56,6 +57,10 @@ font_size = 100
 
 [node name="Sparks" parent="." unique_id=1464151162 instance=ExtResource("8_fsqdy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6397953, 0)
+
+[node name="CubeTopExploded" parent="." unique_id=1085401484 instance=ExtResource("4_cmsoi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.52894914, 0)
+visible = false
 
 [node name="Mine" type="Sprite3D" parent="." unique_id=1287870048]
 transform = Transform3D(0.21490416, 0, 0, 0, -9.393759e-09, 0.21490416, 0, -0.21490416, -9.393759e-09, 0.023908138, 0.6631, 0)

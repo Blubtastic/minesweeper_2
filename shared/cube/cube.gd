@@ -34,6 +34,7 @@ var cleared_by: Node3D
 var flag_instance: Node = null
 var is_flagged: bool = false
 @onready var mine: Sprite3D = $Mine
+@onready var cube_top_exploded: Node3D = $CubeTopExploded
 
 signal cube_was_cleared
 signal cube_exploded
@@ -83,9 +84,10 @@ func reveal_self() -> void:
 		pop.play()
 		nearby_mines_label.visible = true
 		cube_was_cleared.emit(self)
-		toggle_flag(is_bomb)
-		cube_top.visible = is_bomb
-		mine.visible = is_bomb
+		#toggle_flag(is_bomb)
+		#mine.visible = is_bomb
+		cube_top.visible = false
+		cube_top_exploded.visible = is_bomb
 
 
 func set_cube_label(nearby_mines: int) -> void:
