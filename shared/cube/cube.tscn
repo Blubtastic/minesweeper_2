@@ -59,7 +59,7 @@ font_size = 100
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6397953, 0)
 
 [node name="CubeTopExploded" parent="." unique_id=1085401484 instance=ExtResource("4_cmsoi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.52894914, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.50567657, 0)
 visible = false
 
 [node name="Mine" type="Sprite3D" parent="." unique_id=1287870048]

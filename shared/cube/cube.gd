@@ -84,10 +84,10 @@ func reveal_self() -> void:
 		pop.play()
 		nearby_mines_label.visible = true
 		cube_was_cleared.emit(self)
-		#toggle_flag(is_bomb)
-		#mine.visible = is_bomb
+		toggle_flag(false)
 		cube_top.visible = false
 		cube_top_exploded.visible = is_bomb
+		#mine.visible = is_bomb # Delete png
 
 
 func set_cube_label(nearby_mines: int) -> void:
